@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { getAssetUrl } from '../../utils/assetPath';
 import './Hero.css';
 
 export default function Hero({
@@ -13,13 +14,15 @@ export default function Hero({
   variant = 'default',
   bgImage
 }) {
+  const imageUrl = getAssetUrl(bgImage);
+
   return (
     <section
-      className={`hero hero--${variant} ${bgImage ? 'hero--has-bg' : ''}`}
-      style={bgImage ? { backgroundImage: `url(${bgImage})` } : undefined}
+      className={`hero hero--${variant} ${imageUrl ? 'hero--has-bg' : ''}`}
+      style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : undefined}
     >
       {/* Dark overlay for text legibility if background image is present */}
-      {bgImage && <div className="hero__image-overlay" />}
+      {imageUrl && <div className="hero__image-overlay" />}
 
       {/* Technical SVG background */}
       <div className="hero__pattern" aria-hidden="true">

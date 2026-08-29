@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Zap, Sun, Factory, HardHat, Shield } from 'lucide-react';
+import { getAssetUrl } from '../../utils/assetPath';
 import './ServiceCard.css';
 
 const iconMap = {
@@ -8,14 +9,15 @@ const iconMap = {
 
 export default function ServiceCard({ number, title, description, capabilities, icon, slug, bgImage, variant = 'default' }) {
   const Icon = iconMap[icon] || Zap;
+  const imageUrl = getAssetUrl(bgImage);
 
   return (
     <Link
       to={slug}
-      className={`service-card service-card--${variant} ${bgImage ? 'service-card--has-bg' : ''}`}
-      style={bgImage ? { backgroundImage: `url(${bgImage})` } : undefined}
+      className={`service-card service-card--${variant} ${imageUrl ? 'service-card--has-bg' : ''}`}
+      style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : undefined}
     >
-      {bgImage && <div className="service-card__overlay" />}
+      {imageUrl && <div className="service-card__overlay" />}
       <div className="service-card__content">
         <div className="service-card__header">
           <div className="service-card__icon-wrap">

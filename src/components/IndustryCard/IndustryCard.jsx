@@ -1,13 +1,16 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { getAssetUrl } from '../../utils/assetPath';
 import './IndustryCard.css';
 
 export default function IndustryCard({ title, description, slug, capabilities, icon, bgImage }) {
+  const imageUrl = getAssetUrl(bgImage);
+
   return (
     <Link
       to={slug}
-      className={`industry-card ${bgImage ? 'industry-card--has-bg' : ''}`}
-      style={bgImage ? { backgroundImage: `url(${bgImage})` } : undefined}
+      className={`industry-card ${imageUrl ? 'industry-card--has-bg' : ''}`}
+      style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : undefined}
     >
       <div className="industry-card__overlay" />
       <div className="industry-card__icon" aria-hidden="true">
