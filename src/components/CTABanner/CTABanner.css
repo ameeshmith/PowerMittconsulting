@@ -1,7 +1,7 @@
 .cta-banner {
   position: relative;
   padding: var(--space-20) 0;
-  background: linear-gradient(135deg, var(--color-midnight) 0%, #0A2538 50%, #0E3350 100%);
+  background: var(--gradient-dark);
   overflow: hidden;
   text-align: center;
 }
@@ -35,7 +35,7 @@
 }
 
 .cta-banner--teal {
-  background: linear-gradient(135deg, #0C3B2E, #18A77B, #0C3B2E);
+  background: linear-gradient(135deg, #0B3530, #0D9488, #10B981, #0B3530);
 }
 
 @media (max-width: 768px) {

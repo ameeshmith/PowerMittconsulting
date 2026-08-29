@@ -2,7 +2,7 @@
    PowerMitt Consulting — Global Styles
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 @import './variables.css';
 @import './animations.css';
 
@@ -59,7 +59,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-electric-cyan);
+  color: var(--color-teal);
 }
 
 img {
@@ -106,7 +106,7 @@ section {
 }
 
 section.section--dark {
-  background-color: var(--color-midnight);
+  background: var(--gradient-dark);
   color: var(--color-ice);
 }
 
@@ -126,7 +126,7 @@ section.section--ice {
 }
 
 section.section--navy {
-  background-color: var(--color-midnight-90);
+  background: var(--gradient-dark);
   color: var(--color-ice);
 }
 
@@ -155,12 +155,13 @@ section.section--navy p {
 }
 
 .btn--primary {
-  background-color: var(--color-power-blue);
+  background: var(--gradient-energy);
   color: var(--color-white);
+  border: none;
 }
 
 .btn--primary:hover {
-  background-color: var(--color-power-blue-dark);
+  filter: brightness(1.1);
   color: var(--color-white);
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
@@ -185,8 +186,9 @@ section.section--navy p {
 }
 
 .btn--outline:hover {
-  background-color: var(--color-power-blue);
+  background: var(--gradient-energy);
   color: var(--color-white);
+  border-color: transparent;
   transform: translateY(-1px);
 }
 
@@ -197,7 +199,7 @@ section.section--navy p {
 }
 
 .btn--ghost:hover {
-  color: var(--color-electric-cyan);
+  color: var(--color-teal);
 }
 
 .btn--ghost .btn-arrow {
@@ -214,12 +216,12 @@ section.section--navy p {
 }
 
 .btn--teal {
-  background-color: var(--color-teal);
+  background: var(--gradient-energy);
   color: var(--color-white);
 }
 
 .btn--teal:hover {
-  background-color: #15946d;
+  filter: brightness(1.1);
   color: var(--color-white);
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
@@ -236,18 +238,18 @@ section.section--navy p {
   font-weight: var(--weight-semibold);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-electric-cyan);
+  color: var(--color-teal);
   margin-bottom: var(--space-3);
 }
 
 .label--teal {
-  color: var(--color-teal);
+  color: var(--color-emerald);
 }
 
 .divider {
   width: 48px;
   height: 3px;
-  background: linear-gradient(90deg, var(--color-power-blue), var(--color-electric-cyan));
+  background: var(--gradient-accent);
   border: none;
   margin-bottom: var(--space-6);
 }
