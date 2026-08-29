@@ -1,0 +1,99 @@
+.industry-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  min-height: 360px;
+  padding: var(--space-8);
+  background: linear-gradient(160deg, var(--color-midnight-90), var(--color-midnight));
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  overflow: hidden;
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.industry-card--has-bg {
+  background-size: cover;
+  background-position: center;
+}
+
+.industry-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(25, 181, 216, 0.4);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.industry-card:hover.industry-card--has-bg {
+  background-size: 105% auto;
+  transition: transform var(--duration-base) var(--ease-out), background-size 0.5s var(--ease-out);
+}
+
+.industry-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 29, 43, 0.35) 0%, rgba(7, 29, 43, 0.85) 60%, rgba(7, 29, 43, 0.98) 100%);
+  z-index: 1;
+}
+
+.industry-card__icon {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-6);
+  color: rgba(25, 181, 216, 0.2);
+  z-index: 2;
+}
+
+.industry-card__content {
+  position: relative;
+  z-index: 3;
+}
+
+.industry-card__title {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-white);
+  margin-bottom: var(--space-3);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.industry-card__desc {
+  font-size: var(--text-sm);
+  color: rgba(245, 248, 250, 0.85);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-4);
+}
+
+.industry-card__caps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+}
+
+.industry-card__caps li {
+  font-size: var(--text-xs);
+  color: var(--color-electric-cyan);
+  background: rgba(7, 29, 43, 0.6);
+  padding: var(--space-1) var(--space-3);
+  border-radius: 100px;
+  border: 1px solid rgba(25, 181, 216, 0.25);
+  backdrop-filter: blur(4px);
+}
+
+.industry-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-electric-cyan);
+  transition: gap var(--duration-base) var(--ease-out);
+}
+
+.industry-card:hover .industry-card__link {
+  gap: var(--space-3);
+  color: var(--color-white);
+}

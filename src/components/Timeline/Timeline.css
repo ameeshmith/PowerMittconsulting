@@ -1,0 +1,120 @@
+.timeline {
+  position: relative;
+  padding: var(--space-4) 0;
+}
+
+.timeline__stages {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  position: relative;
+}
+
+.timeline__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.timeline__node {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-4);
+  width: 100%;
+}
+
+.timeline__dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-power-blue), var(--color-electric-cyan));
+  border: 3px solid var(--color-white);
+  box-shadow: 0 0 0 2px var(--color-power-blue);
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.timeline__connector {
+  position: absolute;
+  left: calc(50% + 10px);
+  right: calc(-50% + 10px);
+  top: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-power-blue), var(--color-electric-cyan));
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.timeline__content {
+  max-width: 160px;
+}
+
+.timeline__label {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--color-midnight);
+  margin-bottom: var(--space-2);
+}
+
+.timeline__desc {
+  font-size: var(--text-xs);
+  color: var(--color-steel);
+  line-height: var(--leading-normal);
+  margin: 0;
+}
+
+/* ── Dark variant ── */
+.timeline--dark .timeline__dot {
+  border-color: var(--color-midnight);
+}
+
+.timeline--dark .timeline__label {
+  color: var(--color-white);
+}
+
+.timeline--dark .timeline__desc {
+  color: rgba(245, 248, 250, 0.55);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .timeline__stages {
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .timeline__item {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: var(--space-4);
+  }
+
+  .timeline__node {
+    width: auto;
+    margin-bottom: 0;
+    flex-direction: column;
+  }
+
+  .timeline__connector {
+    position: absolute;
+    left: 50%;
+    top: calc(50% + 10px);
+    right: auto;
+    bottom: auto;
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(180deg, var(--color-power-blue), var(--color-electric-cyan));
+  }
+
+  .timeline__content {
+    max-width: none;
+  }
+}

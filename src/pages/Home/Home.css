@@ -1,0 +1,250 @@
+/* ============================================
+   Home Page
+   ============================================ */
+
+/* ── Who We Are ── */
+.home-intro__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.home-intro__content h2 {
+  margin-bottom: var(--space-4);
+}
+
+.home-intro__content p {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+}
+
+.home-intro__stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.home-intro__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background: var(--color-ice);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  text-align: center;
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.home-intro__stat:hover {
+  border-color: var(--color-power-blue);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.home-intro__stat-icon {
+  color: var(--color-power-blue);
+}
+
+.home-intro__stat-label {
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--color-midnight);
+}
+
+/* ── Services ── */
+.home-services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-bottom: var(--space-10);
+}
+
+.home-services__cta {
+  text-align: center;
+}
+
+/* ── Industries ── */
+.home-industries {
+  position: relative;
+}
+
+.home-industries__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+/* ── Lifecycle ── */
+.home-lifecycle {
+  padding: var(--space-20) 0;
+}
+
+/* ── Energy Transition ── */
+.home-energy__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.home-energy__content h2 {
+  color: var(--color-white);
+  margin-bottom: var(--space-4);
+}
+
+.home-energy__tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.home-energy__tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.home-energy__tech-item:hover {
+  background: rgba(24, 167, 123, 0.08);
+  border-color: rgba(24, 167, 123, 0.2);
+}
+
+.home-energy__tech-icon {
+  color: var(--color-teal);
+}
+
+.home-energy__tech-item span {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: rgba(245, 248, 250, 0.7);
+}
+
+/* ── Projects ── */
+.home-projects__categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+}
+
+.home-projects__cat {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  padding: var(--space-2) var(--space-4);
+  border-radius: 100px;
+  border: 1px solid var(--color-border);
+  color: var(--color-steel);
+  background: var(--color-white);
+}
+
+.home-projects__placeholder {
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-16);
+}
+
+.home-projects__placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+  color: var(--color-steel);
+}
+
+.home-projects__placeholder-inner h3 {
+  color: var(--color-midnight);
+}
+
+.home-projects__placeholder-inner p {
+  max-width: 400px;
+}
+
+/* ── Why PowerMitt ── */
+.home-why__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-6);
+}
+
+.home-why__item {
+  text-align: center;
+  padding: var(--space-6);
+}
+
+.home-why__icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-4);
+  background: linear-gradient(135deg, rgba(8, 126, 164, 0.08), rgba(25, 181, 216, 0.04));
+  border-radius: var(--radius-lg);
+  color: var(--color-power-blue);
+}
+
+.home-why__item h3 {
+  font-size: var(--text-base);
+  margin-bottom: var(--space-3);
+}
+
+.home-why__item p {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .home-intro__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  .home-services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .home-industries__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .home-energy__grid {
+    grid-template-columns: 1fr;
+  }
+  .home-why__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .home-services__grid {
+    grid-template-columns: 1fr;
+  }
+  .home-industries__grid {
+    grid-template-columns: 1fr;
+  }
+  .home-energy__tech-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .home-why__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 390px) {
+  .home-why__grid {
+    grid-template-columns: 1fr;
+  }
+  .home-energy__tech-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

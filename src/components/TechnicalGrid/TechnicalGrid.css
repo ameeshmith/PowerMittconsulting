@@ -1,0 +1,15 @@
+.tech-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  color: var(--color-power-blue);
+  overflow: hidden;
+}
+
+.tech-grid--dark {
+  color: var(--color-electric-cyan);
+}
+
+.tech-grid--light {
+  color: var(--color-midnight);
+}

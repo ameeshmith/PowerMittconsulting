@@ -1,0 +1,191 @@
+/* About Page */
+.about-overview__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.about-overview__content h2 { margin-bottom: var(--space-4); }
+
+.about-aside-card {
+  background: var(--color-ice);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+.about-aside-card h4 {
+  font-size: var(--text-base);
+  margin-bottom: var(--space-4);
+}
+
+.about-aside-card ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.about-aside-card li {
+  font-size: var(--text-sm);
+  color: var(--color-steel);
+  padding-left: var(--space-5);
+  position: relative;
+}
+
+.about-aside-card li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-power-blue), var(--color-electric-cyan));
+}
+
+/* Approach */
+.about-approach__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.about-approach__item {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: all var(--duration-base) var(--ease-out);
+}
+
+.about-approach__item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.about-approach__icon {
+  color: var(--color-power-blue);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.about-approach__item h3 {
+  font-size: var(--text-base);
+  margin-bottom: var(--space-2);
+}
+
+.about-approach__item p {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+}
+
+/* Lifecycle */
+.about-lifecycle__detail {
+  max-width: 700px;
+  margin: var(--space-10) auto 0;
+  text-align: center;
+}
+
+.about-lifecycle__detail p {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+}
+
+/* Leadership */
+.about-leader {
+  display: flex;
+  gap: var(--space-8);
+  align-items: flex-start;
+  padding: var(--space-8);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.about-leader__placeholder {
+  width: 180px;
+  height: 220px;
+  background: var(--color-ice);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.about-leader__placeholder span {
+  font-size: var(--text-xs);
+  color: var(--color-steel);
+}
+
+.about-leader__info h3 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-2);
+}
+
+.about-leader__role {
+  display: block;
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--color-power-blue);
+  margin-bottom: var(--space-2);
+}
+
+.about-leader__location {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-steel);
+  margin-bottom: var(--space-5);
+}
+
+.about-leader__contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.about-leader__contact-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-charcoal);
+  text-decoration: none;
+}
+
+.about-leader__contact-item:hover { color: var(--color-power-blue); }
+
+/* Vision */
+.about-vision { padding: var(--space-20) 0; }
+
+.about-vision__quote {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-medium);
+  color: var(--color-white);
+  line-height: var(--leading-snug);
+  max-width: 700px;
+  margin: var(--space-6) auto 0;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .about-overview__grid { grid-template-columns: 1fr; }
+  .about-approach__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .about-leader { flex-direction: column; align-items: center; text-align: center; }
+  .about-leader__location { justify-content: center; }
+  .about-leader__contact { align-items: center; }
+  .about-vision__quote { font-size: var(--text-lg); }
+}

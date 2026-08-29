@@ -1,0 +1,13 @@
+.industries-intro {
+  max-width: 740px;
+  margin-bottom: var(--space-10);
+}
+.industries-intro p { font-size: var(--text-md); line-height: var(--leading-relaxed); }
+.industries-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+@media (max-width: 768px) {
+  .industries-grid { grid-template-columns: 1fr; }
+}
