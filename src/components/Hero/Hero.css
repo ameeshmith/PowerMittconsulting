@@ -56,11 +56,12 @@
 .hero__title {
   font-family: var(--font-heading);
   font-size: var(--text-5xl);
-  font-weight: var(--weight-extrabold);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.015em;
   line-height: var(--leading-tight);
   color: var(--color-white);
   margin-bottom: var(--space-6);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .hero__subtitle {
