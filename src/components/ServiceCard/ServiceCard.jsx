@@ -12,19 +12,26 @@ export default function ServiceCard({ number, title, description, capabilities, 
   const imageUrl = getAssetUrl(bgImage);
 
   return (
-    <Link
-      to={slug}
-      className={`service-card service-card--${variant} ${imageUrl ? 'service-card--has-bg' : ''}`}
-      style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : undefined}
-    >
-      {imageUrl && <div className="service-card__overlay" />}
-      <div className="service-card__content">
-        <div className="service-card__header">
-          <div className="service-card__icon-wrap">
-            <Icon size={24} />
+    <Link to={slug} className={`service-card service-card--${variant}`}>
+      {imageUrl && (
+        <div className="service-card__image-banner">
+          <img src={imageUrl} alt={title} className="service-card__img" />
+          <div className="service-card__img-overlay" />
+          <div className="service-card__badge-icon">
+            <Icon size={20} />
           </div>
           {number && <span className="service-card__number">{number}</span>}
         </div>
+      )}
+      <div className="service-card__body">
+        {!imageUrl && (
+          <div className="service-card__header">
+            <div className="service-card__icon-wrap">
+              <Icon size={24} />
+            </div>
+            {number && <span className="service-card__number">{number}</span>}
+          </div>
+        )}
         <h3 className="service-card__title">{title}</h3>
         <p className="service-card__desc">{description}</p>
         {capabilities && capabilities.length > 0 && (

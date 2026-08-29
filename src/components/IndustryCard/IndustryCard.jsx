@@ -7,16 +7,22 @@ export default function IndustryCard({ title, description, slug, capabilities, i
   const imageUrl = getAssetUrl(bgImage);
 
   return (
-    <Link
-      to={slug}
-      className={`industry-card ${imageUrl ? 'industry-card--has-bg' : ''}`}
-      style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : undefined}
-    >
-      <div className="industry-card__overlay" />
-      <div className="industry-card__icon" aria-hidden="true">
-        {icon}
-      </div>
-      <div className="industry-card__content">
+    <Link to={slug} className="industry-card">
+      {imageUrl && (
+        <div className="industry-card__image-banner">
+          <img src={imageUrl} alt={title} className="industry-card__img" />
+          <div className="industry-card__img-overlay" />
+          <div className="industry-card__icon" aria-hidden="true">
+            {icon}
+          </div>
+        </div>
+      )}
+      <div className="industry-card__body">
+        {!imageUrl && (
+          <div className="industry-card__icon" aria-hidden="true">
+            {icon}
+          </div>
+        )}
         <h3 className="industry-card__title">{title}</h3>
         <p className="industry-card__desc">{description}</p>
         {capabilities && (
