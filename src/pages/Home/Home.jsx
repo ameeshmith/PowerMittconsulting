@@ -1,25 +1,24 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Cpu, Shield, Lightbulb, Settings, Users, Droplets, Battery, Wind, Flame, Zap, Sun, Factory, HardHat } from 'lucide-react';
+import { ArrowRight, Cpu, Shield, Lightbulb, Settings, Users, Zap, Sun, Factory, HardHat, Flame } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
-import ServiceCard from '../../components/ServiceCard/ServiceCard';
-import IndustryCard from '../../components/IndustryCard/IndustryCard';
-import Timeline from '../../components/Timeline/Timeline';
 import CTABanner from '../../components/CTABanner/CTABanner';
 import TechnicalGrid from '../../components/TechnicalGrid/TechnicalGrid';
-import { services, engineeringLifecycle, whyPowerMitt } from '../../data/services';
+import { whyPowerMitt } from '../../data/services';
 import { industries } from '../../data/industries';
+import { getAssetUrl } from '../../utils/assetPath';
 import './Home.css';
 
-const industryIcons = {
-  'oil-gas': <Flame size={64} />,
-  'mining-resources': <HardHat size={64} />,
-  'energy-utilities': <Zap size={64} />,
-  'industrial': <Factory size={64} />
-};
-
 const whyIcons = { Cpu, Shield, Lightbulb, Settings, Users };
+
+const coreCapabilities = [
+  { title: 'Electrical Power Systems', desc: 'Power system studies, HV/LV distribution, substation design & grid compliance.', link: '/services/power-systems', icon: Zap },
+  { title: 'Renewable Energy & Decarbonisation', desc: 'Solar, BESS, hydrogen, electrification & net-zero pathway engineering.', link: '/services/energy-transition', icon: Sun },
+  { title: 'Carbon Capture & Storage', desc: 'Electrical engineering support for CCS compressor drives & grid interface.', link: '/services/carbon-capture', icon: Factory },
+  { title: 'Industrial & Mining Infrastructure', desc: 'Surface/underground mining systems, MCCs, SCADA & brownfield upgrades.', link: '/services/industrial-infrastructure', icon: HardHat },
+  { title: 'Owner\'s Engineering', desc: 'Independent technical due diligence, design verification & execution support.', link: '/services/owners-engineering', icon: Shield }
+];
 
 export default function Home() {
   return (
@@ -55,10 +54,11 @@ export default function Home() {
               <p>
                 We support our clients across the full project lifecycle — from early-stage concept development through FEED, detailed engineering, commissioning, and into operations. Our focus is on delivering technically rigorous, practical engineering solutions that address the real challenges of complex industrial power systems and the energy transition.
               </p>
-              <Link to="/about" className="btn btn--ghost">
-                About PowerMitt <ArrowRight size={16} className="btn-arrow" />
+              <Link to="/about" className="btn btn--primary" style={{ marginTop: 'var(--space-4)' }}>
+                About PowerMitt <ArrowRight size={16} />
               </Link>
             </div>
+
             <div className="home-intro__visual">
               <div className="home-intro__stat-grid">
                 <div className="home-intro__stat">
@@ -83,138 +83,67 @@ export default function Home() {
         </div>
       </section>
 
-      {/* === SERVICES === */}
+      {/* === CORE ENGINEERING SERVICES (Clean High-Level Summary) === */}
       <section className="section--ice home-services">
         <div className="container">
           <SectionHeader
-            label="Our Services"
-            title="Engineering Expertise Across the Energy Lifecycle"
-            subtitle="Specialist capabilities spanning power system engineering, energy transition, and industrial infrastructure."
+            label="Engineering Services"
+            title="Specialist Expertise Across the Project Lifecycle"
+            subtitle="Explore our specialist service categories."
           />
-          <div className="home-services__grid">
-            {services.map((s) => (
-              <ServiceCard
-                key={s.id}
-                number={s.number}
-                title={s.title}
-                description={s.shortDescription}
-                capabilities={s.capabilities}
-                icon={s.icon}
-                slug={s.slug}
-                bgImage={s.bgImage}
-              />
-            ))}
+          <div className="home-services__summary-grid">
+            {coreCapabilities.map((cap, i) => {
+              const Icon = cap.icon;
+              return (
+                <Link key={i} to={cap.link} className="home-services__summary-card">
+                  <div className="home-services__summary-icon">
+                    <Icon size={24} />
+                  </div>
+                  <h3>{cap.title}</h3>
+                  <p>{cap.desc}</p>
+                  <span className="home-services__summary-link">
+                    Explore Service <ArrowRight size={14} />
+                  </span>
+                </Link>
+              );
+            })}
           </div>
           <div className="home-services__cta">
             <Link to="/services" className="btn btn--outline">
-              View All Services <ArrowRight size={16} />
+              View All Services Details <ArrowRight size={16} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* === INDUSTRIES === */}
+      {/* === KEY INDUSTRIES === */}
       <section className="section--dark home-industries">
         <TechnicalGrid variant="dark" />
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <SectionHeader
             label="Industries We Serve"
-            title="Engineering for Complex Industrial Sectors"
-            subtitle="Supporting Australia's most demanding industries with specialist power system and energy engineering expertise."
+            title="Engineering for Demanding Industrial Sectors"
+            subtitle="Delivering specialist power and energy engineering for Australia's industrial infrastructure."
             light
           />
-          <div className="home-industries__grid">
+          <div className="home-industries__summary-grid">
             {industries.map((ind) => (
-              <IndustryCard
+              <Link
                 key={ind.id}
-                title={ind.title}
-                description={ind.shortDescription}
-                slug={ind.slug}
-                capabilities={ind.technologies}
-                icon={industryIcons[ind.id]}
-                bgImage={ind.bgImage}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* === ENGINEERING LIFECYCLE === */}
-      <section className="home-lifecycle">
-        <div className="container">
-          <SectionHeader
-            label="Engineering Lifecycle"
-            title="Supporting Projects From Concept to Operations"
-            subtitle="PowerMitt provides engineering support across the full project lifecycle."
-            align="center"
-          />
-          <Timeline stages={engineeringLifecycle} />
-          <div className="text-center" style={{ marginTop: 'var(--space-10)' }}>
-            <Link to="/about" className="btn btn--outline">
-              Our Engineering Approach <ArrowRight size={16} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* === ENERGY TRANSITION === */}
-      <section className="home-energy section--navy">
-        <div className="container">
-          <div className="home-energy__grid">
-            <div className="home-energy__content">
-              <span className="label label--teal">Energy Transition</span>
-              <h2>Engineering the Path to Lower-Carbon Industry</h2>
-              <hr className="divider" />
-              <p>
-                The energy transition requires practical engineering solutions that work within the constraints of existing industrial power systems. PowerMitt helps clients navigate this transition through renewable integration, battery energy storage, hydrogen infrastructure, electrification, carbon capture, and decarbonisation strategies.
-              </p>
-              <Link to="/energy-transition" className="btn btn--teal">
-                Explore Energy Transition <ArrowRight size={16} />
+                to={ind.slug}
+                className="home-industries__summary-card"
+                style={{ backgroundImage: `url(${getAssetUrl(ind.bgImage)})` }}
+              >
+                <div className="home-industries__summary-overlay" />
+                <div className="home-industries__summary-content">
+                  <h3>{ind.title}</h3>
+                  <p>{ind.shortDescription}</p>
+                  <span className="home-industries__summary-link">
+                    Explore Industry <ArrowRight size={14} />
+                  </span>
+                </div>
               </Link>
-            </div>
-            <div className="home-energy__visual">
-              <div className="home-energy__tech-grid">
-                {[
-                  { icon: <Sun size={24} />, label: 'Renewable Integration' },
-                  { icon: <Battery size={24} />, label: 'Battery Storage' },
-                  { icon: <Zap size={24} />, label: 'Electrification' },
-                  { icon: <Droplets size={24} />, label: 'Hydrogen' },
-                  { icon: <Factory size={24} />, label: 'Carbon Capture' },
-                  { icon: <Wind size={24} />, label: 'Decarbonisation' }
-                ].map((tech, i) => (
-                  <div key={i} className="home-energy__tech-item">
-                    <div className="home-energy__tech-icon">{tech.icon}</div>
-                    <span>{tech.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* === PROJECTS === */}
-      <section className="home-projects">
-        <div className="container">
-          <SectionHeader
-            label="Projects & Experience"
-            title="Engineering Experience Across Complex Projects"
-            subtitle="Our portfolio demonstrates specialist expertise across power systems, energy, mining, and industrial sectors."
-          />
-          <div className="home-projects__categories">
-            {['Power Systems', 'Mining', 'Energy', 'BESS', 'Industrial', 'CCS'].map((cat) => (
-              <span key={cat} className="home-projects__cat">{cat}</span>
             ))}
-          </div>
-          <div className="home-projects__placeholder">
-            <div className="home-projects__placeholder-inner">
-              <Cpu size={40} />
-              <h3>Project Portfolio</h3>
-              <p>Detailed project case studies and experience will be available here.</p>
-              <Link to="/projects" className="btn btn--outline">
-                View Projects & Experience <ArrowRight size={16} />
-              </Link>
-            </div>
           </div>
         </div>
       </section>
@@ -245,7 +174,12 @@ export default function Home() {
       </section>
 
       {/* === CONTACT CTA === */}
-      <CTABanner />
+      <CTABanner
+        title="Have a Complex Engineering Challenge?"
+        subtitle="Let's discuss how PowerMitt can support your project."
+        buttonText="Contact PowerMitt"
+        buttonLink="/contact"
+      />
     </main>
   );
 }
