@@ -1,7 +1,6 @@
 export const navigation = {
   brand: 'POWERMITT CONSULTING',
   links: [
-    { label: 'Home', path: '/' },
     { label: 'About', path: '/about' },
     {
       label: 'Services',
@@ -15,19 +14,7 @@ export const navigation = {
         { label: "Owner's Engineering", path: '/services/owners-engineering', description: 'Independent technical advisory' }
       ]
     },
-    {
-      label: 'Industries',
-      path: '/industries',
-      dropdown: [
-        { label: 'All Industries', path: '/industries', description: 'Sectors we serve' },
-        { label: 'Oil & Gas', path: '/industries/oil-gas', description: 'Offshore, LNG & processing' },
-        { label: 'Mining & Resources', path: '/industries/mining-resources', description: 'Surface & underground mining' },
-        { label: 'Energy & Utilities', path: '/industries/energy-utilities', description: 'Renewables, grid & BESS' },
-        { label: 'Industrial Infrastructure', path: '/industries/industrial', description: 'Manufacturing & heavy industry' }
-      ]
-    },
     { label: 'Projects', path: '/projects' },
-    { label: 'Energy Transition', path: '/energy-transition' },
     { label: 'Contact', path: '/contact' }
   ],
   cta: { label: 'Discuss a Project', path: '/contact' }
