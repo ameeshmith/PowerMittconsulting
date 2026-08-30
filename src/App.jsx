@@ -48,6 +48,7 @@ export default function App() {
         <Route path="/insights/:slug" element={<InsightDetail />} />
         <Route path="/energy-transition" element={<EnergyTransition />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<Home />} />
       </Routes>
       <Footer />
     </BrowserRouter>
