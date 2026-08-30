@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Send, CheckCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, CheckCircle, Loader } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
+import { FORMS_CONFIG } from '../../config/forms';
 import './Contact.css';
 
 const industryOptions = ['Oil & Gas', 'Mining & Resources', 'Energy & Utilities', 'Industrial Infrastructure', 'Other'];
@@ -14,7 +15,9 @@ export default function Contact() {
     industry: '', service: '', stage: '', message: ''
   });
   const [errors, setErrors] = useState({});
+  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const validate = () => {
     const e = {};
@@ -25,7 +28,7 @@ export default function Contact() {
     return e;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
@@ -33,7 +36,51 @@ export default function Contact() {
       return;
     }
     setErrors({});
-    setSubmitted(true);
+    setSubmitError('');
+    
+    // Check if access key is configured
+    const accessKey = FORMS_CONFIG.web3FormsAccessKey;
+    if (!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY_HERE') {
+      console.warn('Web3Forms: Access Key is not configured. Falling back to local success state for demonstration/testing.');
+      setSubmitted(true);
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `PowerMitt Web Enquiry - ${form.name}`,
+          from_name: 'PowerMitt Consulting Website',
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          company: form.company,
+          industry: form.industry,
+          service: form.service,
+          stage: form.stage,
+          message: form.message
+        })
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        setSubmitError(result.message || 'There was an issue submitting your enquiry. Please try again.');
+      }
+    } catch (err) {
+      console.error('Submission error:', err);
+      setSubmitError('Connection error. Please check your network and try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleChange = (field) => (e) => {
@@ -152,9 +199,23 @@ export default function Contact() {
                       {errors.message && <span className="contact__error">{errors.message}</span>}
                     </div>
                   </div>
-                  <button type="submit" className="btn btn--primary btn--large contact__submit">
-                    <Send size={16} />
-                    Submit Enquiry
+                  {submitError && (
+                    <div className="contact__submit-error" style={{ color: '#ef4444', marginTop: 'var(--space-4)', fontSize: 'var(--text-sm)', fontWeight: 'var(--weight-semibold)' }}>
+                      {submitError}
+                    </div>
+                  )}
+                  <button type="submit" className="btn btn--primary btn--large contact__submit" style={{ marginTop: 'var(--space-6)' }} disabled={submitting}>
+                    {submitting ? (
+                      <>
+                        <Loader className="animate-spin" size={16} />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send size={16} />
+                        Submit Enquiry
+                      </>
+                    )}
                   </button>
                 </form>
               )}
