@@ -18,6 +18,8 @@ import EnergyUtilities from './pages/EnergyUtilities/EnergyUtilities';
 import Industrial from './pages/Industrial/Industrial';
 import Projects from './pages/Projects/Projects';
 import EnergyTransition from './pages/EnergyTransition/EnergyTransition';
+import Insights from './pages/Insights/Insights';
+import InsightDetail from './pages/InsightDetail/InsightDetail';
 import Contact from './pages/Contact/Contact';
 
 import './styles/global.css';
@@ -42,6 +44,8 @@ export default function App() {
         <Route path="/industries/energy-utilities" element={<EnergyUtilities />} />
         <Route path="/industries/industrial" element={<Industrial />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/insights" element={<Insights />} />
+        <Route path="/insights/:slug" element={<InsightDetail />} />
         <Route path="/energy-transition" element={<EnergyTransition />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>

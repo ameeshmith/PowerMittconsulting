@@ -15,6 +15,7 @@ export const navigation = {
       ]
     },
     { label: 'Projects', path: '/projects' },
+    { label: 'Insights', path: '/insights' },
     { label: 'Contact', path: '/contact' }
   ],
   cta: { label: 'Discuss a Project', path: '/contact' }
