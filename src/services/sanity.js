@@ -9,7 +9,7 @@ import { articles as localArticles, getArticleBySlug as getLocalArticleBySlug } 
  * 3. Dinesh logs into https://[projectId].sanity.studio to publish articles.
  */
 export const SANITY_CONFIG = {
-  projectId: import.meta.env.VITE_SANITY_PROJECT_ID || '',
+  projectId: import.meta.env.VITE_SANITY_PROJECT_ID || '2q7wrg2u',
   dataset: import.meta.env.VITE_SANITY_DATASET || 'production',
   apiVersion: '2024-01-01',
   useCdn: true
