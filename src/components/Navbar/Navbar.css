@@ -231,10 +231,12 @@
     display: none;
   }
   .navbar__cta {
-    display: none;
+    display: none !important;
   }
   .navbar__hamburger {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .navbar__mobile {
     display: block;
@@ -243,7 +245,10 @@
 
 @media (max-width: 480px) {
   .navbar__brand-text {
-    font-size: var(--text-xs);
-    letter-spacing: 0.08em;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+  }
+  .navbar__inner {
+    padding: 0 var(--space-4);
   }
 }
