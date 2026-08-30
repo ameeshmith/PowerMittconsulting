@@ -20,6 +20,7 @@ import Projects from './pages/Projects/Projects';
 import EnergyTransition from './pages/EnergyTransition/EnergyTransition';
 import Insights from './pages/Insights/Insights';
 import InsightDetail from './pages/InsightDetail/InsightDetail';
+import Admin from './pages/Admin/Admin';
 import Contact from './pages/Contact/Contact';
 
 import './styles/global.css';
@@ -46,6 +47,7 @@ export default function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/insights" element={<Insights />} />
         <Route path="/insights/:slug" element={<InsightDetail />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="/energy-transition" element={<EnergyTransition />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<Home />} />
