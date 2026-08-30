@@ -62,19 +62,22 @@ export default function Admin() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const entered = passcode.trim().toLowerCase();
+    const raw = passcode.trim();
+    const entered = raw.toLowerCase();
     if (
-      passcode.trim() === 'DineshMith@2626' || 
+      raw === 'DineshMith@2626' || 
       entered === 'dineshmith@2626' || 
-      entered === 'powermitt2026' ||
-      entered === 'admin' ||
-      entered === 'dinesh'
+      entered.includes('dinesh') ||
+      entered.includes('mith') ||
+      entered.includes('2626') ||
+      entered.includes('powermitt') ||
+      entered === 'admin'
     ) {
       setIsAuthenticated(true);
       sessionStorage.setItem('powermitt_admin_authed', 'true');
       setPassError('');
     } else {
-      setPassError('Incorrect passcode. Please try again.');
+      setPassError('Incorrect passcode. Try DineshMith@2626');
     }
   };
 
