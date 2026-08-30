@@ -62,7 +62,7 @@ export default function Admin() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (passcode.trim() === 'powermitt2026' || passcode.trim() === 'admin' || passcode.trim() === 'dinesh') {
+    if (passcode.trim() === 'DineshMith@2626' || passcode.trim() === 'powermitt2026') {
       setIsAuthenticated(true);
       sessionStorage.setItem('powermitt_admin_authed', 'true');
       setPassError('');
@@ -179,7 +179,7 @@ export default function Admin() {
               <form onSubmit={handleLogin} className="admin-login-form">
                 <input
                   type="password"
-                  placeholder="Enter passcode (e.g. powermitt2026)"
+                  placeholder="Enter author passcode"
                   value={passcode}
                   onChange={(e) => setPasscode(e.target.value)}
                   className="admin-input"
