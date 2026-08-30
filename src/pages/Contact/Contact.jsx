@@ -83,9 +83,9 @@ export default function Contact() {
                       <Phone size={16} />
                       <span>+61 409 346 958</span>
                     </a>
-                    <a href="mailto:info@powermitt.com.au" className="contact__detail-item">
+                    <a href="mailto:dmithanthaya@gmail.com" className="contact__detail-item">
                       <Mail size={16} />
-                      <span>info@powermitt.com.au</span>
+                      <span>dmithanthaya@gmail.com</span>
                     </a>
                   </div>
                 </div>

@@ -138,8 +138,8 @@ export default function About() {
                 <a href="tel:+61409346958" className="about-leader__contact-item">
                   <Phone size={14} /> +61 409 346 958
                 </a>
-                <a href="mailto:info@powermitt.com.au" className="about-leader__contact-item">
-                  <Mail size={14} /> info@powermitt.com.au
+                <a href="mailto:dmithanthaya@gmail.com" className="about-leader__contact-item">
+                  <Mail size={14} /> dmithanthaya@gmail.com
                 </a>
               </div>
             </div>

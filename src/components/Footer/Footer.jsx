@@ -26,9 +26,9 @@ export default function Footer() {
                 <Phone size={14} />
                 +61 409 346 958
               </a>
-              <a href="mailto:info@powermitt.com.au" className="footer__contact-item">
+              <a href="mailto:dmithanthaya@gmail.com" className="footer__contact-item">
                 <Mail size={14} />
-                info@powermitt.com.au
+                dmithanthaya@gmail.com
               </a>
               <span className="footer__contact-item">
                 <MapPin size={14} />
