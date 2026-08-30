@@ -1,26 +1,26 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Cpu, Shield, Lightbulb, Settings, Users, Zap, Sun, Factory, HardHat, Flame } from 'lucide-react';
+import { ArrowRight, Zap, Sun, Factory, HardHat, Shield } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import CTABanner from '../../components/CTABanner/CTABanner';
 import TechnicalGrid from '../../components/TechnicalGrid/TechnicalGrid';
-import { whyPowerMitt } from '../../data/services';
 import { industries } from '../../data/industries';
 import { getAssetUrl } from '../../utils/assetPath';
+import useScrollReveal from '../../hooks/useScrollReveal';
 import './Home.css';
-
-const whyIcons = { Cpu, Shield, Lightbulb, Settings, Users };
 
 const coreCapabilities = [
   { title: 'Electrical Power Systems', desc: 'Power system studies, HV/LV distribution, substation design & grid compliance.', link: '/services/power-systems', icon: Zap },
   { title: 'Renewable Energy & Decarbonisation', desc: 'Solar, BESS, hydrogen, electrification & net-zero pathway engineering.', link: '/services/energy-transition', icon: Sun },
   { title: 'Carbon Capture & Storage', desc: 'Electrical engineering support for CCS compressor drives & grid interface.', link: '/services/carbon-capture', icon: Factory },
   { title: 'Industrial & Mining Infrastructure', desc: 'Surface/underground mining systems, MCCs, SCADA & brownfield upgrades.', link: '/services/industrial-infrastructure', icon: HardHat },
-  { title: 'Owner\'s Engineering', desc: 'Independent technical due diligence, design verification & execution support.', link: '/services/owners-engineering', icon: Shield }
+  { title: "Owner's Engineering", desc: 'Independent technical due diligence, design verification & execution support.', link: '/services/owners-engineering', icon: Shield }
 ];
 
 export default function Home() {
+  useScrollReveal();
+
   return (
     <main>
       <SEO
@@ -29,30 +29,28 @@ export default function Home() {
         path="/"
       />
 
-      {/* === HERO === */}
+      {/* === HERO WITH NATURE PHOTO === */}
       <Hero
         label="PowerMitt Consulting"
         title={<>Engineering Power.<br />Enabling Industry.<br />Accelerating the Energy Transition.</>}
-        subtitle="Specialist electrical power systems and energy engineering consultancy supporting complex industrial, resources and energy projects across Australia."
+        subtitle="Specialist electrical power systems and energy engineering consultancy based in Perth, Western Australia."
         primaryCTA="Explore Our Services"
         primaryLink="/services"
         secondaryCTA="Discuss Your Project"
         secondaryLink="/contact"
+        bgImage="/assets/images/hero-nature-energy.jpg"
       />
 
-      {/* === WHO WE ARE === */}
+      {/* === CONCISE INTRO + STAT GRID === */}
       <section className="home-intro">
         <div className="container">
-          <div className="home-intro__grid">
+          <div className="home-intro__grid reveal">
             <div className="home-intro__content">
               <span className="label">Who We Are</span>
               <h2>Specialist Engineering for Complex Energy & Industrial Projects</h2>
               <hr className="divider" />
               <p>
-                PowerMitt Consulting is an Australian engineering consultancy based in Perth, Western Australia, providing specialist electrical power systems and energy engineering expertise to the resources, energy, and industrial sectors.
-              </p>
-              <p>
-                We support our clients across the full project lifecycle — from early-stage concept development through FEED, detailed engineering, commissioning, and into operations. Our focus is on delivering technically rigorous, practical engineering solutions that address the real challenges of complex industrial power systems and the energy transition.
+                An independent Australian consultancy delivering specialist electrical power systems and energy engineering expertise across the full project lifecycle.
               </p>
               <Link to="/about" className="btn btn--primary" style={{ marginTop: 'var(--space-4)' }}>
                 About PowerMitt <ArrowRight size={16} />
@@ -83,19 +81,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* === CORE ENGINEERING SERVICES (Clean High-Level Summary) === */}
+      {/* === CORE ENGINEERING SERVICES === */}
       <section className="section--ice home-services">
         <div className="container">
-          <SectionHeader
-            label="Engineering Services"
-            title="Specialist Expertise Across the Project Lifecycle"
-            subtitle="Explore our specialist service categories."
-          />
+          <div className="reveal">
+            <SectionHeader
+              label="Engineering Services"
+              title="Specialist Expertise Across the Project Lifecycle"
+              subtitle="Explore our specialist service categories."
+            />
+          </div>
           <div className="home-services__summary-grid">
             {coreCapabilities.map((cap, i) => {
               const Icon = cap.icon;
               return (
-                <Link key={i} to={cap.link} className="home-services__summary-card">
+                <Link key={i} to={cap.link} className={`home-services__summary-card reveal reveal--delay-${Math.min(i + 1, 5)}`}>
                   <div className="home-services__summary-icon">
                     <Icon size={24} />
                   </div>
@@ -108,7 +108,7 @@ export default function Home() {
               );
             })}
           </div>
-          <div className="home-services__cta">
+          <div className="home-services__cta reveal">
             <Link to="/services" className="btn btn--outline">
               View All Services Details <ArrowRight size={16} />
             </Link>
@@ -120,18 +120,20 @@ export default function Home() {
       <section className="section--dark home-industries">
         <TechnicalGrid variant="dark" />
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-          <SectionHeader
-            label="Industries We Serve"
-            title="Engineering for Demanding Industrial Sectors"
-            subtitle="Delivering specialist power and energy engineering for Australia's industrial infrastructure."
-            light
-          />
+          <div className="reveal">
+            <SectionHeader
+              label="Industries We Serve"
+              title="Engineering for Demanding Industrial Sectors"
+              subtitle="Delivering specialist power and energy engineering for Australia's industrial infrastructure."
+              light
+            />
+          </div>
           <div className="home-industries__summary-grid">
-            {industries.map((ind) => (
+            {industries.map((ind, i) => (
               <Link
                 key={ind.id}
                 to={ind.slug}
-                className="home-industries__summary-card"
+                className={`home-industries__summary-card reveal reveal--delay-${Math.min(i + 1, 4)}`}
                 style={{ backgroundImage: `url(${getAssetUrl(ind.bgImage)})` }}
               >
                 <div className="home-industries__summary-overlay" />
@@ -144,31 +146,6 @@ export default function Home() {
                 </div>
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* === WHY POWERMITT === */}
-      <section className="section--ice home-why">
-        <div className="container">
-          <SectionHeader
-            label="Why PowerMitt"
-            title="Engineering You Can Rely On"
-            align="center"
-          />
-          <div className="home-why__grid">
-            {whyPowerMitt.map((item, i) => {
-              const Icon = whyIcons[item.icon] || Cpu;
-              return (
-                <div key={i} className="home-why__item">
-                  <div className="home-why__icon">
-                    <Icon size={24} />
-                  </div>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                </div>
-              );
-            })}
           </div>
         </div>
       </section>

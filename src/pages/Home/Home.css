@@ -192,40 +192,6 @@
   color: var(--color-electric-cyan);
 }
 
-/* ── Why PowerMitt ── */
-.home-why__grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: var(--space-6);
-}
-
-.home-why__item {
-  text-align: center;
-  padding: var(--space-6);
-}
-
-.home-why__icon {
-  width: 52px;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto var(--space-4);
-  background: rgba(8, 126, 164, 0.08);
-  border-radius: var(--radius-lg);
-  color: var(--color-power-blue);
-}
-
-.home-why__item h3 {
-  font-size: var(--text-base);
-  margin-bottom: var(--space-3);
-}
-
-.home-why__item p {
-  font-size: var(--text-sm);
-  line-height: var(--leading-relaxed);
-}
-
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .home-intro__grid {
@@ -234,9 +200,6 @@
   }
   .home-services__summary-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-  .home-why__grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -247,13 +210,5 @@
   .home-industries__summary-grid {
     grid-template-columns: 1fr;
   }
-  .home-why__grid {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
-@media (max-width: 390px) {
-  .home-why__grid {
-    grid-template-columns: 1fr;
-  }
-}

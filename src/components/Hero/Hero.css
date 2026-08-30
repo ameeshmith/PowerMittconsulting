@@ -15,12 +15,19 @@
 .hero--has-bg {
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
+  animation: kenBurns 20s ease-in-out infinite alternate;
+}
+
+@keyframes kenBurns {
+  0%   { background-size: 100%; }
+  100% { background-size: 110%; }
 }
 
 .hero__image-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(165deg, rgba(7, 29, 43, 0.9) 0%, rgba(7, 29, 43, 0.75) 50%, rgba(7, 29, 43, 0.92) 100%);
+  background: linear-gradient(165deg, rgba(7, 29, 43, 0.82) 0%, rgba(7, 29, 43, 0.6) 50%, rgba(7, 29, 43, 0.85) 100%);
   z-index: 1;
 }
 
@@ -109,6 +116,10 @@
     min-height: 60vh;
     padding-top: calc(var(--nav-height) + var(--space-8));
     padding-bottom: var(--space-12);
+  }
+  .hero--has-bg {
+    background-attachment: scroll;
+    animation: none;
   }
   .hero--compact {
     min-height: 45vh;

@@ -100,6 +100,7 @@ export default function Contact() {
         label="Contact"
         title="Let's Discuss Your Engineering Challenge"
         subtitle="Whether you're planning a new project, need specialist power system expertise, or want to discuss energy transition strategies — we're here to help."
+        bgImage="/assets/images/hero-contact.jpg"
       />
 
       <section className="contact-section">

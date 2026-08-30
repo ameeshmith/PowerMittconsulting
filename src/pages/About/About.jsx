@@ -31,6 +31,7 @@ export default function About() {
         label="About"
         title="Engineering Excellence for Australia's Complex Energy Challenges"
         subtitle="An independent specialist engineering consultancy focused on electrical power systems, energy transition, and industrial infrastructure."
+        bgImage="/assets/images/hero-about.jpg"
       />
 
       {/* Company Overview */}
