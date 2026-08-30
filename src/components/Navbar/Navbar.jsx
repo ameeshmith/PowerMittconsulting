@@ -47,7 +47,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`} ref={navRef}>
+    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''} ${mobileOpen ? 'navbar--mobile-open' : ''}`} ref={navRef}>
       <div className="navbar__inner">
         <Link to="/" className="navbar__brand">
           <span className="navbar__brand-icon">
@@ -98,12 +98,13 @@ export default function Navbar() {
         </Link>
 
         <button
+          type="button"
           className="navbar__hamburger"
-          onClick={() => setMobileOpen(!mobileOpen)}
+          onClick={() => setMobileOpen(prev => !prev)}
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
