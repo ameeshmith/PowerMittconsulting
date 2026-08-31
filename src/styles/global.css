@@ -144,44 +144,52 @@ section.section--navy p {
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-2);
-  padding: 10px 22px;
+  padding: 11px 24px;
+  font-family: var(--font-heading);
   font-size: var(--text-sm);
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  border-radius: var(--radius-sm);
-  transition: all var(--duration-fast) var(--ease-out);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  border-radius: var(--radius-md);
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
   white-space: nowrap;
+  cursor: pointer;
 }
 
-/* Primary Button: Solid Navy/Dark on light, Crisp White on dark */
+/* Primary Button: Professional Ocean Teal Gradient on light surfaces */
 .btn--primary {
-  background: #071F1B;
+  background: linear-gradient(135deg, #0A7E8C 0%, #065F6B 100%);
   color: #FFFFFF;
-  border: 1px solid #071F1B;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #087EA4;
+  box-shadow: 0 4px 14px rgba(10, 126, 140, 0.28);
 }
 
 .btn--primary:hover {
-  background: #113A33;
+  background: linear-gradient(135deg, #0C93A4 0%, #087EA4 100%);
   color: #FFFFFF;
-  border-color: #113A33;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(7, 31, 27, 0.15);
+  border-color: #0C93A4;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(10, 126, 140, 0.4);
 }
 
-/* When primary button is on a dark section / hero / cta banner / navbar */
+.btn--primary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(10, 126, 140, 0.3);
+}
+
+/* Primary Button on dark sections / hero / cta banner / navbar */
 .hero .btn--primary,
 .cta-banner .btn--primary,
 .section--dark .btn--primary,
 .section--navy .btn--primary,
 .home-industries .btn--primary,
 .navbar .btn--primary {
-  background: #FFFFFF;
-  color: #071F1B;
-  border: 1px solid #FFFFFF;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
+  color: #FFFFFF;
+  border: 1px solid #38BDF8;
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35);
 }
 
 .hero .btn--primary:hover,
@@ -190,24 +198,27 @@ section.section--navy p {
 .section--navy .btn--primary:hover,
 .home-industries .btn--primary:hover,
 .navbar .btn--primary:hover {
-  background: #F1F5F9;
-  color: #000000;
-  border-color: #F1F5F9;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(135deg, #38BDF8 0%, #0EA5E9 100%);
+  color: #FFFFFF;
+  border-color: #7DD3FC;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(56, 189, 248, 0.5);
 }
 
+/* Secondary Button */
 .btn--secondary {
-  background-color: transparent;
+  background-color: #FFFFFF;
   color: #071F1B;
-  border: 1px solid #CBD5E1;
+  border: 1.5px solid #CBD5E1;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .btn--secondary:hover {
-  border-color: #071F1B;
-  color: #071F1B;
-  background-color: #F8FAFC;
-  transform: translateY(-1px);
+  border-color: #0A7E8C;
+  color: #0A7E8C;
+  background-color: #F0F9FF;
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 12px rgba(10, 126, 140, 0.12);
 }
 
 /* Secondary on dark sections */
@@ -215,10 +226,11 @@ section.section--navy p {
 .cta-banner .btn--secondary,
 .section--dark .btn--secondary,
 .section--navy .btn--secondary {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.08);
   color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(8px);
+  box-shadow: none;
 }
 
 .hero .btn--secondary:hover,
@@ -227,33 +239,36 @@ section.section--navy p {
 .section--navy .btn--secondary:hover {
   border-color: #FFFFFF;
   color: #FFFFFF;
-  background-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-1px);
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
 }
 
+/* Outline Button */
 .btn--outline {
   background-color: transparent;
-  color: #071F1B;
-  border: 1px solid #071F1B;
+  color: #0A7E8C;
+  border: 1.5px solid #0A7E8C;
 }
 
 .btn--outline:hover {
-  background: #071F1B;
+  background: #0A7E8C;
   color: #FFFFFF;
-  border-color: #071F1B;
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
+  border-color: #0A7E8C;
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 12px rgba(10, 126, 140, 0.25);
 }
 
+/* Ghost Button */
 .btn--ghost {
   background: transparent;
-  color: #071F1B;
+  color: #0A7E8C;
   padding: var(--space-2) 0;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .btn--ghost:hover {
-  color: #334155;
+  color: #0284C7;
 }
 
 .btn--ghost .btn-arrow {
@@ -264,22 +279,26 @@ section.section--navy p {
   transform: translateX(4px);
 }
 
+/* Size Modifiers */
 .btn--large {
-  padding: 12px 28px;
+  padding: 14px 32px;
   font-size: var(--text-base);
+  border-radius: var(--radius-lg);
 }
 
 .btn--teal {
-  background: #071F1B;
+  background: linear-gradient(135deg, #0A7E8C 0%, #065F6B 100%);
   color: #FFFFFF;
-  border: 1px solid #071F1B;
+  border: 1px solid #087EA4;
+  box-shadow: 0 4px 14px rgba(10, 126, 140, 0.25);
 }
 
 .btn--teal:hover {
-  background: #113A33;
+  background: linear-gradient(135deg, #0C93A4 0%, #087EA4 100%);
   color: #FFFFFF;
-  border-color: #113A33;
-  transform: translateY(-1px);
+  border-color: #0C93A4;
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 20px rgba(10, 126, 140, 0.35);
 }
 
 /* ── Utility ── */
