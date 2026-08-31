@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 
 // Import local Fontsource font assets
-import '@fontsource/ibm-plex-sans/400.css';
-import '@fontsource/ibm-plex-sans/500.css';
-import '@fontsource/ibm-plex-sans/600.css';
-import '@fontsource/ibm-plex-sans/700.css';
+import '@fontsource/montserrat/300.css';
+import '@fontsource/montserrat/400.css';
+import '@fontsource/montserrat/500.css';
+import '@fontsource/montserrat/600.css';
+import '@fontsource/montserrat/700.css';
+import '@fontsource/montserrat/800.css';
 import '@fontsource/ibm-plex-mono/400.css';
 import '@fontsource/ibm-plex-mono/500.css';
 import '@fontsource/ibm-plex-mono/600.css';
