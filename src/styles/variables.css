@@ -10,16 +10,16 @@
   --color-forest-deep:    #0B2D27;
   --color-forest-surface: #0E352E;
   
-  --color-lime-accent:    #A3D814;
-  --color-lime-hover:     #93C612;
-  --color-lime-glow:      rgba(163, 216, 20, 0.25);
-  --color-lime-light:     rgba(163, 216, 20, 0.12);
+  --color-forest-btn:     #0D7066;
+  --color-forest-btn-hover:#0A574F;
+  --color-accent-subtle:  #10B981;
+  --color-accent-hover:   #059669;
   
   --color-power-blue:     #0284C7;
   --color-electric-cyan:  #38BDF8;
-  --color-teal:           #10B981;
+  --color-teal:           #0D9488;
   --color-emerald:        #059669;
-  --color-leaf:           #84CC16;
+  --color-leaf:           #16A34A;
   
   --color-ice:            #F8FAFC;
   --color-ice-subtle:     #F1F5F9;
@@ -30,10 +30,10 @@
   --color-border-dark:    rgba(255, 255, 255, 0.12);
 
   /* ── Gradient Tokens ── */
-  --gradient-energy:      linear-gradient(135deg, #A3D814 0%, #84CC16 100%);
+  --gradient-energy:      linear-gradient(135deg, #0D7066 0%, #0F766E 100%);
   --gradient-hero:        linear-gradient(160deg, #051815 0%, #092822 45%, #0B332C 100%);
-  --gradient-accent:      linear-gradient(90deg, #A3D814 0%, #10B981 50%, #38BDF8 100%);
-  --gradient-card:        linear-gradient(135deg, rgba(163, 216, 20, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+  --gradient-accent:      linear-gradient(90deg, #0D7066 0%, #10B981 50%, #0284C7 100%);
+  --gradient-card:        linear-gradient(135deg, rgba(13, 112, 102, 0.04) 0%, rgba(16, 185, 129, 0.04) 100%);
   --gradient-dark:        linear-gradient(160deg, #061815 0%, #0A221E 50%, #081B18 100%);
 
   /* ── Extended Palette ── */
