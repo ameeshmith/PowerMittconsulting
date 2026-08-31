@@ -32,9 +32,9 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-power-blue), var(--color-electric-cyan));
+  background: linear-gradient(135deg, var(--color-lime-accent), #65A30D);
   border: 3px solid var(--color-white);
-  box-shadow: 0 0 0 2px var(--color-power-blue);
+  box-shadow: 0 0 0 2px #65A30D;
   position: relative;
   z-index: 2;
   flex-shrink: 0;
@@ -46,8 +46,8 @@
   right: calc(-50% + 10px);
   top: 50%;
   height: 2px;
-  background: linear-gradient(90deg, var(--color-power-blue), var(--color-electric-cyan));
-  opacity: 0.3;
+  background: linear-gradient(90deg, #65A30D, var(--color-lime-accent));
+  opacity: 0.4;
   z-index: 1;
 }
 

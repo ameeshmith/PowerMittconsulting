@@ -16,7 +16,7 @@
 }
 
 .industry-detail__challenge-icon {
-  color: var(--color-power-blue);
+  color: #65A30D;
   flex-shrink: 0;
   margin-top: 2px;
 }
@@ -38,26 +38,28 @@
   padding: var(--space-6);
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-sm);
   text-decoration: none;
   transition: all var(--duration-base) var(--ease-out);
 }
 
 .industry-detail__service-card:hover {
-  border-color: var(--color-power-blue);
-  background: rgba(8, 126, 164, 0.06);
+  border-color: var(--color-lime-accent);
+  background: rgba(163, 216, 20, 0.06);
   transform: translateY(-2px);
 }
 
 .industry-detail__service-card h3 {
+  font-family: var(--font-heading);
   font-size: var(--text-base);
+  font-weight: var(--weight-bold);
   color: var(--color-white);
   margin-bottom: var(--space-2);
 }
 
 .industry-detail__service-card p {
   font-size: var(--text-sm);
-  color: rgba(245, 248, 250, 0.6);
+  color: rgba(248, 250, 252, 0.75);
   margin: 0;
 }
 
@@ -69,10 +71,11 @@
 }
 
 .industry-detail__tech-tag {
+  font-family: var(--font-heading);
   font-size: var(--text-xs);
   font-weight: var(--weight-semibold);
   padding: var(--space-2) var(--space-4);
-  border-radius: 100px;
+  border-radius: var(--radius-sm);
   border: 1px solid var(--color-border);
   color: var(--color-charcoal);
   background: var(--color-white);

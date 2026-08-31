@@ -3,9 +3,10 @@
    ============================================ */
 
 .footer {
-  background: var(--color-midnight);
-  color: rgba(245, 248, 250, 0.7);
+  background: #041411;
+  color: rgba(248, 250, 252, 0.7);
   padding: var(--space-16) 0 var(--space-8);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer__inner {
@@ -41,7 +42,7 @@
 .footer__tagline {
   font-size: var(--text-sm);
   line-height: var(--leading-relaxed);
-  color: rgba(245, 248, 250, 0.55);
+  color: rgba(248, 250, 252, 0.6);
   margin-bottom: var(--space-6);
   max-width: 280px;
 }
@@ -57,13 +58,13 @@
   align-items: center;
   gap: var(--space-2);
   font-size: var(--text-sm);
-  color: rgba(245, 248, 250, 0.6);
+  color: rgba(248, 250, 252, 0.65);
   text-decoration: none;
   transition: color var(--duration-fast);
 }
 
 a.footer__contact-item:hover {
-  color: var(--color-electric-cyan);
+  color: var(--color-lime-accent);
 }
 
 /* ── Link Columns ── */
@@ -78,7 +79,8 @@ a.footer__contact-item:hover {
   font-weight: var(--weight-semibold);
   color: var(--color-white);
   margin-bottom: var(--space-5);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .footer__links {
@@ -89,13 +91,13 @@ a.footer__contact-item:hover {
 
 .footer__links a {
   font-size: var(--text-sm);
-  color: rgba(245, 248, 250, 0.55);
+  color: rgba(248, 250, 252, 0.6);
   text-decoration: none;
   transition: color var(--duration-fast);
 }
 
 .footer__links a:hover {
-  color: var(--color-electric-cyan);
+  color: var(--color-lime-accent);
 }
 
 .footer__cta {

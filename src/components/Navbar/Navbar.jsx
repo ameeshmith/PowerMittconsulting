@@ -52,10 +52,10 @@ export default function Navbar() {
         <Link to="/" className="navbar__brand">
           <span className="navbar__brand-icon">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <rect width="32" height="32" rx="6" fill="#087EA4"/>
+              <rect width="32" height="32" rx="6" fill="#0E352E" stroke="rgba(163,216,20,0.3)" strokeWidth="1"/>
               <path d="M8 22L16 8L24 22" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M12 17H20" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-              <circle cx="16" cy="12" r="2" fill="white"/>
+              <path d="M12 17H20" stroke="#A3D814" strokeWidth="2" strokeLinecap="round"/>
+              <circle cx="16" cy="12" r="2" fill="#A3D814"/>
             </svg>
           </span>
           <span className="navbar__brand-text">{navigation.brand}</span>
