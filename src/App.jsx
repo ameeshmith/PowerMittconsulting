@@ -22,6 +22,7 @@ import Insights from './pages/Insights/Insights';
 import InsightDetail from './pages/InsightDetail/InsightDetail';
 import Admin from './pages/Admin/Admin';
 import Contact from './pages/Contact/Contact';
+import NotFound from './pages/NotFound/NotFound';
 
 import './styles/global.css';
 
@@ -50,7 +51,7 @@ export default function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/energy-transition" element={<EnergyTransition />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>

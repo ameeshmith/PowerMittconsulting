@@ -16,7 +16,7 @@ export default function Insights() {
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
 
-  useScrollReveal();
+  useScrollReveal([articlesList.length]);
 
   useEffect(() => {
     async function loadData() {

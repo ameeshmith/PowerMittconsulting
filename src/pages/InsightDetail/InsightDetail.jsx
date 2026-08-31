@@ -16,7 +16,7 @@ export default function InsightDetail() {
   const [loading, setLoading] = useState(true);
   const [copied, setCopied] = useState(false);
 
-  useScrollReveal();
+  useScrollReveal([loading]);
 
   useEffect(() => {
     async function loadArticle() {
