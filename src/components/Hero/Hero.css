@@ -85,19 +85,15 @@
   flex-wrap: wrap;
 }
 
-/* ── Bottom Gradient Line ── */
+/* ── Bottom Line ── */
 .hero__gradient-line {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 3px;
+  height: 1px;
   z-index: 3;
-  background: linear-gradient(90deg, 
-    var(--color-lime-accent) 0%, 
-    var(--color-emerald) 50%,
-    transparent 100%
-  );
+  background: rgba(255, 255, 255, 0.12);
 }
 
 /* ── Responsive ── */
