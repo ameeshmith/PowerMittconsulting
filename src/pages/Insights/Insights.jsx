@@ -216,8 +216,6 @@ export default function Insights() {
       <CTABanner
         title="Need Technical Guidance on Your Power Infrastructure?"
         subtitle="Discuss your power systems, BESS connection, or decarbonisation requirements directly with Principal Power Engineer Dinesh Mithanthaya."
-        buttonText="Discuss Your Project"
-        buttonLink="/contact"
       />
     </main>
   );

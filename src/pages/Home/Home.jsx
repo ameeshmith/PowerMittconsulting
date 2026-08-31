@@ -29,15 +29,12 @@ export default function Home() {
         path="/"
       />
 
-      {/* === HERO WITH NATURE PHOTO === */}
       <Hero
         label="PowerMitt Consulting"
         title={<>Engineering Power.<br />Enabling Industry.<br />Accelerating the Energy Transition.</>}
         subtitle="Specialist electrical power systems and energy engineering consultancy based in Perth, Western Australia."
         primaryCTA="Explore Our Services"
         primaryLink="/services"
-        secondaryCTA="Discuss Your Project"
-        secondaryLink="/contact"
         bgImage="/assets/images/hero-nature-energy.jpg"
       />
 

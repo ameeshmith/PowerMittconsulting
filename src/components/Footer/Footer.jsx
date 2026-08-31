@@ -70,9 +70,6 @@ export default function Footer() {
               <li><Link to="/energy-transition">Energy Transition</Link></li>
               <li><Link to="/contact">Contact</Link></li>
             </ul>
-            <Link to="/contact" className="footer__cta">
-              Discuss a Project <ArrowRight size={14} />
-            </Link>
           </div>
         </div>
 
