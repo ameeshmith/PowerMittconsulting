@@ -38,45 +38,6 @@ export default function Home() {
         bgImage="/assets/images/hero-nature-energy.jpg"
       />
 
-      {/* === CONCISE INTRO + STAT GRID === */}
-      <section className="home-intro">
-        <div className="container">
-          <div className="home-intro__grid reveal">
-            <div className="home-intro__content">
-              <span className="label">Who We Are</span>
-              <h2>Specialist Engineering for Complex Energy & Industrial Projects</h2>
-              <hr className="divider" />
-              <p>
-                An independent Australian consultancy delivering specialist electrical power systems and energy engineering expertise across the full project lifecycle.
-              </p>
-              <Link to="/about" className="btn btn--primary" style={{ marginTop: 'var(--space-4)' }}>
-                About PowerMitt <ArrowRight size={16} />
-              </Link>
-            </div>
-
-            <div className="home-intro__visual">
-              <div className="home-intro__stat-grid">
-                <div className="home-intro__stat">
-                  <Zap size={28} className="home-intro__stat-icon" />
-                  <span className="home-intro__stat-label">Power Systems</span>
-                </div>
-                <div className="home-intro__stat">
-                  <Sun size={28} className="home-intro__stat-icon" />
-                  <span className="home-intro__stat-label">Energy Transition</span>
-                </div>
-                <div className="home-intro__stat">
-                  <Factory size={28} className="home-intro__stat-icon" />
-                  <span className="home-intro__stat-label">Industrial</span>
-                </div>
-                <div className="home-intro__stat">
-                  <Shield size={28} className="home-intro__stat-icon" />
-                  <span className="home-intro__stat-label">Owner's Engineer</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* === CORE ENGINEERING SERVICES === */}
       <section className="section--ice home-services">
