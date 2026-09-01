@@ -33,13 +33,13 @@
           var decoded = l.search.slice(1).split('&').map(function(s) { 
             return s.replace(/~and~/g, '&')
           }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
+          var basePath = l.pathname.endsWith('/') ? l.pathname.slice(0, -1) : l.pathname;
+          var routePath = decoded.startsWith('/') ? decoded : '/' + decoded;
+          window.history.replaceState(null, null, basePath + routePath + l.hash);
         }
       }(window.location))
     </script>
-    <script type="module" crossorigin src="/PowerMittconsulting/assets/index-B_4TpWDg.js"></script>
+    <script type="module" crossorigin src="/PowerMittconsulting/assets/index-BDR8fp3x.js"></script>
     <link rel="stylesheet" crossorigin href="/PowerMittconsulting/assets/index-IIYdjD-Q.css">
   </head>
   <body>
