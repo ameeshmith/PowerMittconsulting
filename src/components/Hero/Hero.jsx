@@ -4,18 +4,22 @@ import { getAssetUrl } from '../../utils/assetPath';
 import './Hero.css';
 
 export default function Hero({
-  badge = 'ENGINEERING CONSULTANCY',
+  badge,
+  label,
   title,
   subtitle,
-  primaryCTA = 'Explore Services',
+  primaryCTA,
   primaryLink = '/services',
-  secondaryCTA = 'View Projects',
+  secondaryCTA,
   secondaryLink = '/projects',
   stats,
-  bgImage = '/assets/images/hero-modern-skyline.jpg',
-  variant = 'home'
+  bgImage,
+  variant = 'default'
 }) {
-  const imageUrl = getAssetUrl(bgImage);
+  const badgeText = badge || label;
+  const isHome = variant === 'home' || !variant || variant === 'default';
+  const defaultBg = isHome ? '/assets/images/hero-modern-skyline.jpg' : '/assets/images/hero-about.jpg';
+  const imageUrl = getAssetUrl(bgImage || defaultBg);
 
   return (
     <section
@@ -28,9 +32,9 @@ export default function Hero({
 
       <div className="container hero-modern__container">
         <div className="hero-modern__content">
-          {badge && (
+          {badgeText && (
             <div className="hero-modern__badge">
-              <span>{badge}</span>
+              <span>{badgeText}</span>
             </div>
           )}
 
@@ -43,27 +47,29 @@ export default function Hero({
             )}
           </h1>
 
-          <p className="hero-modern__subtitle">
-            {subtitle || (
-              "PowerMitt Consulting delivers specialist electrical power systems, grid connection, and decarbonisation engineering for landmark projects across Mining, Energy, Oil & Gas, and Heavy Infrastructure."
-            )}
-          </p>
+          {subtitle && (
+            <p className="hero-modern__subtitle">
+              {subtitle}
+            </p>
+          )}
 
-          <div className="hero-modern__actions">
-            {primaryCTA && (
-              <Link to={primaryLink} className="btn-modern-primary">
-                {primaryCTA} <ArrowRight size={16} />
-              </Link>
-            )}
-            {secondaryCTA && (
-              <Link to={secondaryLink} className="btn-modern-secondary">
-                {secondaryCTA}
-              </Link>
-            )}
-          </div>
+          {(primaryCTA || secondaryCTA) && (
+            <div className="hero-modern__actions">
+              {primaryCTA && (
+                <Link to={primaryLink} className="btn-modern-primary">
+                  {primaryCTA} <ArrowRight size={16} />
+                </Link>
+              )}
+              {secondaryCTA && (
+                <Link to={secondaryLink} className="btn-modern-secondary">
+                  {secondaryCTA}
+                </Link>
+              )}
+            </div>
+          )}
         </div>
 
-        {/* Bottom Floating Stats Bar */}
+        {/* Bottom Floating Stats Bar (Only on pages that provide stats) */}
         {stats && stats.length > 0 && (
           <div className="hero-modern__stats-grid">
             {stats.map((stat, i) => (

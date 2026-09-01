@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/PowerMittconsulting/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PowerMitt Consulting | Electrical Power Systems & Energy Engineering</title>
     <meta name="description" content="Specialist electrical power systems and energy engineering consultancy supporting complex industrial, resources and energy projects across Australia." />
@@ -33,9 +33,9 @@
           var decoded = l.search.slice(1).split('&').map(function(s) { 
             return s.replace(/~and~/g, '&')
           }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
+          var basePath = l.pathname.endsWith('/') ? l.pathname.slice(0, -1) : l.pathname;
+          var routePath = decoded.startsWith('/') ? decoded : '/' + decoded;
+          window.history.replaceState(null, null, basePath + routePath + l.hash);
         }
       }(window.location))
     </script>
