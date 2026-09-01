@@ -117,3 +117,55 @@ export async function getRelatedArticles(currentSlug, limit = 2) {
   return all.filter(a => a.slug !== currentSlug && a.id !== currentSlug).slice(0, limit);
 }
 
+/**
+ * Exports all custom articles and deleted slugs as a backup JSON object.
+ */
+export function exportArticlesBackup() {
+  const custom = getCustomArticles();
+  const deleted = getDeletedArticleSlugs();
+  return {
+    version: 1,
+    app: 'PowerMitt Consulting',
+    exportedAt: new Date().toISOString(),
+    customArticles: custom,
+    deletedArticles: deleted
+  };
+}
+
+/**
+ * Imports articles from backup JSON.
+ * @param {Object} backupData - Parsed JSON object from a backup file
+ * @param {'merge' | 'replace'} mode - Whether to merge or replace existing local storage
+ */
+export function importArticlesBackup(backupData, mode = 'merge') {
+  if (!backupData || typeof backupData !== 'object') {
+    throw new Error('Invalid backup file: content is not a valid JSON object.');
+  }
+
+  const incomingCustom = Array.isArray(backupData.customArticles) 
+    ? backupData.customArticles 
+    : (Array.isArray(backupData) ? backupData : []);
+  const incomingDeleted = Array.isArray(backupData.deletedArticles) ? backupData.deletedArticles : [];
+
+  if (mode === 'replace') {
+    localStorage.setItem(CUSTOM_ARTICLES_KEY, JSON.stringify(incomingCustom));
+    localStorage.setItem(DELETED_ARTICLES_KEY, JSON.stringify(incomingDeleted));
+    return { count: incomingCustom.length };
+  }
+
+  // Merge mode (default)
+  const currentCustom = getCustomArticles();
+  const currentDeleted = getDeletedArticleSlugs();
+
+  const customMap = new Map();
+  currentCustom.forEach(a => customMap.set(a.slug || a.id, a));
+  incomingCustom.forEach(a => customMap.set(a.slug || a.id, a));
+
+  const mergedCustom = Array.from(customMap.values());
+  const mergedDeleted = Array.from(new Set([...currentDeleted, ...incomingDeleted]));
+
+  localStorage.setItem(CUSTOM_ARTICLES_KEY, JSON.stringify(mergedCustom));
+  localStorage.setItem(DELETED_ARTICLES_KEY, JSON.stringify(mergedDeleted));
+
+  return { count: mergedCustom.length };
+}

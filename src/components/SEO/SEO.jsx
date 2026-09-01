@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
-const SITE_URL = 'https://ameeshmith.github.io/PowerMittconsulting';
-const DEFAULT_IMAGE = `${SITE_URL}/assets/images/hero-nature-energy.jpg`;
+const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://ameeshmith.github.io/PowerMittconsulting';
+const DEFAULT_IMAGE = `${SITE_URL}/assets/images/og-preview.jpg`;
 
 export default function SEO({ 
   title = 'PowerMitt Consulting | Electrical Power Systems & Energy Engineering',
@@ -15,6 +15,7 @@ export default function SEO({
     document.title = title;
 
     const fullUrl = `${SITE_URL}${path === '/' ? '' : path}`;
+    const absoluteImage = image.startsWith('http') ? image : `${SITE_URL}${image.startsWith('/') ? '' : '/'}${image}`;
 
     // Helper to create or update meta tags
     const setMeta = (attrName, attrValue, content) => {
@@ -42,20 +43,25 @@ export default function SEO({
     setMeta('name', 'description', description);
     setLink('canonical', fullUrl);
 
-    // 3. Open Graph / Facebook / LinkedIn
+    // 3. Open Graph / Facebook / LinkedIn / WhatsApp
     setMeta('property', 'og:site_name', 'PowerMitt Consulting');
     setMeta('property', 'og:title', title);
     setMeta('property', 'og:description', description);
     setMeta('property', 'og:type', type);
     setMeta('property', 'og:url', fullUrl);
-    setMeta('property', 'og:image', image);
+    setMeta('property', 'og:image', absoluteImage);
+    setMeta('property', 'og:image:secure_url', absoluteImage);
+    setMeta('property', 'og:image:width', '1200');
+    setMeta('property', 'og:image:height', '630');
+    setMeta('property', 'og:image:alt', 'PowerMitt Consulting - Electrical Power Systems & Energy Engineering');
     setMeta('property', 'og:locale', 'en_AU');
 
     // 4. Twitter Card Tags
     setMeta('name', 'twitter:card', 'summary_large_image');
     setMeta('name', 'twitter:title', title);
     setMeta('name', 'twitter:description', description);
-    setMeta('name', 'twitter:image', image);
+    setMeta('name', 'twitter:image', absoluteImage);
+    setMeta('name', 'twitter:image:alt', 'PowerMitt Consulting - Electrical Power Systems & Energy Engineering');
 
     // 5. JSON-LD Structured Data for Professional Service / Organization
     const schemaId = 'powermitt-json-ld';
@@ -73,8 +79,8 @@ export default function SEO({
       'name': 'PowerMitt Consulting Pty Ltd',
       'alternateName': 'PowerMitt Consulting',
       'url': SITE_URL,
-      'logo': `${SITE_URL}/assets/images/hero-nature-energy.jpg`,
-      'image': image,
+      'logo': `${SITE_URL}/assets/images/og-preview.jpg`,
+      'image': absoluteImage,
       'description': description,
       'address': {
         '@type': 'PostalAddress',

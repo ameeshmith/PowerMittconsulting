@@ -1,9 +1,25 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Plus, Edit3, Trash2, CheckCircle, Lock, ArrowLeft, RefreshCw, Eye, Tag, Calendar, Clock } from 'lucide-react';
+import { 
+  Plus, 
+  Edit3, 
+  Trash2, 
+  CheckCircle, 
+  Lock, 
+  Eye, 
+  Download, 
+  Upload, 
+  AlertCircle 
+} from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
-import { getAllArticles, saveArticle, deleteArticle } from '../../services/sanity';
+import { 
+  getAllArticles, 
+  saveArticle, 
+  deleteArticle, 
+  exportArticlesBackup, 
+  importArticlesBackup 
+} from '../../services/sanity';
 import { categories } from '../../data/articles';
 import { getAssetUrl } from '../../utils/assetPath';
 import './Admin.css';
@@ -33,6 +49,8 @@ export default function Admin() {
     content: ''
   });
   const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
     // Check if passcode previously entered
@@ -151,6 +169,58 @@ export default function Admin() {
     setTimeout(() => setSuccessMessage(''), 4000);
   };
 
+  // Export articles as JSON file
+  const handleExportBackup = () => {
+    try {
+      const backup = exportArticlesBackup();
+      const jsonString = `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(backup, null, 2))}`;
+      const downloadAnchor = document.createElement('a');
+      const dateStr = new Date().toISOString().split('T')[0];
+      downloadAnchor.setAttribute('href', jsonString);
+      downloadAnchor.setAttribute('download', `powermitt-articles-backup-${dateStr}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+
+      setSuccessMessage('Articles backup downloaded successfully (JSON).');
+      setTimeout(() => setSuccessMessage(''), 4000);
+    } catch (err) {
+      console.error('Export error:', err);
+      setErrorMessage('Failed to export articles backup.');
+      setTimeout(() => setErrorMessage(''), 4000);
+    }
+  };
+
+  // Trigger file input dialog
+  const handleImportClick = () => {
+    if (fileInputRef.current) {
+      fileInputRef.current.value = '';
+      fileInputRef.current.click();
+    }
+  };
+
+  // Import JSON file
+  const handleFileImport = (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      try {
+        const parsed = JSON.parse(event.target.result);
+        const result = importArticlesBackup(parsed, 'merge');
+        setSuccessMessage(`Successfully imported articles backup! (${result.count} custom articles loaded).`);
+        loadData();
+        setTimeout(() => setSuccessMessage(''), 5000);
+      } catch (err) {
+        console.error('Import error:', err);
+        setErrorMessage('Failed to import JSON: Invalid file format.');
+        setTimeout(() => setErrorMessage(''), 5000);
+      }
+    };
+    reader.readAsText(file);
+  };
+
   return (
     <main className="admin-page">
       <SEO
@@ -202,6 +272,32 @@ export default function Admin() {
                   <p>All live articles on PowerMitt Consulting website.</p>
                 </div>
                 <div className="admin-topbar-actions">
+                  {/* Backup / Export / Import Controls */}
+                  <button 
+                    onClick={handleExportBackup} 
+                    className="btn btn--outline" 
+                    title="Download JSON backup of custom articles"
+                    style={{ fontSize: 'var(--text-xs)' }}
+                  >
+                    <Download size={15} /> Export JSON
+                  </button>
+
+                  <button 
+                    onClick={handleImportClick} 
+                    className="btn btn--outline" 
+                    title="Import JSON backup of articles"
+                    style={{ fontSize: 'var(--text-xs)' }}
+                  >
+                    <Upload size={15} /> Import JSON
+                  </button>
+                  <input 
+                    type="file" 
+                    ref={fileInputRef} 
+                    onChange={handleFileImport} 
+                    accept=".json" 
+                    style={{ display: 'none' }} 
+                  />
+
                   {!isEditing && (
                     <button onClick={handleCreateNew} className="btn btn--primary">
                       <Plus size={18} /> Write New Article
@@ -213,11 +309,17 @@ export default function Admin() {
                 </div>
               </div>
 
-              {/* Notification Banner */}
+              {/* Notification Banners */}
               {successMessage && (
                 <div className="admin-alert admin-alert--success">
                   <CheckCircle size={20} />
                   <span>{successMessage}</span>
+                </div>
+              )}
+              {errorMessage && (
+                <div className="admin-alert admin-alert--error">
+                  <AlertCircle size={20} />
+                  <span>{errorMessage}</span>
                 </div>
               )}
 
@@ -338,6 +440,7 @@ export default function Admin() {
                           value={form.takeaway3}
                           onChange={(e) => setForm({ ...form, takeaway3: e.target.value })}
                           className="admin-input"
+                          style={{ marginBottom: '8px' }}
                         />
                       </div>
 
