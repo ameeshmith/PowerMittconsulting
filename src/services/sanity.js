@@ -108,3 +108,12 @@ export async function getArticle(slug) {
   const all = await getAllArticles();
   return all.find(a => a.slug === slug || a.id === slug) || null;
 }
+
+/**
+ * Fetches related articles excluding current article slug.
+ */
+export async function getRelatedArticles(currentSlug, limit = 2) {
+  const all = await getAllArticles();
+  return all.filter(a => a.slug !== currentSlug && a.id !== currentSlug).slice(0, limit);
+}
+

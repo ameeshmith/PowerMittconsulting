@@ -3,8 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Calendar, Clock, ArrowLeft, Tag, Share2, Mail, Phone, CheckCircle, ArrowRight } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import CTABanner from '../../components/CTABanner/CTABanner';
-import { getArticle } from '../../services/sanity';
-import { getRelatedArticles } from '../../data/articles';
+import { getArticle, getRelatedArticles } from '../../services/sanity';
 import { getAssetUrl } from '../../utils/assetPath';
 import useScrollReveal from '../../hooks/useScrollReveal';
 import './InsightDetail.css';
@@ -13,6 +12,7 @@ export default function InsightDetail() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const [article, setArticle] = useState(null);
+  const [relatedArticles, setRelatedArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [copied, setCopied] = useState(false);
 
@@ -25,6 +25,8 @@ export default function InsightDetail() {
         const data = await getArticle(slug);
         if (data) {
           setArticle(data);
+          const related = await getRelatedArticles(data.slug, 2);
+          setRelatedArticles(related);
         }
       } catch (err) {
         console.error('Error loading article:', err);
@@ -67,8 +69,6 @@ export default function InsightDetail() {
       </main>
     );
   }
-
-  const relatedArticles = getRelatedArticles(article.slug, 2);
 
   return (
     <main className="insight-detail">
