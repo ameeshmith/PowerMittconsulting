@@ -192,13 +192,21 @@
   border: none;
   cursor: pointer;
   color: #0B192C;
-  padding: 8px;
+  padding: 10px;
+  min-width: 48px;
+  min-height: 48px;
   border-radius: 8px;
   align-items: center;
   justify-content: center;
   transition: background-color var(--duration-fast), color var(--duration-fast);
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
   outline: none;
+}
+
+.navbar-modern__hamburger svg {
+  pointer-events: none;
 }
 
 .navbar-modern__hamburger:hover,
