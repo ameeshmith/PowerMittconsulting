@@ -1,45 +1,48 @@
 /* ============================================
-   PowerMitt Consulting — Design System Variables
-   Brand Identity:
-   - Canvas / Base (60%): Pure Crisp White (#FFFFFF)
-   - Primary Brand (30%): Deep Abyssal Navy (#0B192C)
-   - Accent / Action (10%): Electric Emerald Green (#00D084)
-   - Secondary Neutral: Cool Slate Light Gray (#F1F5F9)
+   PowerMitt Consulting — Unified Design System
+   Theme: Electric Power Blue + Sustainable Energy Green
+   Strict Typography: Montserrat
    ============================================ */
 
 :root {
-  /* ── 60% Canvas / Base ── */
+  /* ── Canvas / Surfaces ── */
   --color-white:          #FFFFFF;
   --color-body-bg:        #FFFFFF;
+  --color-card-bg:        #FFFFFF;
+  --color-surface:        #F8FAFC;
+  --color-surface-hover:  #F1F5F9;
 
-  /* ── 30% Primary Brand (Deep Abyssal Navy) ── */
+  /* ── Primary Deep Midnight Navy ── */
   --color-midnight:       #0B192C;
   --color-deep-navy:      #0B192C;
   --color-navy-dark:      #060E18;
   --color-navy-surface:   #11233B;
   --color-navy-elevated:  #162C49;
-  --color-charcoal:       #0B192C;
+  --color-charcoal:       #0F172A;
 
-  /* ── 10% Accent / Action (Electric Emerald Green) ── */
-  --color-emerald:        #00D084;
-  --color-emerald-hover:  #00B874;
-  --color-emerald-glow:   rgba(0, 208, 132, 0.35);
-  --color-emerald-light:  rgba(0, 208, 132, 0.12);
-  --color-electric-cyan:  #00FA9E;
-  
-  /* Legacy alias compatibility mapped to Electric Emerald & Deep Navy */
-  --color-power-blue:     #00D084;
-  --color-power-blue-dark:#00B874;
-  --color-power-blue-light:#00FA9E;
-  --color-teal:           #00D084;
-  --color-leaf:           #00D084;
-  --color-lime-accent:    #00D084;
-  --color-cyan-light:     rgba(0, 208, 132, 0.12);
-  --color-teal-light:     rgba(0, 208, 132, 0.10);
+  /* ── Electric Power Blue (Electrical / Grid / Industrial) ── */
+  --color-blue:           #0066FF;
+  --color-blue-hover:     #0052CC;
+  --color-blue-light:     #EBF4FF;
+  --color-blue-glow:      rgba(0, 102, 255, 0.25);
+  --color-power-blue:     #0066FF;
 
-  /* ── Secondary Neutral (Cool Slate Light Gray) ── */
-  --color-ice:            #F1F5F9;
-  --color-ice-subtle:     #F8FAFC;
+  /* ── Sustainable Energy Green (Renewables / Decarbonisation / Transition) ── */
+  --color-green:          #10B981;
+  --color-green-dark:     #059669;
+  --color-green-light:    #ECFDF5;
+  --color-green-glow:     rgba(16, 185, 129, 0.25);
+  --color-emerald:        #10B981;
+  --color-emerald-hover:  #059669;
+
+  /* ── Primary Accent ── */
+  --color-accent:         #0066FF;
+  --color-accent-hover:   #0052CC;
+  --color-accent-light:   #EBF4FF;
+  --color-accent-glow:    rgba(0, 102, 255, 0.25);
+
+  /* ── Neutrals & Borders ── */
+  --color-ice:            #F8FAFC;
   --color-slate-light:    #F1F5F9;
   --color-steel:          #475569;
   --color-steel-light:    #64748B;
@@ -47,95 +50,65 @@
   --color-border-dark:    rgba(255, 255, 255, 0.12);
 
   /* ── Button Tokens ── */
-  --color-btn-primary-bg: #00D084;
-  --color-btn-primary-hover: #00B874;
-  --color-btn-primary-text: #0B192C;
+  --color-btn-primary-bg: #0066FF;
+  --color-btn-primary-hover: #0052CC;
+  --color-btn-primary-text: #FFFFFF;
 
-  /* ── Gradient Tokens ── */
-  --gradient-hero:        linear-gradient(160deg, #060E18 0%, #0B192C 55%, #11233B 100%);
-  --gradient-dark:        linear-gradient(160deg, #060E18 0%, #0B192C 55%, #11233B 100%);
-  --gradient-energy:      linear-gradient(135deg, #0B192C 0%, #162C49 100%);
-  --gradient-accent:      linear-gradient(90deg, #00D084 0%, #00FA9E 100%);
-  --gradient-card:        linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 100%);
+  /* ── Dual Blue & Green Gradients ── */
+  --gradient-hero:        linear-gradient(160deg, #060E18 0%, #0B192C 55%, #0A2239 100%);
+  --gradient-dark:        linear-gradient(160deg, #060E18 0%, #0B192C 55%, #0A2239 100%);
+  --gradient-energy:      linear-gradient(135deg, #0066FF 0%, #10B981 100%);
+  --gradient-card:        linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 100%);
 
-  /* ── Extended Overlay Tokens ── */
-  --color-overlay:        rgba(11, 25, 44, 0.78);
-  --color-overlay-heavy:  rgba(6, 14, 24, 0.92);
+  /* ── Overlays ── */
+  --color-overlay:        rgba(11, 25, 44, 0.85);
+  --color-overlay-heavy:  rgba(6, 14, 24, 0.94);
   --color-overlay-light:  rgba(11, 25, 44, 0.55);
 
-  /* ── Typography — Montserrat Exclusive ── */
+  /* ── Typography (Montserrat) ── */
   --font-heading:  'Montserrat', sans-serif;
   --font-body:     'Montserrat', sans-serif;
   --font-mono:     'Montserrat', sans-serif;
 
-  /* ── Type Scale ── */
-  --text-xs:    0.75rem;    /* 12px */
-  --text-sm:    0.875rem;   /* 14px */
-  --text-base:  1rem;       /* 16px */
-  --text-md:    1.125rem;   /* 18px */
-  --text-lg:    1.25rem;    /* 20px */
-  --text-xl:    1.5rem;     /* 24px */
-  --text-2xl:   1.875rem;   /* 30px */
-  --text-3xl:   2.25rem;    /* 36px */
-  --text-4xl:   2.75rem;    /* 44px */
-  --text-5xl:   3.5rem;     /* 56px */
-  --text-6xl:   4.5rem;     /* 72px */
-
-  /* ── Line Heights ── */
-  --leading-tight:   1.15;
-  --leading-snug:    1.3;
-  --leading-normal:  1.6;
-  --leading-relaxed: 1.75;
-
-  /* ── Font Weights ── */
-  --weight-regular:  400;
-  --weight-medium:   500;
-  --weight-semibold: 600;
-  --weight-bold:     700;
-  --weight-extrabold:800;
-
-  /* ── Spacing Scale ── */
-  --space-1:   0.25rem;   /* 4px */
-  --space-2:   0.5rem;    /* 8px */
-  --space-3:   0.75rem;   /* 12px */
-  --space-4:   1rem;      /* 16px */
-  --space-5:   1.25rem;   /* 20px */
-  --space-6:   1.5rem;    /* 24px */
-  --space-8:   2rem;      /* 32px */
-  --space-10:  2.5rem;    /* 40px */
-  --space-12:  3rem;      /* 48px */
-  --space-16:  4rem;      /* 64px */
-  --space-20:  5rem;      /* 80px */
-  --space-24:  6rem;      /* 96px */
-  --space-32:  8rem;      /* 128px */
+  /* ── Spacing ── */
+  --space-1:   0.25rem;
+  --space-2:   0.5rem;
+  --space-3:   0.75rem;
+  --space-4:   1rem;
+  --space-5:   1.25rem;
+  --space-6:   1.5rem;
+  --space-8:   2rem;
+  --space-10:  2.5rem;
+  --space-12:  3rem;
+  --space-16:  4rem;
+  --space-20:  5rem;
+  --space-24:  6rem;
 
   /* ── Layout ── */
-  --container-max:    1280px;
-  --container-wide:   1440px;
-  --container-narrow: 860px;
-  --nav-height:       80px;
+  --container-max:    1240px;
+  --container-wide:   1380px;
+  --container-narrow: 840px;
+  --nav-height:       76px;
 
-  /* ── Border Radius ── */
-  --radius-sm:  4px;
-  --radius-md:  6px;
-  --radius-lg:  8px;
-  --radius-xl:  12px;
+  /* ── Radii ── */
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  16px;
+  --radius-xl:  24px;
+  --radius-full: 9999px;
 
   /* ── Shadows ── */
-  --shadow-sm:    0 1px 3px rgba(11, 25, 44, 0.06), 0 1px 2px rgba(11, 25, 44, 0.04);
-  --shadow-md:    0 4px 12px rgba(11, 25, 44, 0.08), 0 2px 4px rgba(11, 25, 44, 0.04);
-  --shadow-lg:    0 12px 32px rgba(11, 25, 44, 0.1), 0 4px 8px rgba(11, 25, 44, 0.05);
-  --shadow-xl:    0 20px 48px rgba(11, 25, 44, 0.14), 0 8px 16px rgba(11, 25, 44, 0.08);
-  --shadow-card:  0 2px 8px rgba(11, 25, 44, 0.06);
-  --shadow-card-hover: 0 8px 24px rgba(11, 25, 44, 0.12);
+  --shadow-sm:    0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-md:    0 4px 16px -2px rgba(11, 25, 44, 0.06), 0 2px 6px -1px rgba(11, 25, 44, 0.03);
+  --shadow-lg:    0 16px 36px -4px rgba(11, 25, 44, 0.08), 0 4px 12px -2px rgba(11, 25, 44, 0.04);
+  --shadow-card:  0 2px 10px rgba(11, 25, 44, 0.04);
+  --shadow-card-hover: 0 16px 36px -4px rgba(0, 102, 255, 0.14), 0 4px 12px rgba(11, 25, 44, 0.06);
 
   /* ── Transitions ── */
   --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);
   --duration-fast:  150ms;
-  --duration-base:  250ms;
-  --duration-slow:  400ms;
-  --duration-enter: 600ms;
+  --duration-base:  220ms;
+  --duration-slow:  350ms;
 
   /* ── Z-Index ── */
   --z-dropdown:   100;

@@ -1,19 +1,26 @@
-.services-overview__intro {
-  max-width: 740px;
-  margin-bottom: var(--space-10);
+/* ============================================
+   Services Page Styles
+   ============================================ */
+
+.services-section {
+  padding: 5.5rem 0;
+  background: var(--color-body-bg);
 }
-.services-overview__intro p {
-  font-size: var(--text-md);
-  line-height: var(--leading-relaxed);
-}
-.services-overview__grid {
+
+.services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
+  gap: 1.75rem;
 }
+
 @media (max-width: 1024px) {
-  .services-overview__grid { grid-template-columns: repeat(2, 1fr); }
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
+
 @media (max-width: 768px) {
-  .services-overview__grid { grid-template-columns: 1fr; }
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
 }

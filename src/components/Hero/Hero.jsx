@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import { getAssetUrl } from '../../utils/assetPath';
 import './Hero.css';
 
@@ -21,42 +21,43 @@ export default function Hero({
       className={`hero hero--${variant} ${imageUrl ? 'hero--has-bg' : ''}`}
       style={imageUrl ? { backgroundImage: `url(${imageUrl})` } : undefined}
     >
-      {/* Dark overlay for text legibility if background image is present */}
-      {imageUrl && <div className="hero__image-overlay" />}
+      {/* Dark overlay */}
+      <div className="hero__overlay" />
 
-      {/* Technical SVG background */}
-      <div className="hero__pattern" aria-hidden="true">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="heroGrid" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
-              <circle cx="40" cy="40" r="1" fill="rgba(255,255,255,0.12)" />
-              <path d="M0 40h80M40 0v80" stroke="rgba(255,255,255,0.04)" strokeWidth="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#heroGrid)" />
-        </svg>
-      </div>
+      {/* Subtle radial glow */}
+      <div className="hero__glow" />
 
-      <div className="hero__content container">
-        {label && <span className="label">{label}</span>}
-        <h1 className="hero__title">{title}</h1>
-        {subtitle && <p className="hero__subtitle">{subtitle}</p>}
-        <div className="hero__actions">
-          {primaryCTA && (
-            <Link to={primaryLink || '/services'} className="btn btn--primary btn--large">
-              {primaryCTA}
-            </Link>
+      {/* Technical subtle grid */}
+      <div className="hero__grid-pattern" aria-hidden="true" />
+
+      <div className="container hero__container">
+        <div className="hero__content">
+          {label && (
+            <div className="hero__badge">
+              <span className="hero__badge-dot" />
+              <span className="hero__badge-text">{label}</span>
+            </div>
           )}
-          {secondaryCTA && (
-            <Link to={secondaryLink || '/contact'} className="btn btn--secondary btn--large">
-              {secondaryCTA}
-              <ArrowRight size={18} />
-            </Link>
-          )}
+
+          <h1 className="hero__title">{title}</h1>
+
+          {subtitle && <p className="hero__subtitle">{subtitle}</p>}
+
+          <div className="hero__actions">
+            {primaryCTA && (
+              <Link to={primaryLink || '/services'} className="btn btn--primary btn--large">
+                {primaryCTA}
+                <ArrowRight size={16} />
+              </Link>
+            )}
+            {secondaryCTA && (
+              <Link to={secondaryLink || '/contact'} className="btn btn--secondary btn--large">
+                {secondaryCTA}
+              </Link>
+            )}
+          </div>
         </div>
       </div>
-
-      <div className="hero__gradient-line" aria-hidden="true" />
     </section>
   );
 }

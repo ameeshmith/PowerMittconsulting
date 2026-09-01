@@ -1,13 +1,20 @@
-.industries-intro {
-  max-width: 740px;
-  margin-bottom: var(--space-10);
+/* ============================================
+   Industries Page Styles
+   ============================================ */
+
+.industries-section {
+  padding: 5.5rem 0;
+  background: var(--color-body-bg);
 }
-.industries-intro p { font-size: var(--text-md); line-height: var(--leading-relaxed); }
+
 .industries-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-6);
+  gap: 1.75rem;
 }
-@media (max-width: 768px) {
-  .industries-grid { grid-template-columns: 1fr; }
+
+@media (max-width: 800px) {
+  .industries-grid {
+    grid-template-columns: 1fr;
+  }
 }

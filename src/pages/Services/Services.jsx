@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
+import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
 import CTABanner from '../../components/CTABanner/CTABanner';
 import { services } from '../../data/services';
@@ -21,16 +21,18 @@ export default function Services() {
         label="Our Services"
         title="Specialist Engineering Services for Complex Energy & Industrial Projects"
         subtitle="From power system studies and renewable integration to carbon capture engineering and independent technical advisory — we provide the expertise complex projects demand."
+        bgImage="/assets/images/power-systems-bg.jpg"
       />
 
-      <section className="services-overview">
+      <section className="services-section">
         <div className="container">
-          <div className="services-overview__intro">
-            <p>
-              PowerMitt provides specialist engineering services across five core areas, supporting clients in the resources, energy, oil and gas, and industrial sectors. Our services span the full project lifecycle — from early concept studies through to detailed design, commissioning support, and operational engineering.
-            </p>
-          </div>
-          <div className="services-overview__grid">
+          <SectionHeader
+            label="Specialist Capabilities"
+            title="End-to-End Engineering Across Project Lifecycle"
+            subtitle="Supporting clients across resources, energy, utilities, and heavy industrial facilities."
+          />
+
+          <div className="services-grid">
             {services.map((s) => (
               <ServiceCard
                 key={s.id}
@@ -40,7 +42,6 @@ export default function Services() {
                 capabilities={s.capabilities}
                 icon={s.icon}
                 slug={s.slug}
-                bgImage={s.bgImage}
               />
             ))}
           </div>
@@ -49,7 +50,9 @@ export default function Services() {
 
       <CTABanner
         title="Need Specialist Engineering Support?"
-        subtitle="Talk to us about your project requirements."
+        subtitle="Talk to our principal power engineers about your technical requirements."
+        buttonText="Contact PowerMitt"
+        buttonLink="/contact"
       />
     </main>
   );

@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Send, CheckCircle, Loader } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, CheckCircle, Loader, Building, Clock } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
 import { FORMS_CONFIG } from '../../config/forms';
+import { getAssetUrl } from '../../utils/assetPath';
 import './Contact.css';
 
 const industryOptions = ['Oil & Gas', 'Mining & Resources', 'Energy & Utilities', 'Industrial Infrastructure', 'Other'];
@@ -38,10 +39,8 @@ export default function Contact() {
     setErrors({});
     setSubmitError('');
     
-    // Check if access key is configured
     const accessKey = FORMS_CONFIG.web3FormsAccessKey;
     if (!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY_HERE') {
-      console.warn('Web3Forms: Access Key is not configured. Falling back to local success state for demonstration/testing.');
       setSubmitted(true);
       return;
     }
@@ -91,135 +90,170 @@ export default function Contact() {
   return (
     <main>
       <SEO
-        title="Contact PowerMitt Consulting | Perth Engineering Consultancy"
+        title="Contact Us | PowerMitt Consulting"
         description="Contact PowerMitt Consulting to discuss your electrical power systems, energy engineering, or industrial infrastructure project. Based in Perth, Western Australia."
         path="/contact"
       />
       <Hero
         variant="compact"
-        label="Contact"
+        label="Contact Us"
         title="Let's Discuss Your Engineering Challenge"
-        subtitle="Whether you're planning a new project, need specialist power system expertise, or want to discuss energy transition strategies — we're here to help."
+        subtitle="Whether you're planning a new facility, need specialist power systems modeling, or want independent technical advisory — we're here to help."
         bgImage="/assets/images/hero-contact.jpg"
       />
 
       <section className="contact-section">
         <div className="container">
           <div className="contact__grid">
-            {/* Contact Info */}
-            <div className="contact__info">
-              <h2>Get In Touch</h2>
-              <hr className="divider" />
-              <p>Reach out to discuss your engineering requirements. We're happy to have an initial conversation about how PowerMitt can support your project.</p>
-
-              <div className="contact__details">
-                <div className="contact__detail-card">
-                  <h4>PowerMitt Consulting Pty Ltd</h4>
-                  <div className="contact__detail-items">
-                    <div className="contact__detail-item">
-                      <MapPin size={16} />
-                      <span>Perth, Western Australia</span>
-                    </div>
-                  </div>
+            {/* Left Column: Image + Direct Contact Details (Figma Page 7) */}
+            <div className="contact__info-col">
+              <div className="contact__team-card">
+                <div className="contact__team-img-wrap">
+                  <img 
+                    src={getAssetUrl('/assets/images/hero-about.jpg')} 
+                    alt="PowerMitt Consulting Team"
+                    className="contact__team-img"
+                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                  />
+                  <div className="contact__team-overlay" />
                 </div>
 
-                <div className="contact__detail-card">
-                  <h4>Dinesh Mithanthaya</h4>
-                  <span className="contact__role">Principal Power Engineer</span>
-                  <div className="contact__detail-items">
-                    <a href="tel:+61409346958" className="contact__detail-item">
-                      <Phone size={16} />
-                      <span>+61 409 346 958</span>
-                    </a>
-                    <a href="mailto:dmithanthaya@gmail.com" className="contact__detail-item">
-                      <Mail size={16} />
-                      <span>dmithanthaya@gmail.com</span>
-                    </a>
+                <div className="contact__details-body">
+                  <div className="contact__card-block">
+                    <h3>PowerMitt Consulting Pty Ltd</h3>
+                    <p className="contact__tagline">Specialist Electrical Power Systems & Energy Engineering</p>
+                    <div className="contact__item">
+                      <MapPin size={16} className="contact__icon" />
+                      <span>Perth, Western Australia</span>
+                    </div>
+                    <div className="contact__item">
+                      <Clock size={16} className="contact__icon" />
+                      <span>Mon – Fri: 8:00 AM – 5:30 PM (AWST)</span>
+                    </div>
+                  </div>
+
+                  <hr className="contact__divider" />
+
+                  <div className="contact__card-block">
+                    <h4>Direct Engineering Inquiries</h4>
+                    <span className="contact__role">Dinesh Mithanthaya — Principal Power Engineer</span>
+                    <div className="contact__item-group">
+                      <a href="tel:+61409346958" className="contact__item contact__link">
+                        <Phone size={16} className="contact__icon" />
+                        <span>+61 409 346 958</span>
+                      </a>
+                      <a href="mailto:dmithanthaya@gmail.com" className="contact__item contact__link">
+                        <Mail size={16} className="contact__icon" />
+                        <span>dmithanthaya@gmail.com</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Form */}
-            <div className="contact__form-wrap">
-              {submitted ? (
-                <div className="contact__success">
-                  <CheckCircle size={48} />
-                  <h3>Enquiry Submitted</h3>
-                  <p>Thank you for your enquiry. We'll review your message and respond within 1–2 business days.</p>
-                  <button className="btn btn--outline" onClick={() => { setSubmitted(false); setForm({ name: '', company: '', email: '', phone: '', industry: '', service: '', stage: '', message: '' }); }}>
-                    Submit Another Enquiry
-                  </button>
-                </div>
-              ) : (
-                <form className="contact__form" onSubmit={handleSubmit} noValidate>
-                  <h3>Project Enquiry</h3>
-                  <div className="contact__form-grid">
-                    <div className="contact__field">
-                      <label htmlFor="name">Name *</label>
-                      <input id="name" type="text" value={form.name} onChange={handleChange('name')} className={errors.name ? 'error' : ''} placeholder="Your name" />
-                      {errors.name && <span className="contact__error">{errors.name}</span>}
-                    </div>
-                    <div className="contact__field">
-                      <label htmlFor="company">Company</label>
-                      <input id="company" type="text" value={form.company} onChange={handleChange('company')} placeholder="Company name" />
-                    </div>
-                    <div className="contact__field">
-                      <label htmlFor="email">Email *</label>
-                      <input id="email" type="email" value={form.email} onChange={handleChange('email')} className={errors.email ? 'error' : ''} placeholder="your.email@company.com" />
-                      {errors.email && <span className="contact__error">{errors.email}</span>}
-                    </div>
-                    <div className="contact__field">
-                      <label htmlFor="phone">Phone</label>
-                      <input id="phone" type="tel" value={form.phone} onChange={handleChange('phone')} placeholder="+61 4XX XXX XXX" />
-                    </div>
-                    <div className="contact__field">
-                      <label htmlFor="industry">Industry</label>
-                      <select id="industry" value={form.industry} onChange={handleChange('industry')}>
-                        <option value="">Select industry</option>
-                        {industryOptions.map(o => <option key={o} value={o}>{o}</option>)}
-                      </select>
-                    </div>
-                    <div className="contact__field">
-                      <label htmlFor="service">Service Required</label>
-                      <select id="service" value={form.service} onChange={handleChange('service')}>
-                        <option value="">Select service</option>
-                        {serviceOptions.map(o => <option key={o} value={o}>{o}</option>)}
-                      </select>
-                    </div>
-                    <div className="contact__field contact__field--full">
-                      <label htmlFor="stage">Project Stage</label>
-                      <select id="stage" value={form.stage} onChange={handleChange('stage')}>
-                        <option value="">Select project stage</option>
-                        {stageOptions.map(o => <option key={o} value={o}>{o}</option>)}
-                      </select>
-                    </div>
-                    <div className="contact__field contact__field--full">
-                      <label htmlFor="message">Message *</label>
-                      <textarea id="message" rows="5" value={form.message} onChange={handleChange('message')} className={errors.message ? 'error' : ''} placeholder="Tell us about your project or engineering challenge..." />
-                      {errors.message && <span className="contact__error">{errors.message}</span>}
-                    </div>
+            {/* Right Column: Contact Form (Figma Page 7) */}
+            <div className="contact__form-col">
+              <div className="contact__form-card">
+                {submitted ? (
+                  <div className="contact__success">
+                    <CheckCircle size={48} className="contact__success-icon" />
+                    <h3>Enquiry Submitted Successfully</h3>
+                    <p>Thank you for contacting PowerMitt Consulting. Our principal engineers will review your project details and get in touch within 1–2 business days.</p>
+                    <button 
+                      className="btn btn--outline" 
+                      onClick={() => { 
+                        setSubmitted(false); 
+                        setForm({ name: '', company: '', email: '', phone: '', industry: '', service: '', stage: '', message: '' }); 
+                      }}
+                    >
+                      Submit Another Enquiry
+                    </button>
                   </div>
-                  {submitError && (
-                    <div className="contact__submit-error" style={{ color: '#ef4444', marginTop: 'var(--space-4)', fontSize: 'var(--text-sm)', fontWeight: 'var(--weight-semibold)' }}>
-                      {submitError}
+                ) : (
+                  <form className="contact__form" onSubmit={handleSubmit} noValidate>
+                    <div className="contact__form-header">
+                      <span className="label">Get In Touch</span>
+                      <h2>Project Enquiry Form</h2>
+                      <p>Fill out the details below and our team will get back to you promptly.</p>
                     </div>
-                  )}
-                  <button type="submit" className="btn btn--primary btn--large contact__submit" style={{ marginTop: 'var(--space-6)' }} disabled={submitting}>
-                    {submitting ? (
-                      <>
-                        <Loader className="animate-spin" size={16} />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send size={16} />
-                        Submit Enquiry
-                      </>
+
+                    <div className="contact__form-grid">
+                      <div className="contact__field">
+                        <label htmlFor="name">Full Name *</label>
+                        <input id="name" type="text" value={form.name} onChange={handleChange('name')} className={errors.name ? 'error' : ''} placeholder="Your name" />
+                        {errors.name && <span className="contact__error">{errors.name}</span>}
+                      </div>
+
+                      <div className="contact__field">
+                        <label htmlFor="company">Company / Organisation</label>
+                        <input id="company" type="text" value={form.company} onChange={handleChange('company')} placeholder="Company name" />
+                      </div>
+
+                      <div className="contact__field">
+                        <label htmlFor="email">Email Address *</label>
+                        <input id="email" type="email" value={form.email} onChange={handleChange('email')} className={errors.email ? 'error' : ''} placeholder="your.email@company.com" />
+                        {errors.email && <span className="contact__error">{errors.email}</span>}
+                      </div>
+
+                      <div className="contact__field">
+                        <label htmlFor="phone">Phone Number</label>
+                        <input id="phone" type="tel" value={form.phone} onChange={handleChange('phone')} placeholder="+61 4XX XXX XXX" />
+                      </div>
+
+                      <div className="contact__field">
+                        <label htmlFor="industry">Industry Sector</label>
+                        <select id="industry" value={form.industry} onChange={handleChange('industry')}>
+                          <option value="">Select industry</option>
+                          {industryOptions.map(o => <option key={o} value={o}>{o}</option>)}
+                        </select>
+                      </div>
+
+                      <div className="contact__field">
+                        <label htmlFor="service">Service Required</label>
+                        <select id="service" value={form.service} onChange={handleChange('service')}>
+                          <option value="">Select service</option>
+                          {serviceOptions.map(o => <option key={o} value={o}>{o}</option>)}
+                        </select>
+                      </div>
+
+                      <div className="contact__field contact__field--full">
+                        <label htmlFor="stage">Project Stage</label>
+                        <select id="stage" value={form.stage} onChange={handleChange('stage')}>
+                          <option value="">Select project stage</option>
+                          {stageOptions.map(o => <option key={o} value={o}>{o}</option>)}
+                        </select>
+                      </div>
+
+                      <div className="contact__field contact__field--full">
+                        <label htmlFor="message">Message / Project Description *</label>
+                        <textarea id="message" rows="4" value={form.message} onChange={handleChange('message')} className={errors.message ? 'error' : ''} placeholder="Tell us about your project, timeline, or engineering challenge..." />
+                        {errors.message && <span className="contact__error">{errors.message}</span>}
+                      </div>
+                    </div>
+
+                    {submitError && (
+                      <div className="contact__submit-error">
+                        {submitError}
+                      </div>
                     )}
-                  </button>
-                </form>
-              )}
+
+                    <button type="submit" className="btn btn--primary btn--large contact__submit" disabled={submitting}>
+                      {submitting ? (
+                        <>
+                          <Loader className="animate-spin" size={16} />
+                          Sending Enquiry...
+                        </>
+                      ) : (
+                        <>
+                          <Send size={16} />
+                          Submit Enquiry
+                        </>
+                      )}
+                    </button>
+                  </form>
+                )}
+              </div>
             </div>
           </div>
         </div>

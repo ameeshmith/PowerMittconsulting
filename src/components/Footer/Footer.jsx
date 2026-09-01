@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 import './Footer.css';
 
 export default function Footer() {
@@ -10,28 +10,29 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="footer__brand-col">
             <div className="footer__brand">
-              <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                <rect width="32" height="32" rx="6" fill="#0E352E" stroke="rgba(163,216,20,0.3)" strokeWidth="1"/>
-                <path d="M8 22L16 8L24 22" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M12 17H20" stroke="#A3D814" strokeWidth="2" strokeLinecap="round"/>
-                <circle cx="16" cy="12" r="2" fill="#A3D814"/>
+              <svg width="32" height="32" viewBox="0 0 34 34" fill="none">
+                <rect width="34" height="34" rx="8" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.2)" strokeWidth="1"/>
+                <path d="M19 6L9 19H17L15 28L25 15H17L19 6Z" fill="var(--color-accent)"/>
               </svg>
-              <span>POWERMITT CONSULTING</span>
+              <div className="footer__brand-titles">
+                <span className="footer__brand-name">POWERMITT</span>
+                <span className="footer__brand-desc">CONSULTING PTY LTD</span>
+              </div>
             </div>
             <p className="footer__tagline">
-              Powering Sustainable Industry Through Engineering Excellence
+              Powering Sustainable Industry Through Engineering Excellence. Specialist electrical power systems & energy transition advisory.
             </p>
             <div className="footer__contact-info">
               <a href="tel:+61409346958" className="footer__contact-item">
-                <Phone size={14} />
+                <Phone size={14} className="footer__contact-icon" />
                 +61 409 346 958
               </a>
               <a href="mailto:dmithanthaya@gmail.com" className="footer__contact-item">
-                <Mail size={14} />
+                <Mail size={14} className="footer__contact-icon" />
                 dmithanthaya@gmail.com
               </a>
               <span className="footer__contact-item">
-                <MapPin size={14} />
+                <MapPin size={14} className="footer__contact-icon" />
                 Perth, Western Australia
               </span>
             </div>
@@ -64,18 +65,18 @@ export default function Footer() {
           <div className="footer__col">
             <h4 className="footer__heading">Company</h4>
             <ul className="footer__links">
-              <li><Link to="/about">About</Link></li>
+              <li><Link to="/about">About Us</Link></li>
               <li><Link to="/projects">Projects & Experience</Link></li>
               <li><Link to="/insights">Engineering Insights</Link></li>
               <li><Link to="/services/energy-transition">Energy Transition</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
+              <li><Link to="/contact">Contact Us</Link></li>
             </ul>
           </div>
         </div>
 
         <div className="footer__bottom">
           <p>© {new Date().getFullYear()} PowerMitt Consulting Pty Ltd. All rights reserved.</p>
-          <p>ABN pending</p>
+          <p className="footer__subtext">Specialist Power Systems Consultancy — Perth, WA</p>
         </div>
       </div>
     </footer>

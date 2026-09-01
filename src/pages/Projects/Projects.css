@@ -1,63 +1,81 @@
+/* ============================================
+   Projects Page Styles — Minimalist & Clean
+   ============================================ */
+
+.projects-section {
+  padding: 5.5rem 0;
+  background: var(--color-body-bg);
+}
+
 .projects__filters {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-bottom: var(--space-8);
+  gap: 0.5rem;
+  margin-bottom: 2rem;
 }
 
 .projects__filter {
-  font-family: var(--font-heading);
-  font-size: var(--text-sm);
-  font-weight: var(--weight-semibold);
-  padding: var(--space-2) var(--space-5);
-  border-radius: var(--radius-sm);
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
   border: 1px solid var(--color-border);
-  background: var(--color-white);
+  background: var(--color-card-bg);
   color: var(--color-steel);
   cursor: pointer;
-  transition: all var(--duration-fast) var(--ease-out);
+  transition: all var(--duration-fast);
 }
 
 .projects__filter:hover {
-  border-color: var(--color-emerald);
+  border-color: var(--color-blue);
   color: var(--color-midnight);
 }
 
 .projects__filter--active {
-  background: var(--color-midnight);
-  border-color: var(--color-midnight);
-  color: var(--color-white);
+  background: var(--color-blue);
+  border-color: var(--color-blue);
+  color: #FFFFFF;
+  box-shadow: 0 2px 10px rgba(0, 102, 255, 0.28);
 }
 
+/* 2x2 Grid */
 .projects__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
-  margin-bottom: var(--space-10);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
 }
 
 .projects__coming-soon {
   text-align: center;
-  padding: var(--space-12);
+  padding: 3.5rem 2rem;
   color: var(--color-steel);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-4);
+  gap: 0.75rem;
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.projects__coming-icon {
+  color: var(--color-blue);
 }
 
 .projects__coming-soon h3 {
   color: var(--color-midnight);
+  font-size: 1.15rem;
 }
 
 .projects__coming-soon p {
   max-width: 500px;
+  font-size: 13.5px;
+  margin: 0;
 }
 
-@media (max-width: 1024px) {
-  .projects__grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 768px) {
-  .projects__grid { grid-template-columns: 1fr; }
+@media (max-width: 900px) {
+  .projects__grid {
+    grid-template-columns: 1fr;
+  }
 }

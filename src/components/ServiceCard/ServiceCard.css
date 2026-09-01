@@ -1,158 +1,173 @@
+/* ============================================
+   ServiceCard Component — Sector-Specific Blue & Green
+   Strict Typography: Montserrat
+   ============================================ */
+
 .service-card {
   display: flex;
   flex-direction: column;
-  background: var(--color-white);
+  background: var(--color-card-bg);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
   text-decoration: none;
   transition: all var(--duration-base) var(--ease-out);
   position: relative;
-  overflow: hidden;
+  box-shadow: var(--shadow-sm);
   height: 100%;
 }
 
-.service-card:hover {
-  border-color: var(--color-emerald);
-  box-shadow: 0 12px 32px rgba(11, 25, 44, 0.1);
-  transform: translateY(-4px);
+/* Blue Card Hover (Electrical / Infrastructure) */
+.service-card--blue:hover {
+  border-color: #0066FF;
+  box-shadow: 0 16px 36px -4px rgba(0, 102, 255, 0.12), 0 4px 12px rgba(11, 25, 44, 0.04);
+  transform: translateY(-3px);
 }
 
-/* ── Image Banner ── */
-.service-card__image-banner {
-  position: relative;
-  height: 190px;
-  width: 100%;
-  overflow: hidden;
-  background: var(--color-navy-dark);
+/* Green Card Hover (Renewables / Decarbonisation / CCS) */
+.service-card--green:hover {
+  border-color: #10B981;
+  box-shadow: 0 16px 36px -4px rgba(16, 185, 129, 0.14), 0 4px 12px rgba(11, 25, 44, 0.04);
+  transform: translateY(-3px);
 }
 
-.service-card__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s var(--ease-out);
+.service-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
 }
 
-.service-card:hover .service-card__img {
-  transform: scale(1.06);
-}
-
-.service-card__img-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(6, 14, 24, 0.2) 0%, rgba(11, 25, 44, 0.85) 100%);
-}
-
-.service-card__badge-icon {
-  position: absolute;
-  bottom: var(--space-4);
-  left: var(--space-4);
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-sm);
-  background: rgba(11, 25, 44, 0.92);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: var(--color-emerald);
+.service-card__icon-wrap {
+  width: 46px;
+  height: 46px;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-fast);
+}
+
+.service-card__icon-wrap--blue {
+  background: #EBF4FF;
+  border: 1px solid rgba(0, 102, 255, 0.18);
+  color: #0066FF;
+}
+
+.service-card--blue:hover .service-card__icon-wrap--blue {
+  background: #0066FF;
+  color: #FFFFFF;
+  border-color: #0066FF;
+}
+
+.service-card__icon-wrap--green {
+  background: #ECFDF5;
+  border: 1px solid rgba(16, 185, 129, 0.22);
+  color: #059669;
+}
+
+.service-card--green:hover .service-card__icon-wrap--green {
+  background: #10B981;
+  color: #FFFFFF;
+  border-color: #10B981;
 }
 
 .service-card__number {
-  position: absolute;
-  top: var(--space-3);
-  right: var(--space-4);
-  font-family: var(--font-heading);
-  font-size: var(--text-2xl);
-  font-weight: var(--weight-extrabold);
-  color: rgba(255, 255, 255, 0.85);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-  z-index: 2;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-steel-light);
+  opacity: 0.6;
 }
 
-/* ── Body ── */
 .service-card__body {
-  padding: var(--space-6);
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
-.service-card__header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: var(--space-4);
-}
-
-.service-card__icon-wrap {
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #F1F5F9;
-  border-radius: var(--radius-sm);
-  color: #0B192C;
-}
-
 .service-card__title {
-  font-family: var(--font-heading);
-  font-size: var(--text-lg);
-  font-weight: var(--weight-bold);
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: var(--color-midnight);
-  margin-bottom: var(--space-3);
-  line-height: var(--leading-snug);
+  margin-bottom: 0.6rem;
+  line-height: 1.35;
 }
 
 .service-card__desc {
-  font-size: var(--text-sm);
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 13.5px;
   color: var(--color-steel);
-  line-height: var(--leading-relaxed);
-  margin-bottom: var(--space-5);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
   flex: 1;
 }
 
 .service-card__caps {
-  margin-bottom: var(--space-5);
+  margin-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: 0.4rem;
 }
 
 .service-card__caps li {
-  font-size: var(--text-xs);
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 12.5px;
   color: var(--color-midnight);
-  padding-left: var(--space-4);
+  padding-left: 1rem;
   position: relative;
-  line-height: var(--leading-normal);
+  line-height: 1.45;
+  font-weight: 500;
 }
 
-.service-card__caps li::before {
+.service-card__caps--blue li::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 6px;
-  width: 6px;
-  height: 6px;
+  top: 7px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: var(--color-emerald);
+  background: #0066FF;
+}
+
+.service-card__caps--green li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #10B981;
 }
 
 .service-card__link {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  font-size: var(--text-sm);
-  font-weight: var(--weight-bold);
-  color: var(--color-midnight);
+  gap: 6px;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 13px;
+  font-weight: 700;
   margin-top: auto;
-  transition: all var(--duration-base) var(--ease-out);
+  transition: gap var(--duration-fast);
 }
 
-.service-card:hover .service-card__link {
-  gap: var(--space-3);
-  color: var(--color-emerald-hover);
+.service-card__link--blue {
+  color: #0066FF;
+}
+
+.service-card__link--green {
+  color: #059669;
+}
+
+.service-card--blue:hover .service-card__link--blue {
+  gap: 8px;
+  color: #0052CC;
+}
+
+.service-card--green:hover .service-card__link--green {
+  gap: 8px;
+  color: #047857;
 }
