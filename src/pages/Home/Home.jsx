@@ -8,6 +8,13 @@ import { industries } from '../../data/industries';
 import { getAssetUrl } from '../../utils/assetPath';
 import './Home.css';
 
+const heroStats = [
+  { value: '30+', label: 'Years of Experience', subtext: 'Industrial & Power Leadership' },
+  { value: '100%', label: 'Independent Advisory', subtext: 'Vendor-Neutral Solutions' },
+  { value: 'AEMO / WEM', label: 'Grid Compliance', subtext: 'Full Lifecycle Modeling' },
+  { value: 'National Reach', label: 'Perth, WA HQ', subtext: 'Australia-Wide Delivery' }
+];
+
 const coreCapabilities = [
   { title: 'Electrical Power Systems', desc: 'Power system studies, HV/LV distribution, substation design & grid compliance.', link: '/services/power-systems', icon: Zap, theme: 'blue' },
   { title: 'Renewable Energy & Decarbonisation', desc: 'Solar, BESS, hydrogen, electrification & net-zero pathway engineering.', link: '/services/energy-transition', icon: Sun, theme: 'green' },
@@ -20,26 +27,27 @@ export default function Home() {
   return (
     <main>
       <SEO
-        title="PowerMitt Consulting | Powering a Sustainable Future"
+        title="PowerMitt Consulting | Engineering Excellence from Concept to Execution"
         description="Specialist electrical power systems and energy engineering consultancy supporting complex industrial, resources and energy projects across Australia."
         path="/"
       />
 
-      {/* === HERO SECTION === */}
+      {/* === HERO SECTION MATCHING REFERENCE DESIGN === */}
       <Hero
-        label="Power Systems & Energy Advisory"
+        badge="ENGINEERING CONSULTANCY"
         title={
           <>
-            Powering a Sustainable Future<br />
-            <span className="home-hero__gradient-text">Engineering Excellence & Decarbonisation</span>
+            Engineering <span className="hero-modern__highlight">excellence</span><br />
+            from concept to execution.
           </>
         }
-        subtitle="Specialist electrical power systems and energy engineering consultancy delivering high-integrity technical solutions for Australia's industrial infrastructure."
-        primaryCTA="Explore Our Services"
+        subtitle="PowerMitt Consulting delivers independent power systems, grid connection, and energy transition engineering for landmark projects across Mining, Energy, Oil & Gas, and Heavy Infrastructure — built on technical rigour, efficiency and ISO standards."
+        primaryCTA="Explore Services"
         primaryLink="/services"
-        secondaryCTA="Discuss a Project"
-        secondaryLink="/contact"
-        bgImage="/assets/images/hero-nature-energy.jpg"
+        secondaryCTA="View Projects"
+        secondaryLink="/projects"
+        stats={heroStats}
+        bgImage="/assets/images/hero-modern-skyline.jpg"
       />
 
       {/* === ABOUT SECTION (Minimalist Two-Column) === */}

@@ -37,45 +37,60 @@ export default function Navbar() {
   };
 
   return (
-    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
-      <div className="navbar__container">
+    <header className={`navbar-modern ${scrolled ? 'navbar-modern--scrolled' : ''}`}>
+      <div className="navbar-modern__container">
         {/* Brand */}
-        <Link to="/" className="navbar__brand">
-          <span className="navbar__brand-badge">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="#0066FF" />
+        <Link to="/" className="navbar-modern__brand">
+          <span className="navbar-modern__brand-badge">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="url(#brand-grad)" />
+              <defs>
+                <linearGradient id="brand-grad" x1="3" y1="2" x2="21" y2="22" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#00E5FF" />
+                  <stop offset="1" stopColor="#00C9A7" />
+                </linearGradient>
+              </defs>
             </svg>
           </span>
-          <div className="navbar__brand-text">
-            <span className="navbar__brand-name">POWERMITT</span>
-            <span className="navbar__brand-sub">CONSULTING PTY LTD</span>
+          <div className="navbar-modern__brand-text">
+            <span className="navbar-modern__brand-name">POWERMITT</span>
+            <span className="navbar-modern__brand-sub">ENGINEERING CONSULTANCY</span>
           </div>
         </Link>
 
-        {/* Desktop Nav Links */}
-        <nav className="navbar__nav" role="navigation" aria-label="Main navigation">
+        {/* Center Nav Links */}
+        <nav className="navbar-modern__nav" role="navigation" aria-label="Main navigation">
           {navigation.links.map((link) => (
             <div
               key={link.label}
-              className="navbar__item"
+              className="navbar-modern__item"
               onMouseEnter={() => link.dropdown && handleMouseEnter(link.label)}
               onMouseLeave={() => link.dropdown && handleMouseLeave()}
             >
               <Link
                 to={link.path}
-                className={`navbar__link ${isActive(link.path) ? 'navbar__link--active' : ''}`}
+                className={`navbar-modern__link ${isActive(link.path) ? 'navbar-modern__link--active' : ''}`}
               >
                 {link.label}
-                {link.dropdown && <ChevronDown size={13} className={`navbar__chevron ${activeDropdown === link.label ? 'navbar__chevron--open' : ''}`} />}
+                {link.dropdown && (
+                  <ChevronDown
+                    size={13}
+                    className={`navbar-modern__chevron ${activeDropdown === link.label ? 'navbar-modern__chevron--open' : ''}`}
+                  />
+                )}
               </Link>
 
               {link.dropdown && activeDropdown === link.label && (
-                <div className="navbar__dropdown" onMouseEnter={() => handleMouseEnter(link.label)} onMouseLeave={handleMouseLeave}>
-                  <div className="navbar__dropdown-menu">
+                <div
+                  className="navbar-modern__dropdown"
+                  onMouseEnter={() => handleMouseEnter(link.label)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <div className="navbar-modern__dropdown-menu">
                     {link.dropdown.map((item) => (
-                      <Link key={item.path} to={item.path} className="navbar__dropdown-item">
-                        <span className="navbar__dropdown-title">{item.label}</span>
-                        <span className="navbar__dropdown-desc">{item.description}</span>
+                      <Link key={item.path} to={item.path} className="navbar-modern__dropdown-item">
+                        <span className="navbar-modern__dropdown-title">{item.label}</span>
+                        <span className="navbar-modern__dropdown-desc">{item.description}</span>
                       </Link>
                     ))}
                   </div>
@@ -85,16 +100,15 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Actions (CTA Button) */}
-        <div className="navbar__actions">
-          <Link to="/contact" className="navbar__cta-btn btn btn--primary">
-            Discuss a Project
-            <ArrowRight size={14} />
+        {/* Right CTA Button */}
+        <div className="navbar-modern__actions">
+          <Link to="/contact" className="navbar-modern__cta-btn">
+            Get a Quote
           </Link>
 
           <button
             type="button"
-            className="navbar__hamburger"
+            className="navbar-modern__hamburger"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle navigation"
           >
@@ -103,26 +117,26 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Drawer */}
       {mobileOpen && (
-        <div className="navbar__mobile-drawer">
-          <div className="navbar__mobile-nav">
+        <div className="navbar-modern__mobile-drawer">
+          <div className="navbar-modern__mobile-nav">
             {navigation.links.map((link) => (
-              <div key={link.label} className="navbar__mobile-item">
+              <div key={link.label} className="navbar-modern__mobile-item">
                 <Link
                   to={link.path}
-                  className="navbar__mobile-link"
+                  className="navbar-modern__mobile-link"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
                 </Link>
                 {link.dropdown && (
-                  <div className="navbar__mobile-sub">
+                  <div className="navbar-modern__mobile-sub">
                     {link.dropdown.map((sub) => (
                       <Link
                         key={sub.path}
                         to={sub.path}
-                        className="navbar__mobile-sublink"
+                        className="navbar-modern__mobile-sublink"
                         onClick={() => setMobileOpen(false)}
                       >
                         {sub.label}
@@ -135,10 +149,10 @@ export default function Navbar() {
 
             <Link
               to="/contact"
-              className="navbar__mobile-cta btn btn--primary btn--large"
+              className="navbar-modern__mobile-cta"
               onClick={() => setMobileOpen(false)}
             >
-              Discuss a Project
+              Get a Quote
             </Link>
           </div>
         </div>
