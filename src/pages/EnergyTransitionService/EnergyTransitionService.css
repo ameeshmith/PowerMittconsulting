@@ -13,24 +13,27 @@
 }
 
 .et-tech-card:hover {
+  border-color: var(--color-emerald);
   box-shadow: var(--shadow-md);
   transform: translateY(-2px);
 }
 
 .et-tech-card__icon {
-  color: var(--color-teal);
+  color: var(--color-emerald);
   margin-bottom: var(--space-4);
 }
 
 .et-tech-card h3 {
   font-size: var(--text-base);
   margin-bottom: var(--space-3);
+  color: var(--color-midnight);
 }
 
 .et-tech-card p {
   font-size: var(--text-sm);
   line-height: var(--leading-relaxed);
   margin: 0;
+  color: var(--color-steel);
 }
 
 /* Flow Diagram */
@@ -56,30 +59,30 @@
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-lg);
-  color: var(--color-electric-cyan);
+  color: var(--color-emerald);
   text-align: center;
 }
 
 .et-flow__box span {
   font-size: var(--text-sm);
   font-weight: var(--weight-semibold);
-  color: rgba(245, 248, 250, 0.8);
+  color: rgba(241, 245, 249, 0.9);
 }
 
 .et-flow__box--accent {
-  border-color: var(--color-power-blue);
-  background: rgba(8, 126, 164, 0.08);
+  border-color: var(--color-emerald);
+  background: rgba(0, 208, 132, 0.1);
 }
 
 .et-flow__box--teal {
-  border-color: var(--color-teal);
-  background: rgba(24, 167, 123, 0.08);
-  color: var(--color-teal);
+  border-color: var(--color-emerald);
+  background: rgba(0, 208, 132, 0.1);
+  color: var(--color-emerald);
 }
 
 .et-flow__arrow {
   font-size: var(--text-2xl);
-  color: var(--color-electric-cyan);
+  color: var(--color-emerald);
   font-weight: var(--weight-bold);
 }
 

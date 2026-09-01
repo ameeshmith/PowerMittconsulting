@@ -16,14 +16,14 @@
 }
 
 .industry-detail__challenge-icon {
-  color: #65A30D;
+  color: var(--color-emerald);
   flex-shrink: 0;
   margin-top: 2px;
 }
 
 .industry-detail__challenge p {
   font-size: var(--text-sm);
-  color: var(--color-charcoal);
+  color: var(--color-midnight);
   margin: 0;
   line-height: var(--leading-normal);
 }
@@ -37,15 +37,15 @@
 .industry-detail__service-card {
   padding: var(--space-6);
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-sm);
   text-decoration: none;
   transition: all var(--duration-base) var(--ease-out);
 }
 
 .industry-detail__service-card:hover {
-  border-color: var(--color-lime-accent);
-  background: rgba(163, 216, 20, 0.06);
+  border-color: var(--color-emerald);
+  background: rgba(0, 208, 132, 0.1);
   transform: translateY(-2px);
 }
 
@@ -59,7 +59,7 @@
 
 .industry-detail__service-card p {
   font-size: var(--text-sm);
-  color: rgba(248, 250, 252, 0.75);
+  color: rgba(241, 245, 249, 0.8);
   margin: 0;
 }
 
@@ -77,7 +77,7 @@
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-border);
-  color: var(--color-charcoal);
+  color: var(--color-midnight);
   background: var(--color-white);
 }
 

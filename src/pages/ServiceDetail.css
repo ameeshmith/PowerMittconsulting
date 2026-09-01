@@ -11,11 +11,13 @@
 
 .service-detail__intro-text h2 {
   margin-bottom: var(--space-4);
+  color: var(--color-midnight);
 }
 
 .service-detail__intro-text p {
   font-size: var(--text-base);
   line-height: var(--leading-relaxed);
+  color: var(--color-steel);
 }
 
 .service-detail__sidebar {
@@ -30,7 +32,7 @@
   font-size: var(--text-base);
   font-weight: var(--weight-bold);
   margin-bottom: var(--space-4);
-  color: var(--color-charcoal);
+  color: var(--color-midnight);
 }
 
 .service-detail__sidebar ul {
@@ -41,7 +43,7 @@
 
 .service-detail__sidebar li {
   font-size: var(--text-sm);
-  color: var(--color-charcoal);
+  color: var(--color-midnight);
   padding-left: var(--space-5);
   position: relative;
 }
@@ -54,7 +56,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #65A30D;
+  background: var(--color-emerald);
 }
 
 .service-detail__capabilities {
@@ -67,10 +69,10 @@
   font-family: var(--font-heading);
   font-size: var(--text-lg);
   font-weight: var(--weight-bold);
-  color: var(--color-charcoal);
+  color: var(--color-midnight);
   margin-bottom: var(--space-4);
   padding-bottom: var(--space-3);
-  border-bottom: 2px solid var(--color-lime-accent);
+  border-bottom: 2px solid var(--color-emerald);
 }
 
 .service-detail__cap-group ul {
@@ -91,7 +93,7 @@
   content: '—';
   position: absolute;
   left: 0;
-  color: #65A30D;
+  color: var(--color-emerald);
   font-weight: bold;
 }
 

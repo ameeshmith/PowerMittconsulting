@@ -19,14 +19,14 @@
 }
 
 .projects__filter:hover {
-  border-color: #071F1B;
-  color: #071F1B;
+  border-color: var(--color-emerald);
+  color: var(--color-midnight);
 }
 
 .projects__filter--active {
-  background: #071F1B;
-  border-color: #071F1B;
-  color: #FFFFFF;
+  background: var(--color-midnight);
+  border-color: var(--color-midnight);
+  color: var(--color-white);
 }
 
 .projects__grid {

@@ -1,53 +1,67 @@
 /* ============================================
    PowerMitt Consulting — Design System Variables
+   Brand Identity:
+   - Canvas / Base (60%): Pure Crisp White (#FFFFFF)
+   - Primary Brand (30%): Deep Abyssal Navy (#0B192C)
+   - Accent / Action (10%): Electric Emerald Green (#00D084)
+   - Secondary Neutral: Cool Slate Light Gray (#F1F5F9)
    ============================================ */
 
 :root {
-  /* ── Brand Colors — L.E.K. Inspired Energy & Environment Palette ── */
-  --color-midnight:       #071F1B;
-  --color-deep-navy:      #0A221E;
-  --color-forest-dark:    #051815;
-  --color-forest-deep:    #071F1B;
-  --color-forest-surface: #0E352E;
-  
-  --color-btn-dark:       #087EA4;
-  --color-btn-dark-hover: #065A76;
-  --color-btn-light:      #FFFFFF;
-  --color-btn-light-hover:#F0F9FF;
-  
-  --color-power-blue:     #087EA4;
-  --color-electric-cyan:  #38BDF8;
-  --color-teal:           #0D9488;
-  --color-emerald:        #059669;
-  --color-leaf:           #10B981;
-  
-  --color-ice:            #F8FAFC;
-  --color-ice-subtle:     #F1F5F9;
+  /* ── 60% Canvas / Base ── */
   --color-white:          #FFFFFF;
-  --color-charcoal:       #0F172A;
+  --color-body-bg:        #FFFFFF;
+
+  /* ── 30% Primary Brand (Deep Abyssal Navy) ── */
+  --color-midnight:       #0B192C;
+  --color-deep-navy:      #0B192C;
+  --color-navy-dark:      #060E18;
+  --color-navy-surface:   #11233B;
+  --color-navy-elevated:  #162C49;
+  --color-charcoal:       #0B192C;
+
+  /* ── 10% Accent / Action (Electric Emerald Green) ── */
+  --color-emerald:        #00D084;
+  --color-emerald-hover:  #00B874;
+  --color-emerald-glow:   rgba(0, 208, 132, 0.35);
+  --color-emerald-light:  rgba(0, 208, 132, 0.12);
+  --color-electric-cyan:  #00FA9E;
+  
+  /* Legacy alias compatibility mapped to Electric Emerald & Deep Navy */
+  --color-power-blue:     #00D084;
+  --color-power-blue-dark:#00B874;
+  --color-power-blue-light:#00FA9E;
+  --color-teal:           #00D084;
+  --color-leaf:           #00D084;
+  --color-lime-accent:    #00D084;
+  --color-cyan-light:     rgba(0, 208, 132, 0.12);
+  --color-teal-light:     rgba(0, 208, 132, 0.10);
+
+  /* ── Secondary Neutral (Cool Slate Light Gray) ── */
+  --color-ice:            #F1F5F9;
+  --color-ice-subtle:     #F8FAFC;
+  --color-slate-light:    #F1F5F9;
   --color-steel:          #475569;
+  --color-steel-light:    #64748B;
   --color-border:         #E2E8F0;
   --color-border-dark:    rgba(255, 255, 255, 0.12);
 
-  /* ── Gradient Tokens ── */
-  --gradient-energy:      linear-gradient(135deg, #071F1B 0%, #0F332C 100%);
-  --gradient-hero:        linear-gradient(160deg, #051815 0%, #07221E 50%, #0A2B25 100%);
-  --gradient-accent:      linear-gradient(90deg, #071F1B 0%, #334155 100%);
-  --gradient-card:        linear-gradient(135deg, rgba(7, 31, 27, 0.02) 0%, rgba(15, 23, 42, 0.02) 100%);
-  --gradient-dark:        linear-gradient(160deg, #051815 0%, #07221E 50%, #092823 100%);
+  /* ── Button Tokens ── */
+  --color-btn-primary-bg: #00D084;
+  --color-btn-primary-hover: #00B874;
+  --color-btn-primary-text: #0B192C;
 
-  /* ── Extended Palette ── */
-  --color-midnight-90:    #071F1B;
-  --color-midnight-80:    #0B2B24;
-  --color-midnight-light: #0E352E;
-  --color-power-blue-dark:#0369A1;
-  --color-power-blue-light:#38BDF8;
-  --color-cyan-light:     rgba(56, 189, 248, 0.1);
-  --color-teal-light:     rgba(16, 185, 129, 0.08);
-  --color-emerald-light:  rgba(163, 216, 20, 0.1);
-  --color-overlay:        rgba(5, 24, 21, 0.75);
-  --color-overlay-heavy:  rgba(5, 24, 21, 0.88);
-  --color-overlay-light:  rgba(5, 24, 21, 0.5);
+  /* ── Gradient Tokens ── */
+  --gradient-hero:        linear-gradient(160deg, #060E18 0%, #0B192C 55%, #11233B 100%);
+  --gradient-dark:        linear-gradient(160deg, #060E18 0%, #0B192C 55%, #11233B 100%);
+  --gradient-energy:      linear-gradient(135deg, #0B192C 0%, #162C49 100%);
+  --gradient-accent:      linear-gradient(90deg, #00D084 0%, #00FA9E 100%);
+  --gradient-card:        linear-gradient(135deg, #FFFFFF 0%, #F1F5F9 100%);
+
+  /* ── Extended Overlay Tokens ── */
+  --color-overlay:        rgba(11, 25, 44, 0.78);
+  --color-overlay-heavy:  rgba(6, 14, 24, 0.92);
+  --color-overlay-light:  rgba(11, 25, 44, 0.55);
 
   /* ── Typography — Montserrat Exclusive ── */
   --font-heading:  'Montserrat', sans-serif;
@@ -108,12 +122,12 @@
   --radius-xl:  12px;
 
   /* ── Shadows ── */
-  --shadow-sm:    0 1px 3px rgba(7, 29, 43, 0.06), 0 1px 2px rgba(7, 29, 43, 0.04);
-  --shadow-md:    0 4px 12px rgba(7, 29, 43, 0.08), 0 2px 4px rgba(7, 29, 43, 0.04);
-  --shadow-lg:    0 12px 32px rgba(7, 29, 43, 0.1), 0 4px 8px rgba(7, 29, 43, 0.05);
-  --shadow-xl:    0 20px 48px rgba(7, 29, 43, 0.12), 0 8px 16px rgba(7, 29, 43, 0.06);
-  --shadow-card:  0 2px 8px rgba(7, 29, 43, 0.06);
-  --shadow-card-hover: 0 8px 24px rgba(7, 29, 43, 0.1);
+  --shadow-sm:    0 1px 3px rgba(11, 25, 44, 0.06), 0 1px 2px rgba(11, 25, 44, 0.04);
+  --shadow-md:    0 4px 12px rgba(11, 25, 44, 0.08), 0 2px 4px rgba(11, 25, 44, 0.04);
+  --shadow-lg:    0 12px 32px rgba(11, 25, 44, 0.1), 0 4px 8px rgba(11, 25, 44, 0.05);
+  --shadow-xl:    0 20px 48px rgba(11, 25, 44, 0.14), 0 8px 16px rgba(11, 25, 44, 0.08);
+  --shadow-card:  0 2px 8px rgba(11, 25, 44, 0.06);
+  --shadow-card-hover: 0 8px 24px rgba(11, 25, 44, 0.12);
 
   /* ── Transitions ── */
   --ease-out:      cubic-bezier(0.16, 1, 0.3, 1);

@@ -8,7 +8,7 @@
   justify-content: center;
   min-height: 100vh;
   padding: var(--space-12) var(--space-6);
-  background: linear-gradient(160deg, #071D2B 0%, #0E352E 50%, #071D2B 100%);
+  background: var(--gradient-dark);
   text-align: center;
 }
 
@@ -21,13 +21,13 @@
   font-size: clamp(80px, 15vw, 160px);
   font-weight: 900;
   line-height: 1;
-  background: linear-gradient(135deg, #0EA5E9, #06B6D4, #0E7490);
+  background: linear-gradient(135deg, #00D084, #00FA9E);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: var(--space-4);
   letter-spacing: -0.04em;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .not-found__title {
@@ -39,7 +39,7 @@
 
 .not-found__subtitle {
   font-size: var(--text-lg);
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(241, 245, 249, 0.75);
   line-height: var(--leading-relaxed);
   margin-bottom: var(--space-10);
 }

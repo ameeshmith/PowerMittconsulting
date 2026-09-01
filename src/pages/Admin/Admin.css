@@ -26,8 +26,8 @@
 .admin-card__icon {
   width: 64px;
   height: 64px;
-  background: rgba(8, 126, 164, 0.08);
-  color: var(--color-power-blue);
+  background: rgba(0, 208, 132, 0.12);
+  color: var(--color-emerald);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -67,8 +67,8 @@
 }
 
 .admin-input:focus {
-  border-color: var(--color-power-blue);
-  box-shadow: 0 0 0 3px rgba(14, 116, 144, 0.12);
+  border-color: var(--color-emerald);
+  box-shadow: 0 0 0 3px rgba(0, 208, 132, 0.2);
 }
 
 .admin-textarea-code {
@@ -124,9 +124,9 @@
 }
 
 .admin-alert--success {
-  background: rgba(16, 185, 129, 0.1);
+  background: rgba(0, 208, 132, 0.12);
   color: #065f46;
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  border: 1px solid rgba(0, 208, 132, 0.3);
 }
 
 .admin-alert--error {
@@ -220,7 +220,7 @@
 }
 
 .admin-article-item:hover {
-  border-color: var(--color-power-blue);
+  border-color: var(--color-emerald);
   box-shadow: var(--shadow-md);
 }
 
@@ -248,7 +248,7 @@
 }
 
 .admin-article-cat {
-  color: var(--color-teal);
+  color: #065f46;
   font-weight: var(--weight-semibold);
   text-transform: uppercase;
 }
