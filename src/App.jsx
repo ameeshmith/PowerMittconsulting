@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import ScrollToTop from './hooks/useScrollToTop';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
@@ -17,7 +17,6 @@ import MiningResources from './pages/MiningResources/MiningResources';
 import EnergyUtilities from './pages/EnergyUtilities/EnergyUtilities';
 import Industrial from './pages/Industrial/Industrial';
 import Projects from './pages/Projects/Projects';
-import EnergyTransition from './pages/EnergyTransition/EnergyTransition';
 import Insights from './pages/Insights/Insights';
 import InsightDetail from './pages/InsightDetail/InsightDetail';
 import Admin from './pages/Admin/Admin';
@@ -49,7 +48,7 @@ export default function App() {
         <Route path="/insights" element={<Insights />} />
         <Route path="/insights/:slug" element={<InsightDetail />} />
         <Route path="/admin" element={<Admin />} />
-        <Route path="/energy-transition" element={<EnergyTransition />} />
+        <Route path="/energy-transition" element={<Navigate to="/services/energy-transition" replace />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
