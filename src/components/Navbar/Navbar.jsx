@@ -7,6 +7,7 @@ import './Navbar.css';
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [mobileExpanded, setMobileExpanded] = useState({ Services: true });
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const timeoutRef = useRef(null);
@@ -17,10 +18,24 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Close drawer and reset scroll on page navigation
   useEffect(() => {
     setMobileOpen(false);
     setActiveDropdown(null);
+    document.body.style.overflow = '';
   }, [location.pathname]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileOpen]);
 
   const handleMouseEnter = (label) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -29,6 +44,13 @@ export default function Navbar() {
 
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => setActiveDropdown(null), 150);
+  };
+
+  const toggleMobileSub = (label) => {
+    setMobileExpanded((prev) => ({
+      ...prev,
+      [label]: !prev[label]
+    }));
   };
 
   const isActive = (path) => {
@@ -40,7 +62,7 @@ export default function Navbar() {
     <header className={`navbar-modern ${scrolled ? 'navbar-modern--scrolled' : ''}`}>
       <div className="navbar-modern__container">
         {/* Brand */}
-        <Link to="/" className="navbar-modern__brand">
+        <Link to="/" className="navbar-modern__brand" onClick={() => setMobileOpen(false)}>
           <span className="navbar-modern__brand-badge">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="url(#brand-grad)" />
@@ -111,8 +133,9 @@ export default function Navbar() {
             className="navbar-modern__hamburger"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle navigation"
+            aria-expanded={mobileOpen}
           >
-            {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
@@ -121,42 +144,72 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="navbar-modern__mobile-drawer">
           <div className="navbar-modern__mobile-nav">
-            {navigation.links.map((link) => (
-              <div key={link.label} className="navbar-modern__mobile-item">
-                <Link
-                  to={link.path}
-                  className="navbar-modern__mobile-link"
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {link.label}
-                </Link>
-                {link.dropdown && (
-                  <div className="navbar-modern__mobile-sub">
-                    {link.dropdown.map((sub) => (
-                      <Link
-                        key={sub.path}
-                        to={sub.path}
-                        className="navbar-modern__mobile-sublink"
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        {sub.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+            {navigation.links.map((link) => {
+              const hasDropdown = link.dropdown && link.dropdown.length > 0;
+              const isSubExpanded = mobileExpanded[link.label] ?? false;
 
-            <Link
-              to="/contact"
-              className="navbar-modern__mobile-cta"
-              onClick={() => setMobileOpen(false)}
-            >
-              Get a Quote
-            </Link>
+              return (
+                <div key={link.label} className="navbar-modern__mobile-item">
+                  <div className="navbar-modern__mobile-header-row">
+                    <Link
+                      to={link.path}
+                      className={`navbar-modern__mobile-link ${isActive(link.path) ? 'navbar-modern__mobile-link--active' : ''}`}
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                    {hasDropdown && (
+                      <button
+                        type="button"
+                        className="navbar-modern__mobile-expand-btn"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleMobileSub(link.label);
+                        }}
+                        aria-label={`Toggle ${link.label} submenu`}
+                      >
+                        <ChevronDown
+                          size={18}
+                          className={`navbar-modern__mobile-chevron ${isSubExpanded ? 'navbar-modern__mobile-chevron--open' : ''}`}
+                        />
+                      </button>
+                    )}
+                  </div>
+
+                  {hasDropdown && isSubExpanded && (
+                    <div className="navbar-modern__mobile-sub">
+                      {link.dropdown.map((sub) => (
+                        <Link
+                          key={sub.path}
+                          to={sub.path}
+                          className={`navbar-modern__mobile-sublink ${isActive(sub.path) ? 'navbar-modern__mobile-sublink--active' : ''}`}
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          <span className="navbar-modern__mobile-sub-title">{sub.label}</span>
+                          {sub.description && (
+                            <span className="navbar-modern__mobile-sub-desc">{sub.description}</span>
+                          )}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+
+            <div className="navbar-modern__mobile-cta-wrap">
+              <Link
+                to="/contact"
+                className="navbar-modern__mobile-cta"
+                onClick={() => setMobileOpen(false)}
+              >
+                Get a Quote <ArrowRight size={16} />
+              </Link>
+            </div>
           </div>
         </div>
       )}
     </header>
   );
 }
+
