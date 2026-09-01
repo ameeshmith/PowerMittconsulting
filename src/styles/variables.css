@@ -1,8 +1,9 @@
 /* ============================================
    PowerMitt Consulting — Unified Design System
-   Theme: Electric Power Blue + Sustainable Energy Green
-   Strict Typography: Montserrat
+   Strict Typography: Montserrat (Webfont & Local)
    ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&display=swap');
 
 :root {
   /* ── Canvas / Surfaces ── */
@@ -66,9 +67,9 @@
   --color-overlay-light:  rgba(11, 25, 44, 0.55);
 
   /* ── Typography (Montserrat) ── */
-  --font-heading:  'Montserrat', sans-serif;
-  --font-body:     'Montserrat', sans-serif;
-  --font-mono:     'Montserrat', sans-serif;
+  --font-heading:  'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body:     'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:     'Montserrat', monospace;
 
   /* ── Spacing ── */
   --space-1:   0.25rem;
