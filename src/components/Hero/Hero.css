@@ -231,6 +231,10 @@
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
+  .hero-modern {
+    background-position: center center;
+  }
+
   .hero-modern__stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -239,21 +243,67 @@
 @media (max-width: 768px) {
   .hero-modern {
     min-height: auto;
-    padding: 5rem 0 3.5rem;
+    padding: 5.5rem 0 3.5rem;
+    background-position: center top;
+    background-attachment: scroll;
   }
+
+  /* Optimized vertical gradient for phone screens: keeps text legible while letting the background image show through */
+  .hero-modern__overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(6, 24, 38, 0.78) 0%,
+      rgba(6, 24, 38, 0.58) 45%,
+      rgba(6, 24, 38, 0.88) 100%
+    );
+  }
+
+  .hero-modern__glow {
+    width: 300px;
+    height: 300px;
+    top: 5%;
+    left: -10%;
+  }
+
+  .hero-modern__content {
+    padding: 1rem 0 2rem;
+  }
+
   .hero-modern__title {
-    font-size: 2.2rem;
+    font-size: clamp(2rem, 7vw, 2.4rem);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
   }
+
+  .hero-modern__subtitle {
+    font-size: 0.98rem;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 0.94);
+  }
+
   .hero-modern__stats-grid {
     grid-template-columns: 1fr;
     gap: 0.75rem;
   }
+
   .hero-modern__actions {
     flex-direction: column;
     align-items: stretch;
+    gap: 0.85rem;
   }
+
   .hero-modern__actions a {
     text-align: center;
     justify-content: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-modern {
+    padding: 4.75rem 0 2.5rem;
+  }
+
+  .hero-modern__badge {
+    margin-bottom: 1.25rem;
   }
 }
