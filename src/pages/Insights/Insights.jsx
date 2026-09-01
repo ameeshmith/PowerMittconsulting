@@ -33,12 +33,13 @@ export default function Insights() {
   }, []);
 
   const filteredArticles = useMemo(() => {
+    const queryLower = searchQuery.toLowerCase();
     return articlesList.filter(article => {
       const matchesCategory = selectedCategory === 'All' || article.category === selectedCategory;
       const matchesSearch = searchQuery === '' || 
-        article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        article.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (article.tags && article.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase())));
+        (article.title?.toLowerCase().includes(queryLower) ?? false) ||
+        (article.excerpt?.toLowerCase().includes(queryLower) ?? false) ||
+        (Array.isArray(article.tags) && article.tags.some(t => t?.toLowerCase().includes(queryLower)));
       return matchesCategory && matchesSearch;
     });
   }, [articlesList, selectedCategory, searchQuery]);
