@@ -41,6 +41,23 @@ export default function Navbar() {
     timeoutRef.current = setTimeout(() => setActiveDropdown(null), 150);
   };
 
+  const handleFocus = (label) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setActiveDropdown(label);
+  };
+
+  const handleBlur = (e) => {
+    if (!e.currentTarget.contains(e.relatedTarget)) {
+      timeoutRef.current = setTimeout(() => setActiveDropdown(null), 150);
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Escape') {
+      setActiveDropdown(null);
+    }
+  };
+
   const isActive = (path) => {
     if (path === '/') return location.pathname === '/';
     return location.pathname.startsWith(path);
@@ -68,10 +85,15 @@ export default function Navbar() {
               className={`navbar__item ${link.dropdown ? 'navbar__item--has-dropdown' : ''}`}
               onMouseEnter={() => link.dropdown && handleMouseEnter(link.label)}
               onMouseLeave={() => link.dropdown && handleMouseLeave()}
+              onFocus={() => link.dropdown && handleFocus(link.label)}
+              onBlur={(e) => link.dropdown && handleBlur(e)}
+              onKeyDown={(e) => link.dropdown && handleKeyDown(e)}
             >
               <Link
                 to={link.path}
                 className={`navbar__link ${isActive(link.path) ? 'navbar__link--active' : ''}`}
+                aria-haspopup={link.dropdown ? 'true' : undefined}
+                aria-expanded={link.dropdown ? activeDropdown === link.label : undefined}
               >
                 {link.label}
                 {link.dropdown && <ChevronDown size={14} className={`navbar__chevron ${activeDropdown === link.label ? 'navbar__chevron--open' : ''}`} />}
