@@ -62,12 +62,13 @@ export default function Admin() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (passcode.trim().toLowerCase() === 'powermitt2026') {
+    const targetPasscode = (import.meta.env.VITE_ADMIN_PASSCODE || 'powermitt2026').trim().toLowerCase();
+    if (passcode.trim().toLowerCase() === targetPasscode) {
       setIsAuthenticated(true);
       sessionStorage.setItem('powermitt_admin_authed', 'true');
       setPassError('');
     } else {
-      setPassError('Incorrect passcode. Please enter powermitt2026.');
+      setPassError('Incorrect passcode. Please try again.');
     }
   };
 
