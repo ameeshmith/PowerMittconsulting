@@ -1,6 +1,6 @@
 /* ============================================
    Navbar Component — Modern Architectural Header
-   Strict Typography: Montserrat
+   Strict Typography: Poppins
    ============================================ */
 
 .navbar-modern {
@@ -55,7 +55,7 @@
 }
 
 .navbar-modern__brand-name {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: 1.05rem;
   font-weight: 800;
   letter-spacing: 0.04em;
@@ -64,7 +64,7 @@
 }
 
 .navbar-modern__brand-sub {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: 8px;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -88,7 +88,7 @@
   align-items: center;
   gap: 4px;
   padding: 8px 16px;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: 13.5px;
   font-weight: 600;
   color: #334155;
@@ -144,14 +144,14 @@
 }
 
 .navbar-modern__dropdown-title {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: 13px;
   font-weight: 700;
   color: #0B192C;
 }
 
 .navbar-modern__dropdown-desc {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: 11px;
   color: #64748B;
   margin-top: 2px;
@@ -172,7 +172,7 @@
   border-radius: 9999px;
   background: linear-gradient(135deg, #00C9A7 0%, #00B4D8 100%);
   color: #061A26 !important;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: 13.5px;
   font-weight: 700;
   text-decoration: none;
@@ -266,7 +266,7 @@
 
 .navbar-modern__mobile-link {
   display: block;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: 1.05rem;
   font-weight: 700;
   color: #0B192C;
@@ -339,14 +339,14 @@
 }
 
 .navbar-modern__mobile-sub-title {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: 13.5px;
   font-weight: 700;
   color: #0B192C;
 }
 
 .navbar-modern__mobile-sub-desc {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: 11.5px;
   color: #64748B;
   margin-top: 2px;
@@ -367,7 +367,7 @@
   border-radius: 9999px;
   background: linear-gradient(135deg, #00C9A7 0%, #00B4D8 100%);
   color: #061A26 !important;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;

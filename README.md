@@ -22,7 +22,7 @@ A modern, high-performance web platform for **PowerMitt Consulting Pty Ltd**, an
 
 - **Frontend Core:** [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
 - **Routing:** [React Router v7](https://reactrouter.com/)
-- **Icons & Typography:** `lucide-react`, IBM Plex Sans, IBM Plex Mono, and Montserrat (`@fontsource`)
+- **Icons & Typography:** `lucide-react`, Poppins (`@fontsource/poppins` & Google Fonts)
 - **Styling:** Custom Vanilla CSS Design System with dark industrial tokens, CSS Custom Properties, and keyframe reveal animations
 - **Data & Content Management:** Local persistence service (`localStorage` API) combined with static dataset fallbacks and hooks for Sanity CMS integration
 - **Contact Submissions:** [Web3Forms](https://web3forms.com/) API integration

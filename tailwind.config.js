@@ -64,8 +64,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Montserrat', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        heading: ['Montserrat', 'sans-serif'],
+        sans: ['Poppins', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        heading: ['Poppins', 'sans-serif'],
       },
       borderRadius: {
         'lg': '10px',

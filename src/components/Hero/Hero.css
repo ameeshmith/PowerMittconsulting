@@ -1,6 +1,6 @@
 /* ============================================
    Modern Hero Component — Concept to Execution
-   Strict Typography: Montserrat
+   Strict Typography: Poppins
    ============================================ */
 
 .hero-modern {
@@ -82,7 +82,7 @@
 }
 
 .hero-modern__badge span {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -92,7 +92,7 @@
 
 /* Main Title */
 .hero-modern__title {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: clamp(2.4rem, 5.2vw, 3.85rem);
   font-weight: 800;
   line-height: 1.12;
@@ -112,7 +112,7 @@
 
 /* Subtitle */
 .hero-modern__subtitle {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: clamp(1rem, 1.8vw, 1.15rem);
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.86);
@@ -137,7 +137,7 @@
   border-radius: var(--radius-full);
   background: linear-gradient(135deg, #00C9A7 0%, #00B4D8 100%);
   color: #061A26 !important;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: 14px;
   font-weight: 700;
   text-decoration: none;
@@ -161,7 +161,7 @@
   border-radius: var(--radius-full);
   background: rgba(255, 255, 255, 0.08);
   color: #FFFFFF !important;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
@@ -206,7 +206,7 @@
 }
 
 .hero-modern__stat-value {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: 1.65rem;
   font-weight: 800;
   color: #00E5FF;
@@ -215,7 +215,7 @@
 }
 
 .hero-modern__stat-label {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: 12px;
   font-weight: 700;
   color: #FFFFFF;
@@ -223,7 +223,7 @@
 }
 
 .hero-modern__stat-sub {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Poppins', sans-serif !important;
   font-size: 11px;
   color: rgba(255, 255, 255, 0.65);
   margin-top: 2px;
