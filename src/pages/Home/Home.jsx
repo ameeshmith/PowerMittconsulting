@@ -89,7 +89,6 @@ export default function Home() {
         primaryLink="/services"
         secondaryCTA="View Projects"
         secondaryLink="/projects"
-        showFounderNote={true}
         stats={heroStats}
         bgImage="/assets/images/hero-modern-skyline.jpg"
       />
