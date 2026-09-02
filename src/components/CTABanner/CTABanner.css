@@ -1,19 +1,11 @@
 .cta-banner {
   position: relative;
-  padding: var(--space-20) 0;
-  background: var(--gradient-dark);
-  border-top: 1px solid var(--color-border-dark);
-  border-bottom: 1px solid var(--color-border-dark);
+  padding: 5.5rem 0;
+  background: linear-gradient(160deg, #060E18 0%, #0B192C 60%, #0A2239 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
   text-align: center;
-}
-
-[data-theme="forest"] .cta-banner {
-  background: linear-gradient(160deg, #0B1610 0%, #13261C 55%, #182D24 100%);
-}
-
-[data-theme="blue"] .cta-banner {
-  background: linear-gradient(160deg, #060E18 0%, #0B192C 55%, #11233B 100%);
 }
 
 .cta-banner__pattern {
@@ -29,28 +21,27 @@
 }
 
 .cta-banner__title {
-  font-family: var(--font-heading);
-  font-size: var(--text-3xl);
-  font-weight: 800;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 600;
   color: #FFFFFF;
-  margin-bottom: var(--space-4);
+  margin-bottom: 1rem;
+  letter-spacing: -0.015em;
 }
 
 .cta-banner__subtitle {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
   font-size: var(--text-base);
   color: rgba(255, 255, 255, 0.85);
   line-height: var(--leading-relaxed);
-  margin-bottom: var(--space-8);
-  max-width: 620px;
+  margin-bottom: 2rem;
+  max-width: 640px;
   margin-left: auto;
   margin-right: auto;
 }
 
 @media (max-width: 768px) {
   .cta-banner {
-    padding: var(--space-12) 0;
-  }
-  .cta-banner__title {
-    font-size: var(--text-2xl);
+    padding: 4rem 0;
   }
 }

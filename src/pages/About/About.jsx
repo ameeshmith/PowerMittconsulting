@@ -5,6 +5,7 @@ import Hero from '../../components/Hero/Hero';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import Timeline from '../../components/Timeline/Timeline';
 import CTABanner from '../../components/CTABanner/CTABanner';
+import WordHighlight from '../../components/WordHighlight/WordHighlight';
 import { getAssetUrl } from '../../utils/assetPath';
 import './About.css';
 
@@ -37,7 +38,15 @@ export default function About() {
       <Hero
         variant="compact"
         label="About Us"
-        title="Engineering Excellence for Australia's Complex Energy Challenges"
+        title={
+          <>
+            Engineering{' '}
+            <WordHighlight color="blue" variant="oval">
+              rigour
+            </WordHighlight>{' '}
+            for complex energy challenges.
+          </>
+        }
         subtitle="An independent specialist engineering consultancy focused on electrical power systems, energy transition, and industrial infrastructure."
         bgImage="/assets/images/hero-about.jpg"
       />

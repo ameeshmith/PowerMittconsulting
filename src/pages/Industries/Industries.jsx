@@ -4,6 +4,7 @@ import Hero from '../../components/Hero/Hero';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import IndustryCard from '../../components/IndustryCard/IndustryCard';
 import CTABanner from '../../components/CTABanner/CTABanner';
+import WordHighlight from '../../components/WordHighlight/WordHighlight';
 import { industries } from '../../data/industries';
 import './Industries.css';
 
@@ -19,7 +20,15 @@ export default function Industries() {
       <Hero 
         variant="compact" 
         label="Industries We Serve" 
-        title="Engineering for Demanding Industrial Sectors" 
+        title={
+          <>
+            Engineering for demanding{' '}
+            <WordHighlight color="blue" variant="oval">
+              industrial
+            </WordHighlight>{' '}
+            sectors.
+          </>
+        }
         subtitle="Specialist electrical power systems and energy engineering expertise tailored for the resources, energy, oil & gas, and industrial infrastructure sectors." 
         bgImage="/assets/images/industrial-bg.jpg"
       />

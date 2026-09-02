@@ -1,68 +1,172 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Zap, Sun, Factory, HardHat, Shield, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Zap, Sun, Factory, HardHat, Shield, CheckCircle2, Award, Activity } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import CTABanner from '../../components/CTABanner/CTABanner';
+import WordHighlight from '../../components/WordHighlight/WordHighlight';
 import { industries } from '../../data/industries';
 import { getAssetUrl } from '../../utils/assetPath';
 import './Home.css';
 
 const heroStats = [
-  { value: '30+', label: 'Years of Experience', subtext: 'Industrial & Power Leadership' },
-  { value: '100%', label: 'Independent Advisory', subtext: 'Vendor-Neutral Solutions' },
-  { value: 'AEMO / WEM', label: 'Grid Compliance', subtext: 'Full Lifecycle Modeling' },
+  { value: '30+', label: 'Years Experience', subtext: 'Heavy Power & Industrial' },
+  { value: '100%', label: 'Independent Advisory', subtext: 'Vendor-Neutral Engineering' },
+  { value: 'AEMO / WEM', label: 'Grid Compliance', subtext: 'Connection & Compliance Studies' },
   { value: 'National Reach', label: 'Perth, WA HQ', subtext: 'Australia-Wide Delivery' }
 ];
 
 const coreCapabilities = [
-  { title: 'Electrical Power Systems', desc: 'Power system studies, HV/LV distribution, substation design & grid compliance.', link: '/services/power-systems', icon: Zap, theme: 'blue' },
-  { title: 'Renewable Energy & Decarbonisation', desc: 'Solar, BESS, hydrogen, electrification & net-zero pathway engineering.', link: '/services/energy-transition', icon: Sun, theme: 'green' },
-  { title: 'Carbon Capture & Storage', desc: 'Electrical engineering support for CCS compressor drives & grid interface.', link: '/services/carbon-capture', icon: Factory, theme: 'green' },
-  { title: 'Industrial & Mining Infrastructure', desc: 'Surface/underground mining systems, MCCs, SCADA & brownfield upgrades.', link: '/services/industrial-infrastructure', icon: HardHat, theme: 'blue' },
-  { title: "Owner's Engineering", desc: 'Independent technical due diligence, design verification & execution support.', link: '/services/owners-engineering', icon: Shield, theme: 'blue' }
+  { 
+    title: 'Electrical Power Systems', 
+    desc: 'Comprehensive power system studies, HV/LV distribution design, substation engineering & grid connection compliance.', 
+    link: '/services/power-systems', 
+    icon: Zap, 
+    theme: 'blue',
+    tag: 'Grid & Transmission'
+  },
+  { 
+    title: 'Renewable Energy & Decarbonisation', 
+    desc: 'Utility-scale Solar PV, BESS integration, wind, hydrogen, and industrial electrification strategies within grid constraints.', 
+    link: '/services/energy-transition', 
+    icon: Sun, 
+    theme: 'green',
+    tag: 'Renewables & Storage'
+  },
+  { 
+    title: 'Carbon Capture & Storage (CCS)', 
+    desc: 'Specialist electrical engineering for mega-compressor motor drives, medium-voltage VSD topologies & power infrastructure.', 
+    link: '/services/carbon-capture', 
+    icon: Factory, 
+    theme: 'green',
+    tag: 'Clean Transition'
+  },
+  { 
+    title: 'Industrial & Mining Infrastructure', 
+    desc: 'Underground & open-pit mining power distribution, mineral processing design, trailing cables, and brownfield upgrades.', 
+    link: '/services/industrial-infrastructure', 
+    icon: HardHat, 
+    theme: 'blue',
+    tag: 'Heavy Industry'
+  },
+  { 
+    title: "Owner's Engineering & Advisory", 
+    desc: 'Independent technical due diligence, design verification, vendor evaluation & capital project execution advisory.', 
+    link: '/services/owners-engineering', 
+    icon: Shield, 
+    theme: 'blue',
+    tag: 'Independent Advisory'
+  }
 ];
 
 export default function Home() {
   return (
-    <main>
+    <main className="home-page">
       <SEO
-        title="PowerMitt Consulting | Engineering Excellence from Concept to Execution"
+        title="PowerMitt Consulting | Electrical Power Systems & Energy Engineering"
         description="Specialist electrical power systems and energy engineering consultancy supporting complex industrial, resources and energy projects across Australia."
         path="/"
       />
 
-      {/* === HERO SECTION MATCHING REFERENCE DESIGN === */}
+      {/* === HERO SECTION WITH ETERNAL-STYLE EDITORIAL HIGHLIGHTS === */}
       <Hero
         badge="ENGINEERING CONSULTANCY"
         title={
           <>
-            Engineering <span className="hero-modern__highlight">excellence</span><br />
-            from concept to execution.
+            Engineering{' '}
+            <WordHighlight color="blue" variant="oval">
+              excellence
+            </WordHighlight>{' '}
+            from concept to{' '}
+            <WordHighlight color="green" variant="oval">
+              execution
+            </WordHighlight>
+            .
           </>
         }
-        subtitle="PowerMitt Consulting delivers independent power systems, grid connection, and energy transition engineering for landmark projects across Mining, Energy, Oil & Gas, and Heavy Infrastructure — built on technical rigour, efficiency and ISO standards."
+        subtitle="PowerMitt Consulting delivers independent electrical power systems, grid connection, and energy transition engineering for heavy industry, mining, and renewable infrastructure across Australia."
         primaryCTA="Explore Services"
         primaryLink="/services"
         secondaryCTA="View Projects"
         secondaryLink="/projects"
+        showFounderNote={true}
         stats={heroStats}
         bgImage="/assets/images/hero-modern-skyline.jpg"
       />
 
-      {/* === ABOUT SECTION (Minimalist Two-Column) === */}
-      <section className="home-about section--ice">
+      {/* === CAPABILITIES SHOWCASE (Eternal-inspired Interactive Cards) === */}
+      <section className="home-services">
+        <div className="container">
+          <div className="home-services__header-row">
+            <div className="home-services__title-block">
+              <span className="label">Specialist Capabilities</span>
+              <h2 className="home-services__title">
+                Powering Australia’s{' '}
+                <WordHighlight color="blue" variant="oval">
+                  energy
+                </WordHighlight>{' '}
+                infrastructure.
+              </h2>
+              <span className="section-title-line section-title-line--gradient" />
+            </div>
+            <p className="home-services__subtitle">
+              At the core of PowerMitt is engineering rigour, independent integrity, and deep technical depth across both legacy high-voltage systems and modern clean energy transitions.
+            </p>
+          </div>
+
+          <div className="home-services__grid">
+            {coreCapabilities.map((cap, i) => {
+              const Icon = cap.icon;
+              return (
+                <Link
+                  key={i}
+                  to={cap.link}
+                  className={`home-capability-card home-capability-card--${cap.theme}`}
+                >
+                  <div className="home-capability-card__header">
+                    <span className="home-capability-card__tag">{cap.tag}</span>
+                    <div className="home-capability-card__icon">
+                      <Icon size={20} />
+                    </div>
+                  </div>
+                  <h3 className="home-capability-card__title">{cap.title}</h3>
+                  <p className="home-capability-card__desc">{cap.desc}</p>
+                  <div className="home-capability-card__footer">
+                    <span>Explore Capability</span>
+                    <ArrowRight size={14} />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+
+          <div className="home-services__footer text-center">
+            <Link to="/services" className="btn btn--outline">
+              View Complete Services Portfolio <ArrowRight size={15} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* === ABOUT SECTION (Blueprint Coordinate Grid & Minimalist Two-Column) === */}
+      <section className="home-about section--ice grid_bg">
         <div className="container">
           <div className="home-about__grid">
             <div className="home-about__content">
-              <span className="label">About PowerMitt Consulting</span>
-              <h2>Independent Engineering Rigour & Sustainable Innovation</h2>
+              <span className="label label--green">Engineering Advisory</span>
+              <h2>
+                Independent{' '}
+                <WordHighlight color="green" variant="oval">
+                  rigour
+                </WordHighlight>{' '}
+                & sustainable engineering.
+              </h2>
               <hr className="divider" />
               <p>
-                PowerMitt Consulting is an independent electrical power systems and energy engineering consultancy based in Perth, Western Australia. We partner with heavy industrial, resources, and utility clients to deliver robust power infrastructure and accelerate the energy transition.
+                PowerMitt Consulting Pty Ltd is an independent electrical power systems consultancy based in Perth, Western Australia. Founded by <strong>Dinesh Mithanthaya</strong>, our consultancy brings over 20+ years of high-calibre technical expertise to complex industrial and utility-scale projects.
               </p>
               <p>
-                Our engineering approach combines technical depth, practical site experience, and forward-looking decarbonisation strategies to de-risk capital projects and optimize operational efficiency.
+                We do not sell equipment or maintain vendor exclusivity. Our recommendations are driven solely by engineering physics, reliability, regulatory compliance, and life-cycle asset value.
               </p>
               
               <div className="home-about__checklist">
@@ -81,8 +185,8 @@ export default function Home() {
               </div>
 
               <div className="home-about__action">
-                <Link to="/about" className="btn btn--outline">
-                  Learn More About Us <ArrowRight size={15} />
+                <Link to="/about" className="btn btn--primary">
+                  About Dinesh & PowerMitt <ArrowRight size={15} />
                 </Link>
               </div>
             </div>
@@ -115,49 +219,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* === SERVICES SECTION (Clean Blue & Green Grid) === */}
-      <section className="home-services">
-        <div className="container">
-          <SectionHeader
-            label="Our Services"
-            title="Specialist Expertise Across the Project Lifecycle"
-            subtitle="End-to-end electrical engineering solutions tailored for complex power generation, mining, and energy transition assets."
-            align="center"
-          />
-
-          <div className="home-services__grid">
-            {coreCapabilities.map((cap, i) => {
-              const Icon = cap.icon;
-              return (
-                <Link key={i} to={cap.link} className={`home-services__card home-services__card--${cap.theme}`}>
-                  <div className={`home-services__icon-badge home-services__icon-badge--${cap.theme}`}>
-                    <Icon size={20} />
-                  </div>
-                  <h3>{cap.title}</h3>
-                  <p>{cap.desc}</p>
-                  <span className={`home-services__link home-services__link--${cap.theme}`}>
-                    Explore Service <ArrowRight size={14} />
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-
-          <div className="home-services__footer text-center">
-            <Link to="/services" className="btn btn--outline">
-              View All Services Details <ArrowRight size={15} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* === INDUSTRIES SECTION (Dark Executive Grid) === */}
       <section className="section--dark home-industries">
         <div className="container">
           <SectionHeader
             label="Industries We Serve"
-            title="Engineering for Demanding Industrial Sectors"
-            subtitle="Delivering specialist power and energy engineering for Australia's industrial infrastructure."
+            title="Engineering for Australia’s Heavy Industries"
+            subtitle="Delivering specialist power and energy transition engineering for demanding resources, utilities, and infrastructure."
             light
           />
 
@@ -174,7 +242,7 @@ export default function Home() {
                   <div className="home-industries__overlay" />
                   <div className="home-industries__content">
                     <span className={`home-industries__tag ${isGreenSector ? 'home-industries__tag--green' : ''}`}>
-                      Sector
+                      {isGreenSector ? 'Energy Transition' : 'Heavy Industry'}
                     </span>
                     <h3>{ind.title}</h3>
                     <p>{ind.shortDescription}</p>
@@ -191,9 +259,9 @@ export default function Home() {
 
       {/* === CTA BANNER === */}
       <CTABanner
-        title="Have a Complex Engineering Challenge?"
-        subtitle="Let's discuss how PowerMitt can support your project."
-        buttonText="Contact PowerMitt"
+        title="Ready to De-Risk Your Electrical Power Infrastructure?"
+        subtitle="Connect directly with Dinesh Mithanthaya and the PowerMitt engineering team."
+        buttonText="Get in Touch"
         buttonLink="/contact"
       />
     </main>

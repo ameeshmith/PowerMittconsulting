@@ -1,19 +1,199 @@
 /* ============================================
-   Home Page Styles — Minimalist & Dual Blue/Green
-   Strict Typography: Poppins
+   Strict Typography: Be Vietnam Pro & Plus Jakarta Sans
+   Palette: Electric Blue, Energy Green, Crisp White
    ============================================ */
 
-.home-hero__gradient-text {
-  background: linear-gradient(135deg, #0066FF 0%, #10B981 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  display: inline-block;
+.home-page {
+  position: relative;
 }
 
-/* ── About PowerMitt ── */
+/* ── Capabilities Header Row (Eternal style) ── */
+.home-services {
+  background: var(--color-body-bg);
+  padding: 5.5rem 0;
+}
+
+.home-services__header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+.home-services__title-block {
+  max-width: 680px;
+}
+
+.home-services__title {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.25;
+  color: #0A0A0A;
+  margin-top: 0.5rem;
+}
+
+.home-services__subtitle {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #475569;
+  max-width: 460px;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Eternal-style Interactive Capability Cards ── */
+.home-services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.home-capability-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  background: #FFFFFF;
+  border: 1px solid #E6E9EF;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 10px rgba(10, 10, 10, 0.03);
+}
+
+.home-capability-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.home-capability-card__tag {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748B;
+  background: #F1F5F9;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+}
+
+.home-capability-card__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.home-capability-card--blue .home-capability-card__icon {
+  background: #EBF4FF;
+  color: #0066FF;
+}
+
+.home-capability-card--green .home-capability-card__icon {
+  background: #ECFDF5;
+  color: #10B981;
+}
+
+.home-capability-card__title {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #0A0A0A;
+  margin-bottom: 0.65rem;
+  line-height: 1.35;
+  transition: color 0.25s ease;
+}
+
+.home-capability-card__desc {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: 13.5px;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.home-capability-card__footer {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0066FF;
+  margin-top: auto;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.home-capability-card--green .home-capability-card__footer {
+  color: #10B981;
+}
+
+/* Hover Shifts (Blue & Green) */
+.home-capability-card--blue:hover {
+  border-color: #0066FF;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -4px rgba(0, 102, 255, 0.12), 0 4px 12px rgba(10, 10, 10, 0.04);
+}
+
+.home-capability-card--blue:hover .home-capability-card__title {
+  color: #0066FF;
+}
+
+.home-capability-card--blue:hover .home-capability-card__tag {
+  background: #EBF4FF;
+  color: #0066FF;
+}
+
+.home-capability-card--blue:hover .home-capability-card__icon {
+  background: #0066FF;
+  color: #FFFFFF;
+}
+
+.home-capability-card--blue:hover .home-capability-card__footer {
+  gap: 9px;
+  color: #0052CC;
+}
+
+.home-capability-card--green:hover {
+  border-color: #10B981;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -4px rgba(16, 185, 129, 0.14), 0 4px 12px rgba(10, 10, 10, 0.04);
+}
+
+.home-capability-card--green:hover .home-capability-card__title {
+  color: #10B981;
+}
+
+.home-capability-card--green:hover .home-capability-card__tag {
+  background: #ECFDF5;
+  color: #10B981;
+}
+
+.home-capability-card--green:hover .home-capability-card__icon {
+  background: #10B981;
+  color: #FFFFFF;
+}
+
+.home-capability-card--green:hover .home-capability-card__footer {
+  gap: 9px;
+  color: #059669;
+}
+
+/* ── About Section (Two-Column with Coordinate Grid) ── */
 .home-about {
-  padding: 5rem 0;
+  padding: 5.5rem 0;
+  position: relative;
 }
 
 .home-about__grid {
@@ -24,12 +204,12 @@
 }
 
 .home-about__content h2 {
-  font-family: 'Poppins', sans-serif !important;
-  font-size: clamp(1.6rem, 3vw, 2.1rem);
-  font-weight: 800;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 500;
   line-height: 1.25;
   margin-bottom: 1rem;
-  color: var(--color-midnight);
+  color: #0A0A0A;
 }
 
 .home-about__checklist {
@@ -43,10 +223,10 @@
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
   font-size: 14px;
-  font-weight: 600;
-  color: var(--color-midnight);
+  font-weight: 500;
+  color: #1E293B;
 }
 
 .home-about__check-icon--blue {
@@ -61,10 +241,10 @@
 
 .home-about__card {
   background: var(--color-card-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+  border: 1px solid #E6E9EF;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 24px rgba(10, 10, 10, 0.04);
 }
 
 .home-about__img-wrap {
@@ -72,7 +252,7 @@
   width: 100%;
   aspect-ratio: 16 / 10;
   min-height: 220px;
-  background: var(--color-midnight);
+  background: #0A0A0A;
   overflow: hidden;
 }
 
@@ -85,7 +265,7 @@
 .home-about__img-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(11, 25, 44, 0.6) 100%);
+  background: linear-gradient(180deg, transparent 40%, rgba(10, 10, 10, 0.6) 100%);
 }
 
 .home-about__stats {
@@ -104,8 +284,8 @@
 }
 
 .home-about__stat-num {
-  font-family: 'Poppins', sans-serif !important;
-  font-size: 1.5rem;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 1.6rem;
   font-weight: 800;
   line-height: 1;
   margin-bottom: 2px;
@@ -120,138 +300,22 @@
 }
 
 .home-about__stat-label {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
   font-size: 11px;
   font-weight: 600;
-  color: var(--color-steel);
+  color: #64748B;
 }
 
 .home-about__stat-sep {
   width: 1px;
   height: 32px;
-  background: var(--color-border);
-}
-
-/* ── Services Grid ── */
-.home-services {
-  background: var(--color-body-bg);
-  padding: 5.5rem 0;
-}
-
-.home-services__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 2.5rem;
-}
-
-.home-services__card {
-  display: flex;
-  flex-direction: column;
-  padding: 1.75rem;
-  background: var(--color-card-bg);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  text-decoration: none;
-  transition: all var(--duration-base) var(--ease-out);
-  box-shadow: var(--shadow-sm);
-}
-
-.home-services__card--blue:hover {
-  border-color: #0066FF;
-  box-shadow: 0 16px 36px -4px rgba(0, 102, 255, 0.12);
-  transform: translateY(-3px);
-}
-
-.home-services__card--green:hover {
-  border-color: #10B981;
-  box-shadow: 0 16px 36px -4px rgba(16, 185, 129, 0.14);
-  transform: translateY(-3px);
-}
-
-.home-services__icon-badge {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.25rem;
-  transition: all var(--duration-fast);
-}
-
-.home-services__icon-badge--blue {
-  background: #EBF4FF;
-  border: 1px solid rgba(0, 102, 255, 0.18);
-  color: #0066FF;
-}
-
-.home-services__card--blue:hover .home-services__icon-badge--blue {
-  background: #0066FF;
-  color: #FFFFFF;
-}
-
-.home-services__icon-badge--green {
-  background: #ECFDF5;
-  border: 1px solid rgba(16, 185, 129, 0.22);
-  color: #059669;
-}
-
-.home-services__card--green:hover .home-services__icon-badge--green {
-  background: #10B981;
-  color: #FFFFFF;
-}
-
-.home-services__card h3 {
-  font-family: 'Poppins', sans-serif !important;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--color-midnight);
-  margin-bottom: 0.5rem;
-}
-
-.home-services__card p {
-  font-family: 'Poppins', sans-serif !important;
-  font-size: 13.5px;
-  color: var(--color-steel);
-  line-height: 1.55;
-  margin-bottom: 1.25rem;
-  flex: 1;
-}
-
-.home-services__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'Poppins', sans-serif !important;
-  font-size: 12.5px;
-  font-weight: 700;
-  margin-top: auto;
-  transition: gap var(--duration-fast);
-}
-
-.home-services__link--blue {
-  color: #0066FF;
-}
-
-.home-services__link--green {
-  color: #059669;
-}
-
-.home-services__card--blue:hover .home-services__link--blue {
-  gap: 8px;
-  color: #0052CC;
-}
-
-.home-services__card--green:hover .home-services__link--green {
-  gap: 8px;
-  color: #047857;
+  background: #E6E9EF;
 }
 
 /* ── Industries Grid ── */
 .home-industries {
   padding: 5.5rem 0;
-  background: var(--gradient-dark);
+  background: linear-gradient(160deg, #060E18 0%, #0B192C 60%, #0A2239 100%);
 }
 
 .home-industries__grid {
@@ -264,7 +328,7 @@
   position: relative;
   min-height: 240px;
   padding: 1.75rem;
-  border-radius: var(--radius-lg);
+  border-radius: 14px;
   background-size: cover;
   background-position: center;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -278,13 +342,13 @@
 .home-industries__card:hover {
   transform: translateY(-3px);
   border-color: #0066FF;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
 }
 
 .home-industries__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(6, 14, 24, 0.25) 0%, rgba(11, 25, 44, 0.92) 100%);
+  background: linear-gradient(180deg, rgba(6, 14, 24, 0.3) 0%, rgba(10, 10, 10, 0.94) 100%);
   z-index: 1;
 }
 
@@ -295,26 +359,26 @@
 
 .home-industries__tag {
   display: inline-block;
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   padding: 3px 8px;
   border-radius: 4px;
-  background: rgba(0, 102, 255, 0.3);
-  border: 1px solid rgba(0, 102, 255, 0.5);
+  background: rgba(0, 102, 255, 0.25);
+  border: 1px solid rgba(0, 102, 255, 0.45);
   color: #FFFFFF;
   margin-bottom: 0.5rem;
 }
 
 .home-industries__tag--green {
-  background: rgba(16, 185, 129, 0.3);
-  border-color: rgba(16, 185, 129, 0.5);
+  background: rgba(16, 185, 129, 0.25);
+  border-color: rgba(16, 185, 129, 0.45);
 }
 
 .home-industries__content h3 {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
   font-size: 1.15rem;
   font-weight: 700;
   color: #FFFFFF;
@@ -322,7 +386,7 @@
 }
 
 .home-industries__content p {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
   font-size: 13px;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.5;
@@ -333,7 +397,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 12px;
   font-weight: 700;
   color: #0066FF;
@@ -345,12 +409,19 @@
 
 /* ── Responsive ── */
 @media (max-width: 1024px) {
+  .home-services__header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .home-services__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .home-about__grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
-  }
-  .home-services__grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -358,6 +429,7 @@
   .home-services__grid {
     grid-template-columns: 1fr;
   }
+
   .home-industries__grid {
     grid-template-columns: 1fr;
   }

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Phone, Mail, MapPin, Send, CheckCircle, Loader, Building, Clock } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
+import WordHighlight from '../../components/WordHighlight/WordHighlight';
 import { FORMS_CONFIG } from '../../config/forms';
 import { getAssetUrl } from '../../utils/assetPath';
 import './Contact.css';
@@ -97,7 +98,15 @@ export default function Contact() {
       <Hero
         variant="compact"
         label="Contact Us"
-        title="Let's Discuss Your Engineering Challenge"
+        title={
+          <>
+            Let's discuss your{' '}
+            <WordHighlight color="blue" variant="oval">
+              engineering
+            </WordHighlight>{' '}
+            challenge.
+          </>
+        }
         subtitle="Whether you're planning a new facility, need specialist power systems modeling, or want independent technical advisory — we're here to help."
         bgImage="/assets/images/hero-contact.jpg"
       />

@@ -35,7 +35,7 @@
 }
 
 .footer__brand-name {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
   font-size: 1.05rem;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -43,7 +43,7 @@
 }
 
 .footer__brand-desc {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
   font-size: 8.5px;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -83,7 +83,7 @@ a.footer__contact-item:hover {
 }
 
 .footer__heading {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.08em;

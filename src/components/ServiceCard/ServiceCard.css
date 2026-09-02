@@ -73,7 +73,7 @@
 }
 
 .service-card__number {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
   font-size: 1.25rem;
   font-weight: 800;
   color: var(--color-steel-light);
@@ -87,7 +87,7 @@
 }
 
 .service-card__title {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--color-midnight);
@@ -96,7 +96,7 @@
 }
 
 .service-card__desc {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
   font-size: 13.5px;
   color: var(--color-steel);
   line-height: 1.6;
@@ -112,7 +112,7 @@
 }
 
 .service-card__caps li {
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
   font-size: 12.5px;
   color: var(--color-midnight);
   padding-left: 1rem;
@@ -147,7 +147,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: 'Poppins', sans-serif !important;
+  font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
   font-size: 13px;
   font-weight: 700;
   margin-top: auto;

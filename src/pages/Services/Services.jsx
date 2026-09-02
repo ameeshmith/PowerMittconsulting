@@ -4,6 +4,7 @@ import Hero from '../../components/Hero/Hero';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import ServiceCard from '../../components/ServiceCard/ServiceCard';
 import CTABanner from '../../components/CTABanner/CTABanner';
+import WordHighlight from '../../components/WordHighlight/WordHighlight';
 import { services } from '../../data/services';
 import './Services.css';
 
@@ -19,7 +20,19 @@ export default function Services() {
       <Hero
         variant="compact"
         label="Our Services"
-        title="Specialist Engineering Services for Complex Energy & Industrial Projects"
+        title={
+          <>
+            Specialist{' '}
+            <WordHighlight color="blue" variant="oval">
+              engineering
+            </WordHighlight>{' '}
+            for complex{' '}
+            <WordHighlight color="green" variant="oval">
+              energy
+            </WordHighlight>{' '}
+            projects.
+          </>
+        }
         subtitle="From power system studies and renewable integration to carbon capture engineering and independent technical advisory — we provide the expertise complex projects demand."
         bgImage="/assets/images/power-systems-bg.jpg"
       />

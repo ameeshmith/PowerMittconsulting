@@ -64,8 +64,9 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Poppins', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        heading: ['Poppins', 'sans-serif'],
+        sans: ['"Be Vietnam Pro"', '"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        heading: ['"Be Vietnam Pro"', '"Plus Jakarta Sans"', 'sans-serif'],
+        mono: ['"Plus Jakarta Sans"', 'monospace'],
       },
       borderRadius: {
         'lg': '10px',

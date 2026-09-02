@@ -5,6 +5,7 @@ import Hero from '../../components/Hero/Hero';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
 import CTABanner from '../../components/CTABanner/CTABanner';
+import WordHighlight from '../../components/WordHighlight/WordHighlight';
 import { projectCategories } from '../../data/projects';
 import './Projects.css';
 
@@ -68,7 +69,15 @@ export default function Projects() {
       <Hero
         variant="compact"
         label="Projects & Experience"
-        title="Engineering Project Portfolio"
+        title={
+          <>
+            Engineering{' '}
+            <WordHighlight color="blue" variant="oval">
+              track record
+            </WordHighlight>{' '}
+            & case studies.
+          </>
+        }
         subtitle="Specialist expertise delivered across power systems, energy transition, resources, and heavy industrial facilities."
         bgImage="/assets/images/hero-about.jpg"
       />
