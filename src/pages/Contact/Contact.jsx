@@ -122,6 +122,8 @@ export default function Contact() {
                     src={getAssetUrl('/assets/images/hero-about.jpg')} 
                     alt="PowerMitt Consulting Team"
                     className="contact__team-img"
+                    loading="lazy"
+                    decoding="async"
                     onError={(e) => { e.currentTarget.style.display = 'none'; }}
                   />
                   <div className="contact__team-overlay" />

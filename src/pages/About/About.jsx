@@ -89,6 +89,8 @@ export default function About() {
                   src={getAssetUrl('/assets/images/hero-about.jpg')} 
                   alt="PowerMitt Consulting Team"
                   className="about-media-img"
+                  loading="lazy"
+                  decoding="async"
                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
                 />
                 <div className="about-media-badge">

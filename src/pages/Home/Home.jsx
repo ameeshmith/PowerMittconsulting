@@ -197,6 +197,8 @@ export default function Home() {
                     src={getAssetUrl('/assets/images/hero-about.jpg')} 
                     alt="PowerMitt Consulting Engineering Team"
                     className="home-about__img"
+                    loading="lazy"
+                    decoding="async"
                     onError={(e) => { e.currentTarget.style.display = 'none'; }}
                   />
                   <div className="home-about__img-overlay" />
