@@ -17,6 +17,13 @@
   background: var(--color-card-bg);
   border: 1px solid var(--color-border);
   border-radius: 12px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.industry-detail__challenge:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 102, 255, 0.4);
+  box-shadow: 0 10px 24px -4px rgba(0, 102, 255, 0.1);
 }
 
 .industry-detail__challenge-icon {
