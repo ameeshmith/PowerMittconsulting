@@ -68,7 +68,6 @@ export default function Footer() {
               <li><Link to="/about">About Us</Link></li>
               <li><Link to="/projects">Projects & Experience</Link></li>
               <li><Link to="/insights">Engineering Insights</Link></li>
-              <li><Link to="/services/energy-transition">Energy Transition</Link></li>
               <li><Link to="/contact">Contact Us</Link></li>
             </ul>
           </div>
