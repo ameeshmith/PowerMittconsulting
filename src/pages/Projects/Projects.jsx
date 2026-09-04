@@ -13,6 +13,7 @@ const figmaProjectSamples = [
   {
     title: 'CCS Compression Plant Grid Interface',
     category: 'ccs',
+    categories: ['ccs', 'energy'],
     industry: 'Carbon Capture & Storage',
     location: 'Pilbara, Western Australia',
     description: 'High-voltage power system studies, harmonic filter design and dynamic compressor motor starting analysis for major carbon capture facility.',
@@ -23,6 +24,7 @@ const figmaProjectSamples = [
   {
     title: 'Project IG3 — 132kV Substation & Grid Interconnect',
     category: 'power-systems',
+    categories: ['power-systems', 'energy'],
     industry: 'Power Systems & Grid',
     location: 'South West Interconnected System (SWIS)',
     description: 'Detailed primary and secondary electrical design, protection coordination and connection compliance studies for 132kV transmission substation.',
@@ -33,6 +35,7 @@ const figmaProjectSamples = [
   {
     title: 'Mining Hybrid Microgrid & 50MW BESS Integration',
     category: 'bess',
+    categories: ['mining', 'bess', 'energy'],
     industry: 'Mining & Resources',
     location: 'Goldfields, Western Australia',
     description: 'Electrification and microgrid stability modeling for remote mine site integrating 50MW battery storage with gas turbine generation.',
@@ -43,6 +46,7 @@ const figmaProjectSamples = [
   {
     title: 'Heavy Industrial Gas Processing Facility Electrification',
     category: 'industrial',
+    categories: ['industrial', 'energy'],
     industry: 'Industrial Infrastructure',
     location: 'Kwinana Industrial Area, WA',
     description: "Owner's engineering advisory, brownfield electrical switchroom upgrade and FEED verification for critical processing facility.",
@@ -55,9 +59,14 @@ const figmaProjectSamples = [
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('all');
 
-  const displayProjects = figmaProjectSamples.filter(p => 
-    activeFilter === 'all' ? true : p.category === activeFilter
-  );
+  const displayProjects = figmaProjectSamples.filter(p => {
+    if (activeFilter === 'all') return true;
+    if (p.category === activeFilter) return true;
+    if (Array.isArray(p.categories) && p.categories.includes(activeFilter)) return true;
+    if (activeFilter === 'mining' && p.industry?.toLowerCase().includes('mining')) return true;
+    if (activeFilter === 'energy' && (p.category === 'bess' || p.category === 'ccs' || p.industry?.toLowerCase().includes('energy') || p.categories?.includes('energy'))) return true;
+    return false;
+  });
 
   return (
     <main>
