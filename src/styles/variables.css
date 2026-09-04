@@ -6,12 +6,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
 
 :root {
-  /* ── Canvas / Surfaces ── */
+  /* ── Canvas / Surfaces (Soft Architectural Slate — Option 1) ── */
   --color-white:          #FFFFFF;
-  --color-body-bg:        #FFFFFF;
+  --color-body-bg:        #F4F7FA;
   --color-card-bg:        #FFFFFF;
-  --color-surface:        #F8FAFC;
-  --color-surface-hover:  #F1F5F9;
+  --color-surface:        #EBF1F7;
+  --color-surface-hover:  #E1E9F2;
 
   /* ── Primary Deep Midnight Navy ── */
   --color-midnight:       #0A0A0A;
@@ -43,11 +43,11 @@
   --color-accent-glow:    rgba(0, 102, 255, 0.25);
 
   /* ── Neutrals & Borders ── */
-  --color-ice:            #F8FAFC;
-  --color-slate-light:    #F1F5F9;
+  --color-ice:            #EBF1F7;
+  --color-slate-light:    #E1E9F2;
   --color-steel:          #475569;
   --color-steel-light:    #64748B;
-  --color-border:         #E6E9EF;
+  --color-border:         #DCE3EC;
   --color-border-dark:    rgba(255, 255, 255, 0.12);
 
   /* ── Button Tokens ── */
