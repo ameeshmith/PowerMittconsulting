@@ -38,11 +38,51 @@ export default function InsightDetail() {
     window.scrollTo(0, 0);
   }, [slug]);
 
-  const handleShare = () => {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(window.location.href);
+  const handleShare = async () => {
+    // 1. Native Web Share API (Mobile devices / modern supported browsers)
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: article?.title ? `${article.title} | PowerMitt Consulting` : 'PowerMitt Consulting Insight',
+          text: article?.excerpt || article?.subtitle || 'Technical engineering insight from PowerMitt Consulting',
+          url: window.location.href,
+        });
+        return;
+      } catch (err) {
+        if (err?.name !== 'AbortError') {
+          console.warn('Native share error, falling back to clipboard:', err);
+        } else {
+          return; // User cancelled share dialog
+        }
+      }
+    }
+
+    // 2. Clipboard API fallback
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2500);
+        return;
+      } catch (err) {
+        console.warn('Clipboard write failed, using textarea fallback:', err);
+      }
+    }
+
+    // 3. Fallback textarea copy for non-secure contexts or older browsers
+    try {
+      const textArea = document.createElement('textarea');
+      textArea.value = window.location.href;
+      textArea.style.position = 'fixed';
+      textArea.style.opacity = '0';
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
+    } catch (err) {
+      console.error('All copy fallbacks failed:', err);
     }
   };
 
