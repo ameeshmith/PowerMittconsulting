@@ -11,6 +11,14 @@
   z-index: 10;
 }
 
+.footer__inner {
+  width: 100%;
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: 0 1.75rem;
+  box-sizing: border-box;
+}
+
 .footer__grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;

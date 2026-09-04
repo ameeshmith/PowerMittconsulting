@@ -5,7 +5,7 @@ import './Footer.css';
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="footer__inner container--wide">
+      <div className="footer__inner container container--wide">
         <div className="footer__grid">
           {/* Brand Column */}
           <div className="footer__brand-col">
