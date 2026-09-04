@@ -169,6 +169,15 @@
   background-color: #F8FAFC;
 }
 
+.navbar-modern__dropdown-item--active {
+  background-color: #F0F7FF;
+  border-left: 3px solid #0066FF;
+}
+
+.navbar-modern__dropdown-item--active .navbar-modern__dropdown-title {
+  color: #0066FF;
+}
+
 .navbar-modern__dropdown-title {
   font-family: 'Be Vietnam Pro', sans-serif !important;
   font-size: 13.5px;
