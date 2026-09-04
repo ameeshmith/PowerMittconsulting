@@ -95,14 +95,18 @@ input, textarea, select {
 }
 
 /* ── Container Layout — Explicit & Bulletproof ── */
-.container {
+.container,
+.container--wide {
   width: 100% !important;
-  max-width: 1240px !important;
   margin-left: auto !important;
   margin-right: auto !important;
   padding-left: 1.75rem !important;
   padding-right: 1.75rem !important;
   box-sizing: border-box !important;
+}
+
+.container {
+  max-width: 1240px !important;
 }
 
 .container--wide {

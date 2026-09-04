@@ -5,7 +5,7 @@ import './Footer.css';
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="footer__inner container--wide">
+      <div className="footer__inner container container--wide">
         <div className="footer__grid">
           {/* Brand Column */}
           <div className="footer__brand-col">
@@ -68,7 +68,6 @@ export default function Footer() {
               <li><Link to="/about">About Us</Link></li>
               <li><Link to="/projects">Projects & Experience</Link></li>
               <li><Link to="/insights">Engineering Insights</Link></li>
-              <li><Link to="/services/energy-transition">Energy Transition</Link></li>
               <li><Link to="/contact">Contact Us</Link></li>
             </ul>
           </div>

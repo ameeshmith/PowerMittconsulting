@@ -110,7 +110,11 @@ export default function Navbar() {
                 >
                   <div className="navbar-modern__dropdown-menu">
                     {link.dropdown.map((item) => (
-                      <Link key={item.path} to={item.path} className="navbar-modern__dropdown-item">
+                      <Link
+                        key={item.path}
+                        to={item.path}
+                        className={`navbar-modern__dropdown-item ${isActive(item.path) ? 'navbar-modern__dropdown-item--active' : ''}`}
+                      >
                         <span className="navbar-modern__dropdown-title">{item.label}</span>
                         <span className="navbar-modern__dropdown-desc">{item.description}</span>
                       </Link>
