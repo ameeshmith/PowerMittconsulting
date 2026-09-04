@@ -26,6 +26,9 @@ export default function Contact() {
     if (!form.name.trim()) e.name = 'Name is required';
     if (!form.email.trim()) e.email = 'Email is required';
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = 'Please enter a valid email';
+    if (form.phone.trim() && !/^[+()0-9\s-]{8,20}$/.test(form.phone.trim())) {
+      e.phone = 'Please enter a valid phone number';
+    }
     if (!form.message.trim()) e.message = 'Message is required';
     return e;
   };
@@ -209,7 +212,8 @@ export default function Contact() {
 
                       <div className="contact__field">
                         <label htmlFor="phone">Phone Number</label>
-                        <input id="phone" type="tel" value={form.phone} onChange={handleChange('phone')} placeholder="+61 4XX XXX XXX" />
+                        <input id="phone" type="tel" value={form.phone} onChange={handleChange('phone')} className={errors.phone ? 'error' : ''} placeholder="+61 4XX XXX XXX" />
+                        {errors.phone && <span className="contact__error">{errors.phone}</span>}
                       </div>
 
                       <div className="contact__field">
