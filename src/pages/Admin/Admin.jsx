@@ -80,7 +80,11 @@ export default function Admin() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const targetPasscode = (import.meta.env.VITE_ADMIN_PASSCODE || 'powermitt2026').trim().toLowerCase();
+    const targetPasscode = (import.meta.env.VITE_ADMIN_PASSCODE || '').trim().toLowerCase();
+    if (!targetPasscode) {
+      setPassError('Admin passcode is not configured in environment variables.');
+      return;
+    }
     if (passcode.trim().toLowerCase() === targetPasscode) {
       setIsAuthenticated(true);
       sessionStorage.setItem('powermitt_admin_authed', 'true');
