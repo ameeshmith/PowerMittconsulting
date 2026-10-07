@@ -59,13 +59,13 @@ const coreCapabilities = [
   },
   { 
     id: '05',
-    title: "Owner's Engineering Advisory", 
-    desc: 'Independent technical due diligence, design verification, vendor evaluation & capital project execution advisory.', 
+    title: "Owner's Engineering & EPC Delivery", 
+    desc: 'Independent technical due diligence, design verification, value engineering & EPC delivery support across major capital projects.', 
     link: '/services/owners-engineering', 
     icon: Shield, 
     category: 'advisory',
     theme: 'blue',
-    tag: 'Independent Advisory'
+    tag: 'Advisory & EPC Delivery'
   }
 ];
 
@@ -213,10 +213,10 @@ export default function Home() {
                 & vendor-neutral integrity.
               </h2>
               <p className="home-about__lead">
-                PowerMitt Consulting Pty Ltd is an independent electrical power engineering advisory based in Perth, Western Australia. Founded by <strong>Dinesh Mithanthaya</strong>, our practice delivers over 20+ years of high-calibre technical mastery to complex industrial and utility-scale projects.
+                PowerMitt Consulting Pty Ltd is an independent electrical power engineering advisory based in Perth, Western Australia. Founded by <strong>Dinesh Mithanthaya</strong>, our leadership combines several decades of technical depth across utility, power generation, transmission, industrial, mining, and renewable energy sectors.
               </p>
               <p>
-                We do not sell hardware, represent OEMs, or accept contractor commissions. Our recommendations are driven strictly by the laws of engineering physics, system reliability, regulatory compliance, and total lifecycle asset value.
+                We do not sell hardware, represent OEMs, or maintain vendor exclusivity. Working collaboratively with owners, EPC contractors and equipment vendors, our recommendations are driven strictly by engineering physics, system reliability, regulatory compliance, and total lifecycle asset value.
               </p>
               
               <div className="home-about__checklist">

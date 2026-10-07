@@ -16,29 +16,57 @@ export default function MiningResources() {
   return (
     <main>
       <SEO title="Mining & Resources Engineering | PowerMitt Consulting" description="Power system engineering for surface and underground mining, mineral processing, remote infrastructure electrification, and mining electrical systems." path="/industries/mining-resources" />
-      <Hero variant="industry" bgImage="/assets/images/mining-bg.jpg" label="Industries / Mining & Resources" title="Mining & Resources" subtitle="Electrical power system engineering for surface and underground mining operations, mineral processing plants, and remote site infrastructure — focused on reliability, safety, and electrification." />
+      <Hero
+        variant="industry"
+        bgImage="/assets/images/mining-bg.jpg"
+        label="Industries / Mining & Resources"
+        title="Mining & Resources"
+        subtitle="Specialist electrical and infrastructure engineering for greenfield developments and brownfield expansion projects — proven technical leadership supporting major iron ore operations."
+      />
 
       <section>
         <div className="container">
           <div className="service-detail__intro">
             <div className="service-detail__intro-text">
-              <span className="label">Industry Overview</span>
-              <h2>Power Systems for Mining Operations</h2>
+              <span className="label">Sector Capability</span>
+              <h2>Specialist Electrical & Infrastructure Engineering</h2>
               <hr className="divider" />
-              <p>Mining and resources operations demand robust electrical infrastructure capable of powering some of the heaviest industrial loads in existence. From large SAG mills and crushers drawing tens of megawatts to underground mining systems requiring intrinsically safe equipment — the electrical engineering challenges in mining are significant and highly specialised.</p>
-              <p>PowerMitt provides electrical power system engineering for mining clients across surface operations, underground mines, and mineral processing plants. We focus on the specific challenges of mining electrical systems: high-power loads, remote locations, harsh environments, and the growing imperative to electrify and decarbonise operations.</p>
+              <p>
+                PowerMitt provides specialist electrical and infrastructure engineering services to the mining and resources sector, supporting both greenfield developments and brownfield expansion projects.
+              </p>
+              <p>
+                Our team has extensive experience supporting major mining clients, including technical advisory, design management, engineering coordination and project delivery support. This includes engineering support for large-scale mining developments, infrastructure upgrades, brownfield modifications, operational improvement projects and stakeholder management activities.
+              </p>
+              <p>
+                <strong>Major Iron Ore Track Record:</strong> Through recent consulting engagements supporting major iron ore operations, our team has delivered design management, technical assurance and engineering coordination services across multiple electrical infrastructure projects, ensuring safe, reliable and efficient project outcomes.
+              </p>
             </div>
             <div className="service-detail__sidebar">
               <h4>Mining Sectors</h4>
               <ul>
-                <li>Surface mining operations</li>
-                <li>Underground mining</li>
-                <li>Mineral processing plants</li>
-                <li>Mine site infrastructure</li>
-                <li>Remote power supply</li>
-                <li>Mining electrification</li>
+                <li>Major Iron Ore Operations</li>
+                <li>Surface Mining Developments</li>
+                <li>Underground Mining Systems</li>
+                <li>Mineral Processing Plants</li>
+                <li>Mine Site Electrification</li>
+                <li>HV Submissions & Audits</li>
+                <li>Substations & Switchyards</li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mining Capabilities Grid */}
+      <section className="section--ice">
+        <div className="container">
+          <SectionHeader label="Capabilities" title="Mining Sector Capabilities" subtitle="Comprehensive electrical engineering spanning mine power system design through to operational assurance." />
+          <div className="industry-detail__challenges" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+            {ind.capabilities.map((cap, i) => (
+              <div key={i} className="industry-detail__challenge" style={{ borderLeft: '3px solid var(--color-blue)' }}>
+                <p style={{ fontWeight: 600, color: 'var(--color-midnight)', margin: 0 }}>{cap}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

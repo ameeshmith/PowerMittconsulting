@@ -168,25 +168,25 @@ export default function PowerSystems() {
           />
           <div className="service-detail__capabilities">
             <div className="service-detail__cap-group">
-              <h3>Grid Connection</h3>
+              <h3>Utility Grid Connection & Planning</h3>
               <ul>
-                <li>Utility connection assessments</li>
-                <li>Grid connection applications</li>
-                <li>Grid impact studies</li>
-                <li>Grid compliance verification</li>
-                <li>Renewable energy grid integration</li>
-                <li>Network augmentation studies</li>
+                <li>Utility grid connection studies & interface management</li>
+                <li>Transmission & distribution network planning</li>
+                <li>Grid compliance assessments (AEMO / WEM)</li>
+                <li>Power quality & network stability studies</li>
+                <li>Renewable energy integration to utility networks</li>
+                <li>Electrical network expansion & augmentation projects</li>
               </ul>
             </div>
             <div className="service-detail__cap-group">
-              <h3>Reliability & Performance</h3>
+              <h3>Substations, Protection & EPC Delivery</h3>
               <ul>
-                <li>Reliability assessments</li>
-                <li>Availability analysis</li>
-                <li>Maintainability reviews</li>
-                <li>Electrical infrastructure upgrades</li>
-                <li>Condition assessment</li>
-                <li>Life extension studies</li>
+                <li>HV and MV substations engineering</li>
+                <li>Protection & control systems, synchronisation system design</li>
+                <li>SCADA & communication systems</li>
+                <li>Power system reliability & availability studies</li>
+                <li>HV statutory submissions</li>
+                <li>Support EPC companies with optimised scope solutions</li>
               </ul>
             </div>
           </div>

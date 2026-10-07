@@ -71,37 +71,61 @@ export default function OwnersEngineering() {
         </div>
       </section>
 
-      <section>
+      {/* EPC Project Delivery Support (dmithanthaya Capability) */}
+      <section className="section--dark">
         <div className="container">
-          <SectionHeader label="Support" title="Project & Asset Support" />
-          <div className="service-detail__capabilities">
-            <div className="service-detail__cap-group">
-              <h3>Project Execution</h3>
+          <SectionHeader
+            label="EPC Partnership"
+            title="EPC Project Delivery Support"
+            subtitle="Specialist engineering and technical advisory services to EPC contractors — delivering projects safely, efficiently, and cost-effectively."
+            light
+          />
+          <div className="service-detail__capabilities" style={{ marginTop: '2rem' }}>
+            <div className="service-detail__cap-group" style={{ background: 'rgba(255,255,255,0.04)', borderColor: 'rgba(255,255,255,0.1)' }}>
+              <h3 style={{ color: '#00E5FF' }}>Design & Technical Assurance</h3>
               <ul>
-                <li>Project execution oversight</li>
-                <li>Construction monitoring</li>
-                <li>Commissioning planning and witness</li>
-                <li>Performance testing oversight</li>
-                <li>Defect identification and resolution</li>
-                <li>Handover and close-out support</li>
+                <li>Scope definition and scope optimisation</li>
+                <li>Technical assurance and independent design reviews</li>
+                <li>Value engineering and capital cost optimisation</li>
+                <li>Electrical system architecture development</li>
+                <li>Equipment selection and technical bid evaluations</li>
               </ul>
             </div>
-            <div className="service-detail__cap-group">
-              <h3>Asset Management</h3>
+            <div className="service-detail__cap-group" style={{ background: 'rgba(255,255,255,0.04)', borderColor: 'rgba(255,255,255,0.1)' }}>
+              <h3 style={{ color: '#10B981' }}>Project Execution & Commissioning</h3>
               <ul>
-                <li>Asset condition assessment</li>
-                <li>Asset management strategy</li>
-                <li>Life cycle cost analysis</li>
-                <li>Replacement and refurbishment planning</li>
-                <li>Operational performance review</li>
-                <li>Maintenance strategy development</li>
+                <li>Interface management and multi-discipline stakeholder coordination</li>
+                <li>Constructability and operability reviews</li>
+                <li>Risk identification, quantification and mitigation</li>
+                <li>Support across Concept, FEED, Detailed Design & Commissioning</li>
+                <li>Optimised solutions strictly aligned with scope, schedule and budget</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <CTABanner title="Need Independent Engineering Advice?" subtitle="Talk to us about your Owner's Engineering requirements." />
+      {/* Value-Driven Engineering */}
+      <section>
+        <div className="container">
+          <SectionHeader
+            label="Philosophy"
+            title="Value-Driven Engineering"
+            subtitle="Maximising asset value while upholding uncompromising safety, reliability, and regulatory compliance."
+            align="center"
+          />
+          <div style={{ maxWidth: '840px', margin: '0 auto', textAlign: 'center', fontSize: '1.05rem', lineHeight: '1.8', color: 'var(--color-charcoal)' }}>
+            <p>
+              PowerMitt works collaboratively with owners, EPC contractors and vendors to identify practical engineering solutions that maximise value while maintaining safety, reliability, operability and compliance.
+            </p>
+            <p style={{ marginTop: '1rem', color: 'var(--color-steel)' }}>
+              Our team's extensive cross-sector experience across <strong>Offshore Oil & Gas, Mining, Utilities, Renewable Energy,</strong> and <strong>Industrial Infrastructure</strong> projects enables us to develop optimised solutions that de-risk execution and support successful project delivery.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <CTABanner title="Need Independent Engineering or EPC Delivery Support?" subtitle="Talk to us about your Owner's Engineering and project delivery requirements." />
     </main>
   );
 }

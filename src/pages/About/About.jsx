@@ -74,13 +74,13 @@ export default function About() {
               <h2>Specialist Electrical Power Systems & Energy Advisory</h2>
               <hr className="divider" />
               <p>
-                PowerMitt Consulting Pty Ltd is an Australian engineering consultancy headquartered in Perth, Western Australia. We provide specialist electrical power systems and energy engineering expertise to clients across the resources, energy, oil and gas, and industrial sectors.
+                PowerMitt Consulting Pty Ltd is an Australian engineering consultancy headquartered in Perth, Western Australia. Founded by <strong>Dinesh Mithanthaya</strong>, our leadership combines several decades of deep technical experience across utility, power generation, transmission, distribution, industrial, grid management, mining, and renewable energy sectors.
               </p>
               <p>
-                Our core expertise lies in the intersection of electrical power system engineering and the energy transition — helping industrial clients navigate the shift towards lower-carbon operations while maintaining the absolute reliability and performance their operations demand.
+                Our team has successfully supported utility operators, energy developers, tier-one mining companies, and industrial clients in developing robust and reliable power systems that comply with regulatory and network requirements.
               </p>
               <p>
-                We work collaboratively with our clients, providing independent technical advice and practical engineering solutions across the full project lifecycle — from early-stage concept development through to detailed design, commissioning support, and operational engineering.
+                <strong>Value-Driven Engineering:</strong> We work collaboratively with asset owners, EPC contractors, and equipment vendors to identify practical engineering solutions that maximise capital value while maintaining uncompromised safety, reliability, operability, and compliance.
               </p>
             </div>
 
@@ -95,14 +95,14 @@ export default function About() {
                   onError={(e) => { e.currentTarget.style.display = 'none'; }}
                 />
                 <div className="about-media-badge">
-                  <h4>Key Capabilities</h4>
+                  <h4>Core Capabilities</h4>
                   <ul>
-                    <li>Electrical Power Systems & Modeling</li>
-                    <li>Renewable Energy & BESS Integration</li>
-                    <li>Energy Transition & Decarbonisation</li>
-                    <li>Carbon Capture & Compression Support</li>
-                    <li>Grid Connection & AEMO / WEM Compliance</li>
-                    <li>Owner's Engineering & Independent Audit</li>
+                    <li>Utility Grid Connection & AEMO / WEM Compliance</li>
+                    <li>Major Iron Ore & Mining Power Infrastructure</li>
+                    <li>Offshore Normally Unattended Facilities (NUF)</li>
+                    <li>Renewable Energy, Microgrids & BESS Integration</li>
+                    <li>Protection, Control & Synchronisation Systems</li>
+                    <li>Owner's Engineering & EPC Delivery Support</li>
                   </ul>
                 </div>
               </div>

@@ -16,29 +16,57 @@ export default function OilGas() {
   return (
     <main>
       <SEO title="Oil & Gas Engineering | PowerMitt Consulting" description="Electrical engineering for offshore facilities, LNG plants, processing facilities, and brownfield modifications in complex and hazardous industrial environments." path="/industries/oil-gas" />
-      <Hero variant="industry" bgImage="/assets/images/oil-rig-bg.jpg" label="Industries / Oil & Gas" title="Oil & Gas" subtitle="Electrical power system engineering for offshore facilities, LNG plants, onshore processing, and brownfield modifications — delivering reliable solutions in complex, hazardous environments." />
+      <Hero
+        variant="industry"
+        bgImage="/assets/images/oil-rig-bg.jpg"
+        label="Industries / Offshore Oil & Gas"
+        title="Offshore Oil & Gas"
+        subtitle="Practical offshore electrical engineering experience gained through support of major offshore developments and modifications in Australia and internationally — delivering robust, fit-for-purpose solutions."
+      />
 
       <section>
         <div className="container">
           <div className="service-detail__intro">
             <div className="service-detail__intro-text">
-              <span className="label">Industry Overview</span>
-              <h2>Electrical Engineering for Oil & Gas</h2>
+              <span className="label">Offshore Capability</span>
+              <h2>Practical Offshore Electrical Engineering</h2>
               <hr className="divider" />
-              <p>The oil and gas industry operates some of the most complex and demanding electrical power systems in the world. Offshore platforms, LNG facilities, and onshore processing plants require highly reliable power systems that must operate safely in hazardous classified areas.</p>
-              <p>PowerMitt provides specialist electrical power system engineering for oil and gas clients, with experience across offshore facilities, LNG plants, gas processing, and brownfield modification projects. We understand the unique challenges of designing and operating electrical systems in these demanding environments.</p>
+              <p>
+                PowerMitt Consulting brings practical offshore electrical engineering experience gained through support of major offshore developments and modifications in Australia and internationally.
+              </p>
+              <p>
+                PowerMitt understands the technical, operational and safety challenges associated with offshore facilities and delivers practical fit-for-purpose solutions that align with project objectives and operational requirements.
+              </p>
+              <p>
+                Recent experience includes engineering support associated with offshore developments including power system integration studies, electrical infrastructure assessments, switchgear and transformer evaluations, utility system optimisation, renewable integration concepts and decarbonisation opportunities.
+              </p>
             </div>
             <div className="service-detail__sidebar">
-              <h4>Sectors</h4>
+              <h4>Offshore Specialisations</h4>
               <ul>
-                <li>Offshore facilities</li>
-                <li>LNG plants</li>
-                <li>Gas processing</li>
-                <li>Onshore production</li>
-                <li>Brownfield modifications</li>
-                <li>Decommissioning support</li>
+                <li>Normally Unattended Facilities (NUF)</li>
+                <li>Offshore processing & utilities</li>
+                <li>Brownfield life extension</li>
+                <li>Gas compression drives & export</li>
+                <li>Power generation & distribution</li>
+                <li>RAM improvement initiatives</li>
+                <li>Decarbonisation & renewables</li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Offshore Services */}
+      <section className="section--ice">
+        <div className="container">
+          <SectionHeader label="Capabilities" title="Offshore Engineering Services" subtitle="Specialist engineering tailored to the stringent safety and operational requirements of offshore assets." />
+          <div className="industry-detail__challenges" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+            {ind.capabilities.map((cap, i) => (
+              <div key={i} className="industry-detail__challenge" style={{ borderLeft: '3px solid var(--color-blue)' }}>
+                <p style={{ fontWeight: 600, color: 'var(--color-midnight)', margin: 0 }}>{cap}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -17,15 +17,20 @@ export const services = [
     shortDescription: 'Specialist power system engineering for complex industrial and energy projects — from concept studies through to detailed design and commissioning support.',
     description: 'PowerMitt provides specialist electrical power system engineering services across the full project lifecycle. Our capabilities span power system studies, HV and LV distribution design, substation engineering, grid integration, and reliability assessments for complex industrial and energy infrastructure.',
     capabilities: [
-      'Power system studies (load flow, short circuit, protection coordination)',
-      'HV/LV distribution design',
-      'Substation & switchgear engineering',
-      'Grid connection & compliance',
-      'Arc flash analysis & power quality',
-      'Generation systems & grid integration',
-      'Reliability & maintainability assessments'
+      'Utility grid connection studies & utility interface management',
+      'Transmission and distribution network planning',
+      'Grid compliance assessments (AEMO / WEM)',
+      'Power quality & reliability studies',
+      'Renewable energy integration to utility networks',
+      'Industrial electrification & decarbonisation projects',
+      'HV and MV substations & switchgear engineering',
+      'Protection & control systems, synchronisation system design',
+      'SCADA and communication systems',
+      'Electrical network expansion & augmentation projects',
+      'HV submissions & statutory compliance',
+      'Support EPC companies with optimised scope solutions'
     ],
-    technologies: ['HV/LV Switchgear', 'Transformers', 'MCCs', 'Protection Systems', 'SCADA', 'Power Quality']
+    technologies: ['HV/MV Substations', 'Protection & Control', 'Synchronisation Systems', 'SCADA & EMS', 'AEMO / WEM Compliance', 'Power Quality Systems']
   },
   {
     id: 'energy-transition',
@@ -74,38 +79,43 @@ export const services = [
     slug: '/services/industrial-infrastructure',
     icon: 'HardHat',
     bgImage: '/assets/images/industrial-bg.jpg',
-    shortDescription: 'Electrical infrastructure engineering for mining, processing, and heavy industrial facilities — including underground mining systems and infrastructure upgrades.',
+    shortDescription: 'Specialist electrical and infrastructure engineering for surface & underground mining, mineral processing, and heavy industrial facilities.',
     description: 'PowerMitt delivers electrical infrastructure engineering for mining operations, mineral processing plants, and heavy industrial facilities. Our experience covers surface and underground mining electrical systems, HV/LV distribution, substations, MCCs, SCADA, communications, and infrastructure upgrades for operational improvement and reliability.',
     capabilities: [
-      'HV/LV distribution design',
-      'Substation & switchboard engineering',
-      'MCC design & specification',
-      'SCADA & communications systems',
-      'Mining electrical systems (surface & underground)',
-      'Infrastructure upgrades & brownfield modifications',
-      'Reliability & maintainability'
+      'Mine power system design and optimisation',
+      'HV/LV electrical distribution systems',
+      'Underground mining electrical infrastructure',
+      'Surface mining & process plant electrical systems',
+      'Substation and switchyard engineering',
+      'MCC and switchboard design',
+      'SCADA and communications infrastructure',
+      'Earthing and lightning protection systems',
+      'HV Submissions & statutory compliance'
     ],
-    technologies: ['Substations', 'MCCs', 'Switchboards', 'SCADA', 'Mining Systems', 'Cable Systems']
+    technologies: ['Substations & Switchyards', 'MCCs & Switchboards', 'Underground Systems', 'Mining Switchgear', 'SCADA & Comms', 'Earthing & Lightning']
   },
   {
     id: 'owners-engineering',
     number: '05',
-    title: "Owner's Engineering",
+    title: "Owner's Engineering & EPC Delivery Support",
     slug: '/services/owners-engineering',
     icon: 'Shield',
     bgImage: '/assets/images/owners-engineering-bg.jpg',
-    shortDescription: 'Independent technical advisory services — due diligence, design verification, vendor evaluation, and project execution support for asset owners.',
-    description: "PowerMitt provides independent Owner's Engineer services, acting as a trusted technical advisor to asset owners. We deliver technical due diligence, independent engineering reviews, vendor evaluations, design verification, risk assessments, and project execution support — ensuring our clients' interests are protected throughout the project lifecycle.",
+    shortDescription: 'Independent technical advisory, due diligence, and EPC project delivery support — value engineering, constructability reviews, and concept-to-commissioning assurance.',
+    description: "PowerMitt provides independent Owner's Engineer and EPC project delivery support services, helping deliver complex infrastructure safely, efficiently and cost-effectively. We work collaboratively with owners, EPC contractors and vendors to identify practical engineering solutions that maximise value while maintaining safety, reliability, operability and compliance.",
     capabilities: [
-      'Technical due diligence',
-      'Independent engineering review',
-      'Vendor evaluation & selection support',
-      'Design verification',
-      'Risk assessment',
-      'Asset management support',
-      'Project execution & commissioning support'
+      'Scope definition and optimisation',
+      'Technical assurance and design reviews',
+      'Value engineering and cost optimisation',
+      'Electrical system architecture development',
+      'Equipment selection and technical evaluations',
+      'Interface management and stakeholder coordination',
+      'Constructability and operability reviews',
+      'Risk identification and mitigation',
+      'Project execution support (Concept, FEED, Detailed Design, Commissioning)',
+      'Technical due diligence & vendor-neutral evaluation'
     ],
-    technologies: ['Technical Reviews', 'Risk Assessment', 'Due Diligence', 'Asset Management']
+    technologies: ['Technical Assurance', 'Value Engineering', 'Scope Optimisation', 'Risk Mitigation', 'Constructability Reviews', 'Interface Management']
   }
 ];
 

@@ -16,29 +16,57 @@ export default function EnergyUtilities() {
   return (
     <main>
       <SEO title="Energy & Utilities Engineering | PowerMitt Consulting" description="Engineering for renewable generation, battery storage, grid connections, transmission, distribution, and utility infrastructure supporting the energy transition." path="/industries/energy-utilities" />
-      <Hero variant="industry" bgImage="/assets/images/renewable-bess-bg.jpg" label="Industries / Energy & Utilities" title="Energy & Utilities" subtitle="Engineering for renewable generation, battery energy storage, grid connections, and utility infrastructure — supporting the transition to a lower-carbon energy system." />
+      <Hero
+        variant="industry"
+        bgImage="/assets/images/renewable-bess-bg.jpg"
+        label="Industries / Utility & Power Industry"
+        title="Utility & Power Industry"
+        subtitle="Decades of leadership across utility, power generation, transmission, distribution, grid management, and renewable integration — concept to commissioning."
+      />
 
       <section>
         <div className="container">
           <div className="service-detail__intro">
             <div className="service-detail__intro-text">
-              <span className="label label--teal">Industry Overview</span>
-              <h2>Engineering for the Energy Sector</h2>
+              <span className="label label--teal">Utility Leadership</span>
+              <h2>Utility & Power Industry Experience</h2>
               <hr className="divider" />
-              <p>The energy and utilities sector is undergoing fundamental transformation. The integration of large-scale renewable generation, battery energy storage, and distributed energy resources is creating new engineering challenges across the electricity grid — from generation through transmission and distribution to end use.</p>
-              <p>PowerMitt provides electrical engineering services for energy and utility clients, with particular expertise in grid connection, renewable integration, BESS, and the technical challenges of connecting new generation and storage assets to the electricity network.</p>
+              <p>
+                PowerMitt's leadership team combines several decades of experience across utility, power generation, transmission, distribution, industrial, grid management and renewable energy sectors.
+              </p>
+              <p>
+                The PowerMitt team has successfully supported utility operators, energy developers, mining companies and industrial clients in developing robust and reliable power systems that comply with regulatory and network requirements.
+              </p>
+              <p>
+                <strong>Concept to Commissioning:</strong> Our end-to-end delivery experience spans conventional power generation, renewable energy projects, battery energy storage systems (BESS), microgrids, industrial power systems and large-scale grid-connected infrastructure.
+              </p>
             </div>
             <div className="service-detail__sidebar">
-              <h4>Energy Sectors</h4>
+              <h4>Concept to Commissioning</h4>
               <ul>
-                <li>Renewable generation</li>
-                <li>Battery energy storage</li>
-                <li>Transmission networks</li>
-                <li>Distribution networks</li>
-                <li>Hybrid energy systems</li>
-                <li>Grid connections</li>
+                <li>Conventional Power Generation</li>
+                <li>Utility-Scale Renewables (Solar & Wind)</li>
+                <li>Battery Energy Storage Systems (BESS)</li>
+                <li>Microgrids & Islanded Networks</li>
+                <li>Transmission & Distribution Grids</li>
+                <li>AEMO / WEM Grid Compliance</li>
+                <li>EPC Support & Optimised Solutions</li>
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Utility Capabilities Grid */}
+      <section className="section--ice">
+        <div className="container">
+          <SectionHeader label="Expertise" title="Key Areas of Expertise" subtitle="Comprehensive power industry and grid compliance capabilities delivering optimised, regulatory-compliant solutions." />
+          <div className="industry-detail__challenges" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
+            {ind.capabilities.map((cap, i) => (
+              <div key={i} className="industry-detail__challenge" style={{ borderLeft: '3px solid var(--color-green)' }}>
+                <p style={{ fontWeight: 600, color: 'var(--color-midnight)', margin: 0 }}>{cap}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
