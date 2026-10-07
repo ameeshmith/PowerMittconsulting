@@ -1,24 +1,25 @@
 /* ============================================
-   IndustryCard Component — Epiko Studios Sector Card
+   IndustryCard Component — Clean White Sector Card
+   LumiWise Inspired Consulting Aesthetic
    ============================================ */
 
 .industry-card {
   display: flex;
   flex-direction: column;
   background: #FFFFFF;
-  border: 1px solid #E6E9EF;
+  border: 1px solid #E2E8F0;
   border-radius: var(--radius-2xl);
   text-decoration: none;
   overflow: hidden;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 2px 10px rgba(10, 10, 10, 0.03);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
   height: 100%;
 }
 
 .industry-card:hover {
   border-color: #0066FF;
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px -10px rgba(0, 102, 255, 0.14), 0 4px 12px rgba(11, 25, 44, 0.04);
+  box-shadow: 0 16px 36px -4px rgba(0, 102, 255, 0.12), 0 4px 12px rgba(15, 23, 42, 0.04);
 }
 
 .industry-card__image-wrap {
@@ -43,7 +44,7 @@
 .industry-card__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(6, 14, 24, 0.2) 0%, rgba(6, 14, 24, 0.85) 100%);
+  background: linear-gradient(180deg, rgba(6, 14, 24, 0.15) 0%, rgba(6, 14, 24, 0.75) 100%);
 }
 
 .industry-card__badge-icon {
@@ -53,21 +54,23 @@
   width: 40px;
   height: 40px;
   border-radius: 12px;
-  background: rgba(6, 14, 24, 0.85);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #00E5FF;
+  border: 1px solid #E2E8F0;
+  color: #0066FF;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .industry-card:hover .industry-card__badge-icon {
   background: #0066FF;
   color: #FFFFFF;
   border-color: #0066FF;
+  box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4);
   transform: scale(1.08);
 }
 
@@ -82,7 +85,7 @@
   font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 700;
-  color: #0A0A0A;
+  color: #0A1626;
   margin-bottom: 0.65rem;
   text-transform: uppercase;
   letter-spacing: -0.02em;
@@ -97,7 +100,7 @@
 .industry-card__desc {
   font-family: var(--font-body);
   font-size: 13.5px;
-  color: #64748B;
+  color: #475569;
   line-height: 1.65;
   margin-bottom: 1.5rem;
   flex: 1;
@@ -113,7 +116,7 @@
 .industry-card__tag {
   font-family: var(--font-body);
   font-size: 10.5px;
-  color: #334155;
+  color: #475569;
   background: #F1F5F9;
   padding: 4px 12px;
   border-radius: var(--radius-full);
@@ -131,7 +134,7 @@
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #0A0A0A;
+  color: #0A1626;
   transition: all 0.25s ease;
   margin-top: auto;
 }

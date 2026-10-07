@@ -17,52 +17,52 @@ const heroStats = [
 ];
 
 const coreCapabilities = [
-  { 
+  {
     id: '01',
-    title: 'Electrical Power Systems', 
-    desc: 'Comprehensive power system studies, HV/LV distribution design, substation engineering & grid connection compliance.', 
-    link: '/services/power-systems', 
-    icon: Zap, 
+    title: 'Electrical Power Systems',
+    desc: 'Comprehensive power system studies, HV/LV distribution design, substation engineering & grid connection compliance.',
+    link: '/services/power-systems',
+    icon: Zap,
     category: 'grid',
     theme: 'blue',
     tag: 'Grid & Transmission'
   },
-  { 
+  {
     id: '02',
-    title: 'Renewable Energy & Storage', 
-    desc: 'Utility-scale Solar PV, BESS integration, wind, hydrogen, and industrial electrification strategies within grid constraints.', 
-    link: '/services/energy-transition', 
-    icon: Sun, 
+    title: 'Renewable Energy & Storage',
+    desc: 'Utility-scale Solar PV, BESS integration, wind, hydrogen, and industrial electrification strategies within grid constraints.',
+    link: '/services/energy-transition',
+    icon: Sun,
     category: 'transition',
     theme: 'green',
     tag: 'Renewables & Storage'
   },
-  { 
+  {
     id: '03',
-    title: 'Carbon Capture & Storage (CCS)', 
-    desc: 'Specialist electrical engineering for mega-compressor motor drives, medium-voltage VSD topologies & power infrastructure.', 
-    link: '/services/carbon-capture', 
-    icon: Factory, 
+    title: 'Carbon Capture & Storage (CCS)',
+    desc: 'Specialist electrical engineering for mega-compressor motor drives, medium-voltage VSD topologies & power infrastructure.',
+    link: '/services/carbon-capture',
+    icon: Factory,
     category: 'transition',
     theme: 'green',
     tag: 'Clean Transition'
   },
-  { 
+  {
     id: '04',
-    title: 'Industrial & Mining Power', 
-    desc: 'Underground & open-pit mining power distribution, mineral processing design, trailing cables, and brownfield upgrades.', 
-    link: '/services/industrial-infrastructure', 
-    icon: HardHat, 
+    title: 'Industrial & Mining Power',
+    desc: 'Underground & open-pit mining power distribution, mineral processing design, trailing cables, and brownfield upgrades.',
+    link: '/services/industrial-infrastructure',
+    icon: HardHat,
     category: 'industry',
     theme: 'blue',
     tag: 'Heavy Industry'
   },
-  { 
+  {
     id: '05',
-    title: "Owner's Engineering & EPC Delivery", 
-    desc: 'Independent technical due diligence, design verification, value engineering & EPC delivery support across major capital projects.', 
-    link: '/services/owners-engineering', 
-    icon: Shield, 
+    title: "Owner's Engineering & EPC Delivery",
+    desc: 'Independent technical due diligence, design verification, value engineering & EPC delivery support across major capital projects.',
+    link: '/services/owners-engineering',
+    icon: Shield,
     category: 'advisory',
     theme: 'blue',
     tag: 'Advisory & EPC Delivery'
@@ -72,8 +72,8 @@ const coreCapabilities = [
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState('all');
 
-  const filteredCapabilities = activeCategory === 'all' 
-    ? coreCapabilities 
+  const filteredCapabilities = activeCategory === 'all'
+    ? coreCapabilities
     : coreCapabilities.filter(c => c.category === activeCategory);
 
   return (
@@ -218,7 +218,7 @@ export default function Home() {
               <p>
                 We do not sell hardware, represent OEMs, or maintain vendor exclusivity. Working collaboratively with owners, EPC contractors and equipment vendors, our recommendations are driven strictly by engineering physics, system reliability, regulatory compliance, and total lifecycle asset value.
               </p>
-              
+
               <div className="home-about__checklist">
                 <div className="home-about__check-item">
                   <CheckCircle2 size={18} className="text-[#0066FF] shrink-0" />
@@ -244,8 +244,8 @@ export default function Home() {
             <div className="home-about__media">
               <div className="home-about__card">
                 <div className="home-about__img-wrap">
-                  <img 
-                    src={getAssetUrl('/assets/images/hero-about.jpg')} 
+                  <img
+                    src={getAssetUrl('/assets/images/hero-about.jpg')}
                     alt="PowerMitt Consulting Engineering Team"
                     className="home-about__img"
                     loading="lazy"
@@ -271,8 +271,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* === INDUSTRIES / SECTORS SECTION (Epiko Dark Executive Cards) === */}
-      <section className="section--dark home-industries">
+      {/* === INDUSTRIES / SECTORS SECTION (Executive Cards) === */}
+      <section className="home-industries">
         <div className="container">
           <SectionHeader
             label="CRITICAL SECTORS"
@@ -282,7 +282,6 @@ export default function Home() {
               </>
             }
             subtitle="Delivering specialised power system studies, design verification, and grid integration for demanding resources, utilities, and infrastructure."
-            light
           />
 
           <div className="home-industries__grid">

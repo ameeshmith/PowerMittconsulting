@@ -1,13 +1,13 @@
 /* ============================================
-   CTABanner — Epiko Studios Statement Closing Banner
+   CTABanner — Clean Modern Statement Closing Banner
    ============================================ */
 
 .cta-banner {
   position: relative;
   padding: 7rem 0;
-  background: radial-gradient(80% 60% at 50% 50%, #0A2239 0%, #0B192C 45%, #060E18 90%);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
   overflow: hidden;
   text-align: center;
 }
@@ -15,7 +15,7 @@
 .cta-banner__grid {
   position: absolute;
   inset: 0;
-  opacity: 0.35;
+  opacity: 0.05;
   pointer-events: none;
 }
 
@@ -31,7 +31,7 @@
   left: 20%;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(0, 102, 255, 0.3) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.08) 0%, transparent 70%);
 }
 
 .cta-banner__glow--right {
@@ -39,7 +39,7 @@
   right: 20%;
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.22) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, transparent 70%);
 }
 
 .cta-banner__inner {
@@ -55,15 +55,15 @@
   gap: 8px;
   padding: 6px 18px;
   border-radius: var(--radius-full);
-  background: rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
   font-family: var(--font-body);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #00E5FF;
+  color: #0066FF;
   margin-bottom: 1.75rem;
 }
 
@@ -71,17 +71,17 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #00E5FF;
-  box-shadow: 0 0 10px #00E5FF;
+  background: #0066FF;
+  box-shadow: 0 0 10px rgba(0, 102, 255, 0.4);
   animation: epikoPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 .cta-banner__title {
   font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
   font-weight: 800;
-  color: #FFFFFF;
-  line-height: 0.98;
+  color: #0A1626;
+  line-height: 1.05;
   margin-bottom: 1.5rem;
   letter-spacing: -0.03em;
   text-transform: uppercase;
@@ -90,7 +90,7 @@
 .cta-banner__subtitle {
   font-family: var(--font-body);
   font-size: clamp(1rem, 1.8vw, 1.15rem);
-  color: rgba(255, 255, 255, 0.75);
+  color: #64748B;
   line-height: 1.75;
   margin-bottom: 2.75rem;
   max-width: 720px;
@@ -112,16 +112,16 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   text-decoration: none;
-  box-shadow: 0 0 30px rgba(0, 102, 255, 0.45);
+  box-shadow: 0 4px 20px rgba(0, 102, 255, 0.35);
   transition: all 0.3s var(--ease-out);
   border: 1px solid #0066FF;
 }
 
 .cta-banner__btn:hover {
-  background: #1A75FF;
-  border-color: #1A75FF;
+  background: #0052CC;
+  border-color: #0052CC;
   transform: translateY(-2px);
-  box-shadow: 0 0 45px rgba(0, 102, 255, 0.7);
+  box-shadow: 0 8px 30px rgba(0, 102, 255, 0.5);
 }
 
 .cta-banner__btn-arrow {
