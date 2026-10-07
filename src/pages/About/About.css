@@ -131,7 +131,8 @@
 }
 
 section.section--dark .about-values__card h3,
-.about-values__card h3 {
+.about-values__card h3,
+.about-values__card .about-values__title {
   font-family: var(--font-heading);
   font-size: 1.15rem;
   font-weight: 700;
@@ -142,7 +143,8 @@ section.section--dark .about-values__card h3,
 }
 
 section.section--dark .about-values__card p,
-.about-values__card p {
+.about-values__card p,
+.about-values__card .about-values__desc {
   font-family: var(--font-body);
   font-size: 14px;
   color: #334155 !important;

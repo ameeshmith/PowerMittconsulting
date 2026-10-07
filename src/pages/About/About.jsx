@@ -111,8 +111,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* === VALUES SECTION (Figma Page 2 Dark Board) === */}
-      <section className="section--dark about-values">
+      {/* === VALUES SECTION === */}
+      <section className="about-values">
         <div className="container">
           <SectionHeader
             label="GUIDING PRINCIPLES"
@@ -122,7 +122,6 @@ export default function About() {
               </>
             }
             subtitle="Our engineering philosophy is built on practical delivery, technical depth, and trusted partnership."
-            light
             align="center"
           />
           <div className="about-values__grid">
@@ -133,8 +132,8 @@ export default function About() {
                   <div className="about-values__icon">
                     <Icon size={22} />
                   </div>
-                  <h3>{val.title}</h3>
-                  <p>{val.desc}</p>
+                  <h3 className="about-values__title" style={{ color: '#0A1626' }}>{val.title}</h3>
+                  <p className="about-values__desc" style={{ color: '#334155' }}>{val.desc}</p>
                 </div>
               );
             })}
