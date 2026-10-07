@@ -7,6 +7,7 @@ import CTABanner from '../../components/CTABanner/CTABanner';
 import { getAllArticles } from '../../services/sanity';
 import { categories } from '../../data/articles';
 import { getAssetUrl } from '../../utils/assetPath';
+import { formatPublishedDate } from '../../utils/dateFormat';
 import useScrollReveal from '../../hooks/useScrollReveal';
 import './Insights.css';
 
@@ -33,12 +34,14 @@ export default function Insights() {
   }, []);
 
   const filteredArticles = useMemo(() => {
-    const queryLower = searchQuery.toLowerCase();
+    const queryLower = searchQuery.toLowerCase().trim();
     return articlesList.filter(article => {
       const matchesCategory = selectedCategory === 'All' || article.category === selectedCategory;
-      const matchesSearch = searchQuery === '' || 
+      const matchesSearch = queryLower === '' || 
         (article.title?.toLowerCase().includes(queryLower) ?? false) ||
+        (article.subtitle?.toLowerCase().includes(queryLower) ?? false) ||
         (article.excerpt?.toLowerCase().includes(queryLower) ?? false) ||
+        (article.content?.toLowerCase().includes(queryLower) ?? false) ||
         (Array.isArray(article.tags) && article.tags.some(t => t?.toLowerCase().includes(queryLower)));
       return matchesCategory && matchesSearch;
     });
@@ -144,7 +147,7 @@ export default function Insights() {
                   <div className="insights-card__meta">
                     <span className="insights-card__meta-item">
                       <Calendar size={14} />
-                      {new Date(featuredArticle.publishedAt).toLocaleDateString('en-AU', { month: 'short', day: 'numeric', year: 'numeric' })}
+                      {formatPublishedDate(featuredArticle.publishedAt, { month: 'short', day: 'numeric', year: 'numeric' })}
                     </span>
                     <span className="insights-card__meta-item">
                       <Clock size={14} />
@@ -196,7 +199,7 @@ export default function Insights() {
                       <div className="insights-card__meta">
                         <span className="insights-card__meta-item">
                           <Calendar size={13} />
-                          {new Date(art.publishedAt).toLocaleDateString('en-AU', { month: 'short', day: 'numeric', year: 'numeric' })}
+                          {formatPublishedDate(art.publishedAt, { month: 'short', day: 'numeric', year: 'numeric' })}
                         </span>
                         <span className="insights-card__meta-item">
                           <Clock size={13} />

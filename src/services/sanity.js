@@ -110,12 +110,46 @@ export async function getArticle(slug) {
 }
 
 /**
- * Fetches related articles excluding current article slug.
+ * Fetches related articles excluding current article slug, prioritizing matching category and overlapping tags.
+ * @param {string} currentSlug - Current article slug/id to exclude
+ * @param {number} [limit=2] - Maximum articles to return
+ * @param {string} [category=''] - Optional category for relevance weighting
+ * @param {string[]} [tags=[]] - Optional tags for overlap weighting
  */
-export async function getRelatedArticles(currentSlug, limit = 2) {
+export async function getRelatedArticles(currentSlug, limit = 2, category = '', tags = []) {
   const all = await getAllArticles();
-  return all.filter(a => a.slug !== currentSlug && a.id !== currentSlug).slice(0, limit);
+  const current = all.find(a => a.slug === currentSlug || a.id === currentSlug);
+
+  const targetCategory = (category || current?.category || '').toLowerCase().trim();
+  const targetTags = (Array.isArray(tags) && tags.length > 0 ? tags : (current?.tags || []))
+    .map(t => String(t).toLowerCase().trim())
+    .filter(Boolean);
+
+  const candidates = all.filter(a => a.slug !== currentSlug && a.id !== currentSlug);
+
+  const scored = candidates.map(article => {
+    let score = 0;
+    const artCat = (article.category || '').toLowerCase().trim();
+    if (targetCategory && artCat && artCat === targetCategory) {
+      score += 3;
+    }
+
+    if (Array.isArray(article.tags) && targetTags.length > 0) {
+      const artTags = article.tags.map(t => String(t).toLowerCase().trim());
+      for (const t of targetTags) {
+        if (artTags.includes(t)) {
+          score += 1;
+        }
+      }
+    }
+
+    return { article, score };
+  });
+
+  scored.sort((a, b) => b.score - a.score);
+  return scored.slice(0, limit).map(item => item.article);
 }
+
 
 /**
  * Exports all custom articles and deleted slugs as a backup JSON object.
