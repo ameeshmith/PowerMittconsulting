@@ -37,26 +37,27 @@ export default function About() {
 
       <Hero
         variant="compact"
-        label="About Us"
+        label="About PowerMitt"
         title={
           <>
-            Engineering{' '}
-            <WordHighlight color="blue" variant="oval">
-              rigour
-            </WordHighlight>{' '}
-            for complex energy challenges.
+            ENGINEERING <span className="hero-modern__serif-accent">rigour</span> <br />
+            FOR COMPLEX POWER CHALLENGES.
           </>
         }
-        subtitle="An independent specialist engineering consultancy focused on electrical power systems, energy transition, and industrial infrastructure."
+        subtitle="An independent specialist engineering consultancy delivering high-calibre electrical power systems, energy transition, and industrial infrastructure advisory across Australia."
         bgImage="/assets/images/hero-about.jpg"
       />
 
-      {/* === MILESTONES & HISTORY (Figma Page 2 Top) === */}
+      {/* === MILESTONES & HISTORY === */}
       <section className="about-milestones section--ice">
         <div className="container">
           <SectionHeader
-            label="Our Journey"
-            title="A Legacy of Engineering Excellence"
+            label="OUR JOURNEY"
+            title={
+              <>
+                A LEGACY OF <span className="serif-accent">engineering excellence</span>
+              </>
+            }
             subtitle="Decades of technical leadership navigating Australia's power systems evolution."
             align="center"
           />
@@ -114,8 +115,12 @@ export default function About() {
       <section className="section--dark about-values">
         <div className="container">
           <SectionHeader
-            label="Our Values"
-            title="Guiding Principles in Every Project"
+            label="GUIDING PRINCIPLES"
+            title={
+              <>
+                OUR CORE <span className="serif-accent">values</span>
+              </>
+            }
             subtitle="Our engineering philosophy is built on practical delivery, technical depth, and trusted partnership."
             light
             align="center"

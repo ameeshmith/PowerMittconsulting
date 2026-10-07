@@ -11,23 +11,22 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Reset & Strict Poppins Typography ── */
+/* ── Reset & Typography Engine ── */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
 }
 
 html {
-  font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+  font-family: var(--font-body);
   font-size: 16px;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+  font-family: var(--font-body);
   font-size: var(--text-base);
   font-weight: 400;
   line-height: var(--leading-normal);
@@ -38,32 +37,47 @@ body {
   overflow-x: hidden;
 }
 
+/* ── Epiko-Style Editorial Typography Helpers ── */
+.font-serif,
+.epiko-serif,
+.serif-accent {
+  font-family: var(--font-serif) !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+}
+
+.font-display {
+  font-family: var(--font-display) !important;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
+}
+
 /* ── Headings ── */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+  font-family: var(--font-heading);
   font-weight: 700;
   line-height: var(--leading-tight);
   color: var(--color-midnight);
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
 }
 
-h1 { font-size: clamp(2.1rem, 4.5vw, 3.25rem); }
-h2 { font-size: clamp(1.6rem, 3.2vw, 2.25rem); }
-h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
+h1 { font-size: clamp(2.4rem, 5vw, 3.8rem); }
+h2 { font-size: clamp(1.8rem, 3.6vw, 2.75rem); }
+h3 { font-size: clamp(1.25rem, 2.2vw, 1.65rem); }
 h4 { font-size: var(--text-lg); }
 h5 { font-size: var(--text-md); }
 h6 { font-size: var(--text-sm); }
 
 p {
-  font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+  font-family: var(--font-body);
   margin-bottom: var(--space-4);
   color: var(--color-steel);
   line-height: var(--leading-relaxed);
 }
 
 a {
-  font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
-  color: var(--color-midnight);
+  font-family: var(--font-body);
+  color: inherit;
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-out);
 }
@@ -355,6 +369,104 @@ section.section--navy p {
 
 .section-title-line--gradient {
   background: linear-gradient(90deg, #0066FF 0%, #10B981 100%);
+}
+
+/* ── Epiko Studios Design Tokens & Components ── */
+.epiko-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(6, 14, 24, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: var(--radius-full);
+  padding: 8px 20px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.epiko-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #00E5FF;
+  box-shadow: 0 0 10px #00E5FF, 0 0 20px rgba(0, 229, 255, 0.4);
+  animation: epikoPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  flex-shrink: 0;
+}
+
+.epiko-status-dot--green {
+  background: #10B981;
+  box-shadow: 0 0 10px #10B981, 0 0 20px rgba(16, 185, 129, 0.4);
+}
+
+@keyframes epikoPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* Epiko-Style Filter Pills */
+.epiko-filter-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 22px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.65);
+  transition: all 0.25s var(--ease-out);
+  cursor: pointer;
+}
+
+.epiko-filter-pill:hover {
+  border-color: #0066FF;
+  color: #FFFFFF;
+  background: rgba(0, 102, 255, 0.1);
+}
+
+.epiko-filter-pill--active {
+  background: #0066FF !important;
+  border-color: #0066FF !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 20px rgba(0, 102, 255, 0.45);
+}
+
+.epiko-filter-pill--active-green {
+  background: #10B981 !important;
+  border-color: #10B981 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.45);
+}
+
+/* Epiko Signature Rounded Cards */
+.epiko-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.35s var(--ease-out);
+}
+
+.epiko-card:hover {
+  border-color: rgba(0, 102, 255, 0.45);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 102, 255, 0.15);
 }
 
 /* ── Responsive ── */

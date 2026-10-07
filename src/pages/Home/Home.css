@@ -1,16 +1,32 @@
 /* ============================================
-   Strict Typography: Be Vietnam Pro & Plus Jakarta Sans
-   Palette: Electric Blue, Energy Green, Crisp White
+   Home Page Styles — Epiko Studios High-Craft Theme
+   Palette: Deep Midnight Navy, Electric Power Blue, Clean Crisp Surfaces
    ============================================ */
 
 .home-page {
   position: relative;
+  background-color: var(--color-body-bg);
 }
 
-/* ── Capabilities Header Row (Eternal style) ── */
+/* ── Generic Epiko Badge ── */
+.epiko-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #0066FF;
+  margin-bottom: 1rem;
+}
+
+/* ── Capabilities / Services Showcase ── */
 .home-services {
   background: var(--color-body-bg);
-  padding: 5.5rem 0;
+  padding: 6.5rem 0;
+  position: relative;
 }
 
 .home-services__header-row {
@@ -19,6 +35,7 @@
   align-items: flex-end;
   gap: 3rem;
   margin-bottom: 3.5rem;
+  flex-wrap: wrap;
 }
 
 .home-services__title-block {
@@ -26,254 +43,356 @@
 }
 
 .home-services__title {
-  font-family: 'Be Vietnam Pro', sans-serif !important;
-  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
-  font-weight: 400;
-  line-height: 1.25;
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 800;
+  line-height: 0.98;
   color: #0A0A0A;
   margin-top: 0.5rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
 }
 
 .home-services__subtitle {
-  font-family: 'Be Vietnam Pro', sans-serif !important;
-  font-size: 14.5px;
+  font-family: var(--font-body);
+  font-size: 15px;
   line-height: 1.7;
-  color: #475569;
-  max-width: 460px;
+  color: #64748B;
+  max-width: 580px;
+}
+
+/* Filter Pills Group (Epiko signature) */
+.home-services__filters {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
   margin-bottom: 0.5rem;
 }
 
-/* ── Eternal-style Interactive Capability Cards ── */
+.home-services__filters .epiko-filter-pill {
+  border-color: #E2E8F0;
+  background: #F8FAFC;
+  color: #475569;
+}
+
+.home-services__filters .epiko-filter-pill:hover {
+  border-color: #0066FF;
+  color: #0066FF;
+  background: #EFF6FF;
+}
+
+.home-services__filters .epiko-filter-pill--active {
+  background: #0066FF !important;
+  border-color: #0066FF !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 18px rgba(0, 102, 255, 0.4);
+}
+
+.home-services__filters .epiko-filter-pill--active-green {
+  background: #10B981 !important;
+  border-color: #10B981 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.4);
+}
+
+/* ── Epiko Capabilities Cards Grid ── */
 .home-services__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 3rem;
+  gap: 1.75rem;
+  margin-bottom: 3.5rem;
 }
 
-.home-capability-card {
+.epiko-capability-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 2.25rem;
   background: #FFFFFF;
   border: 1px solid #E6E9EF;
-  border-radius: 14px;
+  border-radius: var(--radius-2xl);
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 2px 10px rgba(10, 10, 10, 0.03);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 12px rgba(10, 10, 10, 0.03);
 }
 
-.home-capability-card__header {
+.epiko-capability-card:hover {
+  transform: translateY(-5px);
+  border-color: #0066FF;
+  box-shadow: 0 20px 40px -10px rgba(0, 102, 255, 0.12), 0 4px 12px rgba(10, 10, 10, 0.04);
+}
+
+.epiko-capability-card--green:hover {
+  border-color: #10B981;
+  box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.12), 0 4px 12px rgba(10, 10, 10, 0.04);
+}
+
+.epiko-capability-card__top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
-.home-capability-card__tag {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 11px;
+.epiko-capability-card__tag {
+  font-family: var(--font-body);
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #64748B;
-  background: #F1F5F9;
-  padding: 4px 10px;
-  border-radius: 9999px;
-  transition: all 0.25s ease;
+  color: #0066FF;
+  background: #EFF6FF;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(0, 102, 255, 0.15);
 }
 
-.home-capability-card__icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
+.epiko-capability-card__tag--green {
+  color: #10B981;
+  background: #ECFDF5;
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.epiko-capability-card__serial {
+  font-size: 1.15rem;
+  color: #94A3B8;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.epiko-capability-card__icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #EFF6FF;
+  border: 1px solid rgba(0, 102, 255, 0.2);
+  color: #0066FF;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.25s ease;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
 }
 
-.home-capability-card--blue .home-capability-card__icon {
-  background: #EBF4FF;
-  color: #0066FF;
+.epiko-capability-card:hover .epiko-capability-card__icon-box {
+  background: #0066FF;
+  color: #FFFFFF;
+  border-color: #0066FF;
+  transform: scale(1.06);
 }
 
-.home-capability-card--green .home-capability-card__icon {
+.epiko-capability-card__icon-box--green {
   background: #ECFDF5;
+  border-color: rgba(16, 185, 129, 0.25);
   color: #10B981;
 }
 
-.home-capability-card__title {
-  font-family: 'Be Vietnam Pro', sans-serif !important;
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #0A0A0A;
-  margin-bottom: 0.65rem;
-  line-height: 1.35;
-  transition: color 0.25s ease;
+.epiko-capability-card--green:hover .epiko-capability-card__icon-box--green {
+  background: #10B981;
+  color: #FFFFFF;
+  border-color: #10B981;
 }
 
-.home-capability-card__desc {
-  font-family: 'Be Vietnam Pro', sans-serif !important;
+.epiko-capability-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #0A0A0A;
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  transition: color 0.2s ease;
+}
+
+.epiko-capability-card:hover .epiko-capability-card__title {
+  color: #0066FF;
+}
+
+.epiko-capability-card--green:hover .epiko-capability-card__title {
+  color: #10B981;
+}
+
+.epiko-capability-card__desc {
+  font-family: var(--font-body);
   font-size: 13.5px;
-  color: #475569;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+  line-height: 1.65;
+  color: #64748B;
+  margin-bottom: 2rem;
   flex: 1;
 }
 
-.home-capability-card__footer {
+.epiko-capability-card__footer {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 13px;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 11px;
   font-weight: 700;
-  color: #0066FF;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #0A0A0A;
   margin-top: auto;
-  transition: gap 0.2s ease, color 0.2s ease;
+  transition: all 0.25s ease;
 }
 
-.home-capability-card--green .home-capability-card__footer {
-  color: #10B981;
+.epiko-capability-card__footer .epiko-arrow {
+  transition: transform 0.25s var(--ease-out);
 }
 
-/* Hover Shifts (Blue & Green) */
-.home-capability-card--blue:hover {
-  border-color: #0066FF;
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px -4px rgba(0, 102, 255, 0.12), 0 4px 12px rgba(10, 10, 10, 0.04);
-}
-
-.home-capability-card--blue:hover .home-capability-card__title {
+.epiko-capability-card:hover .epiko-capability-card__footer {
   color: #0066FF;
 }
 
-.home-capability-card--blue:hover .home-capability-card__tag {
-  background: #EBF4FF;
-  color: #0066FF;
-}
-
-.home-capability-card--blue:hover .home-capability-card__icon {
-  background: #0066FF;
-  color: #FFFFFF;
-}
-
-.home-capability-card--blue:hover .home-capability-card__footer {
-  gap: 9px;
-  color: #0052CC;
-}
-
-.home-capability-card--green:hover {
-  border-color: #10B981;
-  transform: translateY(-4px);
-  box-shadow: 0 16px 36px -4px rgba(16, 185, 129, 0.14), 0 4px 12px rgba(10, 10, 10, 0.04);
-}
-
-.home-capability-card--green:hover .home-capability-card__title {
+.epiko-capability-card--green:hover .epiko-capability-card__footer {
   color: #10B981;
 }
 
-.home-capability-card--green:hover .home-capability-card__tag {
-  background: #ECFDF5;
-  color: #10B981;
+.epiko-capability-card:hover .epiko-arrow {
+  transform: translateX(5px);
 }
 
-.home-capability-card--green:hover .home-capability-card__icon {
-  background: #10B981;
+.epiko-outline-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 32px;
+  border-radius: var(--radius-full);
+  border: 1px solid #CBD5E1;
+  background: transparent;
+  color: #0A0A0A;
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.25s var(--ease-out);
+}
+
+.epiko-outline-btn:hover {
+  background: #0A0A0A;
+  border-color: #0A0A0A;
   color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.home-capability-card--green:hover .home-capability-card__footer {
-  gap: 9px;
-  color: #059669;
-}
-
-/* ── About Section (Two-Column with Coordinate Grid) ── */
+/* ── About / Engineering Rigour Section ── */
 .home-about {
-  padding: 5.5rem 0;
+  padding: 7rem 0;
   position: relative;
+  background: var(--color-surface);
 }
 
 .home-about__grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 3.5rem;
+  gap: 4.5rem;
   align-items: center;
 }
 
-.home-about__content h2 {
-  font-family: 'Be Vietnam Pro', sans-serif !important;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 500;
-  line-height: 1.25;
-  margin-bottom: 1rem;
+.home-about__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.05;
   color: #0A0A0A;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.home-about__lead {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: #334155;
+  margin-bottom: 1.25rem;
+  font-weight: 400;
 }
 
 .home-about__checklist {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
-  margin: 1.5rem 0 2rem;
+  gap: 0.9rem;
+  margin: 2rem 0 2.5rem;
 }
 
 .home-about__check-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  font-family: 'Be Vietnam Pro', sans-serif !important;
-  font-size: 14px;
+  gap: 12px;
+  font-size: 14.5px;
   font-weight: 500;
   color: #1E293B;
 }
 
-.home-about__check-icon--blue {
-  color: #0066FF;
-  flex-shrink: 0;
+.epiko-pill-btn-blue {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 34px;
+  border-radius: var(--radius-full);
+  background: #0066FF;
+  color: #FFFFFF !important;
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0, 102, 255, 0.35);
+  transition: all 0.25s var(--ease-out);
 }
 
-.home-about__check-icon--green {
-  color: #10B981;
-  flex-shrink: 0;
+.epiko-pill-btn-blue:hover {
+  background: #0052CC;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 102, 255, 0.5);
 }
 
+/* About Media Card */
 .home-about__card {
-  background: var(--color-card-bg);
-  border: 1px solid #E6E9EF;
-  border-radius: 14px;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-2xl);
   overflow: hidden;
-  box-shadow: 0 8px 24px rgba(10, 10, 10, 0.04);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08);
 }
 
 .home-about__img-wrap {
   position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  min-height: 220px;
-  background: #0A0A0A;
+  aspect-ratio: 16 / 11;
   overflow: hidden;
+  background: #0A0A0A;
 }
 
 .home-about__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.home-about__card:hover .home-about__img {
+  transform: scale(1.04);
 }
 
 .home-about__img-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(10, 10, 10, 0.6) 100%);
+  background: linear-gradient(to top, rgba(6, 14, 24, 0.7) 0%, transparent 60%);
 }
 
 .home-about__stats {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
   align-items: center;
-  padding: 1.25rem 1.5rem;
-  background: var(--color-card-bg);
+  justify-content: space-around;
+  padding: 1.75rem 1.5rem;
+  background: #FFFFFF;
 }
 
 .home-about__stat {
@@ -284,153 +403,207 @@
 }
 
 .home-about__stat-num {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 1.6rem;
-  font-weight: 800;
+  font-size: 2.8rem;
   line-height: 1;
-  margin-bottom: 2px;
-}
-
-.home-about__stat-num--blue {
   color: #0066FF;
-}
-
-.home-about__stat-num--green {
-  color: #10B981;
+  font-weight: 400;
+  margin-bottom: 4px;
 }
 
 .home-about__stat-label {
-  font-family: 'Be Vietnam Pro', sans-serif !important;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: #64748B;
 }
 
 .home-about__stat-sep {
   width: 1px;
-  height: 32px;
-  background: #E6E9EF;
+  height: 45px;
+  background: #E2E8F0;
 }
 
-/* ── Industries Grid ── */
+/* ── Industries Section (Epiko Dark Executive Grid) ── */
 .home-industries {
-  padding: 5.5rem 0;
-  background: linear-gradient(160deg, #060E18 0%, #0B192C 60%, #0A2239 100%);
+  padding: 7rem 0;
+  background: linear-gradient(160deg, #060E18 0%, #0B192C 55%, #0A2239 100%);
+  position: relative;
+  overflow: hidden;
 }
 
 .home-industries__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
 
 .home-industries__card {
   position: relative;
-  min-height: 240px;
-  padding: 1.75rem;
-  border-radius: 14px;
+  height: 480px;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
   background-size: cover;
   background-position: center;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.75rem;
   text-decoration: none;
-  overflow: hidden;
-  transition: all var(--duration-base) var(--ease-out);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .home-industries__card:hover {
-  transform: translateY(-3px);
-  border-color: #0066FF;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+  transform: translateY(-6px);
+  border-color: rgba(0, 229, 255, 0.5);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(0, 102, 255, 0.25);
 }
 
 .home-industries__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(6, 14, 24, 0.3) 0%, rgba(10, 10, 10, 0.94) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 14, 24, 0.15) 0%,
+    rgba(6, 14, 24, 0.45) 50%,
+    rgba(6, 14, 24, 0.88) 100%
+  );
+  transition: all 0.3s ease;
   z-index: 1;
+}
+
+.home-industries__card:hover .home-industries__overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 14, 24, 0.08) 0%,
+    rgba(6, 14, 24, 0.35) 50%,
+    rgba(6, 14, 24, 0.82) 100%
+  );
+}
+
+.home-industries__card-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.home-industries__tag {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #00E5FF;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+}
+
+.home-industries__tag--green {
+  color: #10B981;
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.home-industries__serial {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+  font-weight: 400;
 }
 
 .home-industries__content {
   position: relative;
   z-index: 2;
-}
-
-.home-industries__tag {
-  display: inline-block;
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  padding: 3px 8px;
-  border-radius: 4px;
-  background: rgba(0, 102, 255, 0.25);
-  border: 1px solid rgba(0, 102, 255, 0.45);
-  color: #FFFFFF;
-  margin-bottom: 0.5rem;
-}
-
-.home-industries__tag--green {
-  background: rgba(16, 185, 129, 0.25);
-  border-color: rgba(16, 185, 129, 0.45);
+  margin-top: auto;
 }
 
 .home-industries__content h3 {
-  font-family: 'Be Vietnam Pro', sans-serif !important;
-  font-size: 1.15rem;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
   font-weight: 700;
   color: #FFFFFF;
-  margin-bottom: 0.4rem;
+  line-height: 1.15;
+  margin-bottom: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 
 .home-industries__content p {
-  font-family: 'Be Vietnam Pro', sans-serif !important;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.5;
-  margin-bottom: 0.85rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.25rem;
 }
 
 .home-industries__link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 12px;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 11px;
   font-weight: 700;
-  color: #0066FF;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  transition: all 0.25s ease;
 }
 
-.home-industries__link--green {
-  color: #10B981;
+.home-industries__link .epiko-arrow {
+  transition: transform 0.25s var(--ease-out);
+}
+
+.home-industries__card:hover .home-industries__link {
+  color: #00E5FF;
+}
+
+.home-industries__card:hover .epiko-arrow {
+  transform: translateX(5px);
 }
 
 /* ── Responsive ── */
-@media (max-width: 1024px) {
-  .home-services__header-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1.25rem;
-  }
-
+@media (max-width: 1200px) {
   .home-services__grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .home-industries__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
+@media (max-width: 960px) {
   .home-about__grid {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 3rem;
   }
 }
 
 @media (max-width: 768px) {
-  .home-services__grid {
-    grid-template-columns: 1fr;
+  .home-services,
+  .home-about,
+  .home-industries {
+    padding: 4.5rem 0;
   }
 
+  .home-services__grid,
   .home-industries__grid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .home-services__header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .home-industries__card {
+    height: 380px;
   }
 }

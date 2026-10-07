@@ -27,7 +27,7 @@ export default function IndustryCard({ id, title, description, slug, capabilitie
       )}
 
       <div className="industry-card__body">
-        <h3 className="industry-card__title">{title}</h3>
+        <h3 className="industry-card__title font-display">{title}</h3>
         <p className="industry-card__desc">{description}</p>
 
         {capabilities && (
@@ -39,7 +39,7 @@ export default function IndustryCard({ id, title, description, slug, capabilitie
         )}
 
         <span className="industry-card__link">
-          Explore Industry <ArrowRight size={14} />
+          EXPLORE SECTOR <ArrowRight size={14} className="industry-card__arrow" />
         </span>
       </div>
     </Link>

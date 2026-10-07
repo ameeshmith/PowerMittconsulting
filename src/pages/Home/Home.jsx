@@ -1,10 +1,10 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Zap, Sun, Factory, HardHat, Shield, CheckCircle2, Award, Activity } from 'lucide-react';
+import { ArrowRight, Zap, Sun, Factory, HardHat, Shield, CheckCircle2 } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import CTABanner from '../../components/CTABanner/CTABanner';
-import WordHighlight from '../../components/WordHighlight/WordHighlight';
 import { industries } from '../../data/industries';
 import { getAssetUrl } from '../../utils/assetPath';
 import './Home.css';
@@ -13,53 +13,69 @@ const heroStats = [
   { value: '30+', label: 'Years Experience', subtext: 'Heavy Power & Industrial' },
   { value: '100%', label: 'Independent Advisory', subtext: 'Vendor-Neutral Engineering' },
   { value: 'AEMO / WEM', label: 'Grid Compliance', subtext: 'Connection & Compliance Studies' },
-  { value: 'National Reach', label: 'Perth, WA HQ', subtext: 'Australia-Wide Delivery' }
+  { value: 'National', label: 'Perth, WA HQ', subtext: 'Australia-Wide Delivery' }
 ];
 
 const coreCapabilities = [
   { 
+    id: '01',
     title: 'Electrical Power Systems', 
     desc: 'Comprehensive power system studies, HV/LV distribution design, substation engineering & grid connection compliance.', 
     link: '/services/power-systems', 
     icon: Zap, 
+    category: 'grid',
     theme: 'blue',
     tag: 'Grid & Transmission'
   },
   { 
-    title: 'Renewable Energy & Decarbonisation', 
+    id: '02',
+    title: 'Renewable Energy & Storage', 
     desc: 'Utility-scale Solar PV, BESS integration, wind, hydrogen, and industrial electrification strategies within grid constraints.', 
     link: '/services/energy-transition', 
     icon: Sun, 
+    category: 'transition',
     theme: 'green',
     tag: 'Renewables & Storage'
   },
   { 
+    id: '03',
     title: 'Carbon Capture & Storage (CCS)', 
     desc: 'Specialist electrical engineering for mega-compressor motor drives, medium-voltage VSD topologies & power infrastructure.', 
     link: '/services/carbon-capture', 
     icon: Factory, 
+    category: 'transition',
     theme: 'green',
     tag: 'Clean Transition'
   },
   { 
-    title: 'Industrial & Mining Infrastructure', 
+    id: '04',
+    title: 'Industrial & Mining Power', 
     desc: 'Underground & open-pit mining power distribution, mineral processing design, trailing cables, and brownfield upgrades.', 
     link: '/services/industrial-infrastructure', 
     icon: HardHat, 
+    category: 'industry',
     theme: 'blue',
     tag: 'Heavy Industry'
   },
   { 
-    title: "Owner's Engineering & Advisory", 
+    id: '05',
+    title: "Owner's Engineering Advisory", 
     desc: 'Independent technical due diligence, design verification, vendor evaluation & capital project execution advisory.', 
     link: '/services/owners-engineering', 
     icon: Shield, 
+    category: 'advisory',
     theme: 'blue',
     tag: 'Independent Advisory'
   }
 ];
 
 export default function Home() {
+  const [activeCategory, setActiveCategory] = useState('all');
+
+  const filteredCapabilities = activeCategory === 'all' 
+    ? coreCapabilities 
+    : coreCapabilities.filter(c => c.category === activeCategory);
+
   return (
     <main className="home-page">
       <SEO
@@ -68,71 +84,107 @@ export default function Home() {
         path="/"
       />
 
-      {/* === HERO SECTION WITH ETERNAL-STYLE EDITORIAL HIGHLIGHTS === */}
+      {/* === EPIKO STUDIOS EDITORIAL OPENING HERO === */}
       <Hero
-        badge="ENGINEERING CONSULTANCY"
+        badge="Independent Power & Energy Consultancy"
         title={
           <>
-            Engineering{' '}
-            <WordHighlight color="blue" variant="oval">
-              excellence
-            </WordHighlight>{' '}
-            from concept to{' '}
-            <WordHighlight color="green" variant="oval">
-              execution
-            </WordHighlight>
-            .
+            WHERE POWER <br />
+            <span className="hero-modern__serif-accent">meets precision.</span>
           </>
         }
-        subtitle="PowerMitt Consulting delivers independent electrical power systems, grid connection, and energy transition engineering for heavy industry, mining, and renewable infrastructure across Australia."
-        primaryCTA="Explore Services"
-        primaryLink="/services"
-        secondaryCTA="View Projects"
-        secondaryLink="/projects"
+        subtitle="PowerMitt delivers independent electrical power systems, grid compliance, and energy transition engineering for heavy industry, mining, and utility grids across Australia. 30+ years of high-calibre technical leadership."
+        primaryCTA="START A PROJECT"
+        primaryLink="/contact"
+        secondaryCTA="EXPLORE SERVICES"
+        secondaryLink="/services"
         stats={heroStats}
         bgImage="/assets/images/hero-modern-skyline.jpg"
       />
 
-      {/* === CAPABILITIES SHOWCASE (Eternal-inspired Interactive Cards) === */}
+      {/* === CAPABILITIES SHOWCASE (Epiko Filter Pills & Serial Cards) === */}
       <section className="home-services">
         <div className="container">
           <div className="home-services__header-row">
             <div className="home-services__title-block">
-              <span className="label">Specialist Capabilities</span>
-              <h2 className="home-services__title">
-                Powering Australia’s{' '}
-                <WordHighlight color="blue" variant="oval">
-                  energy
-                </WordHighlight>{' '}
-                infrastructure.
+              <span className="epiko-badge">
+                <span className="epiko-status-dot" />
+                <span>CAPABILITIES</span>
+              </span>
+              <h2 className="home-services__title font-display">
+                OUR <span className="serif-accent">services</span>
               </h2>
-              <span className="section-title-line section-title-line--gradient" />
+              <p className="home-services__subtitle">
+                Five core specialisations de-risking high-voltage power systems, heavy industrial assets, and modern renewable energy grids across Australia.
+              </p>
             </div>
-            <p className="home-services__subtitle">
-              At the core of PowerMitt is engineering rigour, independent integrity, and deep technical depth across both legacy high-voltage systems and modern clean energy transitions.
-            </p>
+
+            {/* Epiko Filter Pills */}
+            <div className="home-services__filters" role="group" aria-label="Filter capabilities">
+              <button
+                type="button"
+                className={`epiko-filter-pill ${activeCategory === 'all' ? 'epiko-filter-pill--active' : ''}`}
+                onClick={() => setActiveCategory('all')}
+              >
+                All Services
+              </button>
+              <button
+                type="button"
+                className={`epiko-filter-pill ${activeCategory === 'grid' ? 'epiko-filter-pill--active' : ''}`}
+                onClick={() => setActiveCategory('grid')}
+              >
+                Grid & Power
+              </button>
+              <button
+                type="button"
+                className={`epiko-filter-pill ${activeCategory === 'transition' ? 'epiko-filter-pill--active-green' : ''}`}
+                onClick={() => setActiveCategory('transition')}
+              >
+                Energy Transition
+              </button>
+              <button
+                type="button"
+                className={`epiko-filter-pill ${activeCategory === 'industry' ? 'epiko-filter-pill--active' : ''}`}
+                onClick={() => setActiveCategory('industry')}
+              >
+                Heavy Industry
+              </button>
+            </div>
           </div>
 
           <div className="home-services__grid">
-            {coreCapabilities.map((cap, i) => {
+            {filteredCapabilities.map((cap) => {
               const Icon = cap.icon;
+              const isGreen = cap.theme === 'green';
               return (
                 <Link
-                  key={i}
+                  key={cap.id}
                   to={cap.link}
-                  className={`home-capability-card home-capability-card--${cap.theme}`}
+                  className={`epiko-capability-card ${isGreen ? 'epiko-capability-card--green' : ''}`}
                 >
-                  <div className="home-capability-card__header">
-                    <span className="home-capability-card__tag">{cap.tag}</span>
-                    <div className="home-capability-card__icon">
-                      <Icon size={20} />
-                    </div>
+                  <div className="epiko-capability-card__top">
+                    <span className={`epiko-capability-card__tag ${isGreen ? 'epiko-capability-card__tag--green' : ''}`}>
+                      {cap.tag}
+                    </span>
+                    <span className="epiko-capability-card__serial font-serif">
+                      ({cap.id})
+                    </span>
                   </div>
-                  <h3 className="home-capability-card__title">{cap.title}</h3>
-                  <p className="home-capability-card__desc">{cap.desc}</p>
-                  <div className="home-capability-card__footer">
-                    <span>Explore Capability</span>
-                    <ArrowRight size={14} />
+
+                  <div className={`epiko-capability-card__icon-box ${isGreen ? 'epiko-capability-card__icon-box--green' : ''}`}>
+                    <Icon size={22} />
+                  </div>
+
+                  <h3 className="epiko-capability-card__title font-display">
+                    {cap.title}
+                  </h3>
+                  <p className="epiko-capability-card__desc">
+                    {cap.desc}
+                  </p>
+
+                  <div className="epiko-capability-card__footer">
+                    <span>DISCOVER MORE</span>
+                    <ArrowRight size={15} className="epiko-arrow" />
                   </div>
                 </Link>
               );
@@ -140,52 +192,51 @@ export default function Home() {
           </div>
 
           <div className="home-services__footer text-center">
-            <Link to="/services" className="btn btn--outline">
-              View Complete Services Portfolio <ArrowRight size={15} />
+            <Link to="/services" className="epiko-outline-btn">
+              VIEW COMPLETE SERVICES DIRECTORY <ArrowRight size={15} />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* === ABOUT SECTION (Blueprint Coordinate Grid & Minimalist Two-Column) === */}
+      {/* === ABOUT / ENGINEERING RIGOUR SECTION === */}
       <section className="home-about section--ice grid_bg">
         <div className="container">
           <div className="home-about__grid">
             <div className="home-about__content">
-              <span className="label label--green">Engineering Advisory</span>
-              <h2>
-                Independent{' '}
-                <WordHighlight color="green" variant="oval">
-                  rigour
-                </WordHighlight>{' '}
-                & sustainable engineering.
+              <span className="epiko-badge">
+                <span className="epiko-status-dot epiko-status-dot--green" />
+                <span>ENGINEERING RIGOUR</span>
+              </span>
+              <h2 className="home-about__title font-display">
+                INDEPENDENT <span className="serif-accent">rigour</span> <br />
+                & vendor-neutral integrity.
               </h2>
-              <hr className="divider" />
-              <p>
-                PowerMitt Consulting Pty Ltd is an independent electrical power systems consultancy based in Perth, Western Australia. Founded by <strong>Dinesh Mithanthaya</strong>, our consultancy brings over 20+ years of high-calibre technical expertise to complex industrial and utility-scale projects.
+              <p className="home-about__lead">
+                PowerMitt Consulting Pty Ltd is an independent electrical power engineering advisory based in Perth, Western Australia. Founded by <strong>Dinesh Mithanthaya</strong>, our practice delivers over 20+ years of high-calibre technical mastery to complex industrial and utility-scale projects.
               </p>
               <p>
-                We do not sell equipment or maintain vendor exclusivity. Our recommendations are driven solely by engineering physics, reliability, regulatory compliance, and life-cycle asset value.
+                We do not sell hardware, represent OEMs, or accept contractor commissions. Our recommendations are driven strictly by the laws of engineering physics, system reliability, regulatory compliance, and total lifecycle asset value.
               </p>
               
               <div className="home-about__checklist">
                 <div className="home-about__check-item">
-                  <CheckCircle2 size={18} className="home-about__check-icon home-about__check-icon--blue" />
-                  <span>Independent, vendor-neutral power systems advisory</span>
+                  <CheckCircle2 size={18} className="text-[#0066FF] shrink-0" />
+                  <span>100% vendor-neutral power systems analysis & verified models</span>
                 </div>
                 <div className="home-about__check-item">
-                  <CheckCircle2 size={18} className="home-about__check-icon home-about__check-icon--green" />
-                  <span>Practical energy transition & decarbonisation pathways</span>
+                  <CheckCircle2 size={18} className="text-[#10B981] shrink-0" />
+                  <span>Pragmatic energy transition, storage & decarbonisation pathways</span>
                 </div>
                 <div className="home-about__check-item">
-                  <CheckCircle2 size={18} className="home-about__check-icon home-about__check-icon--blue" />
-                  <span>Deep Australian grid connection & compliance expertise</span>
+                  <CheckCircle2 size={18} className="text-[#0066FF] shrink-0" />
+                  <span>Deep Australian grid connection (AEMO / WEM / NSP) governance</span>
                 </div>
               </div>
 
               <div className="home-about__action">
-                <Link to="/about" className="btn btn--primary">
-                  About Dinesh & PowerMitt <ArrowRight size={15} />
+                <Link to="/about" className="epiko-pill-btn-blue">
+                  ABOUT DINESH & POWERMITT <ArrowRight size={15} />
                 </Link>
               </div>
             </div>
@@ -205,13 +256,13 @@ export default function Home() {
                 </div>
                 <div className="home-about__stats">
                   <div className="home-about__stat">
-                    <span className="home-about__stat-num home-about__stat-num--blue">30+</span>
-                    <span className="home-about__stat-label">Years Experience</span>
+                    <span className="home-about__stat-num font-serif italic">30+</span>
+                    <span className="home-about__stat-label">Years Track Record</span>
                   </div>
                   <div className="home-about__stat-sep" />
                   <div className="home-about__stat">
-                    <span className="home-about__stat-num home-about__stat-num--green">100%</span>
-                    <span className="home-about__stat-label">Client-Centric</span>
+                    <span className="home-about__stat-num font-serif italic text-[#10B981]">100%</span>
+                    <span className="home-about__stat-label">Independent Advice</span>
                   </div>
                 </div>
               </div>
@@ -220,19 +271,24 @@ export default function Home() {
         </div>
       </section>
 
-      {/* === INDUSTRIES SECTION (Dark Executive Grid) === */}
+      {/* === INDUSTRIES / SECTORS SECTION (Epiko Dark Executive Cards) === */}
       <section className="section--dark home-industries">
         <div className="container">
           <SectionHeader
-            label="Industries We Serve"
-            title="Engineering for Australia’s Heavy Industries"
-            subtitle="Delivering specialist power and energy transition engineering for demanding resources, utilities, and infrastructure."
+            label="CRITICAL SECTORS"
+            title={
+              <>
+                CRITICAL <span className="serif-accent">sectors</span> WE SERVE
+              </>
+            }
+            subtitle="Delivering specialised power system studies, design verification, and grid integration for demanding resources, utilities, and infrastructure."
             light
           />
 
           <div className="home-industries__grid">
-            {industries.map((ind) => {
+            {industries.map((ind, index) => {
               const isGreenSector = ind.id === 'energy-utilities';
+              const serial = `0${index + 1}`;
               return (
                 <Link
                   key={ind.id}
@@ -241,14 +297,19 @@ export default function Home() {
                   style={{ backgroundImage: `url(${getAssetUrl(ind.bgImage)})` }}
                 >
                   <div className="home-industries__overlay" />
-                  <div className="home-industries__content">
+                  <div className="home-industries__card-header">
                     <span className={`home-industries__tag ${isGreenSector ? 'home-industries__tag--green' : ''}`}>
                       {isGreenSector ? 'Energy Transition' : 'Heavy Industry'}
                     </span>
-                    <h3>{ind.title}</h3>
+                    <span className="home-industries__serial font-serif">
+                      ({serial})
+                    </span>
+                  </div>
+                  <div className="home-industries__content">
+                    <h3 className="font-display">{ind.title}</h3>
                     <p>{ind.shortDescription}</p>
                     <span className={`home-industries__link ${isGreenSector ? 'home-industries__link--green' : ''}`}>
-                      Explore Industry <ArrowRight size={14} />
+                      EXPLORE SECTOR <ArrowRight size={14} className="epiko-arrow" />
                     </span>
                   </div>
                 </Link>
@@ -258,11 +319,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* === CTA BANNER === */}
+      {/* === CTA BANNER (Epiko Grand Statement Closing) === */}
       <CTABanner
-        title="Ready to De-Risk Your Electrical Power Infrastructure?"
-        subtitle="Connect directly with Dinesh Mithanthaya and the PowerMitt engineering team."
-        buttonText="Get in Touch"
+        title={
+          <>
+            READY TO DE-RISK <br />
+            <span className="serif-accent">your electrical infrastructure?</span>
+          </>
+        }
+        subtitle="Connect directly with Dinesh Mithanthaya and the PowerMitt engineering team for independent advice and project verification."
+        buttonText="START A CONVERSATION"
         buttonLink="/contact"
       />
     </main>

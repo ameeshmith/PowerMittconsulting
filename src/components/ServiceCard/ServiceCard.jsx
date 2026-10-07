@@ -26,11 +26,11 @@ export default function ServiceCard({ number, title, description, capabilities, 
         <div className={`service-card__icon-wrap service-card__icon-wrap--${sectorTheme}`}>
           <Icon size={22} />
         </div>
-        {number && <span className="service-card__number">{number}</span>}
+        {number && <span className="service-card__number font-serif">({number})</span>}
       </div>
 
       <div className="service-card__body">
-        <h3 className="service-card__title">{title}</h3>
+        <h3 className="service-card__title font-display">{title}</h3>
         <p className="service-card__desc">{description}</p>
         
         {capabilities && capabilities.length > 0 && (
@@ -42,7 +42,7 @@ export default function ServiceCard({ number, title, description, capabilities, 
         )}
 
         <span className={`service-card__link service-card__link--${sectorTheme}`}>
-          Explore Capabilities <ArrowRight size={14} />
+          DISCOVER CAPABILITIES <ArrowRight size={14} className="service-card__arrow" />
         </span>
       </div>
     </Link>

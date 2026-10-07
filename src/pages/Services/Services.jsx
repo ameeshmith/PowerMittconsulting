@@ -19,30 +19,27 @@ export default function Services() {
 
       <Hero
         variant="compact"
-        label="Our Services"
+        label="Capabilities Portfolio"
         title={
           <>
-            Specialist{' '}
-            <WordHighlight color="blue" variant="oval">
-              engineering
-            </WordHighlight>{' '}
-            for complex{' '}
-            <WordHighlight color="green" variant="oval">
-              energy
-            </WordHighlight>{' '}
-            projects.
+            SPECIALIST <span className="hero-modern__serif-accent">capabilities</span> <br />
+            FOR COMPLEX POWER INFRASTRUCTURE.
           </>
         }
-        subtitle="From power system studies and renewable integration to carbon capture engineering and independent technical advisory — we provide the expertise complex projects demand."
+        subtitle="From high-voltage power system studies and renewable grid connection to carbon capture mega-drives and independent owner's engineering advisory across Australia."
         bgImage="/assets/images/power-systems-bg.jpg"
       />
 
       <section className="services-section">
         <div className="container">
           <SectionHeader
-            label="Specialist Capabilities"
-            title="End-to-End Engineering Across Project Lifecycle"
-            subtitle="Supporting clients across resources, energy, utilities, and heavy industrial facilities."
+            label="DISCIPLINES & PRACTICES"
+            title={
+              <>
+                END-TO-END <span className="serif-accent">engineering</span> ACROSS ASSET LIFECYCLES
+              </>
+            }
+            subtitle="Specialist engineering advisory supporting clients across heavy industry, mining resources, and utility-scale grids."
           />
 
           <div className="services-grid">
@@ -62,9 +59,14 @@ export default function Services() {
       </section>
 
       <CTABanner
-        title="Need Specialist Engineering Support?"
-        subtitle="Talk to our principal power engineers about your technical requirements."
-        buttonText="Contact PowerMitt"
+        title={
+          <>
+            NEED SPECIALIST <br />
+            <span className="serif-accent">engineering support?</span>
+          </>
+        }
+        subtitle="Connect directly with our principal engineers to discuss your technical specifications and connection studies."
+        buttonText="START A CONVERSATION"
         buttonLink="/contact"
       />
     </main>

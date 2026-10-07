@@ -3,30 +3,36 @@ import { ArrowRight } from 'lucide-react';
 import './CTABanner.css';
 
 export default function CTABanner({
-  title = 'Have a Complex Engineering Challenge?',
-  subtitle = "Let's discuss how PowerMitt can support your project.",
-  buttonText = 'Contact PowerMitt',
+  badge = "GET IN TOUCH",
+  title = (
+    <>
+      READY TO DE-RISK <br />
+      <span className="serif-accent">your power infrastructure?</span>
+    </>
+  ),
+  subtitle = "Connect directly with Principal Power Engineer Dinesh Mithanthaya and the PowerMitt team for independent engineering and connection advisory.",
+  buttonText = 'START A CONVERSATION',
   buttonLink = '/contact',
   variant = 'default'
 }) {
   return (
     <section className={`cta-banner cta-banner--${variant}`}>
-      <div className="cta-banner__pattern" aria-hidden="true">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="ctaGrid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-              <circle cx="30" cy="30" r="1.5" fill="rgba(255,255,255,0.1)" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#ctaGrid)" />
-        </svg>
-      </div>
+      <div className="cta-banner__glow cta-banner__glow--left" aria-hidden="true" />
+      <div className="cta-banner__glow cta-banner__glow--right" aria-hidden="true" />
+      <div className="grid_bg cta-banner__grid" aria-hidden="true" />
+
       <div className="cta-banner__inner container">
-        <h2 className="cta-banner__title">{title}</h2>
+        {badge && (
+          <div className="cta-banner__badge">
+            <span className="cta-banner__badge-dot" />
+            <span>{badge}</span>
+          </div>
+        )}
+        <h2 className="cta-banner__title font-display">{title}</h2>
         <p className="cta-banner__subtitle">{subtitle}</p>
-        <Link to={buttonLink} className="btn btn--primary btn--large">
+        <Link to={buttonLink} className="cta-banner__btn">
           {buttonText}
-          <ArrowRight size={18} />
+          <ArrowRight size={16} className="cta-banner__btn-arrow" />
         </Link>
       </div>
     </section>

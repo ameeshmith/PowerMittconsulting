@@ -77,26 +77,27 @@ export default function Projects() {
       />
       <Hero
         variant="compact"
-        label="Projects & Experience"
+        label="Track Record & Case Studies"
         title={
           <>
-            Engineering{' '}
-            <WordHighlight color="blue" variant="oval">
-              track record
-            </WordHighlight>{' '}
-            & case studies.
+            DEMONSTRATED <span className="hero-modern__serif-accent">track record</span> <br />
+            & CASE STUDIES.
           </>
         }
-        subtitle="Specialist expertise delivered across power systems, energy transition, resources, and heavy industrial facilities."
+        subtitle="Specialist electrical engineering delivered across critical Australian power systems, mining operations, and utility grid connections."
         bgImage="/assets/images/hero-about.jpg"
       />
 
       <section className="projects-section">
         <div className="container">
           <SectionHeader
-            label="Portfolio"
-            title="Demonstrated Engineering Track Record"
-            subtitle="Selected case studies and project experience across critical Australian infrastructure."
+            label="PROJECT PORTFOLIO"
+            title={
+              <>
+                FEATURED <span className="serif-accent">case studies</span> & DELIVERIES
+              </>
+            }
+            subtitle="Selected case studies and verified project experience across critical Australian power infrastructure."
           />
 
           {/* Filter Pills */}
@@ -132,9 +133,14 @@ export default function Projects() {
       </section>
 
       <CTABanner
-        title="Have a Similar Project Requirement?"
-        subtitle="Talk to our engineers about tailoring a high-integrity power solution for your facility."
-        buttonText="Contact PowerMitt"
+        title={
+          <>
+            HAVE A SIMILAR <br />
+            <span className="serif-accent">project requirement?</span>
+          </>
+        }
+        subtitle="Connect directly with our engineering team about tailoring a high-integrity power solution for your facility."
+        buttonText="START A CONVERSATION"
         buttonLink="/contact"
       />
     </main>

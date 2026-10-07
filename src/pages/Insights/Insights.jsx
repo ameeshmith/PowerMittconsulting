@@ -57,8 +57,13 @@ export default function Insights() {
 
       <Hero
         variant="compact"
-        label="Knowledge & Analysis"
-        title="Engineering Insights & Technical Articles"
+        label="Knowledge & Perspectives"
+        title={
+          <>
+            ENGINEERING <span className="hero-modern__serif-accent">insights</span> <br />
+            & TECHNICAL PERSPECTIVES.
+          </>
+        }
         subtitle="Specialist perspectives, case studies, and engineering analysis across electrical power systems, energy transition, and heavy industrial infrastructure."
         bgImage="/assets/images/hero-nature-energy.jpg"
       />

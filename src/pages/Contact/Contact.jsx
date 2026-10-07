@@ -100,17 +100,14 @@ export default function Contact() {
       />
       <Hero
         variant="compact"
-        label="Contact Us"
+        label="Initiate Advisory"
         title={
           <>
-            Let's discuss your{' '}
-            <WordHighlight color="blue" variant="oval">
-              engineering
-            </WordHighlight>{' '}
-            challenge.
+            LET'S DISCUSS YOUR <br />
+            <span className="hero-modern__serif-accent">engineering challenge.</span>
           </>
         }
-        subtitle="Whether you're planning a new facility, need specialist power systems modeling, or want independent technical advisory — we're here to help."
+        subtitle="Direct engagement with Principal Power Engineer Dinesh Mithanthaya and the engineering team for grid studies, design verification, and independent due diligence across Australia."
         bgImage="/assets/images/hero-contact.jpg"
       />
 

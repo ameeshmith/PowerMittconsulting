@@ -19,25 +19,26 @@ export default function Industries() {
       
       <Hero 
         variant="compact" 
-        label="Industries We Serve" 
+        label="Critical Sectors" 
         title={
           <>
-            Engineering for demanding{' '}
-            <WordHighlight color="blue" variant="oval">
-              industrial
-            </WordHighlight>{' '}
-            sectors.
+            ENGINEERING FOR DEMANDING <br />
+            <span className="hero-modern__serif-accent">heavy sectors.</span>
           </>
         }
-        subtitle="Specialist electrical power systems and energy engineering expertise tailored for the resources, energy, oil & gas, and industrial infrastructure sectors." 
+        subtitle="Specialist electrical power systems and energy engineering expertise tailored for the resources, energy transition, oil & gas, and heavy infrastructure sectors across Australia." 
         bgImage="/assets/images/industrial-bg.jpg"
       />
 
       <section className="industries-section">
         <div className="container">
           <SectionHeader
-            label="Sectors"
-            title="Tailored Solutions for Australia's Heavy Industry"
+            label="CRITICAL SECTORS"
+            title={
+              <>
+                TAILORED SOLUTIONS FOR <span className="serif-accent">heavy industry</span>
+              </>
+            }
             subtitle="Each sector presents unique power stability and grid compliance challenges. Our specialist expertise ensures dependable delivery."
           />
 
@@ -58,9 +59,14 @@ export default function Industries() {
       </section>
 
       <CTABanner 
-        title="Working in a Complex Industrial Sector?" 
-        subtitle="Talk to our power systems team about your technical requirements." 
-        buttonText="Contact PowerMitt"
+        title={
+          <>
+            DE-RISK YOUR <br />
+            <span className="serif-accent">sector infrastructure</span>
+          </>
+        }
+        subtitle="Connect directly with our engineering team to review power system compliance, reliability, and decarbonisation strategies."
+        buttonText="START A CONVERSATION"
         buttonLink="/contact"
       />
     </main>

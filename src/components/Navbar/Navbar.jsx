@@ -59,7 +59,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className={`navbar-modern ${scrolled ? 'navbar-modern--scrolled' : ''}`}>
+    <header className={`navbar-modern ${scrolled ? 'navbar-modern--scrolled' : ''} ${mobileOpen ? 'navbar-modern--open' : ''}`}>
       <div className="navbar-modern__container">
         {/* Brand */}
         <Link to="/" className="navbar-modern__brand" onClick={() => setMobileOpen(false)}>
@@ -129,7 +129,7 @@ export default function Navbar() {
         {/* Right CTA Button */}
         <div className="navbar-modern__actions">
           <Link to="/contact" className="navbar-modern__cta-btn">
-            Get a Quote
+            LET'S DISCUSS
           </Link>
 
           <button
