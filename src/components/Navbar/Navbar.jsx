@@ -66,7 +66,10 @@ export default function Navbar() {
 
   const handleKeyDown = (e) => {
     if (e.key === 'Escape') {
+      e.preventDefault();
       setActiveDropdown(null);
+      const parentLink = e.currentTarget.querySelector('.navbar-modern__link');
+      parentLink?.focus();
     }
   };
 

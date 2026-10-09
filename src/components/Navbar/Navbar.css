@@ -154,6 +154,7 @@
   color: rgba(255, 255, 255, 0.72);
   text-decoration: none;
   transition: all var(--duration-fast);
+  white-space: nowrap;
 }
 
 .navbar-modern__link::after {
@@ -492,7 +493,20 @@
   background: #0052CC;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1200px) {
+  .navbar-modern__nav {
+    gap: 0.95rem;
+  }
+  .navbar-modern__link {
+    padding: 8px 8px;
+    letter-spacing: 0.11em;
+  }
+  .navbar-modern__container {
+    padding: 0 1.25rem;
+  }
+}
+
+@media (max-width: 1024px) {
   .navbar-modern__nav,
   .navbar-modern__actions .navbar-modern__cta-btn {
     display: none;
