@@ -58,6 +58,8 @@ export default function Navbar() {
     return location.pathname.startsWith(path);
   };
 
+  const isExactActive = (path) => location.pathname === path;
+
   return (
     <header className={`navbar-modern ${scrolled ? 'navbar-modern--scrolled' : ''} ${mobileOpen ? 'navbar-modern--open' : ''}`}>
       <div className="navbar-modern__container">
@@ -113,7 +115,7 @@ export default function Navbar() {
                       <Link
                         key={item.path}
                         to={item.path}
-                        className={`navbar-modern__dropdown-item ${isActive(item.path) ? 'navbar-modern__dropdown-item--active' : ''}`}
+                        className={`navbar-modern__dropdown-item ${isExactActive(item.path) ? 'navbar-modern__dropdown-item--active' : ''}`}
                       >
                         <span className="navbar-modern__dropdown-title">{item.label}</span>
                         <span className="navbar-modern__dropdown-desc">{item.description}</span>
@@ -186,7 +188,7 @@ export default function Navbar() {
                         <Link
                           key={sub.path}
                           to={sub.path}
-                          className={`navbar-modern__mobile-sublink ${isActive(sub.path) ? 'navbar-modern__mobile-sublink--active' : ''}`}
+                          className={`navbar-modern__mobile-sublink ${isExactActive(sub.path) ? 'navbar-modern__mobile-sublink--active' : ''}`}
                           onClick={() => setMobileOpen(false)}
                         >
                           <span className="navbar-modern__mobile-sub-title">{sub.label}</span>

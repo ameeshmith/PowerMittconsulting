@@ -14,6 +14,17 @@ export const navigation = {
         { label: "Owner's Engineering", path: '/services/owners-engineering', description: 'Independent technical advisory' }
       ]
     },
+    {
+      label: 'Industries',
+      path: '/industries',
+      dropdown: [
+        { label: 'All Industries', path: '/industries', description: 'Overview of all industry sectors' },
+        { label: 'Offshore Oil & Gas', path: '/industries/oil-gas', description: 'Normally Unattended Facilities (NUF) & life extension' },
+        { label: 'Mining & Resources', path: '/industries/mining-resources', description: 'Mining power systems & heavy fleet electrification' },
+        { label: 'Energy & Utilities', path: '/industries/energy-utilities', description: 'Transmission, distribution & utility grid compliance' },
+        { label: 'Heavy Industrial & Manufacturing', path: '/industries/industrial', description: 'Electrification, process plants & power quality' }
+      ]
+    },
     { label: 'Projects', path: '/projects' },
     { label: 'Insights', path: '/insights' },
     { label: 'Contact', path: '/contact' }
