@@ -26,7 +26,14 @@ const coreCapabilities = [
     icon: Zap,
     category: 'grid',
     theme: 'blue',
-    tag: 'Grid & Transmission'
+    tag: 'Grid & Transmission',
+    isLead: true,
+    highlights: [
+      'Grid connection compliance (AEMO, WEM & NSP rules)',
+      'Load flow, fault level, arc flash & harmonic studies',
+      'HV/MV substation design & protection coordination',
+      'PSS/E, PowerFactory (DIgSILENT) & PSCAD models'
+    ]
   },
   {
     id: '02',
@@ -153,27 +160,75 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="home-services__grid">
+          <div className={`home-services__grid ${activeCategory === 'all' ? 'home-services__grid--lead' : 'home-services__grid--filtered'}`}>
             {filteredCapabilities.map((cap) => {
               const Icon = cap.icon;
               const isGreen = cap.theme === 'green';
+              const isLead = activeCategory === 'all' && cap.isLead;
+
+              if (isLead) {
+                return (
+                  <SpotlightCard
+                    key={cap.id}
+                    as={Link}
+                    to={cap.link}
+                    spotlightColor="rgba(31, 95, 214, 0.08)"
+                    borderColor="rgba(31, 95, 214, 0.3)"
+                    className="epiko-capability-card epiko-capability-card--lead"
+                  >
+                    <div className="epiko-capability-card__lead-body">
+                      <div className="epiko-capability-card__top">
+                        <span className="epiko-capability-card__tag epiko-capability-card__tag--lead">
+                          Core Specialisation
+                        </span>
+                        <div className="epiko-capability-card__icon-box epiko-capability-card__icon-box--lead">
+                          <Icon size={22} />
+                        </div>
+                      </div>
+
+                      <h3 className="epiko-capability-card__title epiko-capability-card__title--lead">
+                        {cap.title}
+                      </h3>
+                      <p className="epiko-capability-card__desc epiko-capability-card__desc--lead">
+                        {cap.desc}
+                      </p>
+
+                      {cap.highlights && (
+                        <ul className="epiko-capability-card__highlights">
+                          {cap.highlights.map((item, idx) => (
+                            <li key={idx} className="epiko-capability-card__highlight-item">
+                              <CheckCircle2 size={15} className="text-[#1F5FD6] shrink-0" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+
+                    <div className="epiko-capability-card__footer epiko-capability-card__footer--lead">
+                      <span>Explore Power Systems Engineering</span>
+                      <ArrowRight size={15} className="epiko-arrow" />
+                    </div>
+                  </SpotlightCard>
+                );
+              }
+
               return (
                 <SpotlightCard
                   key={cap.id}
                   as={Link}
                   to={cap.link}
                   spotlightColor={isGreen ? 'rgba(5, 150, 105, 0.08)' : 'rgba(31, 95, 214, 0.08)'}
-                  borderColor={isGreen ? 'rgba(5, 150, 105, 0.3)' : 'rgba(31, 95, 214, 0.3)'}
+                  borderColor={isGreen ? 'rgba(5, 150, 105, 0.25)' : 'rgba(31, 95, 214, 0.25)'}
                   className={`epiko-capability-card ${isGreen ? 'epiko-capability-card--green' : ''}`}
                 >
                   <div className="epiko-capability-card__top">
                     <span className={`epiko-capability-card__tag ${isGreen ? 'epiko-capability-card__tag--green' : ''}`}>
                       {cap.tag}
                     </span>
-                  </div>
-
-                  <div className={`epiko-capability-card__icon-box ${isGreen ? 'epiko-capability-card__icon-box--green' : ''}`}>
-                    <Icon size={20} />
+                    <div className={`epiko-capability-card__icon-box ${isGreen ? 'epiko-capability-card__icon-box--green' : ''}`}>
+                      <Icon size={19} />
+                    </div>
                   </div>
 
                   <h3 className="epiko-capability-card__title">
@@ -256,13 +311,13 @@ export default function Home() {
                 </div>
                 <div className="home-about__stats">
                   <div className="home-about__stat">
-                    <span className="home-about__stat-num font-serif italic">30+</span>
-                    <span className="home-about__stat-label">Years Track Record</span>
+                    <span className="home-about__stat-num">132kV+</span>
+                    <span className="home-about__stat-label">HV Network Studies</span>
                   </div>
                   <div className="home-about__stat-sep" />
                   <div className="home-about__stat">
-                    <span className="home-about__stat-num font-serif italic text-[#059669]">100%</span>
-                    <span className="home-about__stat-label">Independent Advice</span>
+                    <span className="home-about__stat-num home-about__stat-num--green">Vendor-Neutral</span>
+                    <span className="home-about__stat-label">Zero Hardware Sales</span>
                   </div>
                 </div>
               </div>
@@ -275,7 +330,7 @@ export default function Home() {
       <section className="home-industries">
         <div className="container">
           <SectionHeader
-            label="CRITICAL SECTORS"
+            label="Critical Sectors"
             light={true}
             title="Critical Sectors We Serve"
             subtitle="Delivering specialised power system studies, design verification, and grid integration for demanding resources, utilities, and infrastructure."
@@ -290,22 +345,27 @@ export default function Home() {
                   to={ind.slug}
                   className="home-industries__card"
                 >
-                  <div
-                    className="home-industries__bg"
-                    style={{ backgroundImage: `url(${getAssetUrl(ind.bgImage)})` }}
-                  />
-                  <div className="home-industries__overlay" />
-                  <div className="home-industries__card-header">
+                  <div className="home-industries__media">
+                    <img
+                      src={getAssetUrl(ind.bgImage)}
+                      alt={ind.title}
+                      className="home-industries__img"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="home-industries__media-overlay" />
                     <span className={`home-industries__tag ${isGreenSector ? 'home-industries__tag--green' : ''}`}>
                       {isGreenSector ? 'Energy Transition' : 'Heavy Industry'}
                     </span>
                   </div>
-                  <div className="home-industries__content">
-                    <h3>{ind.title}</h3>
-                    <p>{ind.shortDescription}</p>
-                    <span className={`home-industries__link ${isGreenSector ? 'home-industries__link--green' : ''}`}>
-                      Explore Sector <ArrowRight size={14} className="epiko-arrow" />
-                    </span>
+
+                  <div className="home-industries__panel">
+                    <h3 className="home-industries__title">{ind.title}</h3>
+                    <p className="home-industries__desc">{ind.shortDescription}</p>
+                    <div className="home-industries__link">
+                      <span>Explore Sector</span>
+                      <ArrowRight size={14} className="epiko-arrow" />
+                    </div>
                   </div>
                 </Link>
               );

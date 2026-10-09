@@ -25,7 +25,7 @@
 /* ── Capabilities / Services Showcase ── */
 .home-services {
   background: var(--color-body-bg);
-  padding: 4.5rem 0;
+  padding: 6rem 0;
   position: relative;
 }
 
@@ -34,7 +34,7 @@
   justify-content: space-between;
   align-items: flex-end;
   gap: 2.5rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2.75rem;
   flex-wrap: wrap;
 }
 
@@ -44,7 +44,7 @@
 
 .home-services__title {
   font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 3.2vw, 2.4rem);
+  font-size: clamp(1.85rem, 3.2vw, 2.45rem);
   font-weight: 700;
   line-height: 1.15;
   color: var(--color-midnight);
@@ -98,19 +98,26 @@
   box-shadow: 0 2px 8px rgba(5, 150, 105, 0.2);
 }
 
-/* ── Epiko Capabilities Cards Grid ── */
+/* ── Capabilities Asymmetric Lead Grid (Solves 3+2 broken grid) ── */
 .home-services__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-  margin-bottom: 2.5rem;
+  gap: 1.35rem;
+  margin-bottom: 2.75rem;
+}
+
+.home-services__grid--lead {
+  grid-template-columns: 1.18fr 1fr 1fr;
+}
+
+.home-services__grid--filtered {
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 }
 
 .epiko-capability-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 1.6rem 1.6rem 1.4rem;
+  padding: 1.65rem 1.65rem 1.45rem;
   background: #FFFFFF;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -129,52 +136,74 @@
   border-color: rgba(5, 150, 105, 0.35);
 }
 
+/* Featured Lead Card */
+.home-services__grid--lead .epiko-capability-card--lead {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  padding: 2.25rem 2rem 1.85rem;
+  border-color: rgba(31, 95, 214, 0.22);
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8FAFD 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.home-services__grid--lead .epiko-capability-card--lead:hover {
+  border-color: rgba(31, 95, 214, 0.45);
+}
+
+.epiko-capability-card__lead-body {
+  display: flex;
+  flex-direction: column;
+}
+
 .epiko-capability-card__top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.15rem;
+  margin-bottom: 1.25rem;
 }
 
+/* Plain small text instead of floating pill tag */
 .epiko-capability-card__tag {
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  color: var(--color-steel-light);
+  background: none;
+  padding: 0;
+  border: none;
+}
+
+.epiko-capability-card__tag--lead {
   color: var(--color-blue);
-  background: var(--color-blue-light);
-  padding: 4px 10px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(31, 95, 214, 0.15);
+  font-weight: 700;
+  letter-spacing: 0.08em;
 }
 
 .epiko-capability-card__tag--green {
   color: var(--color-green);
-  background: var(--color-green-light);
-  border-color: rgba(5, 150, 105, 0.2);
-}
-
-.epiko-capability-card__serial {
-  font-size: 1.05rem;
-  color: #94A3B8;
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0.05em;
 }
 
 .epiko-capability-card__icon-box {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
   background: var(--color-blue-light);
   border: 1px solid rgba(31, 95, 214, 0.15);
   color: var(--color-blue);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.15rem;
   transition: all 0.25s ease;
+}
+
+.epiko-capability-card__icon-box--lead {
+  width: 44px;
+  height: 44px;
+  border-radius: 11px;
 }
 
 .epiko-capability-card:hover .epiko-capability-card__icon-box {
@@ -206,6 +235,13 @@
   transition: color 0.2s ease;
 }
 
+.epiko-capability-card__title--lead {
+  font-size: 1.45rem;
+  line-height: 1.25;
+  margin-bottom: 0.85rem;
+  font-weight: 700;
+}
+
 .epiko-capability-card:hover .epiko-capability-card__title {
   color: var(--color-blue);
 }
@@ -218,9 +254,38 @@
   font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.6;
-  color: var(--color-steel);
-  margin-bottom: 1.35rem;
+  color: var(--color-slate-text);
+  margin-bottom: 1.25rem;
   flex: 1;
+}
+
+.epiko-capability-card__desc--lead {
+  font-size: 14.5px;
+  line-height: 1.65;
+  margin-bottom: 1.15rem;
+  flex: none;
+}
+
+/* Lead Card Highlights */
+.epiko-capability-card__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin: 0.5rem 0 1.75rem;
+  padding: 1rem 1.15rem;
+  background: rgba(31, 95, 214, 0.035);
+  border: 1px solid rgba(31, 95, 214, 0.1);
+  border-radius: var(--radius-md);
+}
+
+.epiko-capability-card__highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--color-charcoal);
+  font-weight: 500;
 }
 
 .epiko-capability-card__footer {
@@ -233,6 +298,11 @@
   color: var(--color-midnight);
   margin-top: auto;
   transition: color 0.2s ease;
+}
+
+.epiko-capability-card__footer--lead {
+  color: var(--color-blue);
+  font-size: 14px;
 }
 
 .epiko-capability-card__footer .epiko-arrow {
@@ -394,20 +464,29 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding: 0 0.5rem;
 }
 
 .home-about__stat-num {
-  font-size: 2.2rem;
-  line-height: 1;
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.15;
   color: var(--color-blue);
-  font-weight: 400;
-  margin-bottom: 2px;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.home-about__stat-num--green {
+  color: var(--color-green);
+  font-size: 1.35rem;
 }
 
 .home-about__stat-label {
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-steel);
 }
@@ -416,11 +495,12 @@
   width: 1px;
   height: 38px;
   background: var(--color-border);
+  flex-shrink: 0;
 }
 
 /* ── Industries Section (Executive Midnight Grid) ── */
 .home-industries {
-  padding: 5rem 0;
+  padding: 5.5rem 0;
   background: #07111F;
   color: #FFFFFF;
   position: relative;
@@ -432,118 +512,111 @@
 .home-industries__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
+  gap: 1.35rem;
 }
 
 .home-industries__card {
   position: relative;
-  height: 380px;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background-color: #07111F;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #0C1A2E;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 1.35rem;
   text-decoration: none;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.28);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
 }
 
 .home-industries__card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(31, 95, 214, 0.6);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  transform: translateY(-4px);
+  border-color: rgba(31, 95, 214, 0.55);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
 
-.home-industries__bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  z-index: 1;
+.home-industries__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #060E18;
+}
+
+.home-industries__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.home-industries__card:hover .home-industries__bg {
-  transform: scale(1.04);
+.home-industries__card:hover .home-industries__img {
+  transform: scale(1.06);
 }
 
-.home-industries__overlay {
+.home-industries__media-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(7, 17, 31, 0.72) 0%,
-    rgba(7, 17, 31, 0.60) 35%,
-    rgba(7, 17, 31, 0.88) 75%,
-    rgba(7, 17, 31, 0.96) 100%
-  );
-  transition: all 0.3s ease;
-  z-index: 2;
-}
-
-.home-industries__card:hover .home-industries__overlay {
-  background: linear-gradient(
-    180deg,
-    rgba(7, 17, 31, 0.60) 0%,
-    rgba(7, 17, 31, 0.46) 35%,
-    rgba(7, 17, 31, 0.82) 75%,
-    rgba(7, 17, 31, 0.94) 100%
-  );
-}
-
-.home-industries__card-header {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
+  background: linear-gradient(180deg, rgba(7, 17, 31, 0.15) 0%, rgba(12, 26, 46, 0.6) 100%);
+  pointer-events: none;
 }
 
 .home-industries__tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #FFFFFF;
-  background: rgba(14, 32, 56, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  padding: 4px 10px;
-  border-radius: var(--radius-full);
+  background: rgba(7, 17, 31, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
+  padding: 3px 9px;
+  border-radius: var(--radius-sm);
 }
 
 .home-industries__tag--green {
   color: #A7F3D0;
-  border-color: rgba(5, 150, 105, 0.35);
+  border-color: rgba(5, 150, 105, 0.45);
+  background: rgba(6, 40, 28, 0.85);
 }
 
-.home-industries__content {
-  position: relative;
-  z-index: 3;
-  margin-top: auto;
+.home-industries__panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.35rem 1.25rem 1.25rem;
+  background: #0C1A2E;
 }
 
-.home-industries__content h3 {
+.home-industries__title {
   font-family: var(--font-heading);
-  font-size: 1.2rem;
+  font-size: 1.125rem;
   font-weight: 600;
   color: #FFFFFF;
-  line-height: 1.25;
-  margin-bottom: 0.5rem;
-  text-transform: none;
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
   letter-spacing: -0.015em;
+  transition: color 0.2s ease;
 }
 
-.home-industries__content p {
-  font-size: 13.5px;
+.home-industries__card:hover .home-industries__title {
+  color: #93C5FD;
+}
+
+.home-industries__desc {
+  font-family: var(--font-body);
+  font-size: 13px;
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 1.15rem;
+  color: rgba(226, 232, 240, 0.72);
+  margin-bottom: 1.25rem;
+  flex: 1;
 }
 
 .home-industries__link {
@@ -554,9 +627,9 @@
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.01em;
-  text-transform: none;
-  color: #FFFFFF;
-  transition: all 0.25s ease;
+  color: #93C5FD;
+  margin-top: auto;
+  transition: color 0.2s ease;
 }
 
 .home-industries__link .epiko-arrow {
@@ -564,7 +637,7 @@
 }
 
 .home-industries__card:hover .home-industries__link {
-  color: var(--color-cyan);
+  color: #FFFFFF;
 }
 
 .home-industries__card:hover .epiko-arrow {
@@ -572,9 +645,14 @@
 }
 
 /* ── Responsive ── */
-@media (max-width: 1200px) {
-  .home-services__grid {
+@media (max-width: 1200px) and (min-width: 769px) {
+  .home-services__grid--lead {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home-services__grid--lead .epiko-capability-card--lead {
+    grid-column: 1 / -1;
+    grid-row: auto;
   }
 
   .home-industries__grid {
@@ -590,7 +668,6 @@
 }
 
 @media (max-width: 768px) {
-
   .home-services,
   .home-about,
   .home-industries {
@@ -598,19 +675,22 @@
   }
 
   .home-services__grid,
+  .home-services__grid--lead,
+  .home-services__grid--filtered,
   .home-industries__grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
+  }
+
+  .home-services__grid--lead .epiko-capability-card--lead {
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .home-services__header-row {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .home-industries__card {
-    height: 380px;
+    margin-bottom: 2.25rem;
   }
 }

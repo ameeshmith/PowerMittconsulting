@@ -52,7 +52,7 @@ export default function InteractiveGridCanvas({
     };
 
     const initNodes = () => {
-      const count = Math.floor((width * height) / 28000) || nodeCount;
+      const count = Math.floor((width * height) / 22000) || nodeCount;
       const nodes = [];
       for (let i = 0; i < count; i++) {
         nodes.push({
@@ -60,8 +60,8 @@ export default function InteractiveGridCanvas({
           y: Math.random() * height,
           vx: (Math.random() - 0.5) * 0.45,
           vy: (Math.random() - 0.5) * 0.45,
-          radius: Math.random() * 1.8 + 1.2,
-          baseAlpha: Math.random() * 0.35 + 0.25,
+          radius: Math.random() * 1.5 + 1.6,
+          baseAlpha: Math.random() * 0.3 + 0.4,
           pulse: Math.random() * Math.PI * 2,
           pulseSpeed: 0.02 + Math.random() * 0.03
         });
@@ -93,9 +93,10 @@ export default function InteractiveGridCanvas({
       parent.addEventListener('mouseleave', handleMouseLeave, { passive: true });
     }
 
-    // Colors
-    const primaryRGB = colorScheme === 'emerald' ? '16, 185, 129' : '0, 229, 255';
-    const secondaryRGB = '0, 102, 255';
+    // Colors: Luminous Sky/Cyan for high visibility on dark hero
+    const primaryRGB = colorScheme === 'emerald' ? '16, 185, 129' : '56, 189, 248'; // Sky 400
+    const secondaryRGB = colorScheme === 'emerald' ? '52, 211, 153' : '125, 211, 252'; // Sky 300
+    const highlightRGB = '224, 242, 254'; // Sky 100
 
     // Animation loop
     const render = () => {
@@ -104,8 +105,8 @@ export default function InteractiveGridCanvas({
       // Smooth lerp mouse coordinates
       const mouse = mouseRef.current;
       if (mouse.isHovered) {
-        mouse.x += (mouse.targetX - mouse.x) * 0.12;
-        mouse.y += (mouse.targetY - mouse.y) * 0.12;
+        mouse.x += (mouse.targetX - mouse.x) * 0.14;
+        mouse.y += (mouse.targetY - mouse.y) * 0.14;
       } else {
         mouse.x += (-1000 - mouse.x) * 0.08;
         mouse.y += (-1000 - mouse.y) * 0.08;
@@ -149,12 +150,12 @@ export default function InteractiveGridCanvas({
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < connectionDistance) {
-            const alpha = (1 - dist / connectionDistance) * 0.14;
+            const alpha = (1 - dist / connectionDistance) * 0.25;
             ctx.beginPath();
             ctx.moveTo(n1.x, n1.y);
             ctx.lineTo(n2.x, n2.y);
             ctx.strokeStyle = `rgba(${secondaryRGB}, ${alpha})`;
-            ctx.lineWidth = 0.8;
+            ctx.lineWidth = 0.9;
             ctx.stroke();
           }
         }
@@ -162,17 +163,17 @@ export default function InteractiveGridCanvas({
 
       // Draw mouse interactive connections and glow
       if (mouse.x > 0 && mouse.y > 0) {
-        // Ambient cursor glow halo
+        // Luminous ambient cursor glow
         const grad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, mouseRadius);
-        grad.addColorStop(0, `rgba(${primaryRGB}, 0.14)`);
-        grad.addColorStop(0.4, `rgba(${secondaryRGB}, 0.05)`);
+        grad.addColorStop(0, `rgba(${primaryRGB}, 0.18)`);
+        grad.addColorStop(0.45, `rgba(${secondaryRGB}, 0.05)`);
         grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
         ctx.fillStyle = grad;
         ctx.beginPath();
         ctx.arc(mouse.x, mouse.y, mouseRadius, 0, Math.PI * 2);
         ctx.fill();
 
-        // Connect cursor to nearby nodes with bright electric cyan lines
+        // Connect cursor to nearby nodes with luminous technical lines & glow
         for (let i = 0; i < nodes.length; i++) {
           const n = nodes[i];
           const dx = mouse.x - n.x;
@@ -180,43 +181,52 @@ export default function InteractiveGridCanvas({
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < mouseRadius) {
-            const alpha = (1 - dist / mouseRadius) * 0.55;
+            const alpha = (1 - dist / mouseRadius) * 0.8;
             ctx.beginPath();
             ctx.moveTo(mouse.x, mouse.y);
             ctx.lineTo(n.x, n.y);
             ctx.strokeStyle = `rgba(${primaryRGB}, ${alpha})`;
-            ctx.lineWidth = 1.1;
+            ctx.lineWidth = 1.3;
+            ctx.shadowColor = `rgba(${primaryRGB}, 0.7)`;
+            ctx.shadowBlur = 6;
             ctx.stroke();
+            ctx.shadowBlur = 0;
 
             // Highlight node in cursor range
             ctx.beginPath();
-            ctx.arc(n.x, n.y, n.radius + 1.8, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${primaryRGB}, ${alpha * 0.85})`;
+            ctx.arc(n.x, n.y, n.radius + 1.6, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${highlightRGB}, ${Math.min(1, alpha + 0.35)})`;
+            ctx.shadowColor = `rgba(${primaryRGB}, 0.9)`;
+            ctx.shadowBlur = 8;
             ctx.fill();
+            ctx.shadowBlur = 0;
           }
         }
 
-        // Draw small precision reticle on cursor
+        // Draw refined glowing reticle on cursor
         ctx.beginPath();
-        ctx.arc(mouse.x, mouse.y, 4, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${primaryRGB}, 0.85)`;
+        ctx.arc(mouse.x, mouse.y, 3, 0, Math.PI * 2);
+        ctx.fillStyle = '#FFFFFF';
+        ctx.shadowColor = '#38BDF8';
+        ctx.shadowBlur = 10;
         ctx.fill();
+        ctx.shadowBlur = 0;
 
         ctx.beginPath();
-        ctx.arc(mouse.x, mouse.y, 14, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(${primaryRGB}, 0.35)`;
-        ctx.lineWidth = 1;
+        ctx.arc(mouse.x, mouse.y, 13, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(${primaryRGB}, 0.7)`;
+        ctx.lineWidth = 1.2;
         ctx.stroke();
       }
 
       // Draw all nodes
       for (let i = 0; i < nodes.length; i++) {
         const n = nodes[i];
-        const pulseAlpha = n.baseAlpha + Math.sin(n.pulse) * 0.12;
+        const pulseAlpha = n.baseAlpha + Math.sin(n.pulse) * 0.15;
 
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${primaryRGB}, ${Math.max(0.1, pulseAlpha)})`;
+        ctx.fillStyle = `rgba(${secondaryRGB}, ${Math.max(0.3, pulseAlpha)})`;
         ctx.fill();
       }
 

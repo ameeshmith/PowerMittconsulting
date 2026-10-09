@@ -130,7 +130,7 @@ export default function Hero({
           {showFounderNote && (
             <div className="hero-modern__founder-card">
               <div className="hero-modern__founder-icon">
-                <UserCheck size={22} className="text-[#00E5FF]" />
+                <UserCheck size={22} className="text-[#38BDF8]" />
               </div>
               <div className="hero-modern__founder-info">
                 <span className="hero-modern__founder-tag">Principal Power Engineer</span>

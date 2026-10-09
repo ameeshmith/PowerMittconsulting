@@ -9,15 +9,36 @@
   left: 0;
   width: 100%;
   z-index: var(--z-nav);
-  background: rgba(7, 17, 31, 0.45);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   transition: background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               backdrop-filter 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               -webkit-backdrop-filter 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Luminous hairline glow along the bottom edge of the transparent navbar */
+.navbar-modern::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(56, 189, 248, 0.2) 15%,
+    rgba(56, 189, 248, 0.75) 50%,
+    rgba(56, 189, 248, 0.2) 85%,
+    transparent 100%
+  );
+  box-shadow: 0 1px 12px rgba(56, 189, 248, 0.45);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 .navbar-modern--scrolled {
@@ -28,8 +49,12 @@
   box-shadow: 0 4px 25px rgba(15, 23, 42, 0.05);
 }
 
+.navbar-modern--scrolled::after {
+  opacity: 0;
+}
+
 .navbar-modern--scrolled .navbar-modern__link {
-  color: var(--color-slate-text);
+  color: var(--color-midnight);
 }
 
 .navbar-modern--scrolled .navbar-modern__link:hover,
@@ -42,6 +67,11 @@
   color: var(--color-blue);
   background: var(--color-blue-light);
   border-color: rgba(31, 95, 214, 0.2);
+}
+
+.navbar-modern--scrolled .navbar-modern__link::after {
+  background: var(--color-blue);
+  box-shadow: none;
 }
 
 .navbar-modern--scrolled .navbar-modern__chevron {
@@ -129,17 +159,32 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 14px;
+  padding: 8px 16px;
   border-radius: var(--radius-full);
   font-family: var(--font-body);
-  font-size: 13.5px;
-  font-weight: 500;
+  font-size: 14.5px;
+  font-weight: 600;
   letter-spacing: -0.01em;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
   border: 1px solid transparent;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   white-space: nowrap;
+}
+
+.navbar-modern__link::after {
+  content: '';
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 0px;
+  height: 2px;
+  background: linear-gradient(90deg, #1F5FD6, #38BDF8);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.7);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 1px;
 }
 
 .navbar-modern__link:hover,
@@ -147,6 +192,12 @@
   color: #FFFFFF;
   background: rgba(255, 255, 255, 0.1);
   outline: none;
+}
+
+.navbar-modern__link:hover::after,
+.navbar-modern__link:focus-visible::after,
+.navbar-modern__link--active::after {
+  transform: scaleX(1);
 }
 
 .navbar-modern__link--active {
@@ -243,16 +294,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 20px;
+  padding: 9px 24px;
   border-radius: var(--radius-full);
   background: transparent;
   color: #FFFFFF !important;
   font-family: var(--font-body);
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: -0.01em;
   text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   transition: all 0.2s var(--ease-out);
 }
 
@@ -289,7 +340,7 @@
 .navbar-modern__hamburger:hover,
 .navbar-modern__hamburger:active {
   background-color: rgba(255, 255, 255, 0.08);
-  color: #00E5FF;
+  color: var(--color-cyan);
 }
 
 /* Mobile Drawer — Dark Frosted Glass */
@@ -357,7 +408,7 @@
 
 .navbar-modern__mobile-link:hover,
 .navbar-modern__mobile-link--active {
-  color: #00E5FF;
+  color: var(--color-cyan);
 }
 
 .navbar-modern__mobile-expand-btn {
@@ -383,7 +434,7 @@
 
 .navbar-modern__mobile-chevron--open {
   transform: rotate(180deg);
-  color: #00E5FF;
+  color: var(--color-cyan);
 }
 
 .navbar-modern__mobile-sub {
@@ -414,7 +465,7 @@
 }
 
 .navbar-modern__mobile-sublink--active .navbar-modern__mobile-sub-title {
-  color: #00E5FF;
+  color: var(--color-cyan);
 }
 
 .navbar-modern__mobile-sub-title {

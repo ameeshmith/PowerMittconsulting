@@ -82,7 +82,7 @@ export default function OwnersEngineering() {
           />
           <div className="service-detail__capabilities" style={{ marginTop: '2rem' }}>
             <div className="service-detail__cap-group" style={{ background: 'rgba(255,255,255,0.04)', borderColor: 'rgba(255,255,255,0.1)' }}>
-              <h3 style={{ color: '#00E5FF' }}>Design & Technical Assurance</h3>
+              <h3 style={{ color: 'var(--color-cyan)' }}>Design & Technical Assurance</h3>
               <ul>
                 <li>Scope definition and scope optimisation</li>
                 <li>Technical assurance and independent design reviews</li>
@@ -92,7 +92,7 @@ export default function OwnersEngineering() {
               </ul>
             </div>
             <div className="service-detail__cap-group" style={{ background: 'rgba(255,255,255,0.04)', borderColor: 'rgba(255,255,255,0.1)' }}>
-              <h3 style={{ color: '#10B981' }}>Project Execution & Commissioning</h3>
+              <h3 style={{ color: 'var(--color-green)' }}>Project Execution & Commissioning</h3>
               <ul>
                 <li>Interface management and multi-discipline stakeholder coordination</li>
                 <li>Constructability and operability reviews</li>

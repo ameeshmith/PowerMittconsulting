@@ -53,25 +53,20 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 5px 14px;
-  border-radius: var(--radius-full);
-  background: #FFFFFF;
-  border: 1px solid var(--color-border);
-  box-shadow: 0 1px 3px rgba(11, 25, 44, 0.04);
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-accent);
-  margin-bottom: 1.25rem;
+  color: var(--color-blue);
+  margin-bottom: 1.15rem;
 }
 
 .cta-banner__badge-dot {
-  width: 6px;
-  height: 6px;
+  width: 6.5px;
+  height: 6.5px;
   border-radius: 50%;
-  background: var(--color-accent);
+  background: var(--color-blue);
 }
 
 .cta-banner__title {
