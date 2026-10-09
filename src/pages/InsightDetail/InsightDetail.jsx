@@ -5,6 +5,8 @@ import SEO from '../../components/SEO/SEO';
 import CTABanner from '../../components/CTABanner/CTABanner';
 import { getArticle, getRelatedArticles } from '../../services/sanity';
 import { getAssetUrl } from '../../utils/assetPath';
+import { formatPublishedDate } from '../../utils/dateFormat';
+import { renderInlineMarkdown } from '../../utils/markdown';
 import useScrollReveal from '../../hooks/useScrollReveal';
 import './InsightDetail.css';
 
@@ -25,7 +27,7 @@ export default function InsightDetail() {
         const data = await getArticle(slug);
         if (data) {
           setArticle(data);
-          const related = await getRelatedArticles(data.slug, 2);
+          const related = await getRelatedArticles(data.slug, 2, data.category, data.tags);
           setRelatedArticles(related);
         }
       } catch (err) {
@@ -132,14 +134,14 @@ export default function InsightDetail() {
 
           <span className="insight-category-badge">{article.category}</span>
           <h1 className="insight-title">{article.title}</h1>
-          {article.subtitle && <p className="insight-subtitle">{article.subtitle}</p>}
+          {article.subtitle && <p className="insight-subtitle">{renderInlineMarkdown(article.subtitle)}</p>}
 
           {/* Meta & Share bar */}
           <div className="insight-meta-bar">
             <div className="insight-meta-left">
               <span className="insight-meta-item">
                 <Calendar size={14} />
-                {new Date(article.publishedAt).toLocaleDateString('en-AU', { month: 'long', day: 'numeric', year: 'numeric' })}
+                {formatPublishedDate(article.publishedAt, { month: 'long', day: 'numeric', year: 'numeric' })}
               </span>
               <span className="insight-meta-item">
                 <Clock size={14} />
@@ -185,7 +187,7 @@ export default function InsightDetail() {
               </div>
               <ul className="insight-takeaways__list">
                 {article.keyTakeaways.map((takeaway, idx) => (
-                  <li key={idx}>{takeaway}</li>
+                  <li key={idx}>{renderInlineMarkdown(takeaway)}</li>
                 ))}
               </ul>
             </div>
@@ -195,45 +197,45 @@ export default function InsightDetail() {
           <div className="insight-content reveal">
             {article.content ? (
               <div className="insight-prose">
-                {article.content.split('\n\n').map((block, i) => {
+                {article.content.split(/\r?\n\r?\n/).map((block, i) => {
                   const trimmed = block.trim();
                   if (!trimmed) return null;
 
                   if (trimmed.startsWith('## ')) {
-                    return <h2 key={i}>{trimmed.replace('## ', '')}</h2>;
+                    return <h2 key={i}>{renderInlineMarkdown(trimmed.replace('## ', ''))}</h2>;
                   }
                   if (trimmed.startsWith('### ')) {
-                    return <h3 key={i}>{trimmed.replace('### ', '')}</h3>;
+                    return <h3 key={i}>{renderInlineMarkdown(trimmed.replace('### ', ''))}</h3>;
                   }
                   if (trimmed.startsWith('---')) {
                     return <hr key={i} className="insight-divider" />;
                   }
                   if (trimmed.startsWith('- ')) {
-                    const items = trimmed.split('\n').filter(l => l.startsWith('- '));
+                    const items = trimmed.split(/\r?\n/).filter(l => l.startsWith('- '));
                     return (
                       <ul key={i} className="insight-list">
                         {items.map((it, itemIdx) => {
                           const text = it.replace('- ', '');
-                          return <li key={itemIdx}>{text}</li>;
+                          return <li key={itemIdx}>{renderInlineMarkdown(text)}</li>;
                         })}
                       </ul>
                     );
                   }
                   if (trimmed.match(/^\d+\.\s/)) {
-                    const items = trimmed.split('\n').filter(l => l.match(/^\d+\.\s/));
+                    const items = trimmed.split(/\r?\n/).filter(l => l.match(/^\d+\.\s/));
                     return (
                       <ol key={i} className="insight-ordered-list">
                         {items.map((it, itemIdx) => (
-                          <li key={itemIdx}>{it.replace(/^\d+\.\s/, '')}</li>
+                          <li key={itemIdx}>{renderInlineMarkdown(it.replace(/^\d+\.\s/, ''))}</li>
                         ))}
                       </ol>
                     );
                   }
-                  return <p key={i}>{trimmed}</p>;
+                  return <p key={i}>{renderInlineMarkdown(trimmed)}</p>;
                 })}
               </div>
             ) : (
-              <p>{article.excerpt}</p>
+              <p>{renderInlineMarkdown(article.excerpt)}</p>
             )}
           </div>
 

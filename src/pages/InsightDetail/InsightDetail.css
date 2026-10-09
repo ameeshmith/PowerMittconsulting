@@ -199,6 +199,57 @@
   margin-bottom: var(--space-6);
 }
 
+.insight-prose strong,
+.insight-takeaways__list strong,
+.insight-subtitle strong {
+  font-weight: 700;
+  color: var(--color-midnight);
+}
+
+.insight-prose em,
+.insight-takeaways__list em,
+.insight-subtitle em {
+  font-style: italic;
+}
+
+.insight-inline-code {
+  display: inline-block;
+  padding: 0.15em 0.45em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.88em;
+  color: #0f172a;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-sm, 4px);
+  vertical-align: baseline;
+}
+
+.insight-math-token {
+  display: inline-block;
+  font-family: 'Cambria Math', 'Times New Roman', serif;
+  font-style: normal;
+  padding: 0 0.15em;
+  color: #0f172a;
+  letter-spacing: 0.02em;
+}
+
+.insight-math-token em {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.insight-inline-link {
+  color: var(--color-emerald, #00d084);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: color var(--duration-fast, 150ms);
+}
+
+.insight-inline-link:hover {
+  color: var(--color-emerald-dark, #00a86b);
+}
+
 .insight-divider {
   border: none;
   height: 1px;
