@@ -16,7 +16,12 @@ export function renderInlineMarkdown(text) {
   if (!text || typeof text !== 'string') return text;
 
   // Regex token pattern with capturing group to preserve matched tokens in String.prototype.split
-  const tokenRegex = /(\[[^\]]+\]\([^)]+\)|`[^`]+`|\$[a-zA-Z\d_\^\/\+\-\=\(\)\\]+\$|\*\*[^*]+\*\*|\*[^*]+\*)/g;
+  // - Links: [label](url)
+  // - Code: `code`
+  // - Math: $formula$ (supports spaces, decimals, commas e.g. $E = mc^2$, $1.5 \times 10^3$)
+  // - Bold: **text**
+  // - Italic: *text* (uses flanking delimiter rules to avoid greedy matching across multiplication e.g. 10 * 20 MW)
+  const tokenRegex = /(\[[^\]]+\]\([^)]+\)|`[^`\r\n]+`|\$[^\$\r\n]+?\$|\*\*[^*\r\n]+?\*\*|(?<!\*)\*(?!\s|\*)[^*\r\n]+?(?<!\s|\*)\*(?!\*))/g;
 
   const parts = text.split(tokenRegex);
 
@@ -26,7 +31,13 @@ export function renderInlineMarkdown(text) {
     // 1. Hyperlink: [label](url)
     const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
     if (linkMatch) {
-      const [, label, href] = linkMatch;
+      const [, label, rawHref] = linkMatch;
+      const href = rawHref.trim();
+      // Security: validate that href begins with safe protocols (prevent javascript: or data: URIs)
+      const isSafe = /^(https?:\/\/|\/|mailto:)/i.test(href);
+      if (!isSafe) {
+        return part;
+      }
       const isExternal = href.startsWith('http://') || href.startsWith('https://');
       return (
         <a
@@ -42,7 +53,7 @@ export function renderInlineMarkdown(text) {
     }
 
     // 2. Inline Code: `code`
-    const codeMatch = part.match(/^`([^`]+)`$/);
+    const codeMatch = part.match(/^`([^`\r\n]+)`$/);
     if (codeMatch) {
       return (
         <code key={index} className="insight-inline-code">
@@ -51,8 +62,8 @@ export function renderInlineMarkdown(text) {
       );
     }
 
-    // 3. Mathematical Notation: $formula$ (e.g. $dV/dt$, $X/R$)
-    const mathMatch = part.match(/^\$([a-zA-Z\d_\^\/\+\-\=\(\)\\]+)\$$/);
+    // 3. Mathematical Notation: $formula$ (e.g. $dV/dt$, $E = mc^2$, $1.5 \times 10^3$)
+    const mathMatch = part.match(/^\$([^\$\r\n]+)\$$/);
     if (mathMatch) {
       return (
         <span key={index} className="insight-math-token" title="Mathematical notation">
@@ -62,13 +73,13 @@ export function renderInlineMarkdown(text) {
     }
 
     // 4. Bold: **text**
-    const boldMatch = part.match(/^\*\*([^*]+)\*\*$/);
+    const boldMatch = part.match(/^\*\*([^*\r\n]+)\*\*$/);
     if (boldMatch) {
       return <strong key={index}>{boldMatch[1]}</strong>;
     }
 
-    // 5. Italic: *text*
-    const italicMatch = part.match(/^\*([^*]+)\*$/);
+    // 5. Italic: *text* (flanking delimiter match)
+    const italicMatch = part.match(/^\*(?!\s|\*)([^*\r\n]+?)(?<!\s|\*)\*$/);
     if (italicMatch) {
       return <em key={index}>{italicMatch[1]}</em>;
     }

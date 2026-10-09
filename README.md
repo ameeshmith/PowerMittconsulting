@@ -1,31 +1,46 @@
 # PowerMitt Consulting — Electrical Power Systems & Energy Engineering
 
-[![React](https://img.shields.io/badge/React-19.0-blue.svg?logo=react)](https://react.dev/)
+[![Status](https://img.shields.io/badge/Status-Production%20Corporate%20Platform-0066FF.svg)](#)
+[![License](https://img.shields.io/badge/License-Proprietary%20%26%20Confidential-red.svg)](#)
+[![React](https://img.shields.io/badge/React-19.0-61DAFB.svg?logo=react)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-5.4-646CFF.svg?logo=vite)](https://vitejs.dev/)
-[![License](https://img.shields.io/badge/License-Private-teal.svg)](#)
 
-A modern, high-performance web platform for **PowerMitt Consulting Pty Ltd**, an independent Australian engineering consultancy based in Perth, Western Australia. Founded by **Dinesh Mithanthaya** (*Principal Power Engineer* with 20+ years of specialist industry experience), PowerMitt delivers technical due diligence, grid integration, and heavy electrical infrastructure engineering across Australia and the Asia-Pacific region.
+> **⚠️ OFFICIAL NOTICE — COMMERCIAL CORPORATE REPOSITORY**  
+> This repository contains the official production digital platform for **PowerMitt Consulting Pty Ltd** (Perth, Western Australia).  
+> **This is NOT a personal, student, or open-source sandbox project.**  
+> 
+> **Strict Policy on Testing & Form Submissions:**  
+> - **DO NOT submit test, spam, or automated bot enquiries** via the website contact form or API endpoints. Forms route directly to active principal engineering inboxes and client advisory dispatch.
+> - **DO NOT conduct unauthorized penetration testing, vulnerability scanning, or automated fuzzing** against this production repository or its hosted domains.
+> - All intellectual property, engineering capability statements, project case studies, and brand identity are strictly proprietary.
 
 ---
 
-## ⚡ Core Engineering Capability Areas
+## ⚡ Corporate Overview
 
-- **Electrical Power Systems:** Power system studies (load flow, short circuit, protection coordination), HV/LV distribution design, substation engineering, and grid connection compliance (NEM/WEM).
-- **Renewable Energy & Decarbonisation:** Battery Energy Storage Systems (BESS), solar PV, wind, hydrogen, and industrial electrification strategies within real power-system constraints.
-- **Carbon Capture & Storage (CCS):** Electrical engineering support for mega-compressor motor drives, medium-voltage VSD topologies, and power infrastructure for CCUS terminals.
-- **Industrial & Mining Infrastructure:** Underground mining power distribution, mineral processing electrical design, trailing cables, VSD drive systems, and brownfield modernisations.
-- **Owner's Engineering:** Independent technical due diligence, design verification, vendor evaluation, and project execution advisory for asset owners.
+**PowerMitt Consulting Pty Ltd** is an independent Australian specialist electrical engineering consultancy based in Perth, Western Australia. Led by **Dinesh Mithanthaya** (*Principal Power Engineer* with 20+ years of tier-one experience across Australia and internationally), PowerMitt delivers high-rigour power systems design, grid connection compliance, and technical due diligence across Australia’s critical resources and energy sectors.
+
+### Primary Engineering Capabilities:
+- **Electrical Power Systems:** Power system studies (load flow, fault analysis, dynamic stability, protection coordination), HV/LV distribution, substation engineering, and grid compliance (NEM/WEM).
+- **Renewable Energy & Decarbonisation:** Utility-scale Battery Energy Storage Systems (BESS), solar PV, wind, hydrogen, and industrial process electrification.
+- **Offshore Oil & Gas:** Electrical engineering for offshore platforms, Normally Unattended Facilities (NUF), gas compression drives, and brownfield life extension.
+- **Mining & Resources:** Surface and underground mine power networks, mineral processing, electric heavy fleet charging, and remote microgrids.
+- **Energy & Utilities:** Transmission, distribution, substation design, network connections, and utility asset management.
+- **Heavy Industrial & Manufacturing:** Power quality, harmonic mitigation, variable speed drives (VSDs), and plant electrification.
+- **Owner's Engineering:** Independent technical advisory, design verification, FAT/SAT oversight, and lender's due diligence.
 
 ---
 
 ## 🛠️ Technology Stack
 
-- **Frontend Core:** [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
-- **Routing:** [React Router v7](https://reactrouter.com/)
-- **Icons & Typography:** `lucide-react`, Poppins (`@fontsource/poppins` & Google Fonts)
-- **Styling:** Custom Vanilla CSS Design System with dark industrial tokens, CSS Custom Properties, and keyframe reveal animations
-- **Data & Content Management:** Local persistence service (`localStorage` API) combined with static dataset fallbacks and hooks for Sanity CMS integration
-- **Contact Submissions:** [Web3Forms](https://web3forms.com/) API integration
+- **Framework:** [React 19](https://react.dev/) (Production Build)
+- **Tooling & Bundler:** [Vite 5.4](https://vitejs.dev/) with code splitting and modern ES module optimization
+- **Routing:** [React Router v7](https://reactrouter.com/) with GitHub Pages SPA redirect router
+- **Design System:** Custom Vanilla CSS Design System with dark and light consulting modes, CSS Custom Properties, and micro-interactions
+- **Typography:** Plus Jakarta Sans & Be Vietnam Pro (`@fontsource/*`)
+- **Icons:** `lucide-react`
+- **Content Management:** Remote Headless CMS ([Sanity.io](https://www.sanity.io/)) with local storage caching and starter datasets
+- **Form Dispatch:** [Web3Forms](https://web3forms.com/) with client-side and server-side anti-spam honeypot integration
 
 ---
 
@@ -33,37 +48,38 @@ A modern, high-performance web platform for **PowerMitt Consulting Pty Ltd**, an
 
 ```text
 PowerMittconsulting/
-├── public/                  # Static public assets, sitemap.xml, robots.txt, and 404 handler
-│   └── assets/images/       # High-resolution background & banner images
+├── public/                  # Public production assets, favicon, robots.txt, sitemap.xml, 404 handler
+│   └── assets/images/       # Corporate brand logo, sector imagery, and hero photography
 ├── src/
-│   ├── components/          # Modular UI components (Hero, Navbar, Footer, ServiceCard, etc.)
-│   ├── config/              # Form integrations and external credentials config
-│   ├── data/                # Static starter datasets (articles, services, industries, projects)
-│   ├── hooks/               # Custom React hooks (useScrollReveal, useScrollToTop)
-│   ├── pages/               # Page views (Home, About, Services, Industries, Insights, Admin, Contact)
-│   ├── services/            # Content management API & localStorage synchronization service
-│   ├── styles/              # Design tokens (variables.css), global reset (global.css), keyframes
-│   └── utils/               # Asset path resolution utilities
-├── .env.example             # Environment variable configuration template
-├── index.html               # Main HTML entry point & single-page app redirect handler
-├── package.json             # Project dependencies and npm scripts
-├── tsconfig.json            # TypeScript configuration
-└── vite.config.js           # Vite bundler configuration
+│   ├── components/          # Reusable enterprise UI components (Navbar, Footer, Hero, Cards, etc.)
+│   ├── config/              # Centralized environment integrations (forms, API configuration)
+│   ├── data/                # Corporate datasets (articles, services, industries, projects, navigation)
+│   ├── hooks/               # Custom lifecycle hooks (useScrollReveal, useScrollToTop)
+│   ├── pages/               # Enterprise routes:
+│   │   ├── Home/            # Hero overview, core sectors, engineering rigour, and recent projects
+│   │   ├── About/           # Corporate leadership, credentials, and guiding principles
+│   │   ├── Services/        # Service hub & 5 dedicated engineering practice areas
+│   │   ├── Industries/      # Industry hub & 4 specialized sector landing pages
+│   │   ├── Projects/        # Engineering project case study portfolio
+│   │   ├── Insights/        # Technical papers, whitepapers, and industry insights
+│   │   ├── Admin/           # Authorized internal Author Portal (protected by access passkey)
+│   │   └── Contact/         # Commercial enquiry dispatch with spam honeypot
+│   ├── services/            # CMS client (Sanity) and local storage synchronization
+│   ├── styles/              # Design tokens (variables.css), global reset, animations
+│   └── utils/               # Asset path resolvers, markdown parser, date formatter
+├── .env.example             # Configuration reference for authorized deployment environments
+├── index.html               # Production HTML template with SPA redirect resolution
+├── package.json             # Pinned enterprise dependencies
+└── vite.config.js           # Production build and base path configuration
 ```
 
 ---
 
-## 🚀 Getting Started
+## 🔐 Internal Development & Deployment
 
-### Prerequisites
+> **Note:** Access and deployment are restricted to authorized PowerMitt Consulting team members and designated technical contractors.
 
-Ensure you have **Node.js** (v18.0.0 or higher) and **npm** installed on your system:
-```bash
-node -v
-npm -v
-```
-
-### Installation
+### Local Setup (Authorized Team Members Only)
 
 1. **Clone the Repository:**
    ```bash
@@ -71,62 +87,41 @@ npm -v
    cd PowerMittconsulting
    ```
 
-2. **Install Dependencies:**
+2. **Install Pinned Dependencies:**
    ```bash
    npm install
    ```
 
 3. **Configure Environment Variables:**
-   Copy the `.env.example` file to create a local `.env` file:
    ```bash
    cp .env.example .env
    ```
+   Configure required credentials (`VITE_WEB3FORMS_ACCESS_KEY`, `VITE_ADMIN_PASSCODE`, and optional Sanity CMS keys).
 
-   Update your `.env` file with your credentials:
-   ```ini
-   VITE_WEB3FORMS_ACCESS_KEY=your_web3forms_access_key
-   VITE_ADMIN_PASSCODE=your_admin_passcode
-   VITE_SITE_URL=https://ameeshmith.github.io/PowerMittconsulting
+4. **Run Local Dev Server:**
+   ```bash
+   npm run dev
+   ```
+
+5. **Production Build & Verification:**
+   ```bash
+   npm run build
    ```
 
 ---
 
-## 💻 Local Development & Building
+## 🛡️ Security & Responsible Disclosure
 
-- **Run Development Server:**
-  ```bash
-  npm run dev
-  ```
-  Open `http://localhost:5173` in your browser to view the application with hot module replacement (HMR).
+If you have identified a legitimate technical security vulnerability, please contact our engineering team directly and privately at:  
+📧 **dmithanthaya@gmail.com** or **mithameesh@gmail.com**
 
-- **Type Check & Production Build:**
-  ```bash
-  npm run build
-  ```
-  Generates optimized production assets in the `dist/` directory.
-
-- **Preview Production Build Locally:**
-  ```bash
-  npm run preview
-  ```
-
-- **Deploy to GitHub Pages:**
-  ```bash
-  npm run deploy
-  ```
+Please do **NOT** open public GitHub issues for security vulnerabilities or perform disruptive testing against live production endpoints.
 
 ---
 
-## 🔐 Author Portal & Article Management
+## 📄 Proprietary Notice & Copyright
 
-The platform includes a dedicated **Author Portal** accessible at `/admin`:
-- Protected by passcode authentication configured via `VITE_ADMIN_PASSCODE`.
-- Allows drafting, publishing, editing, and deleting technical articles and engineering whitepapers.
-- Automatically persists published articles to the user's local storage and merges them with the starter articles catalog.
-
----
-
-## 📄 License & Ownership
-
-© 2026 **PowerMitt Consulting Pty Ltd**. All rights reserved.  
+© 2026 **PowerMitt Consulting Pty Ltd** (ABN registered). All rights reserved.  
 Headquartered in Perth, Western Australia.
+
+**All rights reserved.** No part of this codebase, design architecture, engineering literature, or branding may be reproduced, reverse-engineered, or distributed without explicit written permission from PowerMitt Consulting Pty Ltd.

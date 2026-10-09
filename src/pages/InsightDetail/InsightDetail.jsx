@@ -197,7 +197,7 @@ export default function InsightDetail() {
           <div className="insight-content reveal">
             {article.content ? (
               <div className="insight-prose">
-                {article.content.split('\n\n').map((block, i) => {
+                {article.content.split(/\r?\n\r?\n/).map((block, i) => {
                   const trimmed = block.trim();
                   if (!trimmed) return null;
 
@@ -211,7 +211,7 @@ export default function InsightDetail() {
                     return <hr key={i} className="insight-divider" />;
                   }
                   if (trimmed.startsWith('- ')) {
-                    const items = trimmed.split('\n').filter(l => l.startsWith('- '));
+                    const items = trimmed.split(/\r?\n/).filter(l => l.startsWith('- '));
                     return (
                       <ul key={i} className="insight-list">
                         {items.map((it, itemIdx) => {
@@ -222,7 +222,7 @@ export default function InsightDetail() {
                     );
                   }
                   if (trimmed.match(/^\d+\.\s/)) {
-                    const items = trimmed.split('\n').filter(l => l.match(/^\d+\.\s/));
+                    const items = trimmed.split(/\r?\n/).filter(l => l.match(/^\d+\.\s/));
                     return (
                       <ol key={i} className="insight-ordered-list">
                         {items.map((it, itemIdx) => (
