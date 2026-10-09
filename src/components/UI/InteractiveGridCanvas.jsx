@@ -52,7 +52,7 @@ export default function InteractiveGridCanvas({
     };
 
     const initNodes = () => {
-      const count = Math.floor((width * height) / 22000) || nodeCount;
+      const count = Math.floor((width * height) / 50000) || nodeCount;
       const nodes = [];
       for (let i = 0; i < count; i++) {
         nodes.push({
@@ -60,8 +60,8 @@ export default function InteractiveGridCanvas({
           y: Math.random() * height,
           vx: (Math.random() - 0.5) * 0.45,
           vy: (Math.random() - 0.5) * 0.45,
-          radius: Math.random() * 1.5 + 1.6,
-          baseAlpha: Math.random() * 0.3 + 0.4,
+          radius: Math.random() * 1.2 + 1.2,
+          baseAlpha: Math.random() * 0.25 + 0.25,
           pulse: Math.random() * Math.PI * 2,
           pulseSpeed: 0.02 + Math.random() * 0.03
         });
@@ -150,30 +150,20 @@ export default function InteractiveGridCanvas({
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < connectionDistance) {
-            const alpha = (1 - dist / connectionDistance) * 0.25;
+            const alpha = (1 - dist / connectionDistance) * 0.16;
             ctx.beginPath();
             ctx.moveTo(n1.x, n1.y);
             ctx.lineTo(n2.x, n2.y);
             ctx.strokeStyle = `rgba(${secondaryRGB}, ${alpha})`;
-            ctx.lineWidth = 0.9;
+            ctx.lineWidth = 0.75;
             ctx.stroke();
           }
         }
       }
 
-      // Draw mouse interactive connections and glow
+      // Draw mouse interactive connections
       if (mouse.x > 0 && mouse.y > 0) {
-        // Luminous ambient cursor glow
-        const grad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, mouseRadius);
-        grad.addColorStop(0, `rgba(${primaryRGB}, 0.18)`);
-        grad.addColorStop(0.45, `rgba(${secondaryRGB}, 0.05)`);
-        grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
-        ctx.fillStyle = grad;
-        ctx.beginPath();
-        ctx.arc(mouse.x, mouse.y, mouseRadius, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Connect cursor to nearby nodes with luminous technical lines & glow
+        // Connect cursor to nearby nodes with clean, non-distracting hairline linkages
         for (let i = 0; i < nodes.length; i++) {
           const n = nodes[i];
           const dx = mouse.x - n.x;
@@ -181,52 +171,43 @@ export default function InteractiveGridCanvas({
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < mouseRadius) {
-            const alpha = (1 - dist / mouseRadius) * 0.8;
+            const alpha = (1 - dist / mouseRadius) * 0.45;
             ctx.beginPath();
             ctx.moveTo(mouse.x, mouse.y);
             ctx.lineTo(n.x, n.y);
             ctx.strokeStyle = `rgba(${primaryRGB}, ${alpha})`;
-            ctx.lineWidth = 1.3;
-            ctx.shadowColor = `rgba(${primaryRGB}, 0.7)`;
-            ctx.shadowBlur = 6;
+            ctx.lineWidth = 0.9;
             ctx.stroke();
-            ctx.shadowBlur = 0;
 
-            // Highlight node in cursor range
+            // Subtle highlight on node in cursor range
             ctx.beginPath();
-            ctx.arc(n.x, n.y, n.radius + 1.6, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${highlightRGB}, ${Math.min(1, alpha + 0.35)})`;
-            ctx.shadowColor = `rgba(${primaryRGB}, 0.9)`;
-            ctx.shadowBlur = 8;
+            ctx.arc(n.x, n.y, n.radius + 1.2, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${highlightRGB}, ${Math.min(0.85, alpha + 0.25)})`;
             ctx.fill();
-            ctx.shadowBlur = 0;
           }
         }
 
-        // Draw refined glowing reticle on cursor
+        // Clean, crisp cursor target reticle without overwhelming blur
         ctx.beginPath();
-        ctx.arc(mouse.x, mouse.y, 3, 0, Math.PI * 2);
+        ctx.arc(mouse.x, mouse.y, 2.5, 0, Math.PI * 2);
         ctx.fillStyle = '#FFFFFF';
-        ctx.shadowColor = '#38BDF8';
-        ctx.shadowBlur = 10;
         ctx.fill();
-        ctx.shadowBlur = 0;
 
         ctx.beginPath();
-        ctx.arc(mouse.x, mouse.y, 13, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(${primaryRGB}, 0.7)`;
-        ctx.lineWidth = 1.2;
+        ctx.arc(mouse.x, mouse.y, 11, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(${primaryRGB}, 0.5)`;
+        ctx.lineWidth = 0.9;
         ctx.stroke();
       }
 
       // Draw all nodes
       for (let i = 0; i < nodes.length; i++) {
         const n = nodes[i];
-        const pulseAlpha = n.baseAlpha + Math.sin(n.pulse) * 0.15;
+        const pulseAlpha = n.baseAlpha + Math.sin(n.pulse) * 0.12;
 
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${secondaryRGB}, ${Math.max(0.3, pulseAlpha)})`;
+        ctx.fillStyle = `rgba(${secondaryRGB}, ${Math.max(0.2, pulseAlpha)})`;
         ctx.fill();
       }
 
