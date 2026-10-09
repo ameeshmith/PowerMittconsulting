@@ -17,8 +17,10 @@
 }
 
 .hero-modern--compact {
-  min-height: 440px;
-  padding: 6.5rem 0 3rem;
+  min-height: 100vh;
+  padding: 7rem 0 4rem;
+  display: flex;
+  align-items: center;
 }
 
 .hero-modern--editorial {
@@ -71,11 +73,11 @@
 .hero-modern--compact .hero-modern__overlay {
   background: linear-gradient(
     180deg,
-    rgba(7, 17, 31, 0.86) 0%,
-    rgba(7, 17, 31, 0.74) 50%,
-    rgba(7, 17, 31, 0.88) 86%,
-    rgba(248, 250, 252, 0.45) 96%,
-    #F8FAFC 100%
+    rgba(7, 17, 31, 0.82) 0%,
+    rgba(7, 17, 31, 0.58) 35%,
+    rgba(7, 17, 31, 0.70) 70%,
+    rgba(7, 17, 31, 0.84) 90%,
+    rgba(15, 23, 42, 0.92) 100%
   );
 }
 
@@ -104,10 +106,6 @@
   opacity: var(--hero-scroll-blend, 0);
   will-change: opacity;
   transition: opacity 0.15s ease-out;
-}
-
-.hero-modern--compact .hero-modern__bottom-blend {
-  display: none;
 }
 
 /* Ambient Radial Glow Lighting */
@@ -160,9 +158,9 @@
 .hero-modern--compact .hero-modern__center-wrap {
   align-items: flex-start;
   text-align: left;
-  max-width: 820px;
+  max-width: 960px;
   margin: auto 0;
-  padding: 1.25rem 0;
+  padding: 2.5rem 0;
 }
 
 /* Epiko Status Badge Pill */

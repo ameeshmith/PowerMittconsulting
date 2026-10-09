@@ -20,7 +20,7 @@ export default function Hero({
   variant = 'default'
 }) {
   const badgeText = badge || label;
-  const isCompact = variant === 'compact';
+  const isCompact = variant === 'compact' || variant === 'service' || variant === 'industry';
   const defaultBg = isCompact ? '/assets/images/hero-about.jpg' : '/assets/images/hero-modern-skyline.jpg';
   const imageUrl = getAssetUrl(bgImage || defaultBg);
   const heroRef = useRef(null);
@@ -35,8 +35,6 @@ export default function Hero({
   }, []);
 
   useEffect(() => {
-    if (isCompact) return;
-
     let ticking = false;
     const updateScrollBlend = () => {
       const scrollY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
