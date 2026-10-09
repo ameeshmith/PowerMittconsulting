@@ -9,7 +9,9 @@ import {
   Eye, 
   Download, 
   Upload, 
-  AlertCircle 
+  AlertCircle,
+  FileCode,
+  Globe
 } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
@@ -18,7 +20,9 @@ import {
   saveArticle, 
   deleteArticle, 
   exportArticlesBackup, 
-  importArticlesBackup 
+  importArticlesBackup,
+  generateArticlesJsContent,
+  isSanityConnected
 } from '../../services/sanity';
 import { categories } from '../../data/articles';
 import { getAssetUrl } from '../../utils/assetPath';
@@ -46,7 +50,9 @@ export default function Admin() {
     takeaway1: '',
     takeaway2: '',
     takeaway3: '',
-    content: ''
+    content: '',
+    publishedAt: '',
+    author: null
   });
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -106,7 +112,14 @@ export default function Admin() {
       takeaway1: '',
       takeaway2: '',
       takeaway3: '',
-      content: '## Introduction\n\nWrite your technical introduction here...\n\n---\n\n## Key Analysis\n\nDetail your engineering findings, standards, and recommendations...\n\n- Point 1\n- Point 2'
+      content: '## Introduction\n\nWrite your technical introduction here...\n\n---\n\n## Key Analysis\n\nDetail your engineering findings, standards, and recommendations...\n\n- Point 1\n- Point 2',
+      publishedAt: new Date().toISOString().split('T')[0],
+      author: {
+        name: 'Dinesh Mithanthaya',
+        role: 'Principal Power Engineer',
+        avatar: '/assets/images/hero-nature-energy.jpg',
+        bio: 'Over 20 years of specialist experience in electrical power systems, grid connection studies, and heavy industrial infrastructure across Australia.'
+      }
     });
     setEditingSlug(null);
     setIsEditing(true);
@@ -125,32 +138,59 @@ export default function Admin() {
       takeaway1: art.keyTakeaways?.[0] || '',
       takeaway2: art.keyTakeaways?.[1] || '',
       takeaway3: art.keyTakeaways?.[2] || '',
-      content: art.content || art.excerpt || ''
+      content: art.content || art.excerpt || '',
+      publishedAt: art.publishedAt || new Date().toISOString().split('T')[0],
+      author: art.author || {
+        name: 'Dinesh Mithanthaya',
+        role: 'Principal Power Engineer',
+        avatar: '/assets/images/hero-nature-energy.jpg',
+        bio: 'Over 20 years of specialist experience in electrical power systems, grid connection studies, and heavy industrial infrastructure across Australia.'
+      }
     });
     setEditingSlug(art.slug);
     setIsEditing(true);
     window.scrollTo(0, 300);
   };
 
-  const handleDelete = (art) => {
+  const handleDelete = async (art) => {
     if (window.confirm(`Are you sure you want to delete "${art.title}"?`)) {
-      deleteArticle(art.slug);
+      await deleteArticle(art.slug);
       setSuccessMessage(`Article "${art.title}" was deleted.`);
       loadData();
       setTimeout(() => setSuccessMessage(''), 4000);
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.title.trim()) {
-      alert('Please enter an Article Title.');
+      setErrorMessage('Please enter an Article Title.');
       return;
     }
 
     const slug = editingSlug || form.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+    // Collision detection: prevent silent overwriting of another article with the same slug
+    if (!editingSlug) {
+      const collision = articlesList.find(a => a.slug === slug || a.id === slug);
+      if (collision) {
+        setErrorMessage(`Slug collision detected: An article with the URL slug "${slug}" already exists ("${collision.title}"). Please choose a unique title to prevent overwriting existing content.`);
+        window.scrollTo(0, 300);
+        return;
+      }
+    }
+
     const tagsArray = form.tags.split(',').map(t => t.trim()).filter(Boolean);
     const takeaways = [form.takeaway1, form.takeaway2, form.takeaway3].filter(Boolean);
+
+    const existingArt = editingSlug ? articlesList.find(a => a.slug === editingSlug || a.id === editingSlug) : null;
+    const publishedAt = form.publishedAt || existingArt?.publishedAt || new Date().toISOString().split('T')[0];
+    const author = form.author || existingArt?.author || {
+      name: 'Dinesh Mithanthaya',
+      role: 'Principal Power Engineer',
+      avatar: '/assets/images/hero-nature-energy.jpg',
+      bio: 'Over 20 years of specialist experience in electrical power systems, grid connection studies, and heavy industrial infrastructure across Australia.'
+    };
 
     const articleData = {
       id: slug,
@@ -163,14 +203,43 @@ export default function Admin() {
       excerpt: form.excerpt || form.subtitle,
       tags: tagsArray.length > 0 ? tagsArray : [form.category],
       keyTakeaways: takeaways,
-      content: form.content
+      content: form.content,
+      publishedAt,
+      author
     };
 
-    saveArticle(articleData);
-    setIsEditing(false);
-    setSuccessMessage(`Article "${form.title}" successfully published!`);
-    loadData();
-    setTimeout(() => setSuccessMessage(''), 4000);
+    try {
+      await saveArticle(articleData, { isNew: !editingSlug });
+      setIsEditing(false);
+      setSuccessMessage(`Article "${form.title}" successfully saved!`);
+      loadData();
+      setTimeout(() => setSuccessMessage(''), 4000);
+    } catch (err) {
+      setErrorMessage(err.message || 'Failed to save article.');
+    }
+  };
+
+  // Export articles as ready-to-commit articles.js for permanent Git deployment
+  const handleExportArticlesJs = async () => {
+    try {
+      const code = await generateArticlesJsContent();
+      const blob = new Blob([code], { type: 'text/javascript;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute('href', url);
+      downloadAnchor.setAttribute('download', 'articles.js');
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+      URL.revokeObjectURL(url);
+
+      setSuccessMessage('Downloaded "articles.js". Replace src/data/articles.js and git commit to push updates live for all visitors!');
+      setTimeout(() => setSuccessMessage(''), 6000);
+    } catch (err) {
+      console.error('Export error:', err);
+      setErrorMessage('Failed to generate articles.js export.');
+      setTimeout(() => setErrorMessage(''), 5000);
+    }
   };
 
   // Export articles as JSON file
@@ -276,6 +345,21 @@ export default function Admin() {
                   <p>All live articles on PowerMitt Consulting website.</p>
                 </div>
                 <div className="admin-topbar-actions">
+                  <div className="admin-status-pill" title={isSanityConnected() ? "Synced with remote Sanity CMS" : "Stored locally. Click 'Export for Git' to commit updates to repository."}>
+                    <Globe size={13} />
+                    <span>{isSanityConnected() ? 'Sanity CMS Connected' : 'Local / Git Sync Mode'}</span>
+                  </div>
+
+                  {/* Git-based Content Sync */}
+                  <button 
+                    onClick={handleExportArticlesJs} 
+                    className="btn btn--outline" 
+                    title="Export ready-to-commit src/data/articles.js for permanent Git deployment"
+                    style={{ fontSize: 'var(--text-xs)' }}
+                  >
+                    <FileCode size={15} /> Export for Git
+                  </button>
+
                   {/* Backup / Export / Import Controls */}
                   <button 
                     onClick={handleExportBackup} 
@@ -382,6 +466,30 @@ export default function Admin() {
                           placeholder="e.g. 5 min read"
                           value={form.readTime}
                           onChange={(e) => setForm({ ...form, readTime: e.target.value })}
+                          className="admin-input"
+                        />
+                      </div>
+
+                      <div className="admin-field">
+                        <label>Publication Date (Preserved on Edit)</label>
+                        <input
+                          type="date"
+                          value={form.publishedAt || ''}
+                          onChange={(e) => setForm({ ...form, publishedAt: e.target.value })}
+                          className="admin-input"
+                        />
+                      </div>
+
+                      <div className="admin-field">
+                        <label>Author Name</label>
+                        <input
+                          type="text"
+                          placeholder="Dinesh Mithanthaya"
+                          value={form.author?.name || 'Dinesh Mithanthaya'}
+                          onChange={(e) => setForm({
+                            ...form,
+                            author: { ...(form.author || {}), name: e.target.value }
+                          })}
                           className="admin-input"
                         />
                       </div>
@@ -498,7 +606,7 @@ export default function Admin() {
                       </div>
 
                       <div className="admin-article-item-actions">
-                        <Link to={`/insights/${art.slug}`} target="_blank" className="btn btn--outline" style={{ padding: '6px 12px', fontSize: '12px' }} title="Preview Article">
+                        <Link to={`/insights/${art.slug}`} target="_blank" rel="noopener noreferrer" className="btn btn--outline" style={{ padding: '6px 12px', fontSize: '12px' }} title="Preview Article">
                           <Eye size={14} /> View
                         </Link>
                         <button onClick={() => handleEdit(art)} className="btn btn--primary" style={{ padding: '6px 12px', fontSize: '12px' }}>
