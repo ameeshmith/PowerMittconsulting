@@ -15,7 +15,7 @@ const relatedServices = services.filter(s => ind.relatedServices.includes(s.id))
 export default function EnergyUtilities() {
   return (
     <main>
-      <SEO title="Energy & Utilities Engineering | PowerMitt Consulting" description="Engineering for renewable generation, battery storage, grid connections, transmission, distribution, and utility infrastructure supporting the energy transition." path="/industries/energy-utilities" />
+      <SEO title="Energy & Utilities Engineering | PowerMitt Consulting" description="Engineering for renewable generation, battery storage, grid connections, transmission, distribution, and utility infrastructure supporting the energy transition." path="/industries/energy-utilities" image="/assets/images/renewable-bess-bg.jpg" />
       <Hero
         variant="industry"
         bgImage="/assets/images/renewable-bess-bg.jpg"

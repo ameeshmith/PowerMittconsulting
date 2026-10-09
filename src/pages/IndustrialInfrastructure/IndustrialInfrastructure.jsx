@@ -11,6 +11,7 @@ export default function IndustrialInfrastructure() {
         title="Industrial & Mining Infrastructure Engineering | PowerMitt Consulting"
         description="HV/LV distribution, substations, MCCs, SCADA, mining electrical systems, underground mining, and infrastructure upgrades for industrial and mining operations."
         path="/services/industrial-infrastructure"
+        image="/assets/images/industrial-bg.jpg"
       />
       <Hero variant="service" bgImage="/assets/images/industrial-bg.jpg" label="Services / Industrial & Mining Infrastructure" title="Industrial & Mining Infrastructure" subtitle="Electrical infrastructure engineering for mining, processing, and heavy industrial facilities — including underground mining systems, HV/LV distribution, and infrastructure upgrades." />
 

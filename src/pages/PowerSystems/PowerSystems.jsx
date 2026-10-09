@@ -13,6 +13,7 @@ export default function PowerSystems() {
         title="Electrical Power Systems Engineering | PowerMitt Consulting"
         description="Specialist power system engineering including load flow, short circuit, protection coordination, arc flash analysis, HV/LV design, substations, and grid integration."
         path="/services/power-systems"
+        image="/assets/images/power-systems-bg.jpg"
       />
 
       <Hero

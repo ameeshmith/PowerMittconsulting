@@ -15,7 +15,7 @@ const relatedServices = services.filter(s => ind.relatedServices.includes(s.id))
 export default function OilGas() {
   return (
     <main>
-      <SEO title="Oil & Gas Engineering | PowerMitt Consulting" description="Electrical engineering for offshore facilities, LNG plants, processing facilities, and brownfield modifications in complex and hazardous industrial environments." path="/industries/oil-gas" />
+      <SEO title="Oil & Gas Engineering | PowerMitt Consulting" description="Electrical engineering for offshore facilities, LNG plants, processing facilities, and brownfield modifications in complex and hazardous industrial environments." path="/industries/oil-gas" image="/assets/images/oil-rig-bg.jpg" />
       <Hero
         variant="industry"
         bgImage="/assets/images/oil-rig-bg.jpg"

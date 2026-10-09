@@ -11,6 +11,7 @@ export default function OwnersEngineering() {
         title="Owner's Engineering | PowerMitt Consulting"
         description="Independent technical advisory, due diligence, design verification, vendor evaluation, risk assessment, and project execution support for asset owners."
         path="/services/owners-engineering"
+        image="/assets/images/owners-engineering-bg.jpg"
       />
       <Hero variant="service" bgImage="/assets/images/owners-engineering-bg.jpg" label="Services / Owner's Engineering" title="Owner's Engineering" subtitle="Independent technical advisory services for asset owners — providing due diligence, design verification, vendor evaluation, and project execution support." />
 

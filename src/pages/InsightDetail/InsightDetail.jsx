@@ -118,6 +118,8 @@ export default function InsightDetail() {
         title={`${article.title} | PowerMitt Insights`}
         description={article.excerpt || article.subtitle}
         path={`/insights/${article.slug}`}
+        image={article.coverImage}
+        type="article"
       />
 
       {/* Header / Hero Section */}

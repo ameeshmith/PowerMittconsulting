@@ -23,6 +23,7 @@ export default function EnergyTransitionService() {
         title="Renewable Energy & Decarbonisation | PowerMitt Consulting"
         description="Engineering solutions for renewable integration, BESS, hydrogen, electrification, and industrial decarbonisation within real power-system constraints."
         path="/services/energy-transition"
+        image="/assets/images/renewable-bess-bg.jpg"
       />
 
       <Hero

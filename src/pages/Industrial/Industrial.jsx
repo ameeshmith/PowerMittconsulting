@@ -15,7 +15,7 @@ const relatedServices = services.filter(s => ind.relatedServices.includes(s.id))
 export default function Industrial() {
   return (
     <main>
-      <SEO title="Industrial Infrastructure Engineering | PowerMitt Consulting" description="Electrical infrastructure engineering for manufacturing, water treatment, heavy industry, and critical infrastructure — delivering reliable, efficient power systems." path="/industries/industrial" />
+      <SEO title="Industrial Infrastructure Engineering | PowerMitt Consulting" description="Electrical infrastructure engineering for manufacturing, water treatment, heavy industry, and critical infrastructure — delivering reliable, efficient power systems." path="/industries/industrial" image="/assets/images/industrial-bg.jpg" />
       <Hero variant="industry" bgImage="/assets/images/industrial-bg.jpg" label="Industries / Industrial Infrastructure" title="Industrial Infrastructure" subtitle="Electrical infrastructure engineering for manufacturing, water treatment, heavy industry, and critical infrastructure projects — focused on reliability, efficiency, and modernisation." />
 
       <section>
