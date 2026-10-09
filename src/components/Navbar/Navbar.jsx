@@ -53,6 +53,23 @@ export default function Navbar() {
     }));
   };
 
+  const handleItemFocus = (label) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setActiveDropdown(label);
+  };
+
+  const handleItemBlur = (e) => {
+    if (!e.currentTarget.contains(e.relatedTarget)) {
+      setActiveDropdown(null);
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Escape') {
+      setActiveDropdown(null);
+    }
+  };
+
   const isActive = (path) => {
     if (path === '/') return location.pathname === '/';
     return location.pathname.startsWith(path);
@@ -90,16 +107,22 @@ export default function Navbar() {
               className="navbar-modern__item"
               onMouseEnter={() => link.dropdown && handleMouseEnter(link.label)}
               onMouseLeave={() => link.dropdown && handleMouseLeave()}
+              onFocus={() => link.dropdown && handleItemFocus(link.label)}
+              onBlur={link.dropdown ? handleItemBlur : undefined}
+              onKeyDown={link.dropdown ? handleKeyDown : undefined}
             >
               <Link
                 to={link.path}
                 className={`navbar-modern__link ${isActive(link.path) ? 'navbar-modern__link--active' : ''}`}
+                aria-haspopup={link.dropdown ? 'true' : undefined}
+                aria-expanded={link.dropdown ? activeDropdown === link.label : undefined}
               >
                 {link.label}
                 {link.dropdown && (
                   <ChevronDown
                     size={13}
                     className={`navbar-modern__chevron ${activeDropdown === link.label ? 'navbar-modern__chevron--open' : ''}`}
+                    aria-hidden="true"
                   />
                 )}
               </Link>
@@ -109,13 +132,17 @@ export default function Navbar() {
                   className="navbar-modern__dropdown"
                   onMouseEnter={() => handleMouseEnter(link.label)}
                   onMouseLeave={handleMouseLeave}
+                  role="menu"
+                  aria-label={`${link.label} submenu`}
                 >
                   <div className="navbar-modern__dropdown-menu">
                     {link.dropdown.map((item) => (
                       <Link
                         key={item.path}
                         to={item.path}
+                        role="menuitem"
                         className={`navbar-modern__dropdown-item ${isExactActive(item.path) ? 'navbar-modern__dropdown-item--active' : ''}`}
+                        onClick={() => setActiveDropdown(null)}
                       >
                         <span className="navbar-modern__dropdown-title">{item.label}</span>
                         <span className="navbar-modern__dropdown-desc">{item.description}</span>

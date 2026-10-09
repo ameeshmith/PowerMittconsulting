@@ -14,7 +14,8 @@ const stageOptions = ['Concept / Feasibility', 'Pre-FEED', 'FEED', 'Detailed Eng
 export default function Contact() {
   const [form, setForm] = useState({
     name: '', company: '', email: '', phone: '',
-    industry: '', service: '', stage: '', message: ''
+    industry: '', service: '', stage: '', message: '',
+    botcheck: false
   });
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
@@ -42,6 +43,12 @@ export default function Contact() {
     }
     setErrors({});
     setSubmitError('');
+
+    // Spam honeypot triggered by automated bot
+    if (form.botcheck) {
+      setSubmitted(true);
+      return;
+    }
     
     const accessKey = FORMS_CONFIG.web3FormsAccessKey;
     if (!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY_HERE') {
@@ -68,7 +75,8 @@ export default function Contact() {
           industry: form.industry,
           service: form.service,
           stage: form.stage,
-          message: form.message
+          message: form.message,
+          botcheck: form.botcheck ? 'true' : ''
         })
       });
 
@@ -175,7 +183,7 @@ export default function Contact() {
                       className="btn btn--outline" 
                       onClick={() => { 
                         setSubmitted(false); 
-                        setForm({ name: '', company: '', email: '', phone: '', industry: '', service: '', stage: '', message: '' }); 
+                        setForm({ name: '', company: '', email: '', phone: '', industry: '', service: '', stage: '', message: '', botcheck: false }); 
                       }}
                     >
                       Submit Another Enquiry
@@ -183,6 +191,18 @@ export default function Contact() {
                   </div>
                 ) : (
                   <form className="contact__form" onSubmit={handleSubmit} noValidate>
+                    {/* Anti-Spam Bot Honeypot */}
+                    <input 
+                      type="checkbox" 
+                      name="botcheck" 
+                      className="hidden" 
+                      style={{ display: 'none' }} 
+                      tabIndex="-1" 
+                      autoComplete="off"
+                      checked={!!form.botcheck}
+                      onChange={(e) => setForm(prev => ({ ...prev, botcheck: e.target.checked }))}
+                    />
+
                     <div className="contact__form-header">
                       <span className="label">Get In Touch</span>
                       <h2>Project Enquiry Form</h2>
@@ -192,30 +212,65 @@ export default function Contact() {
                     <div className="contact__form-grid">
                       <div className="contact__field">
                         <label htmlFor="name">Full Name *</label>
-                        <input id="name" type="text" value={form.name} onChange={handleChange('name')} className={errors.name ? 'error' : ''} placeholder="Your name" />
+                        <input 
+                          id="name" 
+                          name="name" 
+                          type="text" 
+                          autoComplete="name"
+                          value={form.name} 
+                          onChange={handleChange('name')} 
+                          className={errors.name ? 'error' : ''} 
+                          placeholder="Your name" 
+                        />
                         {errors.name && <span className="contact__error">{errors.name}</span>}
                       </div>
 
                       <div className="contact__field">
                         <label htmlFor="company">Company / Organisation</label>
-                        <input id="company" type="text" value={form.company} onChange={handleChange('company')} placeholder="Company name" />
+                        <input 
+                          id="company" 
+                          name="company" 
+                          type="text" 
+                          autoComplete="organization"
+                          value={form.company} 
+                          onChange={handleChange('company')} 
+                          placeholder="Company name" 
+                        />
                       </div>
 
                       <div className="contact__field">
                         <label htmlFor="email">Email Address *</label>
-                        <input id="email" type="email" value={form.email} onChange={handleChange('email')} className={errors.email ? 'error' : ''} placeholder="your.email@company.com" />
+                        <input 
+                          id="email" 
+                          name="email" 
+                          type="email" 
+                          autoComplete="email"
+                          value={form.email} 
+                          onChange={handleChange('email')} 
+                          className={errors.email ? 'error' : ''} 
+                          placeholder="your.email@company.com" 
+                        />
                         {errors.email && <span className="contact__error">{errors.email}</span>}
                       </div>
 
                       <div className="contact__field">
                         <label htmlFor="phone">Phone Number</label>
-                        <input id="phone" type="tel" value={form.phone} onChange={handleChange('phone')} className={errors.phone ? 'error' : ''} placeholder="+61 4XX XXX XXX" />
+                        <input 
+                          id="phone" 
+                          name="phone" 
+                          type="tel" 
+                          autoComplete="tel"
+                          value={form.phone} 
+                          onChange={handleChange('phone')} 
+                          className={errors.phone ? 'error' : ''} 
+                          placeholder="+61 4XX XXX XXX" 
+                        />
                         {errors.phone && <span className="contact__error">{errors.phone}</span>}
                       </div>
 
                       <div className="contact__field">
                         <label htmlFor="industry">Industry Sector</label>
-                        <select id="industry" value={form.industry} onChange={handleChange('industry')}>
+                        <select id="industry" name="industry" value={form.industry} onChange={handleChange('industry')}>
                           <option value="">Select industry</option>
                           {industryOptions.map(o => <option key={o} value={o}>{o}</option>)}
                         </select>
@@ -223,7 +278,7 @@ export default function Contact() {
 
                       <div className="contact__field">
                         <label htmlFor="service">Service Required</label>
-                        <select id="service" value={form.service} onChange={handleChange('service')}>
+                        <select id="service" name="service" value={form.service} onChange={handleChange('service')}>
                           <option value="">Select service</option>
                           {serviceOptions.map(o => <option key={o} value={o}>{o}</option>)}
                         </select>
@@ -231,7 +286,7 @@ export default function Contact() {
 
                       <div className="contact__field contact__field--full">
                         <label htmlFor="stage">Project Stage</label>
-                        <select id="stage" value={form.stage} onChange={handleChange('stage')}>
+                        <select id="stage" name="stage" value={form.stage} onChange={handleChange('stage')}>
                           <option value="">Select project stage</option>
                           {stageOptions.map(o => <option key={o} value={o}>{o}</option>)}
                         </select>
@@ -239,7 +294,15 @@ export default function Contact() {
 
                       <div className="contact__field contact__field--full">
                         <label htmlFor="message">Message / Project Description *</label>
-                        <textarea id="message" rows="4" value={form.message} onChange={handleChange('message')} className={errors.message ? 'error' : ''} placeholder="Tell us about your project, timeline, or engineering challenge..." />
+                        <textarea 
+                          id="message" 
+                          name="message" 
+                          rows="4" 
+                          value={form.message} 
+                          onChange={handleChange('message')} 
+                          className={errors.message ? 'error' : ''} 
+                          placeholder="Tell us about your project, timeline, or engineering challenge..." 
+                        />
                         {errors.message && <span className="contact__error">{errors.message}</span>}
                       </div>
                     </div>
