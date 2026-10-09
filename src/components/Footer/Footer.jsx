@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { getAssetUrl } from '../../utils/assetPath';
 import { Phone, Mail, MapPin, ArrowRight } from 'lucide-react';
 import './Footer.css';
 
@@ -9,16 +10,14 @@ export default function Footer() {
         <div className="footer__grid">
           {/* Brand Column */}
           <div className="footer__brand-col">
-            <div className="footer__brand">
-              <svg width="32" height="32" viewBox="0 0 34 34" fill="none">
-                <rect width="34" height="34" rx="8" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.2)" strokeWidth="1"/>
-                <path d="M19 6L9 19H17L15 28L25 15H17L19 6Z" fill="var(--color-accent)"/>
-              </svg>
-              <div className="footer__brand-titles">
-                <span className="footer__brand-name">POWERMITT</span>
-                <span className="footer__brand-desc">CONSULTING PTY LTD</span>
-              </div>
-            </div>
+            <Link to="/" className="footer__brand" aria-label="PowerMitt Consulting Home">
+              <img
+                src={getAssetUrl('/assets/images/logo-light.png')}
+                alt="PowerMitt Consulting"
+                className="footer__logo"
+                height="46"
+              />
+            </Link>
             <p className="footer__tagline">
               Powering Sustainable Industry Through Engineering Excellence. Specialist electrical power systems & energy transition advisory.
             </p>

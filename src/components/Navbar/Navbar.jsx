@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { navigation } from '../../data/navigation';
+import { getAssetUrl } from '../../utils/assetPath';
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 import './Navbar.css';
 
@@ -62,22 +63,13 @@ export default function Navbar() {
     <header className={`navbar-modern ${scrolled ? 'navbar-modern--scrolled' : ''} ${mobileOpen ? 'navbar-modern--open' : ''}`}>
       <div className="navbar-modern__container">
         {/* Brand */}
-        <Link to="/" className="navbar-modern__brand" onClick={() => setMobileOpen(false)}>
-          <span className="navbar-modern__brand-badge">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="url(#brand-grad)" />
-              <defs>
-                <linearGradient id="brand-grad" x1="3" y1="2" x2="21" y2="22" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#00E5FF" />
-                  <stop offset="1" stopColor="#00C9A7" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </span>
-          <div className="navbar-modern__brand-text">
-            <span className="navbar-modern__brand-name">POWERMITT</span>
-            <span className="navbar-modern__brand-sub">ENGINEERING CONSULTANCY</span>
-          </div>
+        <Link to="/" className="navbar-modern__brand" onClick={() => setMobileOpen(false)} aria-label="PowerMitt Consulting Home">
+          <img
+            src={getAssetUrl(scrolled || mobileOpen ? '/assets/images/logo-dark.png' : '/assets/images/logo-light.png')}
+            alt="PowerMitt Consulting"
+            className="navbar-modern__logo"
+            height="44"
+          />
         </Link>
 
         {/* Center Nav Links */}
