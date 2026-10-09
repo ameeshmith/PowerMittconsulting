@@ -1,6 +1,8 @@
+import { useRef, useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, UserCheck } from 'lucide-react';
 import { getAssetUrl } from '../../utils/assetPath';
+import InteractiveGridCanvas from '../UI/InteractiveGridCanvas';
 import './Hero.css';
 
 export default function Hero({
@@ -21,15 +23,67 @@ export default function Hero({
   const isCompact = variant === 'compact';
   const defaultBg = isCompact ? '/assets/images/hero-about.jpg' : '/assets/images/hero-modern-skyline.jpg';
   const imageUrl = getAssetUrl(bgImage || defaultBg);
+  const heroRef = useRef(null);
+
+  const handleMouseMove = useCallback((e) => {
+    if (!heroRef.current) return;
+    const rect = heroRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    heroRef.current.style.setProperty('--hero-mouse-x', `${x}px`);
+    heroRef.current.style.setProperty('--hero-mouse-y', `${y}px`);
+  }, []);
+
+  useEffect(() => {
+    if (isCompact) return;
+
+    let ticking = false;
+    const updateScrollBlend = () => {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
+      // Linear progress across 180px of scroll
+      const linear = Math.min(Math.max(scrollY / 180, 0), 1);
+      // Smooth ease-out quad curve so photographic dissolve begins gently and finishes smoothly
+      const progress = linear * (2 - linear);
+      if (heroRef.current) {
+        heroRef.current.style.setProperty('--hero-scroll-blend', progress.toFixed(3));
+      }
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScrollBlend);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+    updateScrollBlend();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, [isCompact]);
 
   return (
     <section
+      ref={heroRef}
+      onMouseMove={handleMouseMove}
       className={`hero-modern ${isCompact ? 'hero-modern--compact' : 'hero-modern--editorial'}`}
       style={{ backgroundImage: `url(${imageUrl})` }}
     >
+      {/* Interactive Power Grid Constellation Canvas (CreoIT mouse tracking) */}
+      <InteractiveGridCanvas />
+
+      {/* Interactive Cursor Spotlight Follower */}
+      <div className="hero-modern__cursor-spotlight" aria-hidden="true" />
+
       {/* Blueprint Grid & Atmospheric Ambient Lighting */}
       <div className="grid_bg hero-modern__grid" />
       <div className="hero-modern__overlay" />
+      <div className="hero-modern__bottom-blend" aria-hidden="true" />
       <div className="hero-modern__radial-glow hero-modern__radial-glow--left" />
       <div className="hero-modern__radial-glow hero-modern__radial-glow--right" />
 

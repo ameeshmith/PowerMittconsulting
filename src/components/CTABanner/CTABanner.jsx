@@ -3,15 +3,15 @@ import { ArrowRight } from 'lucide-react';
 import './CTABanner.css';
 
 export default function CTABanner({
-  badge = "GET IN TOUCH",
+  badge = "Get In Touch",
   title = (
     <>
-      READY TO DE-RISK <br />
-      <span className="serif-accent">your power infrastructure?</span>
+      Ready to De-Risk <br />
+      Your Electrical Infrastructure?
     </>
   ),
   subtitle = "Connect directly with Principal Power Engineer Dinesh Mithanthaya and the PowerMitt team for independent engineering and connection advisory.",
-  buttonText = 'START A CONVERSATION',
+  buttonText = 'Start a conversation',
   buttonLink = '/contact',
   variant = 'default'
 }) {

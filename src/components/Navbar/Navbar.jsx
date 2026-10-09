@@ -153,7 +153,7 @@ export default function Navbar() {
         {/* Right CTA Button */}
         <div className="navbar-modern__actions">
           <Link to="/contact" className="navbar-modern__cta-btn">
-            LET'S DISCUSS
+            Let's Discuss
           </Link>
 
           <button

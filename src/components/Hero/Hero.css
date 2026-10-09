@@ -12,20 +12,36 @@
   background-position: center center;
   background-repeat: no-repeat;
   color: #FFFFFF;
-  padding: 8rem 0 3.5rem;
+  padding: 6.5rem 0 2rem;
   overflow: hidden;
 }
 
 .hero-modern--compact {
-  min-height: 480px;
-  padding: 7.5rem 0 3.5rem;
+  min-height: 440px;
+  padding: 6.5rem 0 3rem;
 }
 
 .hero-modern--editorial {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+/* Interactive cursor tracking spotlight follower */
+.hero-modern__cursor-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 1;
+  background: radial-gradient(
+    650px circle at var(--hero-mouse-x, 50%) var(--hero-mouse-y, 50%),
+    rgba(0, 229, 255, 0.12) 0%,
+    rgba(0, 102, 255, 0.05) 35%,
+    transparent 70%
+  );
+  transition: opacity 0.3s ease;
 }
 
 /* Blueprint Grid Layer — subtle texture without clouding image */
@@ -33,21 +49,22 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  opacity: 0.10;
+  opacity: 0.08;
   pointer-events: none;
 }
 
-/* Atmospheric light vignette overlay — keeps sunset & skyline photo vivid while transitioning to light canvas */
+/* Atmospheric optical vignette overlay — deep dark at top (text safe), rich contrast */
 .hero-modern__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(10, 22, 38, 0.55) 0%,
-    rgba(10, 22, 38, 0.35) 30%,
-    rgba(10, 22, 38, 0.65) 75%,
-    rgba(250, 251, 252, 0.90) 95%,
-    #FAFBFC 100%
+    rgba(7, 17, 31, 0.78) 0%,
+    rgba(7, 17, 31, 0.52) 30%,
+    rgba(7, 17, 31, 0.68) 65%,
+    rgba(7, 17, 31, 0.82) 88%,
+    rgba(15, 23, 42, 0.88) 96%,
+    rgba(248, 250, 252, 0.15) 100%
   );
   z-index: 2;
 }
@@ -55,11 +72,43 @@
 .hero-modern--compact .hero-modern__overlay {
   background: linear-gradient(
     180deg,
-    rgba(10, 22, 38, 0.60) 0%,
-    rgba(10, 22, 38, 0.45) 50%,
-    rgba(250, 251, 252, 0.95) 95%,
-    #FAFBFC 100%
+    rgba(7, 17, 31, 0.86) 0%,
+    rgba(7, 17, 31, 0.74) 50%,
+    rgba(7, 17, 31, 0.88) 86%,
+    rgba(248, 250, 252, 0.45) 96%,
+    #F8FAFC 100%
   );
+}
+
+/* Scroll-driven bottom white blend with glass-mist defocus blur — dissolves sharp high-frequency 
+   powerlines and grid details into an ethereal, creamy white dissolve into #F8FAFC */
+.hero-modern__bottom-blend {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 320px;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+    180deg,
+    rgba(248, 250, 252, 0) 0%,
+    rgba(248, 250, 252, 0.25) 20%,
+    rgba(248, 250, 252, 0.65) 50%,
+    rgba(248, 250, 252, 0.92) 80%,
+    #F8FAFC 100%
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 100%);
+  opacity: var(--hero-scroll-blend, 0);
+  will-change: opacity;
+  transition: opacity 0.15s ease-out;
+}
+
+.hero-modern--compact .hero-modern__bottom-blend {
+  display: none;
 }
 
 /* Ambient Radial Glow Lighting */
@@ -76,7 +125,7 @@
   left: 15%;
   width: 480px;
   height: 480px;
-  background: radial-gradient(circle, rgba(0, 102, 255, 0.10) 0%, rgba(0, 229, 255, 0.04) 40%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 102, 255, 0.12) 0%, rgba(0, 229, 255, 0.04) 40%, transparent 70%);
 }
 
 .hero-modern__radial-glow--right {
@@ -103,71 +152,68 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  max-width: 1100px;
+  max-width: 980px;
   margin: auto auto;
-  padding: 3rem 1rem 3.5rem;
+  padding: 1.5rem 1rem 1.75rem;
   width: 100%;
 }
 
 .hero-modern--compact .hero-modern__center-wrap {
   align-items: flex-start;
   text-align: left;
-  max-width: 880px;
+  max-width: 820px;
   margin: auto 0;
-  padding: 2rem 0;
+  padding: 1.25rem 0;
 }
 
 /* Epiko Status Badge Pill */
 .hero-modern__badge {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 22px;
+  gap: 8px;
+  padding: 6px 18px;
   border-radius: var(--radius-full);
-  background: rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(7, 17, 31, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  margin-bottom: 2.25rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1.35rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
 }
 
 .hero-modern__badge-dot {
-  width: 8px;
-  height: 8px;
+  width: 6.5px;
+  height: 6.5px;
   border-radius: 50%;
-  background-color: #00E5FF;
-  box-shadow: 0 0 10px #00E5FF, 0 0 20px rgba(0, 229, 255, 0.5);
-  animation: epikoPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background-color: var(--color-cyan);
 }
 
 .hero-modern__badge span {
   font-family: var(--font-body);
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.92);
 }
 
-/* Grand Statement Headline — Epiko Dramatic Scale */
+/* Executive Proportional Headline — Disciplined & High Impact */
 .hero-modern__title {
   font-family: var(--font-heading);
-  font-size: clamp(3.2rem, 7.5vw, 6.8rem);
+  font-size: clamp(2.1rem, 4.2vw, 3.4rem);
   font-weight: 800;
-  line-height: 0.94;
+  line-height: 1.05;
   color: #FFFFFF;
-  margin-bottom: 2rem;
-  letter-spacing: -0.035em;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.028em;
   text-transform: uppercase;
-  max-width: 1080px;
-  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.85), 0 2px 8px rgba(0, 0, 0, 0.95);
+  max-width: 900px;
 }
 
 .hero-modern--compact .hero-modern__title {
-  font-size: clamp(2.4rem, 5vw, 4rem);
-  line-height: 1.05;
-  margin-bottom: 1.5rem;
+  font-size: clamp(1.85rem, 3.6vw, 2.75rem);
+  line-height: 1.08;
+  margin-bottom: 1.15rem;
 }
 
 /* Epiko Signature Italic Serif Accent */
@@ -176,27 +222,25 @@
   font-style: italic !important;
   font-weight: 400 !important;
   text-transform: lowercase !important;
-  color: #00E5FF;
+  color: var(--color-cyan);
   letter-spacing: 0.01em;
   display: inline-block;
-  text-shadow: 0 0 20px rgba(0, 229, 255, 0.5), 0 4px 20px rgba(0, 0, 0, 0.8);
 }
 
-/* Subtitle */
+/* Subtitle — Crisp & Compact */
 .hero-modern__subtitle {
   font-family: var(--font-body);
-  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-size: clamp(0.95rem, 1.3vw, 1.0625rem);
   font-weight: 400;
-  line-height: 1.75;
-  color: rgba(255, 255, 255, 0.92);
-  margin-bottom: 2.75rem;
-  max-width: 760px;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.9), 0 1px 4px rgba(0, 0, 0, 0.9);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 1.85rem;
+  max-width: 680px;
 }
 
 .hero-modern--compact .hero-modern__subtitle {
-  max-width: 680px;
-  margin-bottom: 2rem;
+  max-width: 620px;
+  margin-bottom: 1.5rem;
 }
 
 /* Actions Buttons — Epiko Dual Pill */
@@ -204,7 +248,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.25rem;
+  gap: 1.15rem;
   flex-wrap: wrap;
 }
 
@@ -216,51 +260,49 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 15px 36px;
+  padding: 13px 30px;
   border-radius: var(--radius-full);
-  background: #0066FF;
+  background: var(--color-blue);
   color: #FFFFFF !important;
   font-family: var(--font-body);
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   text-decoration: none;
-  box-shadow: 0 0 30px rgba(0, 102, 255, 0.45);
-  transition: all 0.3s var(--ease-out);
-  border: 1px solid #0066FF;
+  box-shadow: 0 4px 16px rgba(31, 95, 214, 0.28);
+  transition: all 0.25s var(--ease-out);
+  border: 1px solid var(--color-blue);
 }
 
 .hero-modern__btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 45px rgba(0, 102, 255, 0.7);
-  background: #1A75FF;
-  border-color: #1A75FF;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(31, 95, 214, 0.4);
+  background: var(--color-blue-hover);
+  border-color: var(--color-blue-hover);
 }
 
 .hero-modern__btn-secondary {
   display: inline-flex;
   align-items: center;
-  padding: 15px 34px;
+  padding: 13px 28px;
   border-radius: var(--radius-full);
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.08);
   color: #FFFFFF !important;
   font-family: var(--font-body);
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   text-decoration: none;
   border: 1px solid rgba(255, 255, 255, 0.22);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transition: all 0.3s var(--ease-out);
+  transition: all 0.25s var(--ease-out);
 }
 
 .hero-modern__btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.45);
-  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
 }
 
 /* Founder Authority Card */
@@ -322,9 +364,9 @@
   color: #00E5FF;
 }
 
-/* ── Modern Floating Bento Statistics Bar ── */
+/* ── Modern Streamlined Telemetry Ticker Bar ── */
 .hero-modern__stats-bar {
-  margin-top: 3.5rem;
+  margin-top: 2.25rem;
   width: 100%;
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
@@ -345,11 +387,11 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2.25rem 1.5rem;
-  gap: 0.5rem;
+  padding: 1.15rem 1.25rem;
+  gap: 0.3rem;
   border-right: 1px solid #E2E8F0;
   background: #FFFFFF;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 .hero-modern__stat-item:last-child {
@@ -363,7 +405,7 @@
 .hero-modern__stat-value {
   font-family: var(--font-serif) !important;
   font-style: italic !important;
-  font-size: clamp(2.5rem, 4.8vw, 4.4rem);
+  font-size: clamp(1.75rem, 2.6vw, 2.4rem);
   font-weight: 400;
   color: #0A1626;
   line-height: 1;
@@ -372,22 +414,22 @@
 }
 
 .hero-modern__stat-item:hover .hero-modern__stat-value {
-  color: #0066FF;
+  color: var(--color-blue);
 }
 
 .hero-modern__stat-label {
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #64748B;
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
 .hero-modern__stat-sub {
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 10.5px;
   color: #94A3B8;
 }
 

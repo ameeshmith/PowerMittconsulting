@@ -4,10 +4,10 @@
 
 .cta-banner {
   position: relative;
-  padding: 7rem 0;
-  background: #F8FAFC;
-  border-top: 1px solid #E2E8F0;
-  border-bottom: 1px solid #E2E8F0;
+  padding: 5rem 0;
+  background: var(--color-paper-light);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
   overflow: hidden;
   text-align: center;
 }
@@ -15,7 +15,7 @@
 .cta-banner__grid {
   position: absolute;
   inset: 0;
-  opacity: 0.05;
+  opacity: 0.04;
   pointer-events: none;
 }
 
@@ -29,23 +29,23 @@
 .cta-banner__glow--left {
   top: 10%;
   left: 20%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(0, 102, 255, 0.08) 0%, transparent 70%);
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(31, 95, 214, 0.05) 0%, transparent 70%);
 }
 
 .cta-banner__glow--right {
   bottom: 10%;
   right: 20%;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, transparent 70%);
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(31, 95, 214, 0.03) 0%, transparent 70%);
 }
 
 .cta-banner__inner {
   position: relative;
   z-index: 2;
-  max-width: 920px;
+  max-width: 840px;
   margin: 0 auto;
 }
 
@@ -53,47 +53,45 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 6px 18px;
+  padding: 5px 14px;
   border-radius: var(--radius-full);
   background: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 1px 3px rgba(11, 25, 44, 0.04);
   font-family: var(--font-body);
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #0066FF;
-  margin-bottom: 1.75rem;
+  color: var(--color-accent);
+  margin-bottom: 1.25rem;
 }
 
 .cta-banner__badge-dot {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: #0066FF;
-  box-shadow: 0 0 10px rgba(0, 102, 255, 0.4);
-  animation: epikoPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background: var(--color-accent);
 }
 
 .cta-banner__title {
   font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 5vw, 4.2rem);
-  font-weight: 800;
-  color: #0A1626;
-  line-height: 1.05;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
+  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  color: var(--color-navy-dark);
+  line-height: 1.15;
+  margin-bottom: 1.15rem;
+  letter-spacing: -0.025em;
+  text-transform: none;
 }
 
 .cta-banner__subtitle {
   font-family: var(--font-body);
-  font-size: clamp(1rem, 1.8vw, 1.15rem);
-  color: #64748B;
-  line-height: 1.75;
-  margin-bottom: 2.75rem;
-  max-width: 720px;
+  font-size: clamp(0.95rem, 1.25vw, 1.0625rem);
+  color: var(--color-slate-text);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 620px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -101,27 +99,26 @@
 .cta-banner__btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 16px 40px;
+  gap: 8px;
+  padding: 13px 28px;
   border-radius: var(--radius-full);
-  background: #0066FF;
+  background: var(--color-accent);
   color: #FFFFFF !important;
   font-family: var(--font-body);
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   text-decoration: none;
-  box-shadow: 0 4px 20px rgba(0, 102, 255, 0.35);
-  transition: all 0.3s var(--ease-out);
-  border: 1px solid #0066FF;
+  box-shadow: 0 2px 8px rgba(31, 95, 214, 0.2);
+  transition: all 0.25s var(--ease-out);
+  border: 1px solid var(--color-accent);
 }
 
 .cta-banner__btn:hover {
-  background: #0052CC;
-  border-color: #0052CC;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0, 102, 255, 0.5);
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(31, 95, 214, 0.28);
 }
 
 .cta-banner__btn-arrow {

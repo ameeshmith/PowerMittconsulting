@@ -6,6 +6,7 @@ import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import Timeline from '../../components/Timeline/Timeline';
 import CTABanner from '../../components/CTABanner/CTABanner';
 import WordHighlight from '../../components/WordHighlight/WordHighlight';
+import SpotlightCard from '../../components/UI/SpotlightCard';
 import { getAssetUrl } from '../../utils/assetPath';
 import './About.css';
 
@@ -128,13 +129,13 @@ export default function About() {
             {valuesList.map((val, i) => {
               const Icon = val.icon;
               return (
-                <div key={i} className="about-values__card">
+                <SpotlightCard key={i} className="about-values__card">
                   <div className="about-values__icon">
                     <Icon size={22} />
                   </div>
                   <h3 className="about-values__title" style={{ color: '#0A1626' }}>{val.title}</h3>
                   <p className="about-values__desc" style={{ color: '#334155' }}>{val.desc}</p>
-                </div>
+                </SpotlightCard>
               );
             })}
           </div>

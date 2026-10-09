@@ -18,50 +18,46 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #0066FF;
-  margin-bottom: 1rem;
+  color: var(--color-blue);
+  margin-bottom: 0.85rem;
 }
 
 .section-header--light .section-header__badge {
-  color: #00E5FF;
+  color: var(--color-cyan);
 }
 
 .section-header__dot {
-  width: 7px;
-  height: 7px;
+  width: 6.5px;
+  height: 6.5px;
   border-radius: 50%;
-  background-color: #0066FF;
-  box-shadow: 0 0 10px rgba(0, 102, 255, 0.6);
-  animation: epikoPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background-color: var(--color-blue);
+  flex-shrink: 0;
 }
 
 .section-header--light .section-header__dot {
-  background-color: #00E5FF;
-  box-shadow: 0 0 10px #00E5FF;
+  background-color: var(--color-cyan);
 }
 
 .section-header__badge--green {
-  color: #10B981;
+  color: var(--color-green);
 }
 
 .section-header__badge--green .section-header__dot {
-  background-color: #10B981;
-  box-shadow: 0 0 10px #10B981;
+  background-color: var(--color-green);
 }
 
 .section-header__title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 800;
-  line-height: 1.05;
-  margin-bottom: 1.25rem;
-  color: #0A0A0A;
+  font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.16;
+  margin-bottom: 0.9rem;
+  color: var(--color-midnight);
   letter-spacing: -0.025em;
-  text-transform: uppercase;
 }
 
 .section-header--light .section-header__title {
@@ -70,15 +66,15 @@
 
 .section-header__subtitle {
   font-family: var(--font-body);
-  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  font-size: var(--text-base);
   font-weight: 400;
-  color: #64748B;
-  line-height: 1.7;
-  max-width: 680px;
+  color: var(--color-steel);
+  line-height: 1.6;
+  max-width: 650px;
 }
 
 .section-header--light .section-header__subtitle {
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .section-header--center .section-header__subtitle {
