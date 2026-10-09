@@ -217,8 +217,9 @@ export async function getAllArticles() {
     }
   });
 
-  const merged = Array.from(allMap.values());
-  return merged.filter(a => !deletedSlugs.includes(a.slug));
+  return Array.from(allMap.values())
+    .filter(a => !deletedSlugs.includes(a.slug))
+    .sort((a, b) => new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0));
 }
 
 /**
