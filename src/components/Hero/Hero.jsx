@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, UserCheck } from 'lucide-react';
 import { getAssetUrl } from '../../utils/assetPath';
 import InteractiveGridCanvas from '../UI/InteractiveGridCanvas';
+import NebulaHeroCanvas from '../UI/NebulaHeroCanvas';
 import './Hero.css';
 
 export default function Hero({
@@ -17,10 +18,12 @@ export default function Hero({
   stats,
   bgImage,
   showFounderNote = false,
-  variant = 'default'
+  variant = 'default',
+  useNebula
 }) {
   const badgeText = badge || label;
   const isCompact = variant === 'compact' || variant === 'service' || variant === 'industry';
+  const hasNebula = useNebula ?? !isCompact;
   const defaultBg = isCompact ? '/assets/images/hero-about.jpg' : '/assets/images/hero-modern-skyline.jpg';
   const imageUrl = getAssetUrl(bgImage || defaultBg);
   const heroRef = useRef(null);
@@ -69,21 +72,25 @@ export default function Hero({
     <section
       ref={heroRef}
       onMouseMove={handleMouseMove}
-      className={`hero-modern ${isCompact ? 'hero-modern--compact' : 'hero-modern--editorial'}`}
-      style={{ backgroundImage: `url(${imageUrl})` }}
+      className={`hero-modern ${isCompact ? 'hero-modern--compact' : 'hero-modern--editorial'} ${hasNebula ? 'hero-modern--nebula' : ''}`}
+      style={hasNebula ? { backgroundColor: '#09090b' } : { backgroundImage: `url(${imageUrl})` }}
     >
-      {/* Interactive Power Grid Constellation Canvas (CreoIT mouse tracking) */}
-      <InteractiveGridCanvas />
+      {/* Dynamic Background: WebGL Nebula or Interactive Constellation */}
+      {hasNebula ? (
+        <NebulaHeroCanvas />
+      ) : (
+        <>
+          <InteractiveGridCanvas />
+          <div className="hero-modern__cursor-spotlight" aria-hidden="true" />
+          <div className="grid_bg hero-modern__grid" />
+          <div className="hero-modern__overlay" />
+          <div className="hero-modern__radial-glow hero-modern__radial-glow--left" />
+          <div className="hero-modern__radial-glow hero-modern__radial-glow--right" />
+        </>
+      )}
 
-      {/* Interactive Cursor Spotlight Follower */}
-      <div className="hero-modern__cursor-spotlight" aria-hidden="true" />
-
-      {/* Blueprint Grid & Atmospheric Ambient Lighting */}
-      <div className="grid_bg hero-modern__grid" />
-      <div className="hero-modern__overlay" />
+      {/* Scroll-driven bottom dissolve into subsequent light sections */}
       <div className="hero-modern__bottom-blend" aria-hidden="true" />
-      <div className="hero-modern__radial-glow hero-modern__radial-glow--left" />
-      <div className="hero-modern__radial-glow hero-modern__radial-glow--right" />
 
       <div className="container hero-modern__container">
         <div className="hero-modern__center-wrap">

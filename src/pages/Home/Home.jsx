@@ -6,6 +6,7 @@ import Hero from '../../components/Hero/Hero';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import CTABanner from '../../components/CTABanner/CTABanner';
 import SpotlightCard from '../../components/UI/SpotlightCard';
+import DarkHalftoneBackground from '../../components/UI/DarkHalftoneBackground';
 import { industries } from '../../data/industries';
 import { getAssetUrl } from '../../utils/assetPath';
 import './Home.css';
@@ -107,12 +108,13 @@ export default function Home() {
         secondaryCTA="Explore Services"
         secondaryLink="/services"
         stats={heroStats}
-        bgImage="/assets/images/hero-modern-skyline.jpg"
+        useNebula={true}
       />
 
       {/* === CAPABILITIES SHOWCASE (Epiko Filter Pills & Serial Cards) === */}
       <section className="home-services">
-        <div className="container">
+        <DarkHalftoneBackground />
+        <div className="container relative z-10">
           <div className="home-services__header-row">
             <div className="home-services__title-block">
               <span className="epiko-badge">
@@ -256,8 +258,9 @@ export default function Home() {
       </section>
 
       {/* === ABOUT / ENGINEERING RIGOUR SECTION === */}
-      <section className="home-about section--ice grid_bg">
-        <div className="container">
+      <section className="home-about">
+        <DarkHalftoneBackground showHalftone={false} />
+        <div className="container relative z-10">
           <div className="home-about__grid">
             <div className="home-about__content">
               <span className="epiko-badge">

@@ -12,6 +12,20 @@
   text-align: center;
 }
 
+.home-page .cta-banner {
+  background: #09090b;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.home-page .cta-banner__title {
+  color: #FFFFFF;
+}
+
+.home-page .cta-banner__subtitle {
+  color: rgba(203, 213, 225, 0.78);
+}
+
 .cta-banner__grid {
   position: absolute;
   inset: 0;
