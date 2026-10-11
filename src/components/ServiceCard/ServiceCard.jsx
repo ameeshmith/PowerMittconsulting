@@ -26,7 +26,6 @@ export default function ServiceCard({ number, title, description, capabilities, 
         <div className={`service-card__icon-wrap service-card__icon-wrap--${sectorTheme}`}>
           <Icon size={22} />
         </div>
-        {number && <span className="service-card__number font-serif">({number})</span>}
       </div>
 
       <div className="service-card__body">

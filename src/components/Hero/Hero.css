@@ -35,6 +35,86 @@
   background-image: none !important;
 }
 
+.hero-modern--has-backdrop {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+.hero-modern--has-backdrop .hero-modern__bottom-blend {
+  display: none !important;
+}
+
+.hero-modern--has-backdrop .hero-modern__overlay {
+  display: none !important;
+}
+
+.hero-modern--has-backdrop .hero-modern__cursor-spotlight {
+  display: none !important;
+}
+
+.hero-modern--has-backdrop .hero-modern__grid {
+  display: none !important;
+}
+
+/* ── Whole-Page Atmospheric Backdrop (All pages except Landing Page) ── */
+.page-atmospheric-backdrop {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: #09090b;
+}
+
+.page-atmospheric-backdrop__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0.95;
+  transform: translateZ(0);
+}
+
+.page-atmospheric-backdrop__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(9, 9, 11, 0.85) 0%,
+    rgba(9, 9, 11, 0.65) 22%,
+    rgba(9, 9, 11, 0.76) 55%,
+    rgba(9, 9, 11, 0.85) 80%,
+    rgba(6, 14, 24, 0.94) 100%
+  );
+  z-index: 1;
+}
+
+.page-atmospheric-backdrop__grid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.page-atmospheric-backdrop__spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(
+    650px circle at var(--global-mouse-x, 50vw) var(--global-mouse-y, 50vh),
+    rgba(56, 189, 248, 0.06) 0%,
+    transparent 65%
+  );
+  transition: opacity 0.2s ease;
+}
+
 /* Interactive cursor tracking spotlight follower */
 .hero-modern__cursor-spotlight {
   position: absolute;
@@ -65,12 +145,11 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(7, 17, 31, 0.78) 0%,
-    rgba(7, 17, 31, 0.52) 30%,
-    rgba(7, 17, 31, 0.68) 65%,
-    rgba(7, 17, 31, 0.82) 88%,
-    rgba(15, 23, 42, 0.88) 96%,
-    rgba(248, 250, 252, 0.15) 100%
+    rgba(9, 9, 11, 0.88) 0%,
+    rgba(9, 9, 11, 0.65) 35%,
+    rgba(9, 9, 11, 0.78) 70%,
+    rgba(9, 9, 11, 0.94) 92%,
+    #09090b 100%
   );
   z-index: 2;
 }
@@ -78,34 +157,33 @@
 .hero-modern--compact .hero-modern__overlay {
   background: linear-gradient(
     180deg,
-    rgba(7, 17, 31, 0.82) 0%,
-    rgba(7, 17, 31, 0.58) 35%,
-    rgba(7, 17, 31, 0.70) 70%,
-    rgba(7, 17, 31, 0.84) 90%,
-    rgba(15, 23, 42, 0.92) 100%
+    rgba(9, 9, 11, 0.90) 0%,
+    rgba(9, 9, 11, 0.72) 35%,
+    rgba(9, 9, 11, 0.82) 70%,
+    rgba(9, 9, 11, 0.96) 92%,
+    #09090b 100%
   );
 }
 
-/* Scroll-driven bottom white blend with glass-mist defocus blur — dissolves sharp high-frequency 
-   powerlines and grid details into an ethereal, creamy white dissolve into #F8FAFC */
+/* Scroll-driven bottom blend — dissolves sharp image into deep architectural dark canvas #09090b */
 .hero-modern__bottom-blend {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 320px;
+  height: 300px;
   pointer-events: none;
   z-index: 2;
   background: linear-gradient(
     180deg,
-    rgba(248, 250, 252, 0) 0%,
-    rgba(248, 250, 252, 0.25) 20%,
-    rgba(248, 250, 252, 0.65) 50%,
-    rgba(248, 250, 252, 0.92) 80%,
-    #F8FAFC 100%
+    transparent 0%,
+    rgba(9, 9, 11, 0.25) 20%,
+    rgba(9, 9, 11, 0.75) 60%,
+    rgba(9, 9, 11, 0.95) 85%,
+    #09090b 100%
   );
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 100%);
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 100%);
   opacity: var(--hero-scroll-blend, 0);

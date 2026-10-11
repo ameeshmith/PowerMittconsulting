@@ -5,7 +5,7 @@
 
 .contact-section {
   padding: 6.5rem 0 7rem;
-  background: var(--color-body-bg);
+  background: transparent;
 }
 
 .contact__grid {
@@ -17,11 +17,13 @@
 
 /* ── Left Column: Team & Details ── */
 .contact__team-card {
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  background: rgba(13, 20, 36, 0.48);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-2xl);
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 12px 36px rgba(0, 0, 0, 0.35);
 }
 
 .contact__team-img-wrap {
@@ -45,7 +47,7 @@
 .contact__team-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 25%, rgba(6, 14, 24, 0.75) 100%);
+  background: linear-gradient(180deg, transparent 25%, rgba(9, 9, 11, 0.85) 100%);
 }
 
 .contact__details-body {
@@ -56,7 +58,7 @@
   font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 700;
-  color: #0A1626;
+  color: #FFFFFF;
   margin-bottom: 4px;
   text-transform: uppercase;
   letter-spacing: -0.02em;
@@ -66,7 +68,7 @@
   font-family: var(--font-heading);
   font-size: 1.05rem;
   font-weight: 700;
-  color: #0A1626;
+  color: #FFFFFF;
   margin-bottom: 4px;
   text-transform: uppercase;
 }
@@ -75,7 +77,7 @@
   font-family: var(--font-body);
   font-size: 12px;
   font-weight: 600;
-  color: #0066FF;
+  color: #38BDF8;
   margin-bottom: 1.5rem;
   letter-spacing: 0.04em;
 }
@@ -84,7 +86,7 @@
   display: block;
   font-family: var(--font-body);
   font-size: 12px;
-  color: #64748B;
+  color: #94A3B8;
   font-weight: 600;
   margin-bottom: 1rem;
 }
@@ -95,31 +97,31 @@
   gap: 0.75rem;
   font-family: var(--font-body);
   font-size: 13.5px;
-  color: #475569;
+  color: #CBD5E1;
   margin-bottom: 0.75rem;
 }
 
 .contact__icon {
-  color: #0066FF;
+  color: #38BDF8;
   flex-shrink: 0;
 }
 
 .contact__link {
   text-decoration: none;
   font-weight: 600;
-  color: #0A1626;
+  color: #FFFFFF;
   transition: all var(--duration-fast);
 }
 
 .contact__link:hover {
-  color: #0066FF;
+  color: #38BDF8;
   transform: translateX(3px);
 }
 
 .contact__divider {
   border: none;
   height: 1px;
-  background: #E2E8F0;
+  background: rgba(255, 255, 255, 0.08);
   margin: 1.75rem 0;
 }
 
@@ -131,11 +133,13 @@
 
 /* ── Right Column: Form ── */
 .contact__form-card {
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  background: rgba(13, 20, 36, 0.48);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-2xl);
   padding: 2.5rem;
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 12px 36px rgba(0, 0, 0, 0.35);
 }
 
 .contact__form-header {
@@ -146,7 +150,7 @@
   font-family: var(--font-heading);
   font-size: 1.65rem;
   font-weight: 800;
-  color: #0A1626;
+  color: #FFFFFF;
   margin-bottom: 0.35rem;
   text-transform: uppercase;
   letter-spacing: -0.02em;
@@ -155,7 +159,7 @@
 .contact__form-header p {
   font-family: var(--font-body);
   font-size: 14px;
-  color: #64748B;
+  color: #94A3B8;
   margin: 0;
 }
 
@@ -181,7 +185,7 @@
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #334155;
+  color: #CBD5E1;
 }
 
 .contact__field input,
@@ -189,9 +193,9 @@
 .contact__field textarea {
   padding: 12px 16px;
   border-radius: var(--radius-md);
-  border: 1px solid #E2E8F0;
-  background: #F8FAFC;
-  color: #0A1626;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
   font-family: var(--font-body);
   font-size: 13.5px;
   transition: all var(--duration-fast);
@@ -201,9 +205,9 @@
 .contact__field select:focus,
 .contact__field textarea:focus {
   outline: none;
-  border-color: #0066FF;
-  background: #FFFFFF;
-  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
+  border-color: #38BDF8;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
 }
 
 .contact__field input.error,

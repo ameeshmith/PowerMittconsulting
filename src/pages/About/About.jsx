@@ -133,8 +133,8 @@ export default function About() {
                   <div className="about-values__icon">
                     <Icon size={22} />
                   </div>
-                  <h3 className="about-values__title" style={{ color: '#0A1626' }}>{val.title}</h3>
-                  <p className="about-values__desc" style={{ color: '#334155' }}>{val.desc}</p>
+                  <h3 className="about-values__title">{val.title}</h3>
+                  <p className="about-values__desc">{val.desc}</p>
                 </SpotlightCard>
               );
             })}

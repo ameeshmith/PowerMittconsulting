@@ -1,33 +1,37 @@
 /* ============================================
-   ServiceCard Component — Clean White Card
-   LumiWise Inspired Consulting Aesthetic
+   ServiceCard Component — Dark Liquid Glass Technical Card
+   Palette: Architectural Dark Canvas + Electric Cyan / Emerald
    ============================================ */
 
 .service-card {
   display: flex;
   flex-direction: column;
-  background: #FFFFFF;
-  border: 1px solid #E2E8F0;
+  background: rgba(13, 20, 36, 0.48);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-2xl);
   padding: 2.25rem;
   text-decoration: none;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 12px 36px rgba(0, 0, 0, 0.35);
   height: 100%;
 }
 
 /* Blue Card Hover */
 .service-card--blue:hover {
-  border-color: #0066FF;
-  box-shadow: 0 16px 36px -4px rgba(0, 102, 255, 0.12), 0 4px 12px rgba(15, 23, 42, 0.04);
+  background: rgba(18, 28, 48, 0.65);
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.25), 0 20px 42px -4px rgba(56, 189, 248, 0.25), 0 0 28px rgba(56, 189, 248, 0.15);
   transform: translateY(-5px);
 }
 
 /* Green Card Hover */
 .service-card--green:hover {
-  border-color: #10B981;
-  box-shadow: 0 16px 36px -4px rgba(16, 185, 129, 0.12), 0 4px 12px rgba(15, 23, 42, 0.04);
+  background: rgba(14, 28, 38, 0.65);
+  border-color: rgba(16, 185, 129, 0.6);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.25), 0 20px 42px -4px rgba(16, 185, 129, 0.25), 0 0 28px rgba(16, 185, 129, 0.15);
   transform: translateY(-5px);
 }
 
@@ -49,38 +53,31 @@
 }
 
 .service-card__icon-wrap--blue {
-  background: #EFF6FF;
-  border: 1px solid rgba(0, 102, 255, 0.15);
-  color: #0066FF;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: #38BDF8;
 }
 
 .service-card--blue:hover .service-card__icon-wrap--blue {
-  background: #0066FF;
-  color: #FFFFFF;
-  border-color: #0066FF;
-  box-shadow: 0 4px 15px rgba(0, 102, 255, 0.35);
+  background: #38BDF8;
+  color: #09090b;
+  border-color: #38BDF8;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
   transform: scale(1.06);
 }
 
 .service-card__icon-wrap--green {
-  background: #ECFDF5;
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.25);
   color: #10B981;
 }
 
 .service-card--green:hover .service-card__icon-wrap--green {
   background: #10B981;
-  color: #FFFFFF;
+  color: #09090b;
   border-color: #10B981;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
   transform: scale(1.06);
-}
-
-.service-card__number {
-  font-size: 1.25rem;
-  color: #94A3B8;
-  font-style: italic;
-  font-weight: 400;
 }
 
 .service-card__body {
@@ -93,16 +90,16 @@
   font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 700;
-  color: #0A1626;
+  color: #FFFFFF;
   margin-bottom: 0.75rem;
-  line-height: 1.2;
+  line-height: 1.25;
   text-transform: uppercase;
   letter-spacing: -0.02em;
   transition: color 0.2s ease;
 }
 
 .service-card--blue:hover .service-card__title {
-  color: #0066FF;
+  color: #38BDF8;
 }
 
 .service-card--green:hover .service-card__title {
@@ -112,7 +109,7 @@
 .service-card__desc {
   font-family: var(--font-body);
   font-size: 13.5px;
-  color: #475569;
+  color: #94A3B8;
   line-height: 1.65;
   margin-bottom: 1.5rem;
   flex: 1;
@@ -128,11 +125,11 @@
 .service-card__caps li {
   font-family: var(--font-body);
   font-size: 12.5px;
-  color: #1E293B;
+  color: #CBD5E1;
   padding-left: 1.2rem;
   position: relative;
   line-height: 1.45;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .service-card__caps--blue li::before {
@@ -143,7 +140,8 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #0066FF;
+  background: #38BDF8;
+  box-shadow: 0 0 6px rgba(56, 189, 248, 0.6);
 }
 
 .service-card__caps--green li::before {
@@ -155,6 +153,7 @@
   height: 5px;
   border-radius: 50%;
   background: #10B981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
 }
 
 .service-card__link {
@@ -171,23 +170,15 @@
 }
 
 .service-card__link--blue {
-  color: #0A1626;
+  color: #38BDF8;
 }
 
 .service-card__link--green {
-  color: #0A1626;
+  color: #10B981;
 }
 
 .service-card__arrow {
   transition: transform 0.25s var(--ease-out);
-}
-
-.service-card--blue:hover .service-card__link--blue {
-  color: #0066FF;
-}
-
-.service-card--green:hover .service-card__link--green {
-  color: #10B981;
 }
 
 .service-card:hover .service-card__arrow {

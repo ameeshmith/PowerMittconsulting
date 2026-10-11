@@ -58,6 +58,7 @@
   margin-bottom: 0.9rem;
   color: var(--color-midnight);
   letter-spacing: -0.025em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
 }
 
 .section-header--light .section-header__title {
@@ -71,6 +72,7 @@
   color: var(--color-steel);
   line-height: 1.6;
   max-width: 650px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
 }
 
 .section-header--light .section-header__subtitle {

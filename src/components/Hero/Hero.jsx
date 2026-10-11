@@ -1,4 +1,5 @@
 import { useRef, useCallback, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { ArrowRight, UserCheck } from 'lucide-react';
 import { getAssetUrl } from '../../utils/assetPath';
@@ -23,7 +24,7 @@ export default function Hero({
 }) {
   const badgeText = badge || label;
   const isCompact = variant === 'compact' || variant === 'service' || variant === 'industry';
-  const hasNebula = useNebula ?? !isCompact;
+  const hasNebula = useNebula === true;
   const defaultBg = isCompact ? '/assets/images/hero-about.jpg' : '/assets/images/hero-modern-skyline.jpg';
   const imageUrl = getAssetUrl(bgImage || defaultBg);
   const heroRef = useRef(null);
@@ -37,13 +38,25 @@ export default function Hero({
     heroRef.current.style.setProperty('--hero-mouse-y', `${y}px`);
   }, []);
 
+  // Track global cursor coordinates for whole-page ambient spotlight follower
   useEffect(() => {
+    if (hasNebula) return;
+    const handleGlobalMouseMove = (e) => {
+      document.documentElement.style.setProperty('--global-mouse-x', `${e.clientX}px`);
+      document.documentElement.style.setProperty('--global-mouse-y', `${e.clientY}px`);
+    };
+    window.addEventListener('mousemove', handleGlobalMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handleGlobalMouseMove);
+    };
+  }, [hasNebula]);
+
+  useEffect(() => {
+    if (!hasNebula) return;
     let ticking = false;
     const updateScrollBlend = () => {
       const scrollY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
-      // Linear progress across 180px of scroll
       const linear = Math.min(Math.max(scrollY / 180, 0), 1);
-      // Smooth ease-out quad curve so photographic dissolve begins gently and finishes smoothly
       const progress = linear * (2 - linear);
       if (heroRef.current) {
         heroRef.current.style.setProperty('--hero-scroll-blend', progress.toFixed(3));
@@ -66,31 +79,38 @@ export default function Hero({
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
     };
-  }, [isCompact]);
+  }, [hasNebula, isCompact]);
 
   return (
-    <section
-      ref={heroRef}
-      onMouseMove={handleMouseMove}
-      className={`hero-modern ${isCompact ? 'hero-modern--compact' : 'hero-modern--editorial'} ${hasNebula ? 'hero-modern--nebula' : ''}`}
-      style={hasNebula ? { backgroundColor: '#09090b' } : { backgroundImage: `url(${imageUrl})` }}
-    >
-      {/* Dynamic Background: WebGL Nebula or Interactive Constellation */}
-      {hasNebula ? (
-        <NebulaHeroCanvas />
-      ) : (
-        <>
-          <InteractiveGridCanvas />
-          <div className="hero-modern__cursor-spotlight" aria-hidden="true" />
-          <div className="grid_bg hero-modern__grid" />
-          <div className="hero-modern__overlay" />
-          <div className="hero-modern__radial-glow hero-modern__radial-glow--left" />
-          <div className="hero-modern__radial-glow hero-modern__radial-glow--right" />
-        </>
+    <>
+      {/* Whole-page photographic image background + mouse tracking constellation for all non-landing pages */}
+      {!hasNebula && typeof document !== 'undefined' && createPortal(
+        <div className="page-atmospheric-backdrop" aria-hidden="true">
+          <div
+            className="page-atmospheric-backdrop__image"
+            style={{ backgroundImage: `url(${imageUrl})` }}
+          />
+          <div className="page-atmospheric-backdrop__overlay" />
+          <div className="grid_bg page-atmospheric-backdrop__grid" />
+          <div className="page-atmospheric-backdrop__spotlight" />
+          <InteractiveGridCanvas trackGlobalMouse={true} nodeCount={44} />
+        </div>,
+        document.body
       )}
 
-      {/* Scroll-driven bottom dissolve into subsequent light sections */}
-      <div className="hero-modern__bottom-blend" aria-hidden="true" />
+      <section
+        ref={heroRef}
+        onMouseMove={handleMouseMove}
+        className={`hero-modern ${isCompact ? 'hero-modern--compact' : 'hero-modern--editorial'} ${hasNebula ? 'hero-modern--nebula' : 'hero-modern--has-backdrop'}`}
+        style={hasNebula ? { backgroundColor: '#09090b' } : { backgroundColor: 'transparent' }}
+      >
+        {/* Dynamic Background: WebGL Nebula on Landing Page only */}
+        {hasNebula && (
+          <>
+            <NebulaHeroCanvas />
+            <div className="hero-modern__bottom-blend" aria-hidden="true" />
+          </>
+        )}
 
       <div className="container hero-modern__container">
         <div className="hero-modern__center-wrap">
@@ -167,5 +187,6 @@ export default function Hero({
         )}
       </div>
     </section>
-  );
+  </>
+);
 }

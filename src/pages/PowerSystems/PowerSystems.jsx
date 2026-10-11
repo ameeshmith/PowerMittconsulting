@@ -59,7 +59,7 @@ export default function PowerSystems() {
       <section className="section--ice">
         <div className="container">
           <SectionHeader
-            label="01"
+            label="STUDIES & MODELING"
             title="Power System Studies"
             subtitle="Comprehensive power system analysis to inform design, verify performance, and ensure compliance."
           />
@@ -125,7 +125,7 @@ export default function PowerSystems() {
       <section>
         <div className="container">
           <SectionHeader
-            label="02"
+            label="ENGINEERING DESIGN"
             title="Power System Design"
             subtitle="Electrical infrastructure design for industrial facilities, from primary distribution through to end-use equipment."
           />
@@ -162,7 +162,7 @@ export default function PowerSystems() {
       <section className="section--ice">
         <div className="container">
           <SectionHeader
-            label="03"
+            label="GRID INTEGRATION"
             title="Grid Integration"
             subtitle="Connecting industrial facilities and generation assets to the electricity grid."
           />

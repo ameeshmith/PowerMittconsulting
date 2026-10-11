@@ -43,7 +43,7 @@ export default function IndustrialInfrastructure() {
 
       <section className="section--ice">
         <div className="container">
-          <SectionHeader label="01" title="Distribution & Equipment" subtitle="Primary and secondary electrical distribution design for industrial and mining facilities." />
+          <SectionHeader label="DISTRIBUTION & EQUIPMENT" title="Distribution & Equipment" subtitle="Primary and secondary electrical distribution design for industrial and mining facilities." />
           <div className="service-detail__capabilities">
             <div className="service-detail__cap-group">
               <h3>Power Distribution</h3>
@@ -73,7 +73,7 @@ export default function IndustrialInfrastructure() {
 
       <section>
         <div className="container">
-          <SectionHeader label="02" title="SCADA & Communications" subtitle="Monitoring, control, and communications systems for industrial and mining operations." />
+          <SectionHeader label="SCADA & AUTOMATION" title="SCADA & Communications" subtitle="Monitoring, control, and communications systems for industrial and mining operations." />
           <div className="service-detail__capabilities">
             <div className="service-detail__cap-group">
               <h3>SCADA Systems</h3>
@@ -101,7 +101,7 @@ export default function IndustrialInfrastructure() {
 
       <section className="section--ice">
         <div className="container">
-          <SectionHeader label="03" title="Infrastructure Upgrades & Reliability" subtitle="Improving the performance and extending the life of existing electrical infrastructure." />
+          <SectionHeader label="UPGRADES & RELIABILITY" title="Infrastructure Upgrades & Reliability" subtitle="Improving the performance and extending the life of existing electrical infrastructure." />
           <div className="service-detail__capabilities">
             <div className="service-detail__cap-group">
               <h3>Upgrades</h3>

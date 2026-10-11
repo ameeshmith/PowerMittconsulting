@@ -11,7 +11,8 @@ export default function InteractiveGridCanvas({
   connectionDistance = 130,
   mouseRadius = 180,
   colorScheme = 'electric', // 'electric' | 'emerald' | 'monochrome'
-  className = ''
+  className = '',
+  trackGlobalMouse = false
 }) {
   const canvasRef = useRef(null);
   const mouseRef = useRef({ x: -1000, y: -1000, targetX: -1000, targetY: -1000, isHovered: false });
@@ -29,10 +30,15 @@ export default function InteractiveGridCanvas({
     let dpr = Math.min(window.devicePixelRatio || 1, 2);
 
     const resize = () => {
-      const parent = canvas.parentElement;
-      if (!parent) return;
-      width = parent.clientWidth;
-      height = parent.clientHeight;
+      if (trackGlobalMouse) {
+        width = window.innerWidth;
+        height = window.innerHeight;
+      } else {
+        const parent = canvas.parentElement;
+        if (!parent) return;
+        width = parent.clientWidth;
+        height = parent.clientHeight;
+      }
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       canvas.style.width = `${width}px`;
@@ -52,7 +58,7 @@ export default function InteractiveGridCanvas({
     };
 
     const initNodes = () => {
-      const count = Math.floor((width * height) / 50000) || nodeCount;
+      const count = Math.floor((width * height) / 48000) || nodeCount;
       const nodes = [];
       for (let i = 0; i < count; i++) {
         nodes.push({
@@ -72,14 +78,30 @@ export default function InteractiveGridCanvas({
     resize();
     window.addEventListener('resize', resize, { passive: true });
 
-    // Track mouse on parent
+    // Track mouse: globally across window or scoped to parent
     const parent = canvas.parentElement;
     const handleMouseMove = (e) => {
-      if (!parent) return;
-      const rect = parent.getBoundingClientRect();
-      mouseRef.current.targetX = e.clientX - rect.left;
-      mouseRef.current.targetY = e.clientY - rect.top;
-      mouseRef.current.isHovered = true;
+      if (trackGlobalMouse) {
+        mouseRef.current.targetX = e.clientX;
+        mouseRef.current.targetY = e.clientY;
+        mouseRef.current.isHovered = true;
+      } else {
+        if (!parent) return;
+        const rect = parent.getBoundingClientRect();
+        mouseRef.current.targetX = e.clientX - rect.left;
+        mouseRef.current.targetY = e.clientY - rect.top;
+        mouseRef.current.isHovered = true;
+      }
+    };
+
+    const handleTouchMove = (e) => {
+      if (e.touches && e.touches[0]) {
+        if (trackGlobalMouse) {
+          mouseRef.current.targetX = e.touches[0].clientX;
+          mouseRef.current.targetY = e.touches[0].clientY;
+          mouseRef.current.isHovered = true;
+        }
+      }
     };
 
     const handleMouseLeave = () => {
@@ -88,7 +110,12 @@ export default function InteractiveGridCanvas({
       mouseRef.current.targetY = -1000;
     };
 
-    if (parent) {
+    if (trackGlobalMouse) {
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
+      window.addEventListener('touchmove', handleTouchMove, { passive: true });
+      document.addEventListener('mouseleave', handleMouseLeave, { passive: true });
+      window.addEventListener('touchend', handleMouseLeave, { passive: true });
+    } else if (parent) {
       parent.addEventListener('mousemove', handleMouseMove, { passive: true });
       parent.addEventListener('mouseleave', handleMouseLeave, { passive: true });
     }
@@ -211,14 +238,37 @@ export default function InteractiveGridCanvas({
         ctx.fill();
       }
 
-      animFrameRef.current = requestAnimationFrame(render);
+      if (isVisible) {
+        animFrameRef.current = requestAnimationFrame(render);
+      }
     };
 
+    let isVisible = true;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible && !animFrameRef.current) {
+          animFrameRef.current = requestAnimationFrame(render);
+        } else if (!isVisible && animFrameRef.current) {
+          cancelAnimationFrame(animFrameRef.current);
+          animFrameRef.current = null;
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    if (canvas) observer.observe(canvas);
     animFrameRef.current = requestAnimationFrame(render);
 
     return () => {
+      observer.disconnect();
       window.removeEventListener('resize', resize);
-      if (parent) {
+      if (trackGlobalMouse) {
+        window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('touchmove', handleTouchMove);
+        document.removeEventListener('mouseleave', handleMouseLeave);
+        window.removeEventListener('touchend', handleMouseLeave);
+      } else if (parent) {
         parent.removeEventListener('mousemove', handleMouseMove);
         parent.removeEventListener('mouseleave', handleMouseLeave);
       }
@@ -226,7 +276,7 @@ export default function InteractiveGridCanvas({
         cancelAnimationFrame(animFrameRef.current);
       }
     };
-  }, [nodeCount, connectionDistance, mouseRadius, colorScheme]);
+  }, [nodeCount, connectionDistance, mouseRadius, colorScheme, trackGlobalMouse]);
 
   return (
     <canvas

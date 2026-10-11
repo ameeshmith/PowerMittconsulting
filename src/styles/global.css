@@ -39,6 +39,14 @@ body {
   overflow-x: hidden;
 }
 
+#root {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 /* ── Epiko-Style Editorial Typography Helpers ── */
 .font-serif,
 .epiko-serif,
@@ -192,7 +200,7 @@ section.section--dark p {
 }
 
 section.section--ice {
-  background-color: var(--color-surface);
+  background-color: transparent;
   color: var(--color-charcoal);
 }
 
@@ -473,16 +481,16 @@ section.section--navy p {
   font-weight: 500;
   letter-spacing: 0.01em;
   border: 1px solid var(--color-border);
-  background: #FFFFFF;
+  background: rgba(255, 255, 255, 0.05);
   color: var(--color-steel);
   transition: all 0.2s var(--ease-out);
   cursor: pointer;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .epiko-filter-pill:hover {
   border-color: var(--color-blue);
-  color: var(--color-blue);
+  color: #FFFFFF;
   background: var(--color-blue-light);
 }
 
@@ -491,7 +499,7 @@ section.section--navy p {
   border-color: var(--color-blue) !important;
   color: #FFFFFF !important;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(31, 95, 214, 0.2);
+  box-shadow: 0 2px 12px rgba(56, 189, 248, 0.35);
 }
 
 .epiko-filter-pill--active-green {
@@ -499,7 +507,7 @@ section.section--navy p {
   border-color: var(--color-green) !important;
   color: #FFFFFF !important;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.2);
+  box-shadow: 0 2px 12px rgba(16, 185, 129, 0.35);
 }
 
 /* Executive Cards */
@@ -510,15 +518,17 @@ section.section--navy p {
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--color-border);
-  background: #FFFFFF;
+  background: var(--color-card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   box-shadow: var(--shadow-card);
   transition: all 0.25s var(--ease-out);
 }
 
 .epiko-card:hover {
-  border-color: rgba(31, 95, 214, 0.3);
+  border-color: rgba(56, 189, 248, 0.4);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-card-hover);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
 }
 
 /* ── Responsive ── */

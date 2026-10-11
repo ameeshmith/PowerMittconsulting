@@ -4,7 +4,7 @@
 
 .projects-section {
   padding: 6.5rem 0;
-  background: var(--color-body-bg);
+  background: transparent;
 }
 
 .projects__filters {
@@ -22,24 +22,24 @@
   text-transform: uppercase;
   padding: 8px 22px;
   border-radius: var(--radius-full);
-  border: 1px solid #E2E8F0;
-  background: #F8FAFC;
-  color: #475569;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+  color: #94A3B8;
   cursor: pointer;
   transition: all 0.25s var(--ease-out);
 }
 
 .projects__filter:hover {
-  border-color: #0066FF;
-  color: #0066FF;
-  background: #EFF6FF;
+  border-color: #38BDF8;
+  color: #FFFFFF;
+  background: rgba(56, 189, 248, 0.12);
 }
 
 .projects__filter--active {
-  background: #0066FF !important;
-  border-color: #0066FF !important;
-  color: #FFFFFF !important;
-  box-shadow: 0 4px 18px rgba(0, 102, 255, 0.4);
+  background: #38BDF8 !important;
+  border-color: #38BDF8 !important;
+  color: #09090b !important;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.45);
 }
 
 /* 2x2 Grid */

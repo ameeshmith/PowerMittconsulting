@@ -4,10 +4,10 @@
 
 .cta-banner {
   position: relative;
-  padding: 5rem 0;
-  background: var(--color-paper-light);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  padding: 5.5rem 0;
+  background: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
   text-align: center;
 }
@@ -18,12 +18,14 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.cta-banner__title,
 .home-page .cta-banner__title {
   color: #FFFFFF;
 }
 
+.cta-banner__subtitle,
 .home-page .cta-banner__subtitle {
-  color: rgba(203, 213, 225, 0.78);
+  color: #94A3B8;
 }
 
 .cta-banner__grid {
