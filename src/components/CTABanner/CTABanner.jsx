@@ -3,15 +3,15 @@ import { ArrowRight } from 'lucide-react';
 import './CTABanner.css';
 
 export default function CTABanner({
-  badge = "GET IN TOUCH",
+  badge = "Get In Touch",
   title = (
     <>
-      READY TO DE-RISK <br />
-      <span className="serif-accent">your power infrastructure?</span>
+      Ready to De-Risk <br />
+      Your Electrical Infrastructure?
     </>
   ),
   subtitle = "Connect directly with Principal Power Engineer Dinesh Mithanthaya and the PowerMitt team for independent engineering and connection advisory.",
-  buttonText = 'START A CONVERSATION',
+  buttonText = 'Start a conversation',
   buttonLink = '/contact',
   variant = 'default'
 }) {
@@ -22,12 +22,6 @@ export default function CTABanner({
       <div className="grid_bg cta-banner__grid" aria-hidden="true" />
 
       <div className="cta-banner__inner container">
-        {badge && (
-          <div className="cta-banner__badge">
-            <span className="cta-banner__badge-dot" />
-            <span>{badge}</span>
-          </div>
-        )}
         <h2 className="cta-banner__title font-display">{title}</h2>
         <p className="cta-banner__subtitle">{subtitle}</p>
         <Link to={buttonLink} className="cta-banner__btn">

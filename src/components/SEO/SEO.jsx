@@ -8,7 +8,8 @@ export default function SEO({
   description = 'Specialist electrical power systems and energy engineering consultancy based in Perth, Western Australia. Supporting complex industrial, resources, and energy projects.',
   path = '/',
   image = DEFAULT_IMAGE,
-  type = 'website'
+  type = 'website',
+  noindex = false
 }) {
   useEffect(() => {
     // 1. Set Title
@@ -41,6 +42,12 @@ export default function SEO({
 
     // 2. Standard Meta Tags
     setMeta('name', 'description', description);
+    if (noindex) {
+      setMeta('name', 'robots', 'noindex, nofollow');
+    } else {
+      let robotsEl = document.querySelector('meta[name="robots"]');
+      if (robotsEl) robotsEl.remove();
+    }
     setLink('canonical', fullUrl);
 
     // 3. Open Graph / Facebook / LinkedIn / WhatsApp
@@ -150,7 +157,7 @@ export default function SEO({
 
     scriptEl.textContent = JSON.stringify(structuredData);
 
-  }, [title, description, path, image, type]);
+  }, [title, description, path, image, type, noindex]);
 
   return null;
 }

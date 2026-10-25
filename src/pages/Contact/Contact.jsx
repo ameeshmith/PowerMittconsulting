@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Phone, Mail, MapPin, Send, CheckCircle, Loader, Building, Clock } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
@@ -11,7 +11,11 @@ const industryOptions = ['Oil & Gas', 'Mining & Resources', 'Energy & Utilities'
 const serviceOptions = ['Electrical Power Systems', 'Renewable Energy & Decarbonisation', 'Carbon Capture & Storage', 'Industrial & Mining Infrastructure', "Owner's Engineering", 'General Enquiry'];
 const stageOptions = ['Concept / Feasibility', 'Pre-FEED', 'FEED', 'Detailed Engineering', 'Commissioning', 'Operations', 'Not Sure'];
 
+const COOLDOWN_KEY = 'powermitt_enquiry_cooldown';
+const COOLDOWN_PERIOD_MS = 60 * 1000; // 60-second cooldown between submissions
+
 export default function Contact() {
+  const formMountedAt = useRef(Date.now());
   const [form, setForm] = useState({
     name: '', company: '', email: '', phone: '',
     industry: '', service: '', stage: '', message: '',
@@ -24,13 +28,30 @@ export default function Contact() {
 
   const validate = () => {
     const e = {};
-    if (!form.name.trim()) e.name = 'Name is required';
-    if (!form.email.trim()) e.email = 'Email is required';
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = 'Please enter a valid email';
-    if (form.phone.trim() && !/^[+()0-9\s-]{8,20}$/.test(form.phone.trim())) {
+    const trimmedName = form.name.trim();
+    if (!trimmedName) e.name = 'Name is required';
+    else if (trimmedName.length > 100) e.name = 'Name cannot exceed 100 characters';
+    else if (/[\r\n]/.test(trimmedName)) e.name = 'Name cannot contain line breaks';
+
+    const trimmedEmail = form.email.trim();
+    if (!trimmedEmail) e.email = 'Email is required';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) e.email = 'Please enter a valid email';
+    else if (trimmedEmail.length > 120) e.email = 'Email cannot exceed 120 characters';
+
+    const trimmedPhone = form.phone.trim();
+    if (trimmedPhone && !/^[+()0-9\s-]{8,20}$/.test(trimmedPhone)) {
       e.phone = 'Please enter a valid phone number';
     }
-    if (!form.message.trim()) e.message = 'Message is required';
+
+    if (form.company.trim().length > 100) {
+      e.company = 'Company cannot exceed 100 characters';
+    }
+
+    const trimmedMessage = form.message.trim();
+    if (!trimmedMessage) e.message = 'Message is required';
+    else if (trimmedMessage.length < 10) e.message = 'Please provide a message of at least 10 characters';
+    else if (trimmedMessage.length > 5000) e.message = 'Message cannot exceed 5000 characters';
+
     return e;
   };
 
@@ -44,8 +65,22 @@ export default function Contact() {
     setErrors({});
     setSubmitError('');
 
-    // Spam honeypot triggered by automated bot
-    if (form.botcheck) {
+    // Anti-flooding / rate-limit cooldown: prevent repeated submissions within 60 seconds (OWASP A04)
+    try {
+      const lastSub = localStorage.getItem(COOLDOWN_KEY);
+      if (lastSub && Date.now() - Number(lastSub) < COOLDOWN_PERIOD_MS) {
+        const remainingSeconds = Math.ceil((COOLDOWN_PERIOD_MS - (Date.now() - Number(lastSub))) / 1000);
+        setSubmitError(`Please wait ${remainingSeconds} seconds before submitting another enquiry.`);
+        return;
+      }
+    } catch (err) {
+      // Silently proceed if localStorage is restricted
+    }
+
+    // Anti-automation: Honeypot check or inhumanly fast submission (< 2.0s)
+    const isBot = form.botcheck || (Date.now() - formMountedAt.current < 2000);
+    if (isBot) {
+      // Silently sink automated bot submissions
       setSubmitted(true);
       return;
     }
@@ -66,22 +101,27 @@ export default function Contact() {
         },
         body: JSON.stringify({
           access_key: accessKey,
-          subject: `PowerMitt Web Enquiry - ${form.name}`,
+          subject: `PowerMitt Web Enquiry - ${form.name.trim()}`,
           from_name: 'PowerMitt Consulting Website',
-          name: form.name,
-          email: form.email,
-          phone: form.phone,
-          company: form.company,
+          name: form.name.trim(),
+          email: form.email.trim(),
+          phone: form.phone.trim(),
+          company: form.company.trim(),
           industry: form.industry,
           service: form.service,
           stage: form.stage,
-          message: form.message,
+          message: form.message.trim(),
           botcheck: form.botcheck ? 'true' : ''
         })
       });
 
       const result = await response.json();
       if (result.success) {
+        try {
+          localStorage.setItem(COOLDOWN_KEY, String(Date.now()));
+        } catch (err) {
+          // Ignore storage error
+        }
         setSubmitted(true);
       } else {
         setSubmitError(result.message || 'There was an issue submitting your enquiry. Please try again.');
@@ -109,12 +149,7 @@ export default function Contact() {
       <Hero
         variant="compact"
         label="Initiate Advisory"
-        title={
-          <>
-            LET'S DISCUSS YOUR <br />
-            <span className="hero-modern__serif-accent">engineering challenge.</span>
-          </>
-        }
+        title="Let's Discuss Your Engineering Challenge"
         subtitle="Direct engagement with Principal Power Engineer Dinesh Mithanthaya and the engineering team for grid studies, design verification, and independent due diligence across Australia."
         bgImage="/assets/images/hero-contact.jpg"
       />

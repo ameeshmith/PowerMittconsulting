@@ -6,6 +6,7 @@ import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import Timeline from '../../components/Timeline/Timeline';
 import CTABanner from '../../components/CTABanner/CTABanner';
 import WordHighlight from '../../components/WordHighlight/WordHighlight';
+import SpotlightCard from '../../components/UI/SpotlightCard';
 import { getAssetUrl } from '../../utils/assetPath';
 import './About.css';
 
@@ -40,11 +41,11 @@ export default function About() {
         label="About PowerMitt"
         title={
           <>
-            ENGINEERING <span className="hero-modern__serif-accent">rigour</span> <br />
-            FOR COMPLEX POWER CHALLENGES.
+            Engineering rigour <br />
+            for complex power challenges.
           </>
         }
-        subtitle="An independent specialist engineering consultancy delivering high-calibre electrical power systems, energy transition, and industrial infrastructure advisory across Australia."
+        subtitle="An independent specialist engineering consultancy delivering high-calibre electrical power systems, utilities, energy transition, and industrial infrastructure advisory services across Australia."
         bgImage="/assets/images/hero-about.jpg"
       />
 
@@ -53,11 +54,7 @@ export default function About() {
         <div className="container">
           <SectionHeader
             label="OUR JOURNEY"
-            title={
-              <>
-                A LEGACY OF <span className="serif-accent">engineering excellence</span>
-              </>
-            }
+            title="A Legacy of Engineering Excellence"
             subtitle="Decades of technical leadership navigating Australia's power systems evolution."
             align="center"
           />
@@ -116,11 +113,7 @@ export default function About() {
         <div className="container">
           <SectionHeader
             label="GUIDING PRINCIPLES"
-            title={
-              <>
-                OUR CORE <span className="serif-accent">values</span>
-              </>
-            }
+            title="Our Core Values"
             subtitle="Our engineering philosophy is built on practical delivery, technical depth, and trusted partnership."
             align="center"
           />
@@ -128,13 +121,13 @@ export default function About() {
             {valuesList.map((val, i) => {
               const Icon = val.icon;
               return (
-                <div key={i} className="about-values__card">
+                <SpotlightCard key={i} className="about-values__card">
                   <div className="about-values__icon">
                     <Icon size={22} />
                   </div>
-                  <h3 className="about-values__title" style={{ color: '#0A1626' }}>{val.title}</h3>
-                  <p className="about-values__desc" style={{ color: '#334155' }}>{val.desc}</p>
-                </div>
+                  <h3 className="about-values__title">{val.title}</h3>
+                  <p className="about-values__desc">{val.desc}</p>
+                </SpotlightCard>
               );
             })}
           </div>

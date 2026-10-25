@@ -1,6 +1,8 @@
 /* ============================================
-   ServiceCard Component — Clean White Card
-   LumiWise Inspired Consulting Aesthetic
+   ServiceCard Component — Crisp Light Architectural Card
+   Palette: Elevated Crisp White (#FFFFFF), Off-White Slate Canvas,
+            Secondary Light Blue (#E0F2FE), Power Blue (#0284C7),
+            Deep Navy Typography (#0F172A)
    ============================================ */
 
 .service-card {
@@ -13,21 +15,23 @@
   text-decoration: none;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
   height: 100%;
 }
 
 /* Blue Card Hover */
 .service-card--blue:hover {
-  border-color: #0066FF;
-  box-shadow: 0 16px 36px -4px rgba(0, 102, 255, 0.12), 0 4px 12px rgba(15, 23, 42, 0.04);
+  background: #FFFFFF;
+  border-color: #BAE6FD;
+  box-shadow: 0 20px 40px -4px rgba(2, 132, 199, 0.12), 0 0 0 1px rgba(2, 132, 199, 0.15);
   transform: translateY(-5px);
 }
 
 /* Green Card Hover */
 .service-card--green:hover {
-  border-color: #10B981;
-  box-shadow: 0 16px 36px -4px rgba(16, 185, 129, 0.12), 0 4px 12px rgba(15, 23, 42, 0.04);
+  background: #FFFFFF;
+  border-color: #A7F3D0;
+  box-shadow: 0 20px 40px -4px rgba(5, 150, 105, 0.12), 0 0 0 1px rgba(5, 150, 105, 0.15);
   transform: translateY(-5px);
 }
 
@@ -39,8 +43,8 @@
 }
 
 .service-card__icon-wrap {
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,38 +53,31 @@
 }
 
 .service-card__icon-wrap--blue {
-  background: #EFF6FF;
-  border: 1px solid rgba(0, 102, 255, 0.15);
-  color: #0066FF;
+  background: #E0F2FE;
+  border: 1px solid #BAE6FD;
+  color: #0284C7;
 }
 
 .service-card--blue:hover .service-card__icon-wrap--blue {
-  background: #0066FF;
+  background: #0284C7;
   color: #FFFFFF;
-  border-color: #0066FF;
-  box-shadow: 0 4px 15px rgba(0, 102, 255, 0.35);
+  border-color: #0284C7;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
   transform: scale(1.06);
 }
 
 .service-card__icon-wrap--green {
   background: #ECFDF5;
-  border: 1px solid rgba(16, 185, 129, 0.2);
-  color: #10B981;
+  border: 1px solid #A7F3D0;
+  color: #059669;
 }
 
 .service-card--green:hover .service-card__icon-wrap--green {
-  background: #10B981;
+  background: #059669;
   color: #FFFFFF;
-  border-color: #10B981;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+  border-color: #059669;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
   transform: scale(1.06);
-}
-
-.service-card__number {
-  font-size: 1.25rem;
-  color: #94A3B8;
-  font-style: italic;
-  font-weight: 400;
 }
 
 .service-card__body {
@@ -93,20 +90,20 @@
   font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 700;
-  color: #0A1626;
+  color: #0F172A;
   margin-bottom: 0.75rem;
-  line-height: 1.2;
+  line-height: 1.25;
   text-transform: uppercase;
   letter-spacing: -0.02em;
   transition: color 0.2s ease;
 }
 
 .service-card--blue:hover .service-card__title {
-  color: #0066FF;
+  color: #0284C7;
 }
 
 .service-card--green:hover .service-card__title {
-  color: #10B981;
+  color: #059669;
 }
 
 .service-card__desc {
@@ -127,8 +124,8 @@
 
 .service-card__caps li {
   font-family: var(--font-body);
-  font-size: 12.5px;
-  color: #1E293B;
+  font-size: 13px;
+  color: #334155;
   padding-left: 1.2rem;
   position: relative;
   line-height: 1.45;
@@ -143,7 +140,7 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #0066FF;
+  background: #0284C7;
 }
 
 .service-card__caps--green li::before {
@@ -154,7 +151,7 @@
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #10B981;
+  background: #059669;
 }
 
 .service-card__link {
@@ -162,32 +159,24 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-top: auto;
   transition: all 0.25s ease;
 }
 
 .service-card__link--blue {
-  color: #0A1626;
+  color: #0284C7;
 }
 
 .service-card__link--green {
-  color: #0A1626;
+  color: #059669;
 }
 
 .service-card__arrow {
   transition: transform 0.25s var(--ease-out);
-}
-
-.service-card--blue:hover .service-card__link--blue {
-  color: #0066FF;
-}
-
-.service-card--green:hover .service-card__link--green {
-  color: #10B981;
 }
 
 .service-card:hover .service-card__arrow {

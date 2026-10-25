@@ -1,11 +1,14 @@
 /* ============================================
-   Home Page Styles — Epiko Studios High-Craft Theme
-   Palette: Deep Midnight Navy, Electric Power Blue, Clean Crisp Surfaces
+   Home Page Styles — Executive Clean Light Architecture
+   Palette: Off-White Slate (#F8FAFC), Crisp Elevated White (#FFFFFF),
+            Secondary Light Blue (#E0F2FE) & Power Blue (#0284C7),
+            Deep High-Contrast Navy Typography (#0F172A / #1E293B)
    ============================================ */
 
 .home-page {
   position: relative;
-  background-color: var(--color-body-bg);
+  background-color: #F8FAFC;
+  color: #0F172A;
 }
 
 /* ── Generic Epiko Badge ── */
@@ -14,229 +17,306 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #0066FF;
-  margin-bottom: 1rem;
+  color: #0284C7;
+  margin-bottom: 0.85rem;
 }
 
-/* ── Capabilities / Services Showcase ── */
+/* ── Capabilities / Services Showcase (Clean Light Architecture) ── */
 .home-services {
-  background: var(--color-body-bg);
-  padding: 6.5rem 0;
+  background: #F8FAFC;
+  padding: 3.75rem 0;
   position: relative;
+  overflow: hidden;
 }
 
 .home-services__header-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 3rem;
-  margin-bottom: 3.5rem;
+  gap: 2rem;
+  margin-bottom: 1.75rem;
   flex-wrap: wrap;
 }
 
 .home-services__title-block {
-  max-width: 680px;
+  max-width: 640px;
 }
 
 .home-services__title {
   font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-size: clamp(1.85rem, 3.2vw, 2.45rem);
   font-weight: 800;
-  line-height: 0.98;
-  color: #0A0A0A;
-  margin-top: 0.5rem;
-  margin-bottom: 1.25rem;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
+  line-height: 1.15;
+  color: #0F172A;
+  margin-top: 0.25rem;
+  margin-bottom: 0.85rem;
+  letter-spacing: -0.025em;
 }
 
 .home-services__subtitle {
   font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 1.7;
-  color: #64748B;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: #475569;
   max-width: 580px;
 }
 
-/* Filter Pills Group (Epiko signature) */
+/* Filter Pills Group (Crisp Light Pills) */
 .home-services__filters {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.55rem;
   flex-wrap: wrap;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
 }
 
 .home-services__filters .epiko-filter-pill {
-  border-color: #E2E8F0;
-  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  background: #FFFFFF;
   color: #475569;
+  padding: 6px 16px;
+  font-size: 11.5px;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
 }
 
 .home-services__filters .epiko-filter-pill:hover {
-  border-color: #0066FF;
-  color: #0066FF;
-  background: #EFF6FF;
+  border-color: #BAE6FD;
+  color: #0284C7;
+  background: #F0F9FF;
 }
 
 .home-services__filters .epiko-filter-pill--active {
-  background: #0066FF !important;
-  border-color: #0066FF !important;
+  background: #0284C7 !important;
+  border-color: #0284C7 !important;
   color: #FFFFFF !important;
-  box-shadow: 0 4px 18px rgba(0, 102, 255, 0.4);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
 }
 
 .home-services__filters .epiko-filter-pill--active-green {
-  background: #10B981 !important;
-  border-color: #10B981 !important;
+  background: #059669 !important;
+  border-color: #059669 !important;
   color: #FFFFFF !important;
-  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.3);
 }
 
-/* ── Epiko Capabilities Cards Grid ── */
+/* ── Capabilities Asymmetric Lead Grid ── */
 .home-services__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.75rem;
-  margin-bottom: 3.5rem;
+  gap: 1.35rem;
+  margin-bottom: 2.75rem;
 }
 
+.home-services__grid--lead {
+  grid-template-columns: 1.18fr 1fr 1fr;
+}
+
+.home-services__grid--filtered {
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+/* Crisp Elevated Capability Cards */
 .epiko-capability-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 2.25rem;
+  padding: 1.75rem 1.65rem 1.55rem;
   background: #FFFFFF;
-  border: 1px solid #E6E9EF;
-  border-radius: var(--radius-2xl);
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-xl);
   text-decoration: none;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 2px 12px rgba(10, 10, 10, 0.03);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
 }
 
 .epiko-capability-card:hover {
-  transform: translateY(-5px);
-  border-color: #0066FF;
-  box-shadow: 0 20px 40px -10px rgba(0, 102, 255, 0.12), 0 4px 12px rgba(10, 10, 10, 0.04);
+  transform: translateY(-4px);
+  background: #FFFFFF;
+  border-color: #BAE6FD;
+  box-shadow: 0 16px 36px -4px rgba(2, 132, 199, 0.12), 0 0 0 1px rgba(2, 132, 199, 0.15);
 }
 
 .epiko-capability-card--green:hover {
-  border-color: #10B981;
-  box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.12), 0 4px 12px rgba(10, 10, 10, 0.04);
+  border-color: #A7F3D0;
+  box-shadow: 0 16px 36px -4px rgba(5, 150, 105, 0.12), 0 0 0 1px rgba(5, 150, 105, 0.15);
+}
+
+/* Featured Lead Card */
+.home-services__grid--lead .epiko-capability-card--lead {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  padding: 2.25rem 2rem 1.85rem;
+  border: 1px solid #BAE6FD;
+  background: linear-gradient(165deg, #FFFFFF 0%, #F0F9FF 100%);
+  box-shadow: 0 12px 36px rgba(2, 132, 199, 0.08), 0 0 0 1px rgba(2, 132, 199, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.home-services__grid--lead .epiko-capability-card--lead:hover {
+  border-color: #0284C7;
+  box-shadow: 0 20px 48px rgba(2, 132, 199, 0.16), 0 0 0 1px #0284C7;
+}
+
+.epiko-capability-card__lead-body {
+  display: flex;
+  flex-direction: column;
 }
 
 .epiko-capability-card__top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.25rem;
 }
 
 .epiko-capability-card__tag {
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 11.5px;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #0066FF;
-  background: #EFF6FF;
-  padding: 5px 12px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(0, 102, 255, 0.15);
+  color: #64748B;
+  background: none;
+  padding: 0;
+  border: none;
+}
+
+.epiko-capability-card__tag--lead {
+  color: #0284C7;
+  font-weight: 800;
 }
 
 .epiko-capability-card__tag--green {
-  color: #10B981;
-  background: #ECFDF5;
-  border-color: rgba(16, 185, 129, 0.2);
-}
-
-.epiko-capability-card__serial {
-  font-size: 1.15rem;
-  color: #94A3B8;
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: 0.05em;
+  color: #059669;
 }
 
 .epiko-capability-card__icon-box {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: #EFF6FF;
-  border: 1px solid rgba(0, 102, 255, 0.2);
-  color: #0066FF;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #E0F2FE;
+  border: 1px solid #BAE6FD;
+  color: #0284C7;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
+}
+
+.epiko-capability-card__icon-box--lead {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
 }
 
 .epiko-capability-card:hover .epiko-capability-card__icon-box {
-  background: #0066FF;
+  background: #0284C7;
   color: #FFFFFF;
-  border-color: #0066FF;
-  transform: scale(1.06);
+  border-color: #0284C7;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
 }
 
 .epiko-capability-card__icon-box--green {
   background: #ECFDF5;
-  border-color: rgba(16, 185, 129, 0.25);
-  color: #10B981;
+  border-color: #A7F3D0;
+  color: #059669;
 }
 
 .epiko-capability-card--green:hover .epiko-capability-card__icon-box--green {
-  background: #10B981;
+  background: #059669;
   color: #FFFFFF;
-  border-color: #10B981;
+  border-color: #059669;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.35);
 }
 
 .epiko-capability-card__title {
   font-family: var(--font-heading);
-  font-size: 1.35rem;
+  font-size: 1.18rem;
   font-weight: 700;
-  line-height: 1.15;
-  color: #0A0A0A;
-  margin-bottom: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: #0F172A;
+  margin-bottom: 0.65rem;
+  letter-spacing: -0.015em;
   transition: color 0.2s ease;
 }
 
+.epiko-capability-card__title--lead {
+  font-size: 1.45rem;
+  line-height: 1.25;
+  margin-bottom: 0.85rem;
+  font-weight: 800;
+}
+
 .epiko-capability-card:hover .epiko-capability-card__title {
-  color: #0066FF;
+  color: #0284C7;
 }
 
 .epiko-capability-card--green:hover .epiko-capability-card__title {
-  color: #10B981;
+  color: #059669;
 }
 
 .epiko-capability-card__desc {
   font-family: var(--font-body);
-  font-size: 13.5px;
-  line-height: 1.65;
-  color: #64748B;
-  margin-bottom: 2rem;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #475569;
+  margin-bottom: 1.25rem;
   flex: 1;
+}
+
+.epiko-capability-card__desc--lead {
+  font-size: 14.5px;
+  line-height: 1.65;
+  margin-bottom: 1.15rem;
+  flex: none;
+}
+
+/* Lead Card Highlights */
+.epiko-capability-card__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin: 0.5rem 0 1.75rem;
+  padding: 1rem 1.15rem;
+  background: #F0F9FF;
+  border: 1px solid #BAE6FD;
+  border-radius: var(--radius-md);
+}
+
+.epiko-capability-card__highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: #0369A1;
+  font-weight: 600;
 }
 
 .epiko-capability-card__footer {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 13.5px;
   font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #0A0A0A;
+  color: #0284C7;
   margin-top: auto;
-  transition: all 0.25s ease;
+  transition: color 0.2s ease;
+}
+
+.epiko-capability-card__footer--lead {
+  color: #0284C7;
+  font-size: 14px;
 }
 
 .epiko-capability-card__footer .epiko-arrow {
@@ -244,89 +324,94 @@
 }
 
 .epiko-capability-card:hover .epiko-capability-card__footer {
-  color: #0066FF;
+  color: #0369A1;
 }
 
 .epiko-capability-card--green:hover .epiko-capability-card__footer {
-  color: #10B981;
+  color: #047857;
 }
 
 .epiko-capability-card:hover .epiko-arrow {
-  transform: translateX(5px);
+  transform: translateX(4px);
 }
 
 .epiko-outline-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 13px 32px;
+  padding: 11px 28px;
   border-radius: var(--radius-full);
   border: 1px solid #CBD5E1;
-  background: transparent;
-  color: #0A0A0A;
+  background: #FFFFFF;
+  color: #0F172A;
   font-family: var(--font-body);
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   text-decoration: none;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
   transition: all 0.25s var(--ease-out);
 }
 
 .epiko-outline-btn:hover {
-  background: #0A0A0A;
-  border-color: #0A0A0A;
-  color: #FFFFFF;
+  border-color: #0284C7;
+  color: #0284C7;
+  background: #F0F9FF;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.15);
 }
 
-/* ── About / Engineering Rigour Section ── */
+/* ── About / Engineering Rigour Section (Clean Light Surface) ── */
 .home-about {
-  padding: 7rem 0;
+  padding: 3.75rem 0;
   position: relative;
-  background: var(--color-surface);
+  background: #FFFFFF;
+  overflow: hidden;
+  border-top: 1px solid #E2E8F0;
 }
 
 .home-about__grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
-  gap: 4.5rem;
+  gap: 3.5rem;
   align-items: center;
 }
 
 .home-about__title {
   font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
   font-weight: 800;
-  line-height: 1.05;
-  color: #0A0A0A;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
+  line-height: 1.18;
+  color: #0F172A;
+  margin-bottom: 1.15rem;
+  letter-spacing: -0.025em;
 }
 
 .home-about__lead {
-  font-size: 1.05rem;
-  line-height: 1.75;
+  font-size: 1rem;
+  line-height: 1.65;
   color: #334155;
-  margin-bottom: 1.25rem;
-  font-weight: 400;
+  margin-bottom: 0.95rem;
+  font-weight: 500;
+}
+
+.home-about__content p {
+  color: #475569;
 }
 
 .home-about__checklist {
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
-  margin: 2rem 0 2.5rem;
+  gap: 0.75rem;
+  margin: 1.4rem 0 1.85rem;
 }
 
 .home-about__check-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 14.5px;
-  font-weight: 500;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
   color: #1E293B;
 }
 
@@ -334,40 +419,39 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 14px 34px;
+  padding: 12px 28px;
   border-radius: var(--radius-full);
-  background: #0066FF;
+  background: #0284C7;
   color: #FFFFFF !important;
   font-family: var(--font-body);
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   text-decoration: none;
-  box-shadow: 0 4px 20px rgba(0, 102, 255, 0.35);
-  transition: all 0.25s var(--ease-out);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.3);
+  transition: all 0.2s var(--ease-out);
 }
 
 .epiko-pill-btn-blue:hover {
-  background: #0052CC;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(0, 102, 255, 0.5);
+  background: #0369A1;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(2, 132, 199, 0.4);
 }
 
 /* About Media Card */
 .home-about__card {
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
-  border-radius: var(--radius-2xl);
+  border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
 }
 
 .home-about__img-wrap {
   position: relative;
-  aspect-ratio: 16 / 11;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
-  background: #0A0A0A;
+  background: #F1F5F9;
 }
 
 .home-about__img {
@@ -384,15 +468,16 @@
 .home-about__img-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(6, 14, 24, 0.7) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.4) 0%, transparent 60%);
 }
 
 .home-about__stats {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 1.75rem 1.5rem;
-  background: #FFFFFF;
+  padding: 1.25rem 1.25rem;
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
 }
 
 .home-about__stat {
@@ -400,156 +485,173 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding: 0 0.5rem;
 }
 
 .home-about__stat-num {
-  font-size: 2.8rem;
-  line-height: 1;
-  color: #0066FF;
-  font-weight: 400;
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #0284C7;
+  letter-spacing: -0.02em;
   margin-bottom: 4px;
 }
 
+.home-about__stat-num--green {
+  color: #059669;
+  font-size: 1.35rem;
+}
+
 .home-about__stat-label {
+  font-family: var(--font-body);
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #64748B;
 }
 
 .home-about__stat-sep {
   width: 1px;
-  height: 45px;
+  height: 38px;
   background: #E2E8F0;
+  flex-shrink: 0;
 }
 
-/* ── Industries Section (Executive Grid) ── */
+/* ── Industries Section (Executive Off-White Grid) ── */
 .home-industries {
-  padding: 7rem 0;
-  background: #FFFFFF;
+  padding: 3.75rem 0;
+  background: #F8FAFC;
+  color: #0F172A;
   position: relative;
   overflow: hidden;
   border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
 }
 
 .home-industries__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  gap: 1.35rem;
 }
 
 .home-industries__card {
   position: relative;
-  height: 480px;
-  border-radius: var(--radius-2xl);
+  border-radius: var(--radius-xl);
   overflow: hidden;
-  background-size: cover;
-  background-position: center;
+  background: #FFFFFF;
   border: 1px solid #E2E8F0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 1.75rem;
   text-decoration: none;
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
 }
 
 .home-industries__card:hover {
-  transform: translateY(-6px);
-  border-color: #0066FF;
-  box-shadow: 0 20px 45px rgba(0, 102, 255, 0.16), 0 4px 15px rgba(15, 23, 42, 0.05);
+  transform: translateY(-4px);
+  border-color: #BAE6FD;
+  box-shadow: 0 16px 36px -4px rgba(2, 132, 199, 0.12);
 }
 
-.home-industries__overlay {
+.home-industries__media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #F1F5F9;
+}
+
+.home-industries__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-industries__card:hover .home-industries__img {
+  transform: scale(1.06);
+}
+
+.home-industries__media-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom,
-      rgba(6, 14, 24, 0.15) 0%,
-      rgba(6, 14, 24, 0.45) 50%,
-      rgba(6, 14, 24, 0.88) 100%);
-  transition: all 0.3s ease;
-  z-index: 1;
-}
-
-.home-industries__card:hover .home-industries__overlay {
-  background: linear-gradient(to bottom,
-      rgba(6, 14, 24, 0.08) 0%,
-      rgba(6, 14, 24, 0.35) 50%,
-      rgba(6, 14, 24, 0.82) 100%);
-}
-
-.home-industries__card-header {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.05) 0%, rgba(15, 23, 42, 0.45) 100%);
+  pointer-events: none;
 }
 
 .home-industries__tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
   font-family: var(--font-body);
-  font-size: 10px;
+  font-size: 10.5px;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #00E5FF;
-  background: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(0, 229, 255, 0.3);
-  backdrop-filter: blur(10px);
-  padding: 5px 12px;
-  border-radius: var(--radius-full);
+  color: #0F172A;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #E2E8F0;
+  backdrop-filter: blur(8px);
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
 }
 
 .home-industries__tag--green {
-  color: #10B981;
-  border-color: rgba(16, 185, 129, 0.4);
+  color: #047857;
+  border-color: #A7F3D0;
+  background: #ECFDF5;
 }
 
-.home-industries__serial {
-  font-size: 1.15rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-style: italic;
-  font-weight: 400;
+.home-industries__panel {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.35rem 1.25rem 1.25rem;
+  background: #FFFFFF;
 }
 
-.home-industries__content {
-  position: relative;
-  z-index: 2;
-  margin-top: auto;
-}
-
-.home-industries__content h3 {
+.home-industries__title {
   font-family: var(--font-heading);
-  font-size: 1.4rem;
+  font-size: 1.125rem;
   font-weight: 700;
-  color: #FFFFFF;
-  line-height: 1.15;
-  margin-bottom: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
+  color: #0F172A;
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.015em;
+  transition: color 0.2s ease;
 }
 
-.home-industries__content p {
+.home-industries__card:hover .home-industries__title {
+  color: #0284C7;
+}
+
+.home-industries__desc {
+  font-family: var(--font-body);
   font-size: 13px;
   line-height: 1.55;
-  color: rgba(255, 255, 255, 0.7);
+  color: #475569;
   margin-bottom: 1.25rem;
+  flex: 1;
 }
 
 .home-industries__link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  transition: all 0.25s ease;
+  letter-spacing: 0.01em;
+  color: #0284C7;
+  margin-top: auto;
+  transition: color 0.2s ease;
 }
 
 .home-industries__link .epiko-arrow {
@@ -557,17 +659,22 @@
 }
 
 .home-industries__card:hover .home-industries__link {
-  color: #00E5FF;
+  color: #0369A1;
 }
 
 .home-industries__card:hover .epiko-arrow {
-  transform: translateX(5px);
+  transform: translateX(4px);
 }
 
 /* ── Responsive ── */
-@media (max-width: 1200px) {
-  .home-services__grid {
+@media (max-width: 1200px) and (min-width: 769px) {
+  .home-services__grid--lead {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home-services__grid--lead .epiko-capability-card--lead {
+    grid-column: 1 / -1;
+    grid-row: auto;
   }
 
   .home-industries__grid {
@@ -583,7 +690,6 @@
 }
 
 @media (max-width: 768px) {
-
   .home-services,
   .home-about,
   .home-industries {
@@ -591,19 +697,22 @@
   }
 
   .home-services__grid,
+  .home-services__grid--lead,
+  .home-services__grid--filtered,
   .home-industries__grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
+  }
+
+  .home-services__grid--lead .epiko-capability-card--lead {
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .home-services__header-row {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .home-industries__card {
-    height: 380px;
+    margin-bottom: 2.25rem;
   }
 }

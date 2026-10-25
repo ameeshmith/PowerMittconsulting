@@ -38,7 +38,7 @@ export function renderInlineMarkdown(text) {
       if (!isSafe) {
         return part;
       }
-      const isExternal = href.startsWith('http://') || href.startsWith('https://');
+      const isExternal = /^https?:\/\//i.test(href);
       return (
         <a
           key={index}

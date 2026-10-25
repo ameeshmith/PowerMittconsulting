@@ -5,20 +5,117 @@ export const SANITY_CONFIG = {
   projectId: import.meta.env.VITE_SANITY_PROJECT_ID || '',
   dataset: import.meta.env.VITE_SANITY_DATASET || 'production',
   apiVersion: import.meta.env.VITE_SANITY_API_VERSION || '2024-01-01',
-  token: import.meta.env.VITE_SANITY_API_TOKEN || '',
   useCdn: import.meta.env.PROD
 };
 
-// Initialize Sanity client if Project ID is configured
+// Initialize Sanity client strictly in read-only / CDN mode for public content.
+// Write privileges are excluded from client bundles to prevent API key exposure (OWASP A02/A07).
 export const sanityClient = SANITY_CONFIG.projectId
   ? createClient({
       projectId: SANITY_CONFIG.projectId,
       dataset: SANITY_CONFIG.dataset,
       apiVersion: SANITY_CONFIG.apiVersion,
-      token: SANITY_CONFIG.token || undefined,
       useCdn: SANITY_CONFIG.useCdn
     })
   : null;
+
+/**
+ * Validates and sanitizes a media URL to prevent script injection (javascript:, data: schemes).
+ * Only allows relative paths or secure https/http URLs.
+ */
+function sanitizeMediaUrl(url, fallback = '/assets/images/power-systems-bg.jpg') {
+  if (typeof url !== 'string') return fallback;
+  const trimmed = url.trim();
+  if (!trimmed) return fallback;
+  // Allow safe relative asset paths
+  if (trimmed.startsWith('/') || trimmed.startsWith('./')) {
+    if (trimmed.includes('../')) return fallback;
+    return trimmed;
+  }
+  // Enforce http/https protocols only
+  if (/^https?:\/\//i.test(trimmed)) {
+    return trimmed;
+  }
+  return fallback;
+}
+
+/**
+ * Validates and sanitizes a URL slug.
+ */
+function sanitizeSlug(slug) {
+  if (typeof slug !== 'string') return '';
+  return slug
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9_-]/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '')
+    .slice(0, 120);
+}
+
+/**
+ * Sanitizes a plain text string.
+ */
+function sanitizeString(str, maxLength = 1000) {
+  if (typeof str !== 'string') return '';
+  return str.trim().slice(0, maxLength);
+}
+
+/**
+ * Validates and sanitizes an entire article object against schema rules.
+ */
+function sanitizeArticle(art) {
+  if (!art || typeof art !== 'object' || Array.isArray(art)) return null;
+
+  // Protect against prototype pollution
+  if ('__proto__' in art || 'constructor' in art || 'prototype' in art) {
+    return null;
+  }
+
+  const rawTitle = sanitizeString(art.title, 300);
+  if (!rawTitle) return null;
+
+  const rawSlug = sanitizeSlug(art.slug || art.id || rawTitle);
+  if (!rawSlug) return null;
+
+  const tags = Array.isArray(art.tags)
+    ? art.tags.map(t => sanitizeString(String(t), 50)).filter(Boolean).slice(0, 20)
+    : [];
+
+  const takeaways = Array.isArray(art.keyTakeaways)
+    ? art.keyTakeaways.map(t => sanitizeString(String(t), 300)).filter(Boolean).slice(0, 10)
+    : [];
+
+  const author = (art.author && typeof art.author === 'object' && !Array.isArray(art.author))
+    ? {
+        name: sanitizeString(art.author.name || 'Dinesh Mithanthaya', 100),
+        role: sanitizeString(art.author.role || 'Principal Power Engineer', 100),
+        avatar: sanitizeMediaUrl(art.author.avatar, '/assets/images/hero-nature-energy.jpg'),
+        bio: sanitizeString(art.author.bio || '', 1000)
+      }
+    : {
+        name: 'Dinesh Mithanthaya',
+        role: 'Principal Power Engineer',
+        avatar: '/assets/images/hero-nature-energy.jpg',
+        bio: 'Over 20 years of specialist experience in electrical power systems, grid connection studies, and heavy industrial infrastructure across Australia.'
+      };
+
+  return {
+    id: rawSlug,
+    slug: rawSlug,
+    title: rawTitle,
+    subtitle: sanitizeString(art.subtitle, 500),
+    category: sanitizeString(art.category || 'Power Systems', 100),
+    readTime: sanitizeString(art.readTime || '5 min read', 50),
+    coverImage: sanitizeMediaUrl(art.coverImage, '/assets/images/power-systems-bg.jpg'),
+    excerpt: sanitizeString(art.excerpt, 1000),
+    tags: tags.length > 0 ? tags : ['Power Systems'],
+    keyTakeaways: takeaways,
+    content: typeof art.content === 'string' ? art.content.slice(0, 250000) : '',
+    publishedAt: sanitizeString(art.publishedAt || new Date().toISOString().split('T')[0], 30),
+    author
+  };
+}
 
 /**
  * Checks whether remote Sanity CMS is connected.
@@ -88,40 +185,24 @@ export async function saveArticle(articleData, options = { isNew: false }) {
     bio: 'Over 20 years of specialist experience in electrical power systems, grid connection studies, and heavy industrial infrastructure across Australia.'
   };
 
-  const finalArticle = {
+  const finalArticle = sanitizeArticle({
     ...articleData,
     publishedAt,
     author
-  };
+  });
+
+  if (!finalArticle) {
+    throw new Error('Article data failed security validation: missing required title or slug.');
+  }
 
   // If restoring a deleted slug, remove from deleted list
   const newDeleted = deleted.filter(s => s !== finalArticle.slug);
   localStorage.setItem(DELETED_ARTICLES_KEY, JSON.stringify(newDeleted));
 
-  // 1. Sync to remote Sanity CMS if configured and write token is available
-  if (sanityClient && SANITY_CONFIG.token) {
-    try {
-      const doc = {
-        _type: 'article',
-        _id: finalArticle.id || `article-${finalArticle.slug}`,
-        title: finalArticle.title,
-        subtitle: finalArticle.subtitle,
-        slug: { _type: 'slug', current: finalArticle.slug },
-        category: finalArticle.category,
-        readTime: finalArticle.readTime,
-        coverImage: finalArticle.coverImage,
-        excerpt: finalArticle.excerpt,
-        tags: finalArticle.tags,
-        keyTakeaways: finalArticle.keyTakeaways,
-        content: finalArticle.content,
-        publishedAt: finalArticle.publishedAt,
-        author: finalArticle.author
-      };
-      await sanityClient.createOrReplace(doc);
-    } catch (err) {
-      console.warn('Could not sync article to Sanity remote:', err);
-    }
-  }
+  // 1. Remote Sanity mutations:
+  // Client-side write tokens are strictly disabled in the frontend bundle to prevent credential exposure (OWASP A02/A07).
+  // Production Sanity publishing should be executed via Sanity Studio or an authenticated backend API.
+  // Content changes are securely persisted in local storage and can be exported as articles.js for Git deployment.
 
   // 2. Persist in local storage for instant author availability and offline resilience
   const index = custom.findIndex(a => a.slug === finalArticle.slug || a.id === finalArticle.id);
@@ -136,16 +217,11 @@ export async function saveArticle(articleData, options = { isNew: false }) {
 }
 
 /**
- * Deletes an article by slug. Syncs to Sanity if configured.
+ * Deletes an article by slug.
  */
 export async function deleteArticle(slug) {
-  if (sanityClient && SANITY_CONFIG.token) {
-    try {
-      await sanityClient.delete(slug).catch(() => sanityClient.delete(`article-${slug}`));
-    } catch (err) {
-      console.warn('Could not delete from Sanity remote:', err);
-    }
-  }
+  const safeSlug = sanitizeSlug(slug);
+  if (!safeSlug) return false;
 
   const custom = getCustomArticles();
   const updatedCustom = custom.filter(a => a.slug !== slug && a.id !== slug);
@@ -277,6 +353,11 @@ export async function getRelatedArticles(currentSlug, limit = 2, category = '', 
  */
 export async function generateArticlesJsContent() {
   const articles = await getAllArticles();
+  // Sanitize articles and escape any script tags or closing comments before code generation
+  const safeJson = JSON.stringify(articles, null, 2)
+    .replace(/</g, '\\u003c')
+    .replace(/>/g, '\\u003e');
+
   return `/**
  * PowerMitt Consulting — Engineering Insights & Technical Articles
  * Written & curated by Dinesh Mithanthaya, Principal Power Engineer.
@@ -291,7 +372,7 @@ export const categories = [
   "Owner's Engineering"
 ];
 
-export const articles = ${JSON.stringify(articles, null, 2)};
+export const articles = ${safeJson};
 
 export function getArticleBySlug(slug) {
   return articles.find(a => a.slug === slug);
@@ -344,7 +425,7 @@ export function exportArticlesBackup() {
 }
 
 /**
- * Imports articles from backup JSON.
+ * Imports articles from backup JSON with strict schema validation and sanitization (OWASP A03/A08).
  * @param {Object} backupData - Parsed JSON object from a backup file
  * @param {'merge' | 'replace'} mode - Whether to merge or replace existing local storage
  */
@@ -353,10 +434,26 @@ export function importArticlesBackup(backupData, mode = 'merge') {
     throw new Error('Invalid backup file: content is not a valid JSON object.');
   }
 
-  const incomingCustom = Array.isArray(backupData.customArticles) 
+  // Prevent prototype pollution or oversized payloads (DoS)
+  const rawCustom = Array.isArray(backupData.customArticles) 
     ? backupData.customArticles 
     : (Array.isArray(backupData) ? backupData : []);
-  const incomingDeleted = Array.isArray(backupData.deletedArticles) ? backupData.deletedArticles : [];
+
+  if (rawCustom.length > 150) {
+    throw new Error('Backup payload exceeds maximum limit of 150 articles.');
+  }
+
+  const rawDeleted = Array.isArray(backupData.deletedArticles) ? backupData.deletedArticles : [];
+
+  // Strictly sanitize all incoming article data
+  const incomingCustom = rawCustom
+    .map(sanitizeArticle)
+    .filter(Boolean);
+
+  const incomingDeleted = rawDeleted
+    .map(sanitizeSlug)
+    .filter(Boolean)
+    .slice(0, 200);
 
   if (mode === 'replace') {
     localStorage.setItem(CUSTOM_ARTICLES_KEY, JSON.stringify(incomingCustom));
@@ -369,8 +466,11 @@ export function importArticlesBackup(backupData, mode = 'merge') {
   const currentDeleted = getDeletedArticleSlugs();
 
   const customMap = new Map();
-  currentCustom.forEach(a => customMap.set(a.slug || a.id, a));
-  incomingCustom.forEach(a => customMap.set(a.slug || a.id, a));
+  currentCustom.forEach(a => {
+    const sanitized = sanitizeArticle(a);
+    if (sanitized) customMap.set(sanitized.slug, sanitized);
+  });
+  incomingCustom.forEach(a => customMap.set(a.slug, a));
 
   const mergedCustom = Array.from(customMap.values());
   const mergedDeleted = Array.from(new Set([...currentDeleted, ...incomingDeleted]));

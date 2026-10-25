@@ -21,7 +21,7 @@ export default function PowerSystems() {
         bgImage="/assets/images/power-systems-bg.jpg"
         label="Services / Electrical Power Systems"
         title="Electrical Power Systems Engineering"
-        subtitle="Specialist power system engineering for complex industrial and energy projects — from system studies and design through to grid integration and reliability assessment."
+        subtitle="Specialised power systems engineering for complex industrial and energy infrastructure — from analytical modeling and detailed design to grid integration and asset reliability."
       />
 
       {/* Introduction */}
@@ -60,9 +60,9 @@ export default function PowerSystems() {
       <section className="section--ice">
         <div className="container">
           <SectionHeader
-            label="01"
+            label="STUDIES & MODELING"
             title="Power System Studies"
-            subtitle="Comprehensive power system analysis to inform design, verify performance, and ensure compliance."
+            subtitle="Advanced electrical network analysis and simulation to optimise engineering design, validate operational performance, and ensure statutory compliance."
           />
           <div className="service-detail__capabilities">
             <div className="service-detail__cap-group">
@@ -126,7 +126,7 @@ export default function PowerSystems() {
       <section>
         <div className="container">
           <SectionHeader
-            label="02"
+            label="ENGINEERING DESIGN"
             title="Power System Design"
             subtitle="Electrical infrastructure design for industrial facilities, from primary distribution through to end-use equipment."
           />
@@ -163,7 +163,7 @@ export default function PowerSystems() {
       <section className="section--ice">
         <div className="container">
           <SectionHeader
-            label="03"
+            label="GRID INTEGRATION"
             title="Grid Integration"
             subtitle="Connecting industrial facilities and generation assets to the electricity grid."
           />

@@ -120,7 +120,7 @@ export const industries = [
     id: 'industrial',
     title: 'Industrial Infrastructure',
     slug: '/industries/industrial',
-    bgImage: '/assets/images/industrial-bg.jpg',
+    bgImage: '/assets/images/owners-engineering-bg.jpg',
     shortDescription: 'Electrical infrastructure engineering for manufacturing, water treatment, heavy industry, and critical infrastructure projects.',
     challenges: [
       'Ageing electrical infrastructure requiring modernisation',

@@ -14,7 +14,7 @@ export const services = [
     slug: '/services/power-systems',
     icon: 'Zap',
     bgImage: '/assets/images/power-systems-bg.jpg',
-    shortDescription: 'Specialist power system engineering for complex industrial and energy projects — from concept studies through to detailed design and commissioning support.',
+    shortDescription: 'Specialised power systems engineering for complex industrial and energy infrastructure — from analytical modeling and detailed design to grid integration and asset reliability.',
     description: 'PowerMitt provides specialist electrical power system engineering services across the full project lifecycle. Our capabilities span power system studies, HV and LV distribution design, substation engineering, grid integration, and reliability assessments for complex industrial and energy infrastructure.',
     capabilities: [
       'Utility grid connection studies & utility interface management',

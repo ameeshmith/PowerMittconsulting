@@ -5,6 +5,8 @@ import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import CTABanner from '../../components/CTABanner/CTABanner';
+import SpotlightCard from '../../components/UI/SpotlightCard';
+import DarkHalftoneBackground from '../../components/UI/DarkHalftoneBackground';
 import { industries } from '../../data/industries';
 import { getAssetUrl } from '../../utils/assetPath';
 import './Home.css';
@@ -25,7 +27,14 @@ const coreCapabilities = [
     icon: Zap,
     category: 'grid',
     theme: 'blue',
-    tag: 'Grid & Transmission'
+    tag: 'Grid & Transmission',
+    isLead: true,
+    highlights: [
+      'Grid connection compliance (AEMO, WEM & NSP rules)',
+      'Load flow, fault level, arc flash & harmonic studies',
+      'HV/MV substation design & protection coordination',
+      'PSS/E, PowerFactory (DIgSILENT) & PSCAD models'
+    ]
   },
   {
     id: '02',
@@ -94,32 +103,27 @@ export default function Home() {
           </>
         }
         subtitle="PowerMitt delivers independent electrical power systems, grid compliance, and energy transition engineering for heavy industry, mining, and utility grids across Australia. 30+ years of high-calibre technical leadership."
-        primaryCTA="START A PROJECT"
+        primaryCTA="Start a Project"
         primaryLink="/contact"
-        secondaryCTA="EXPLORE SERVICES"
-        secondaryLink="/services"
         stats={heroStats}
-        bgImage="/assets/images/hero-modern-skyline.jpg"
+        useNebula={true}
       />
 
       {/* === CAPABILITIES SHOWCASE (Epiko Filter Pills & Serial Cards) === */}
       <section className="home-services">
-        <div className="container">
+        <DarkHalftoneBackground />
+        <div className="container relative z-10">
           <div className="home-services__header-row">
             <div className="home-services__title-block">
-              <span className="epiko-badge">
-                <span className="epiko-status-dot" />
-                <span>CAPABILITIES</span>
-              </span>
-              <h2 className="home-services__title font-display">
-                OUR <span className="serif-accent">services</span>
+              <h2 className="home-services__title">
+                Core Capabilities & Services
               </h2>
               <p className="home-services__subtitle">
                 Five core specialisations de-risking high-voltage power systems, heavy industrial assets, and modern renewable energy grids across Australia.
               </p>
             </div>
 
-            {/* Epiko Filter Pills */}
+            {/* Filter Pills */}
             <div className="home-services__filters" role="group" aria-label="Filter capabilities">
               <button
                 type="button"
@@ -152,30 +156,78 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="home-services__grid">
+          <div className={`home-services__grid ${activeCategory === 'all' ? 'home-services__grid--lead' : 'home-services__grid--filtered'}`}>
             {filteredCapabilities.map((cap) => {
               const Icon = cap.icon;
               const isGreen = cap.theme === 'green';
+              const isLead = activeCategory === 'all' && cap.isLead;
+
+              if (isLead) {
+                return (
+                  <SpotlightCard
+                    key={cap.id}
+                    as={Link}
+                    to={cap.link}
+                    spotlightColor="rgba(31, 95, 214, 0.08)"
+                    borderColor="rgba(31, 95, 214, 0.3)"
+                    className="epiko-capability-card epiko-capability-card--lead"
+                  >
+                    <div className="epiko-capability-card__lead-body">
+                      <div className="epiko-capability-card__top">
+                        <span className="epiko-capability-card__tag epiko-capability-card__tag--lead">
+                          Core Specialisation
+                        </span>
+                        <div className="epiko-capability-card__icon-box epiko-capability-card__icon-box--lead">
+                          <Icon size={22} />
+                        </div>
+                      </div>
+
+                      <h3 className="epiko-capability-card__title epiko-capability-card__title--lead">
+                        {cap.title}
+                      </h3>
+                      <p className="epiko-capability-card__desc epiko-capability-card__desc--lead">
+                        {cap.desc}
+                      </p>
+
+                      {cap.highlights && (
+                        <ul className="epiko-capability-card__highlights">
+                          {cap.highlights.map((item, idx) => (
+                            <li key={idx} className="epiko-capability-card__highlight-item">
+                              <CheckCircle2 size={15} className="text-[#1F5FD6] shrink-0" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+
+                    <div className="epiko-capability-card__footer epiko-capability-card__footer--lead">
+                      <span>Learn more</span>
+                      <ArrowRight size={15} className="epiko-arrow" />
+                    </div>
+                  </SpotlightCard>
+                );
+              }
+
               return (
-                <Link
+                <SpotlightCard
                   key={cap.id}
+                  as={Link}
                   to={cap.link}
+                  spotlightColor={isGreen ? 'rgba(5, 150, 105, 0.08)' : 'rgba(31, 95, 214, 0.08)'}
+                  borderColor={isGreen ? 'rgba(5, 150, 105, 0.25)' : 'rgba(31, 95, 214, 0.25)'}
                   className={`epiko-capability-card ${isGreen ? 'epiko-capability-card--green' : ''}`}
                 >
                   <div className="epiko-capability-card__top">
                     <span className={`epiko-capability-card__tag ${isGreen ? 'epiko-capability-card__tag--green' : ''}`}>
                       {cap.tag}
                     </span>
-                    <span className="epiko-capability-card__serial font-serif">
-                      ({cap.id})
-                    </span>
+                    <div className={`epiko-capability-card__icon-box ${isGreen ? 'epiko-capability-card__icon-box--green' : ''}`}>
+                      <Icon size={19} />
+                    </div>
                   </div>
 
-                  <div className={`epiko-capability-card__icon-box ${isGreen ? 'epiko-capability-card__icon-box--green' : ''}`}>
-                    <Icon size={22} />
-                  </div>
-
-                  <h3 className="epiko-capability-card__title font-display">
+                  <h3 className="epiko-capability-card__title">
                     {cap.title}
                   </h3>
                   <p className="epiko-capability-card__desc">
@@ -183,34 +235,30 @@ export default function Home() {
                   </p>
 
                   <div className="epiko-capability-card__footer">
-                    <span>DISCOVER MORE</span>
-                    <ArrowRight size={15} className="epiko-arrow" />
+                    <span>Learn more</span>
+                    <ArrowRight size={14} className="epiko-arrow" />
                   </div>
-                </Link>
+                </SpotlightCard>
               );
             })}
           </div>
 
           <div className="home-services__footer text-center">
             <Link to="/services" className="epiko-outline-btn">
-              VIEW COMPLETE SERVICES DIRECTORY <ArrowRight size={15} />
+              View Complete Services Directory <ArrowRight size={14} />
             </Link>
           </div>
         </div>
       </section>
 
       {/* === ABOUT / ENGINEERING RIGOUR SECTION === */}
-      <section className="home-about section--ice grid_bg">
-        <div className="container">
+      <section className="home-about">
+        <DarkHalftoneBackground showHalftone={false} />
+        <div className="container relative z-10">
           <div className="home-about__grid">
             <div className="home-about__content">
-              <span className="epiko-badge">
-                <span className="epiko-status-dot epiko-status-dot--green" />
-                <span>ENGINEERING RIGOUR</span>
-              </span>
-              <h2 className="home-about__title font-display">
-                INDEPENDENT <span className="serif-accent">rigour</span> <br />
-                & vendor-neutral integrity.
+              <h2 className="home-about__title">
+                Independent Engineering Rigour & Integrity
               </h2>
               <p className="home-about__lead">
                 PowerMitt Consulting Pty Ltd is an independent electrical power engineering advisory based in Perth, Western Australia. Founded by <strong>Dinesh Mithanthaya</strong>, our leadership combines several decades of technical depth across utility, power generation, transmission, industrial, mining, and renewable energy sectors.
@@ -221,22 +269,22 @@ export default function Home() {
 
               <div className="home-about__checklist">
                 <div className="home-about__check-item">
-                  <CheckCircle2 size={18} className="text-[#0066FF] shrink-0" />
+                  <CheckCircle2 size={18} className="text-[#1F5FD6] shrink-0" />
                   <span>100% vendor-neutral power systems analysis & verified models</span>
                 </div>
                 <div className="home-about__check-item">
-                  <CheckCircle2 size={18} className="text-[#10B981] shrink-0" />
+                  <CheckCircle2 size={18} className="text-[#059669] shrink-0" />
                   <span>Pragmatic energy transition, storage & decarbonisation pathways</span>
                 </div>
                 <div className="home-about__check-item">
-                  <CheckCircle2 size={18} className="text-[#0066FF] shrink-0" />
+                  <CheckCircle2 size={18} className="text-[#1F5FD6] shrink-0" />
                   <span>Deep Australian grid connection (AEMO / WEM / NSP) governance</span>
                 </div>
               </div>
 
               <div className="home-about__action">
                 <Link to="/about" className="epiko-pill-btn-blue">
-                  ABOUT DINESH & POWERMITT <ArrowRight size={15} />
+                  About Dinesh & PowerMitt <ArrowRight size={14} />
                 </Link>
               </div>
             </div>
@@ -256,13 +304,13 @@ export default function Home() {
                 </div>
                 <div className="home-about__stats">
                   <div className="home-about__stat">
-                    <span className="home-about__stat-num font-serif italic">30+</span>
-                    <span className="home-about__stat-label">Years Track Record</span>
+                    <span className="home-about__stat-num">132kV+</span>
+                    <span className="home-about__stat-label">HV Network Studies</span>
                   </div>
                   <div className="home-about__stat-sep" />
                   <div className="home-about__stat">
-                    <span className="home-about__stat-num font-serif italic text-[#10B981]">100%</span>
-                    <span className="home-about__stat-label">Independent Advice</span>
+                    <span className="home-about__stat-num home-about__stat-num--green">Vendor-Neutral</span>
+                    <span className="home-about__stat-label">Zero Hardware Sales</span>
                   </div>
                 </div>
               </div>
@@ -271,45 +319,45 @@ export default function Home() {
         </div>
       </section>
 
-      {/* === INDUSTRIES / SECTORS SECTION (Executive Cards) === */}
+      {/* === INDUSTRIES / SECTORS SECTION (Executive Dark Contrast) === */}
       <section className="home-industries">
         <div className="container">
           <SectionHeader
-            label="CRITICAL SECTORS"
-            title={
-              <>
-                CRITICAL <span className="serif-accent">sectors</span> WE SERVE
-              </>
-            }
+            label="Critical Sectors"
+            title="Critical Sectors We Serve"
             subtitle="Delivering specialised power system studies, design verification, and grid integration for demanding resources, utilities, and infrastructure."
           />
 
           <div className="home-industries__grid">
-            {industries.map((ind, index) => {
+            {industries.map((ind) => {
               const isGreenSector = ind.id === 'energy-utilities';
-              const serial = `0${index + 1}`;
               return (
                 <Link
                   key={ind.id}
                   to={ind.slug}
                   className="home-industries__card"
-                  style={{ backgroundImage: `url(${getAssetUrl(ind.bgImage)})` }}
                 >
-                  <div className="home-industries__overlay" />
-                  <div className="home-industries__card-header">
+                  <div className="home-industries__media">
+                    <img
+                      src={getAssetUrl(ind.bgImage)}
+                      alt={ind.title}
+                      className="home-industries__img"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <div className="home-industries__media-overlay" />
                     <span className={`home-industries__tag ${isGreenSector ? 'home-industries__tag--green' : ''}`}>
                       {isGreenSector ? 'Energy Transition' : 'Heavy Industry'}
                     </span>
-                    <span className="home-industries__serial font-serif">
-                      ({serial})
-                    </span>
                   </div>
-                  <div className="home-industries__content">
-                    <h3 className="font-display">{ind.title}</h3>
-                    <p>{ind.shortDescription}</p>
-                    <span className={`home-industries__link ${isGreenSector ? 'home-industries__link--green' : ''}`}>
-                      EXPLORE SECTOR <ArrowRight size={14} className="epiko-arrow" />
-                    </span>
+
+                  <div className="home-industries__panel">
+                    <h3 className="home-industries__title">{ind.title}</h3>
+                    <p className="home-industries__desc">{ind.shortDescription}</p>
+                    <div className="home-industries__link">
+                      <span>Explore Sector</span>
+                      <ArrowRight size={14} className="epiko-arrow" />
+                    </div>
                   </div>
                 </Link>
               );
@@ -318,16 +366,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* === CTA BANNER (Epiko Grand Statement Closing) === */}
+      {/* === CTA BANNER === */}
       <CTABanner
-        title={
-          <>
-            READY TO DE-RISK <br />
-            <span className="serif-accent">your electrical infrastructure?</span>
-          </>
-        }
+        title="Ready to De-Risk Your Electrical Infrastructure?"
         subtitle="Connect directly with Dinesh Mithanthaya and the PowerMitt engineering team for independent advice and project verification."
-        buttonText="START A CONVERSATION"
+        buttonText="Start a Conversation"
         buttonLink="/contact"
       />
     </main>
