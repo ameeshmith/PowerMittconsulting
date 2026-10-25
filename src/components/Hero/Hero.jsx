@@ -1,5 +1,4 @@
 import { useRef, useCallback, useEffect } from 'react';
-import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { ArrowRight, UserCheck } from 'lucide-react';
 import { getAssetUrl } from '../../utils/assetPath';
@@ -38,7 +37,7 @@ export default function Hero({
     heroRef.current.style.setProperty('--hero-mouse-y', `${y}px`);
   }, []);
 
-  // Track global cursor coordinates for whole-page ambient spotlight follower
+  // Track global cursor coordinates for ambient spotlight follower
   useEffect(() => {
     if (hasNebula) return;
     const handleGlobalMouseMove = (e) => {
@@ -52,7 +51,6 @@ export default function Hero({
   }, [hasNebula]);
 
   useEffect(() => {
-    if (!hasNebula) return;
     let ticking = false;
     const updateScrollBlend = () => {
       const scrollY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
@@ -82,35 +80,26 @@ export default function Hero({
   }, [hasNebula, isCompact]);
 
   return (
-    <>
-      {/* Whole-page photographic image background + mouse tracking constellation for all non-landing pages */}
-      {!hasNebula && typeof document !== 'undefined' && createPortal(
-        <div className="page-atmospheric-backdrop" aria-hidden="true">
-          <div
-            className="page-atmospheric-backdrop__image"
-            style={{ backgroundImage: `url(${imageUrl})` }}
-          />
-          <div className="page-atmospheric-backdrop__overlay" />
-          <div className="grid_bg page-atmospheric-backdrop__grid" />
-          <div className="page-atmospheric-backdrop__spotlight" />
-          <InteractiveGridCanvas trackGlobalMouse={true} nodeCount={44} />
-        </div>,
-        document.body
+    <section
+      ref={heroRef}
+      onMouseMove={handleMouseMove}
+      className={`hero-modern ${isCompact ? 'hero-modern--compact' : 'hero-modern--editorial'} ${hasNebula ? 'hero-modern--nebula' : ''}`}
+      style={hasNebula ? { backgroundColor: '#09090b' } : { backgroundImage: `url(${imageUrl})` }}
+    >
+      {/* Dynamic Background: WebGL Nebula on Landing Page, Interactive Grid on other pages */}
+      {hasNebula ? (
+        <NebulaHeroCanvas />
+      ) : (
+        <>
+          <InteractiveGridCanvas />
+          <div className="hero-modern__cursor-spotlight" aria-hidden="true" />
+          <div className="grid_bg hero-modern__grid" />
+          <div className="hero-modern__overlay" />
+        </>
       )}
 
-      <section
-        ref={heroRef}
-        onMouseMove={handleMouseMove}
-        className={`hero-modern ${isCompact ? 'hero-modern--compact' : 'hero-modern--editorial'} ${hasNebula ? 'hero-modern--nebula' : 'hero-modern--has-backdrop'}`}
-        style={hasNebula ? { backgroundColor: '#09090b' } : { backgroundColor: 'transparent' }}
-      >
-        {/* Dynamic Background: WebGL Nebula on Landing Page only */}
-        {hasNebula && (
-          <>
-            <NebulaHeroCanvas />
-            <div className="hero-modern__bottom-blend" aria-hidden="true" />
-          </>
-        )}
+      {/* Smooth bottom blend dissolving hero into off-white canvas */}
+      <div className="hero-modern__bottom-blend" aria-hidden="true" />
 
       <div className="container hero-modern__container">
         <div className="hero-modern__center-wrap">
@@ -130,23 +119,43 @@ export default function Hero({
             )}
           </h1>
 
-          {subtitle && (
-            <p className="hero-modern__subtitle">
-              {subtitle}
-            </p>
+          {/* Sequence Item 3: Statistics bar directly below title with no big gaps */}
+          {stats && stats.length > 0 && (
+            <div className="hero-modern__stats-bar">
+              <div className="hero-modern__stats-inner">
+                {stats.map((stat, i) => (
+                  <div key={i} className="hero-modern__stat-item">
+                    <span className="hero-modern__stat-value">{stat.value}</span>
+                    <span className="hero-modern__stat-label">{stat.label}</span>
+                    {stat.subtext && <span className="hero-modern__stat-sub">{stat.subtext}</span>}
+                  </div>
+                ))}
+              </div>
+            </div>
           )}
 
-          {(primaryCTA || secondaryCTA) && (
-            <div className="hero-modern__actions">
-              {primaryCTA && (
-                <Link to={primaryLink} className="hero-modern__btn-primary">
-                  {primaryCTA} <ArrowRight size={15} />
-                </Link>
+          {/* Sequence Item 4: Subtitle & Action buttons on the right */}
+          {(subtitle || primaryCTA || secondaryCTA) && (
+            <div className="hero-modern__bottom-row">
+              {subtitle && (
+                <p className="hero-modern__subtitle">
+                  {subtitle}
+                </p>
               )}
-              {secondaryCTA && (
-                <Link to={secondaryLink} className="hero-modern__btn-secondary">
-                  {secondaryCTA}
-                </Link>
+
+              {(primaryCTA || secondaryCTA) && (
+                <div className="hero-modern__actions">
+                  {primaryCTA && (
+                    <Link to={primaryLink} className="hero-modern__btn-primary">
+                      {primaryCTA} <ArrowRight size={15} />
+                    </Link>
+                  )}
+                  {secondaryCTA && (
+                    <Link to={secondaryLink} className="hero-modern__btn-secondary">
+                      {secondaryCTA}
+                    </Link>
+                  )}
+                </div>
               )}
             </div>
           )}
@@ -170,23 +179,7 @@ export default function Hero({
             </div>
           )}
         </div>
-
-        {/* Epiko Studios Bento Statistics Bar */}
-        {stats && stats.length > 0 && (
-          <div className="hero-modern__stats-bar">
-            <div className="hero-modern__stats-inner">
-              {stats.map((stat, i) => (
-                <div key={i} className="hero-modern__stat-item">
-                  <span className="hero-modern__stat-value">{stat.value}</span>
-                  <span className="hero-modern__stat-label">{stat.label}</span>
-                  {stat.subtext && <span className="hero-modern__stat-sub">{stat.subtext}</span>}
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </section>
-  </>
-);
+  );
 }

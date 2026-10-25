@@ -1,5 +1,5 @@
 /* ============================================
-   Projects Page Styles — Epiko Studios Clean Technical Theme
+   Projects Page Styles — Epiko Studios Clean Light Technical Theme
    ============================================ */
 
 .projects-section {
@@ -16,30 +16,31 @@
 
 .projects__filter {
   font-family: var(--font-body);
-  font-size: 11px;
+  font-size: 11.5px;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 8px 22px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.05);
-  color: #94A3B8;
+  border: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  color: #475569;
   cursor: pointer;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
   transition: all 0.25s var(--ease-out);
 }
 
 .projects__filter:hover {
-  border-color: #38BDF8;
-  color: #FFFFFF;
-  background: rgba(56, 189, 248, 0.12);
+  border-color: #BAE6FD;
+  color: #0284C7;
+  background: #F0F9FF;
 }
 
 .projects__filter--active {
-  background: #38BDF8 !important;
-  border-color: #38BDF8 !important;
-  color: #09090b !important;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.45);
+  background: #0284C7 !important;
+  border-color: #0284C7 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
 }
 
 /* 2x2 Grid */
@@ -52,25 +53,26 @@
 .projects__coming-soon {
   text-align: center;
   padding: 4.5rem 2rem;
-  color: #64748B;
+  color: #475569;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  background: var(--color-surface);
+  background: #FFFFFF;
   border: 1px dashed #CBD5E1;
   border-radius: var(--radius-2xl);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
 }
 
 .projects__coming-icon {
-  color: #0066FF;
+  color: #0284C7;
 }
 
 .projects__coming-soon h3 {
   font-family: var(--font-heading);
-  color: #0A0A0A;
+  color: #0F172A;
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: -0.02em;
 }

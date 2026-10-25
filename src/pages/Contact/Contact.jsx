@@ -109,12 +109,7 @@ export default function Contact() {
       <Hero
         variant="compact"
         label="Initiate Advisory"
-        title={
-          <>
-            LET'S DISCUSS YOUR <br />
-            <span className="hero-modern__serif-accent">engineering challenge.</span>
-          </>
-        }
+        title="Let's Discuss Your Engineering Challenge"
         subtitle="Direct engagement with Principal Power Engineer Dinesh Mithanthaya and the engineering team for grid studies, design verification, and independent due diligence across Australia."
         bgImage="/assets/images/hero-contact.jpg"
       />

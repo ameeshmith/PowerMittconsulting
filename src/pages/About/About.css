@@ -1,11 +1,11 @@
 /* ============================================
-   About Page Styles — Minimalist & Sophisticated
+   About Page Styles — Minimalist & Sophisticated Light Architecture
    ============================================ */
 
 .about-milestones {
   padding: 4.5rem 0;
   background: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid #E2E8F0;
 }
 
 /* ── Company Overview ── */
@@ -26,50 +26,53 @@
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 0.85rem;
-  color: #FFFFFF;
+  color: #0F172A;
+}
+
+.about-overview__content p {
+  color: #475569;
+  line-height: 1.65;
 }
 
 .about-media-card {
-  background: rgba(13, 20, 36, 0.48);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
   border-radius: var(--radius-2xl);
   overflow: hidden;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 12px 36px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.06);
 }
 
 .about-media-img {
   width: 100%;
-  height: 200px;
+  height: 220px;
   object-fit: cover;
 }
 
 .about-media-badge {
-  padding: 1.25rem;
-  background: transparent;
+  padding: 1.5rem;
+  background: #FFFFFF;
 }
 
 .about-media-badge h4 {
   font-family: var(--font-heading);
-  font-size: 11.5px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #FFFFFF;
-  margin-bottom: 0.65rem;
+  color: #0F172A;
+  margin-bottom: 0.75rem;
 }
 
 .about-media-badge ul {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
 .about-media-badge li {
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 600;
-  color: var(--color-steel);
+  color: #475569;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -77,16 +80,16 @@
 
 .about-media-badge li::before {
   content: '•';
-  color: var(--color-accent);
-  font-size: 13px;
+  color: #0284C7;
+  font-size: 14px;
 }
 
-/* ── Values (Dark Liquid Glass Section) ── */
+/* ── Values (Crisp Light Grid) ── */
 .about-values {
   padding: 5rem 0;
   background: transparent;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
 }
 
 .about-values__grid {
@@ -97,30 +100,28 @@
 }
 
 .about-values__card {
-  background: rgba(13, 20, 36, 0.48) !important;
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  background: #FFFFFF !important;
+  border: 1px solid #E2E8F0 !important;
   border-radius: var(--radius-xl);
-  padding: 1.6rem 1.6rem 1.4rem;
+  padding: 1.75rem 1.6rem 1.5rem;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 12px 36px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
 }
 
 .about-values__card:hover {
-  background: rgba(18, 28, 48, 0.65) !important;
-  border-color: rgba(56, 189, 248, 0.6) !important;
-  transform: translateY(-3px);
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.25), 0 20px 40px -4px rgba(56, 189, 248, 0.25), 0 0 24px rgba(56, 189, 248, 0.15);
+  background: #FFFFFF !important;
+  border-color: #BAE6FD !important;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -4px rgba(2, 132, 199, 0.12), 0 0 0 1px rgba(2, 132, 199, 0.15) !important;
 }
 
 .about-values__icon {
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   border-radius: 14px;
-  background: rgba(56, 189, 248, 0.12);
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  color: #38BDF8;
+  background: #E0F2FE;
+  border: 1px solid #BAE6FD;
+  color: #0284C7;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -129,11 +130,11 @@
 }
 
 .about-values__card:hover .about-values__icon {
-  background: #38BDF8;
-  color: #09090b;
-  border-color: #38BDF8;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.55);
-  transform: scale(1.08);
+  background: #0284C7;
+  color: #FFFFFF;
+  border-color: #0284C7;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+  transform: scale(1.06);
 }
 
 .about-values__card h3,
@@ -141,7 +142,7 @@
   font-family: var(--font-heading);
   font-size: 1.15rem;
   font-weight: 700;
-  color: #FFFFFF !important;
+  color: #0F172A !important;
   margin-bottom: 0.65rem;
   text-transform: uppercase;
   letter-spacing: -0.01em;
@@ -151,7 +152,7 @@
 .about-values__card .about-values__desc {
   font-family: var(--font-body);
   font-size: 14px;
-  color: #94A3B8 !important;
+  color: #475569 !important;
   line-height: 1.65;
   margin: 0;
 }
@@ -168,21 +169,19 @@
   gap: 2.5rem;
   max-width: 800px;
   margin: 2rem auto 0;
-  background: rgba(13, 20, 36, 0.48);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
   border-radius: var(--radius-2xl);
-  padding: 2rem;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.15), 0 12px 36px rgba(0, 0, 0, 0.35);
+  padding: 2.25rem;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.06);
 }
 
 .about-leader__placeholder {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  background: var(--color-surface);
-  border: 2px solid var(--color-border);
+  background: #F1F5F9;
+  border: 2px solid #E2E8F0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -191,7 +190,7 @@
 .about-leader__info h3 {
   font-size: 1.25rem;
   font-weight: 800;
-  color: var(--color-midnight);
+  color: #0F172A;
   margin-bottom: 2px;
 }
 
@@ -199,7 +198,7 @@
   display: block;
   font-size: 13px;
   font-weight: 700;
-  color: var(--color-accent);
+  color: #0284C7;
   margin-bottom: 2px;
 }
 
@@ -208,13 +207,13 @@
   align-items: center;
   gap: 4px;
   font-size: 12px;
-  color: var(--color-steel);
+  color: #64748B;
   margin-bottom: 0.75rem;
 }
 
 .about-leader__bio {
   font-size: 13.5px;
-  color: var(--color-steel);
+  color: #475569;
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -231,18 +230,19 @@
   gap: 6px;
   font-size: 12.5px;
   font-weight: 600;
-  color: var(--color-midnight);
+  color: #0F172A;
   transition: color var(--duration-fast);
 }
 
 .about-leader__contact-item:hover {
-  color: var(--color-accent);
+  color: #0284C7;
 }
 
 /* ── Vision ── */
 .about-vision {
   padding: 4.5rem 0;
-  background: var(--color-surface);
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
 }
 
 .about-vision__quote {
@@ -250,7 +250,7 @@
   font-size: clamp(1.1rem, 2.2vw, 1.35rem);
   font-weight: 600;
   line-height: 1.65;
-  color: var(--color-midnight);
+  color: #0F172A;
   max-width: 780px;
   margin: 1rem auto 0;
   font-style: italic;

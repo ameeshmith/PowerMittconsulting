@@ -78,12 +78,7 @@ export default function Projects() {
       <Hero
         variant="compact"
         label="Track Record & Case Studies"
-        title={
-          <>
-            DEMONSTRATED <span className="hero-modern__serif-accent">track record</span> <br />
-            & CASE STUDIES.
-          </>
-        }
+        title="Demonstrated Track Record & Case Studies"
         subtitle="Specialist electrical engineering delivered across critical Australian power systems, mining operations, and utility grid connections."
         bgImage="/assets/images/hero-about.jpg"
       />
@@ -92,11 +87,7 @@ export default function Projects() {
         <div className="container">
           <SectionHeader
             label="PROJECT PORTFOLIO"
-            title={
-              <>
-                FEATURED <span className="serif-accent">case studies</span> & DELIVERIES
-              </>
-            }
+            title="Featured Case Studies & Deliveries"
             subtitle="Selected case studies and verified project experience across critical Australian power infrastructure."
           />
 
@@ -133,14 +124,9 @@ export default function Projects() {
       </section>
 
       <CTABanner
-        title={
-          <>
-            HAVE A SIMILAR <br />
-            <span className="serif-accent">project requirement?</span>
-          </>
-        }
+        title="Have a Similar Project Requirement?"
         subtitle="Connect directly with our engineering team about tailoring a high-integrity power solution for your facility."
-        buttonText="START A CONVERSATION"
+        buttonText="Start a Conversation"
         buttonLink="/contact"
       />
     </main>

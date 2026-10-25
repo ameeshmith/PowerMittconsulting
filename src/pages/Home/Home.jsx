@@ -105,8 +105,6 @@ export default function Home() {
         subtitle="PowerMitt delivers independent electrical power systems, grid compliance, and energy transition engineering for heavy industry, mining, and utility grids across Australia. 30+ years of high-calibre technical leadership."
         primaryCTA="Start a Project"
         primaryLink="/contact"
-        secondaryCTA="Explore Services"
-        secondaryLink="/services"
         stats={heroStats}
         useNebula={true}
       />
@@ -208,7 +206,7 @@ export default function Home() {
                     </div>
 
                     <div className="epiko-capability-card__footer epiko-capability-card__footer--lead">
-                      <span>Explore Power Systems Engineering</span>
+                      <span>Learn more</span>
                       <ArrowRight size={15} className="epiko-arrow" />
                     </div>
                   </SpotlightCard>
@@ -334,7 +332,6 @@ export default function Home() {
         <div className="container">
           <SectionHeader
             label="Critical Sectors"
-            light={true}
             title="Critical Sectors We Serve"
             subtitle="Delivering specialised power system studies, design verification, and grid integration for demanding resources, utilities, and infrastructure."
           />

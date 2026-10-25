@@ -47,13 +47,13 @@ body {
   flex-direction: column;
 }
 
-/* ── Epiko-Style Editorial Typography Helpers ── */
+/* ── Unified Typography Helpers ── */
 .font-serif,
 .epiko-serif,
 .serif-accent {
-  font-family: var(--font-serif) !important;
-  font-style: italic !important;
-  font-weight: 400 !important;
+  font-family: var(--font-heading) !important;
+  font-style: normal !important;
+  font-weight: inherit !important;
 }
 
 .font-display {
@@ -179,7 +179,7 @@ select {
 
 /* ── Sections ── */
 section {
-  padding: 5.5rem 0;
+  padding: 3.5rem 0;
   position: relative;
 }
 
@@ -481,16 +481,16 @@ section.section--navy p {
   font-weight: 500;
   letter-spacing: 0.01em;
   border: 1px solid var(--color-border);
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--color-steel);
+  background: #FFFFFF;
+  color: var(--color-slate-text);
   transition: all 0.2s var(--ease-out);
   cursor: pointer;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
 }
 
 .epiko-filter-pill:hover {
-  border-color: var(--color-blue);
-  color: #FFFFFF;
+  border-color: #BAE6FD;
+  color: var(--color-blue);
   background: var(--color-blue-light);
 }
 
@@ -499,7 +499,7 @@ section.section--navy p {
   border-color: var(--color-blue) !important;
   color: #FFFFFF !important;
   font-weight: 600;
-  box-shadow: 0 2px 12px rgba(56, 189, 248, 0.35);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
 }
 
 .epiko-filter-pill--active-green {
@@ -507,7 +507,7 @@ section.section--navy p {
   border-color: var(--color-green) !important;
   color: #FFFFFF !important;
   font-weight: 600;
-  box-shadow: 0 2px 12px rgba(16, 185, 129, 0.35);
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.3);
 }
 
 /* Executive Cards */
@@ -519,16 +519,14 @@ section.section--navy p {
   overflow: hidden;
   border: 1px solid var(--color-border);
   background: var(--color-card-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   box-shadow: var(--shadow-card);
   transition: all 0.25s var(--ease-out);
 }
 
 .epiko-card:hover {
-  border-color: rgba(56, 189, 248, 0.4);
+  border-color: #BAE6FD;
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-card-hover);
 }
 
 /* ── Responsive ── */

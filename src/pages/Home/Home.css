@@ -1,12 +1,14 @@
 /* ============================================
-   Home Page Styles — Epiko Studios High-Craft Theme
-   Palette: Deep Midnight Navy, Electric Power Blue, Clean Crisp Surfaces
+   Home Page Styles — Executive Clean Light Architecture
+   Palette: Off-White Slate (#F8FAFC), Crisp Elevated White (#FFFFFF),
+            Secondary Light Blue (#E0F2FE) & Power Blue (#0284C7),
+            Deep High-Contrast Navy Typography (#0F172A / #1E293B)
    ============================================ */
 
 .home-page {
   position: relative;
-  background-color: #09090b;
-  color: #FFFFFF;
+  background-color: #F8FAFC;
+  color: #0F172A;
 }
 
 /* ── Generic Epiko Badge ── */
@@ -16,17 +18,17 @@
   gap: 8px;
   font-family: var(--font-body);
   font-size: 11.5px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #38BDF8;
+  color: #0284C7;
   margin-bottom: 0.85rem;
 }
 
-/* ── Capabilities / Services Showcase (Dark Glass Architecture) ── */
+/* ── Capabilities / Services Showcase (Clean Light Architecture) ── */
 .home-services {
-  background: #09090b;
-  padding: 6.5rem 0;
+  background: #F8FAFC;
+  padding: 3.75rem 0;
   position: relative;
   overflow: hidden;
 }
@@ -35,8 +37,8 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 2.5rem;
-  margin-bottom: 2.75rem;
+  gap: 2rem;
+  margin-bottom: 1.75rem;
   flex-wrap: wrap;
 }
 
@@ -47,9 +49,9 @@
 .home-services__title {
   font-family: var(--font-heading);
   font-size: clamp(1.85rem, 3.2vw, 2.45rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.15;
-  color: #FFFFFF;
+  color: #0F172A;
   margin-top: 0.25rem;
   margin-bottom: 0.85rem;
   letter-spacing: -0.025em;
@@ -59,11 +61,11 @@
   font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: 1.6;
-  color: rgba(203, 213, 225, 0.78);
+  color: #475569;
   max-width: 580px;
 }
 
-/* Filter Pills Group (Translucent Glass Pills) */
+/* Filter Pills Group (Crisp Light Pills) */
 .home-services__filters {
   display: flex;
   align-items: center;
@@ -73,34 +75,36 @@
 }
 
 .home-services__filters .epiko-filter-pill {
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  background: rgba(255, 255, 255, 0.05);
-  color: rgba(226, 232, 240, 0.82);
+  border: 1px solid #E2E8F0;
+  background: #FFFFFF;
+  color: #475569;
   padding: 6px 16px;
-  font-size: 11px;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  font-size: 11.5px;
+  font-weight: 600;
+  border-radius: var(--radius-full);
   transition: all 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
 }
 
 .home-services__filters .epiko-filter-pill:hover {
-  border-color: rgba(56, 189, 248, 0.45);
-  color: #38BDF8;
-  background: rgba(56, 189, 248, 0.12);
+  border-color: #BAE6FD;
+  color: #0284C7;
+  background: #F0F9FF;
 }
 
 .home-services__filters .epiko-filter-pill--active {
-  background: #1F5FD6 !important;
-  border-color: #38BDF8 !important;
+  background: #0284C7 !important;
+  border-color: #0284C7 !important;
   color: #FFFFFF !important;
-  box-shadow: 0 0 16px rgba(31, 95, 214, 0.5);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
 }
 
 .home-services__filters .epiko-filter-pill--active-green {
   background: #059669 !important;
-  border-color: #34D399 !important;
+  border-color: #059669 !important;
   color: #FFFFFF !important;
-  box-shadow: 0 0 16px rgba(5, 150, 105, 0.5);
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.3);
 }
 
 /* ── Capabilities Asymmetric Lead Grid ── */
@@ -118,52 +122,48 @@
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 }
 
-/* Liquid Glass Effect Blur for Capability Cards */
+/* Crisp Elevated Capability Cards */
 .epiko-capability-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 1.65rem 1.65rem 1.45rem;
-  background: rgba(13, 20, 36, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.65rem 1.55rem;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-xl);
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
 }
 
 .epiko-capability-card:hover {
-  transform: translateY(-3px);
-  background: rgba(18, 28, 48, 0.8);
-  border-color: rgba(56, 189, 248, 0.45);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 24px rgba(56, 189, 248, 0.15);
+  transform: translateY(-4px);
+  background: #FFFFFF;
+  border-color: #BAE6FD;
+  box-shadow: 0 16px 36px -4px rgba(2, 132, 199, 0.12), 0 0 0 1px rgba(2, 132, 199, 0.15);
 }
 
 .epiko-capability-card--green:hover {
-  border-color: rgba(52, 211, 153, 0.45);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 24px rgba(5, 150, 105, 0.18);
+  border-color: #A7F3D0;
+  box-shadow: 0 16px 36px -4px rgba(5, 150, 105, 0.12), 0 0 0 1px rgba(5, 150, 105, 0.15);
 }
 
-/* Featured Lead Card (Enhanced Liquid Glass) */
+/* Featured Lead Card */
 .home-services__grid--lead .epiko-capability-card--lead {
   grid-column: 1;
   grid-row: 1 / span 2;
   padding: 2.25rem 2rem 1.85rem;
-  border: 1px solid rgba(56, 189, 248, 0.28);
-  background: linear-gradient(155deg, rgba(16, 28, 52, 0.8) 0%, rgba(9, 16, 32, 0.9) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border: 1px solid #BAE6FD;
+  background: linear-gradient(165deg, #FFFFFF 0%, #F0F9FF 100%);
+  box-shadow: 0 12px 36px rgba(2, 132, 199, 0.08), 0 0 0 1px rgba(2, 132, 199, 0.1);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .home-services__grid--lead .epiko-capability-card--lead:hover {
-  border-color: rgba(56, 189, 248, 0.55);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6), 0 0 30px rgba(56, 189, 248, 0.22);
+  border-color: #0284C7;
+  box-shadow: 0 20px 48px rgba(2, 132, 199, 0.16), 0 0 0 1px #0284C7;
 }
 
 .epiko-capability-card__lead-body {
@@ -178,35 +178,34 @@
   margin-bottom: 1.25rem;
 }
 
-/* Plain small text instead of floating pill tag */
 .epiko-capability-card__tag {
   font-family: var(--font-body);
   font-size: 11.5px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(148, 163, 184, 0.9);
+  color: #64748B;
   background: none;
   padding: 0;
   border: none;
 }
 
 .epiko-capability-card__tag--lead {
-  color: #38BDF8;
-  font-weight: 700;
+  color: #0284C7;
+  font-weight: 800;
 }
 
 .epiko-capability-card__tag--green {
-  color: #34D399;
+  color: #059669;
 }
 
 .epiko-capability-card__icon-box {
-  width: 38px;
-  height: 38px;
-  border-radius: 9px;
-  background: rgba(31, 95, 214, 0.18);
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  color: #38BDF8;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #E0F2FE;
+  border: 1px solid #BAE6FD;
+  color: #0284C7;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -214,37 +213,37 @@
 }
 
 .epiko-capability-card__icon-box--lead {
-  width: 44px;
-  height: 44px;
-  border-radius: 11px;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
 }
 
 .epiko-capability-card:hover .epiko-capability-card__icon-box {
-  background: #1F5FD6;
+  background: #0284C7;
   color: #FFFFFF;
-  border-color: #38BDF8;
-  box-shadow: 0 0 14px rgba(56, 189, 248, 0.45);
+  border-color: #0284C7;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.35);
 }
 
 .epiko-capability-card__icon-box--green {
-  background: rgba(5, 150, 105, 0.18);
-  border-color: rgba(52, 211, 153, 0.25);
-  color: #34D399;
+  background: #ECFDF5;
+  border-color: #A7F3D0;
+  color: #059669;
 }
 
 .epiko-capability-card--green:hover .epiko-capability-card__icon-box--green {
   background: #059669;
   color: #FFFFFF;
-  border-color: #34D399;
-  box-shadow: 0 0 14px rgba(52, 211, 153, 0.45);
+  border-color: #059669;
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.35);
 }
 
 .epiko-capability-card__title {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-size: 1.18rem;
+  font-weight: 700;
   line-height: 1.3;
-  color: #FFFFFF;
+  color: #0F172A;
   margin-bottom: 0.65rem;
   letter-spacing: -0.015em;
   transition: color 0.2s ease;
@@ -254,22 +253,22 @@
   font-size: 1.45rem;
   line-height: 1.25;
   margin-bottom: 0.85rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .epiko-capability-card:hover .epiko-capability-card__title {
-  color: #38BDF8;
+  color: #0284C7;
 }
 
 .epiko-capability-card--green:hover .epiko-capability-card__title {
-  color: #34D399;
+  color: #059669;
 }
 
 .epiko-capability-card__desc {
   font-family: var(--font-body);
   font-size: 14px;
   line-height: 1.6;
-  color: rgba(203, 213, 225, 0.78);
+  color: #475569;
   margin-bottom: 1.25rem;
   flex: 1;
 }
@@ -281,17 +280,16 @@
   flex: none;
 }
 
-/* Lead Card Highlights (Translucent Glass Highlight) */
+/* Lead Card Highlights */
 .epiko-capability-card__highlights {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
   margin: 0.5rem 0 1.75rem;
   padding: 1rem 1.15rem;
-  background: rgba(14, 165, 233, 0.08);
-  border: 1px solid rgba(56, 189, 248, 0.2);
+  background: #F0F9FF;
+  border: 1px solid #BAE6FD;
   border-radius: var(--radius-md);
-  backdrop-filter: blur(8px);
 }
 
 .epiko-capability-card__highlight-item {
@@ -300,8 +298,8 @@
   gap: 8px;
   font-size: 13px;
   line-height: 1.45;
-  color: rgba(241, 245, 249, 0.9);
-  font-weight: 500;
+  color: #0369A1;
+  font-weight: 600;
 }
 
 .epiko-capability-card__footer {
@@ -310,14 +308,14 @@
   gap: 6px;
   font-family: var(--font-body);
   font-size: 13.5px;
-  font-weight: 600;
-  color: rgba(241, 245, 249, 0.85);
+  font-weight: 700;
+  color: #0284C7;
   margin-top: auto;
   transition: color 0.2s ease;
 }
 
 .epiko-capability-card__footer--lead {
-  color: #38BDF8;
+  color: #0284C7;
   font-size: 14px;
 }
 
@@ -326,11 +324,11 @@
 }
 
 .epiko-capability-card:hover .epiko-capability-card__footer {
-  color: #38BDF8;
+  color: #0369A1;
 }
 
 .epiko-capability-card--green:hover .epiko-capability-card__footer {
-  color: #34D399;
+  color: #047857;
 }
 
 .epiko-capability-card:hover .epiko-arrow {
@@ -343,35 +341,33 @@
   gap: 8px;
   padding: 11px 28px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.05);
-  color: #FFFFFF;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid #CBD5E1;
+  background: #FFFFFF;
+  color: #0F172A;
   font-family: var(--font-body);
   font-size: 13.5px;
   font-weight: 600;
   letter-spacing: 0.01em;
   text-decoration: none;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
   transition: all 0.25s var(--ease-out);
 }
 
 .epiko-outline-btn:hover {
-  border-color: #38BDF8;
-  color: #38BDF8;
-  background: rgba(31, 95, 214, 0.22);
+  border-color: #0284C7;
+  color: #0284C7;
+  background: #F0F9FF;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(31, 95, 214, 0.3);
+  box-shadow: 0 6px 18px rgba(2, 132, 199, 0.15);
 }
 
-/* ── About / Engineering Rigour Section (Dark Glass Architecture) ── */
+/* ── About / Engineering Rigour Section (Clean Light Surface) ── */
 .home-about {
-  padding: 5.5rem 0;
+  padding: 3.75rem 0;
   position: relative;
-  background: #09090b;
+  background: #FFFFFF;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid #E2E8F0;
 }
 
 .home-about__grid {
@@ -384,9 +380,9 @@
 .home-about__title {
   font-family: var(--font-heading);
   font-size: clamp(1.75rem, 3vw, 2.35rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.18;
-  color: #FFFFFF;
+  color: #0F172A;
   margin-bottom: 1.15rem;
   letter-spacing: -0.025em;
 }
@@ -394,13 +390,13 @@
 .home-about__lead {
   font-size: 1rem;
   line-height: 1.65;
-  color: rgba(226, 232, 240, 0.88);
+  color: #334155;
   margin-bottom: 0.95rem;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .home-about__content p {
-  color: rgba(148, 163, 184, 0.85);
+  color: #475569;
 }
 
 .home-about__checklist {
@@ -415,49 +411,47 @@
   align-items: center;
   gap: 10px;
   font-size: 14px;
-  font-weight: 500;
-  color: rgba(241, 245, 249, 0.9);
+  font-weight: 600;
+  color: #1E293B;
 }
 
 .epiko-pill-btn-blue {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 11px 26px;
+  padding: 12px 28px;
   border-radius: var(--radius-full);
-  background: var(--color-blue);
+  background: #0284C7;
   color: #FFFFFF !important;
   font-family: var(--font-body);
   font-size: 13.5px;
   font-weight: 600;
   letter-spacing: 0.01em;
   text-decoration: none;
-  box-shadow: 0 0 20px rgba(31, 95, 214, 0.4);
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.3);
   transition: all 0.2s var(--ease-out);
 }
 
 .epiko-pill-btn-blue:hover {
-  background: var(--color-blue-hover);
+  background: #0369A1;
   transform: translateY(-1px);
-  box-shadow: 0 4px 24px rgba(31, 95, 214, 0.55);
+  box-shadow: 0 6px 22px rgba(2, 132, 199, 0.4);
 }
 
-/* About Media Card (Dark Liquid Glass) */
+/* About Media Card */
 .home-about__card {
-  background: rgba(13, 20, 36, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-lg);
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-xl);
   overflow: hidden;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
 }
 
 .home-about__img-wrap {
   position: relative;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background: #09090b;
+  background: #F1F5F9;
 }
 
 .home-about__img {
@@ -474,16 +468,16 @@
 .home-about__img-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(9, 14, 26, 0.8) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.4) 0%, transparent 60%);
 }
 
 .home-about__stats {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 1.15rem 1.25rem;
-  background: rgba(9, 14, 26, 0.9);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.25rem 1.25rem;
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
 }
 
 .home-about__stat {
@@ -497,15 +491,15 @@
 .home-about__stat-num {
   font-family: var(--font-heading);
   font-size: 1.65rem;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.15;
-  color: #38BDF8;
+  color: #0284C7;
   letter-spacing: -0.02em;
   margin-bottom: 4px;
 }
 
 .home-about__stat-num--green {
-  color: #34D399;
+  color: #059669;
   font-size: 1.35rem;
 }
 
@@ -515,25 +509,25 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: rgba(148, 163, 184, 0.85);
+  color: #64748B;
 }
 
 .home-about__stat-sep {
   width: 1px;
   height: 38px;
-  background: rgba(255, 255, 255, 0.1);
+  background: #E2E8F0;
   flex-shrink: 0;
 }
 
-/* ── Industries Section (Executive Midnight Grid) ── */
+/* ── Industries Section (Executive Off-White Grid) ── */
 .home-industries {
-  padding: 5.5rem 0;
-  background: #09090b;
-  color: #FFFFFF;
+  padding: 3.75rem 0;
+  background: #F8FAFC;
+  color: #0F172A;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
 }
 
 .home-industries__grid {
@@ -544,16 +538,14 @@
 
 .home-industries__card {
   position: relative;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   overflow: hidden;
-  background: rgba(13, 20, 36, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
   display: flex;
   flex-direction: column;
   text-decoration: none;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.3s ease,
               box-shadow 0.3s ease;
@@ -561,8 +553,8 @@
 
 .home-industries__card:hover {
   transform: translateY(-4px);
-  border-color: rgba(56, 189, 248, 0.5);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 24px rgba(56, 189, 248, 0.15);
+  border-color: #BAE6FD;
+  box-shadow: 0 16px 36px -4px rgba(2, 132, 199, 0.12);
 }
 
 .home-industries__media {
@@ -570,7 +562,7 @@
   width: 100%;
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background: #060E18;
+  background: #F1F5F9;
 }
 
 .home-industries__img {
@@ -588,7 +580,7 @@
 .home-industries__media-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(7, 17, 31, 0.15) 0%, rgba(12, 26, 46, 0.6) 100%);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.05) 0%, rgba(15, 23, 42, 0.45) 100%);
   pointer-events: none;
 }
 
@@ -599,21 +591,22 @@
   z-index: 2;
   font-family: var(--font-body);
   font-size: 10.5px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #FFFFFF;
-  background: rgba(7, 17, 31, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #0F172A;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid #E2E8F0;
   backdrop-filter: blur(8px);
-  padding: 3px 9px;
+  padding: 3px 10px;
   border-radius: var(--radius-sm);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
 }
 
 .home-industries__tag--green {
-  color: #A7F3D0;
-  border-color: rgba(5, 150, 105, 0.45);
-  background: rgba(6, 40, 28, 0.85);
+  color: #047857;
+  border-color: #A7F3D0;
+  background: #ECFDF5;
 }
 
 .home-industries__panel {
@@ -621,14 +614,14 @@
   flex-direction: column;
   flex: 1;
   padding: 1.35rem 1.25rem 1.25rem;
-  background: rgba(13, 20, 36, 0.85);
+  background: #FFFFFF;
 }
 
 .home-industries__title {
   font-family: var(--font-heading);
   font-size: 1.125rem;
-  font-weight: 600;
-  color: #FFFFFF;
+  font-weight: 700;
+  color: #0F172A;
   line-height: 1.3;
   margin-bottom: 0.6rem;
   letter-spacing: -0.015em;
@@ -636,14 +629,14 @@
 }
 
 .home-industries__card:hover .home-industries__title {
-  color: #93C5FD;
+  color: #0284C7;
 }
 
 .home-industries__desc {
   font-family: var(--font-body);
   font-size: 13px;
   line-height: 1.55;
-  color: rgba(226, 232, 240, 0.72);
+  color: #475569;
   margin-bottom: 1.25rem;
   flex: 1;
 }
@@ -654,9 +647,9 @@
   gap: 6px;
   font-family: var(--font-body);
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.01em;
-  color: #93C5FD;
+  color: #0284C7;
   margin-top: auto;
   transition: color 0.2s ease;
 }
@@ -666,7 +659,7 @@
 }
 
 .home-industries__card:hover .home-industries__link {
-  color: #FFFFFF;
+  color: #0369A1;
 }
 
 .home-industries__card:hover .epiko-arrow {

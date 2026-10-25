@@ -20,12 +20,7 @@ export default function Services() {
       <Hero
         variant="compact"
         label="Capabilities Portfolio"
-        title={
-          <>
-            SPECIALIST <span className="hero-modern__serif-accent">capabilities</span> <br />
-            FOR COMPLEX POWER INFRASTRUCTURE.
-          </>
-        }
+        title="Specialist Capabilities for Complex Power Infrastructure"
         subtitle="From high-voltage power system studies and renewable grid connection to carbon capture mega-drives and independent owner's engineering advisory across Australia."
         bgImage="/assets/images/power-systems-bg.jpg"
       />
@@ -34,11 +29,7 @@ export default function Services() {
         <div className="container">
           <SectionHeader
             label="DISCIPLINES & PRACTICES"
-            title={
-              <>
-                END-TO-END <span className="serif-accent">engineering</span> ACROSS ASSET LIFECYCLES
-              </>
-            }
+            title="End-to-End Engineering Across Asset Lifecycles"
             subtitle="Specialist engineering advisory supporting clients across heavy industry, mining resources, and utility-scale grids."
           />
 
@@ -59,14 +50,9 @@ export default function Services() {
       </section>
 
       <CTABanner
-        title={
-          <>
-            NEED SPECIALIST <br />
-            <span className="serif-accent">engineering support?</span>
-          </>
-        }
+        title="Need Specialist Engineering Support?"
         subtitle="Connect directly with our principal engineers to discuss your technical specifications and connection studies."
-        buttonText="START A CONVERSATION"
+        buttonText="Start a Conversation"
         buttonLink="/contact"
       />
     </main>

@@ -4,28 +4,28 @@
 
 .cta-banner {
   position: relative;
-  padding: 5.5rem 0;
-  background: transparent;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3.5rem 0;
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
   overflow: hidden;
   text-align: center;
 }
 
 .home-page .cta-banner {
-  background: #09090b;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #F8FAFC;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
 }
 
 .cta-banner__title,
 .home-page .cta-banner__title {
-  color: #FFFFFF;
+  color: #0F172A;
 }
 
 .cta-banner__subtitle,
 .home-page .cta-banner__subtitle {
-  color: #94A3B8;
+  color: #475569;
 }
 
 .cta-banner__grid {

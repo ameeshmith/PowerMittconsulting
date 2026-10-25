@@ -41,61 +41,74 @@
   transition: opacity 0.3s ease;
 }
 
-/* Scrolled Liquid Glass State — Always translucent, blurring everything behind */
+/* Light Theme State — Frosted Off-White Architectural Glass (for subpages and scrolled home) */
+.navbar-modern--light,
 .navbar-modern--scrolled {
-  background: rgba(9, 9, 11, 0.75);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid #E2E8F0;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.08);
 }
 
+.navbar-modern--light::after,
 .navbar-modern--scrolled::after {
-  opacity: 0.85;
+  opacity: 0;
 }
 
+.navbar-modern--light .navbar-modern__link,
 .navbar-modern--scrolled .navbar-modern__link {
-  color: rgba(255, 255, 255, 0.9);
+  color: #1E293B;
 }
 
+.navbar-modern--light .navbar-modern__link:hover,
+.navbar-modern--light .navbar-modern__link:focus-visible,
 .navbar-modern--scrolled .navbar-modern__link:hover,
 .navbar-modern--scrolled .navbar-modern__link:focus-visible {
-  color: #38BDF8;
-  background: rgba(255, 255, 255, 0.08);
+  color: #0284C7;
+  background: #F1F5F9;
 }
 
+.navbar-modern--light .navbar-modern__link--active,
 .navbar-modern--scrolled .navbar-modern__link--active {
-  color: #38BDF8;
-  background: rgba(56, 189, 248, 0.12);
-  border-color: rgba(56, 189, 248, 0.35);
+  color: #0284C7;
+  background: #E0F2FE;
+  border-color: rgba(2, 132, 199, 0.25);
 }
 
+.navbar-modern--light .navbar-modern__link::after,
 .navbar-modern--scrolled .navbar-modern__link::after {
-  background: #38BDF8;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+  background: #0284C7;
+  box-shadow: none;
 }
 
+.navbar-modern--light .navbar-modern__chevron,
 .navbar-modern--scrolled .navbar-modern__chevron {
-  color: rgba(255, 255, 255, 0.7);
+  color: #475569;
 }
 
+.navbar-modern--light .navbar-modern__cta-btn,
 .navbar-modern--scrolled .navbar-modern__cta-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #0284C7;
+  border: 1px solid #0284C7;
   color: #FFFFFF !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.25);
 }
 
+.navbar-modern--light .navbar-modern__cta-btn:hover,
 .navbar-modern--scrolled .navbar-modern__cta-btn:hover {
-  background: #1F5FD6;
-  border-color: #38BDF8;
-  box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+  background: #0369A1;
+  border-color: #0369A1;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+}
+
+.navbar-modern--light .navbar-modern__hamburger,
+.navbar-modern--scrolled .navbar-modern__hamburger {
+  color: #0F172A;
 }
 
 .navbar-modern--open {
-  background: rgba(9, 9, 11, 0.96);
+  background: rgba(255, 255, 255, 0.98);
 }
 
 .navbar-modern__container {
@@ -105,44 +118,70 @@
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 2rem;
-  height: 80px;
+  height: 88px;
   transition: height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .navbar-modern--scrolled .navbar-modern__container {
-  height: 72px;
+  height: 76px;
 }
 
-/* Brand */
+/* Brand — Static, no mouse-over animation (Home button used for navigation) */
 .navbar-modern__brand {
   display: flex;
   align-items: center;
   text-decoration: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  cursor: default;
 }
 
 .navbar-modern__brand:hover {
-  opacity: 0.92;
-  transform: translateY(-1px);
+  opacity: 1;
+  transform: none;
 }
 
 .navbar-modern__logo {
-  height: 44px;
+  height: 52px;
   width: auto;
-  max-width: 220px;
+  max-width: 250px;
   object-fit: contain;
   display: block;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.navbar-modern__logo--light {
+  display: block;
+}
+
+.navbar-modern__logo--dark {
+  display: none;
+}
+
+.navbar-modern--light .navbar-modern__logo--light,
+.navbar-modern--scrolled .navbar-modern__logo--light {
+  display: none;
+}
+
+.navbar-modern--light .navbar-modern__logo--dark,
+.navbar-modern--scrolled .navbar-modern__logo--dark {
+  display: block;
+}
+
+.navbar-modern--open .navbar-modern__logo--light {
+  display: none;
+}
+
+.navbar-modern--open .navbar-modern__logo--dark {
+  display: block;
+}
+
 .navbar-modern--scrolled .navbar-modern__logo {
-  height: 40px;
+  height: 46px;
 }
 
 @media (max-width: 768px) {
   .navbar-modern__logo {
-    height: 38px;
-    max-width: 175px;
+    height: 42px;
+    max-width: 195px;
   }
 }
 
@@ -162,10 +201,10 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 8px 16px;
+  padding: 9px 18px;
   border-radius: var(--radius-full);
   font-family: var(--font-body);
-  font-size: 14.5px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: -0.01em;
   color: rgba(255, 255, 255, 0.95);
@@ -297,12 +336,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 9px 24px;
+  padding: 10px 24px;
   border-radius: var(--radius-full);
   background: transparent;
   color: #FFFFFF !important;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   letter-spacing: -0.01em;
   text-decoration: none;
@@ -346,7 +385,7 @@
   color: var(--color-cyan);
 }
 
-/* Mobile Drawer — Dark Frosted Glass */
+/* Mobile Drawer — Crisp Light Architectural Glass */
 .navbar-modern__mobile-drawer {
   position: absolute;
   top: 100%;
@@ -356,15 +395,15 @@
   height: calc(100vh - 80px);
   height: calc(100dvh - 80px);
   max-height: calc(100dvh - 80px);
-  background: rgba(6, 14, 24, 0.98);
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   padding: 1.5rem 1.75rem 3.5rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   z-index: 1001;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
+  border-top: 1px solid #E2E8F0;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.12);
   animation: mobileDrawerSlide 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -386,7 +425,7 @@
 }
 
 .navbar-modern__mobile-item {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid #E2E8F0;
   padding-bottom: 0.5rem;
 }
 
@@ -402,7 +441,7 @@
   font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 600;
-  color: #FFFFFF;
+  color: #0F172A;
   padding: 0.75rem 0;
   text-decoration: none;
   flex: 1;
@@ -411,7 +450,7 @@
 
 .navbar-modern__mobile-link:hover,
 .navbar-modern__mobile-link--active {
-  color: var(--color-cyan);
+  color: #0284C7;
 }
 
 .navbar-modern__mobile-expand-btn {

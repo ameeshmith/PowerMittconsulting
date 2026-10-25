@@ -3,7 +3,7 @@
    ============================================ */
 
 .section-header {
-  margin-bottom: var(--space-10);
+  margin-bottom: 1.75rem;
   max-width: 860px;
 }
 
@@ -19,7 +19,7 @@
   gap: 8px;
   font-family: var(--font-body);
   font-size: 11.5px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-blue);
@@ -27,7 +27,7 @@
 }
 
 .section-header--light .section-header__badge {
-  color: var(--color-cyan);
+  color: var(--color-blue);
 }
 
 .section-header__dot {
@@ -39,7 +39,7 @@
 }
 
 .section-header--light .section-header__dot {
-  background-color: var(--color-cyan);
+  background-color: var(--color-blue);
 }
 
 .section-header__badge--green {
@@ -53,30 +53,40 @@
 .section-header__title {
   font-family: var(--font-heading);
   font-size: clamp(1.75rem, 3.2vw, 2.35rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.16;
   margin-bottom: 0.9rem;
-  color: var(--color-midnight);
+  color: #0F172A;
   letter-spacing: -0.025em;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  text-shadow: none;
+}
+
+.section-header__title .serif-accent,
+.section-header__title em {
+  font-family: inherit !important;
+  font-style: normal !important;
+  color: #0284C7;
+  font-weight: inherit !important;
 }
 
 .section-header--light .section-header__title {
-  color: #FFFFFF;
+  color: #0F172A;
+  text-shadow: none;
 }
 
 .section-header__subtitle {
   font-family: var(--font-body);
   font-size: var(--text-base);
   font-weight: 400;
-  color: var(--color-steel);
+  color: #475569;
   line-height: 1.6;
   max-width: 650px;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  text-shadow: none;
 }
 
 .section-header--light .section-header__subtitle {
-  color: rgba(255, 255, 255, 0.78);
+  color: #475569;
+  text-shadow: none;
 }
 
 .section-header--center .section-header__subtitle {

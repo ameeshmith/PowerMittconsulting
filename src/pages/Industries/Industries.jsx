@@ -20,12 +20,7 @@ export default function Industries() {
       <Hero 
         variant="compact" 
         label="Critical Sectors" 
-        title={
-          <>
-            ENGINEERING FOR DEMANDING <br />
-            <span className="hero-modern__serif-accent">heavy sectors.</span>
-          </>
-        }
+        title="Engineering for Demanding Heavy Sectors"
         subtitle="Specialist electrical power systems and energy engineering expertise tailored for the resources, energy transition, oil & gas, and heavy infrastructure sectors across Australia." 
         bgImage="/assets/images/industrial-bg.jpg"
       />
@@ -34,11 +29,7 @@ export default function Industries() {
         <div className="container">
           <SectionHeader
             label="CRITICAL SECTORS"
-            title={
-              <>
-                TAILORED SOLUTIONS FOR <span className="serif-accent">heavy industry</span>
-              </>
-            }
+            title="Tailored Solutions for Heavy Industry"
             subtitle="Each sector presents unique power stability and grid compliance challenges. Our specialist expertise ensures dependable delivery."
           />
 
@@ -59,14 +50,9 @@ export default function Industries() {
       </section>
 
       <CTABanner 
-        title={
-          <>
-            DE-RISK YOUR <br />
-            <span className="serif-accent">sector infrastructure</span>
-          </>
-        }
+        title="De-Risk Your Sector Infrastructure"
         subtitle="Connect directly with our engineering team to review power system compliance, reliability, and decarbonisation strategies."
-        buttonText="START A CONVERSATION"
+        buttonText="Start a Conversation"
         buttonLink="/contact"
       />
     </main>
