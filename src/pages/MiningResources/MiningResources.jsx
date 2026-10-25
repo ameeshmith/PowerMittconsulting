@@ -15,7 +15,7 @@ const relatedServices = services.filter(s => ind.relatedServices.includes(s.id))
 export default function MiningResources() {
   return (
     <main>
-      <SEO title="Mining & Resources Engineering | PowerMitt Consulting" description="Power system engineering for surface and underground mining, mineral processing, remote infrastructure electrification, and mining electrical systems." path="/industries/mining-resources" />
+      <SEO title="Mining & Resources Engineering | PowerMitt Consulting" description="Power system engineering for surface and underground mining, mineral processing, remote infrastructure electrification, and mining electrical systems." path="/industries/mining-resources" image="/assets/images/mining-bg.jpg" />
       <Hero
         variant="industry"
         bgImage="/assets/images/mining-bg.jpg"

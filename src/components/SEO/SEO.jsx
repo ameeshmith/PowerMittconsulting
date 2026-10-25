@@ -73,15 +73,14 @@ export default function SEO({
       document.head.appendChild(scriptEl);
     }
 
-    const structuredData = {
-      '@context': 'https://schema.org',
+    const orgSchema = {
       '@type': 'ProfessionalService',
       'name': 'PowerMitt Consulting Pty Ltd',
       'alternateName': 'PowerMitt Consulting',
       'url': SITE_URL,
       'logo': `${SITE_URL}/assets/images/og-preview.jpg`,
       'image': absoluteImage,
-      'description': description,
+      'description': 'Specialist electrical power systems and energy engineering consultancy based in Perth, Western Australia.',
       'address': {
         '@type': 'PostalAddress',
         'addressLocality': 'Perth',
@@ -108,6 +107,46 @@ export default function SEO({
       ],
       'priceRange': '$$$'
     };
+
+    let structuredData;
+    if (type === 'article') {
+      structuredData = {
+        '@context': 'https://schema.org',
+        '@graph': [
+          orgSchema,
+          {
+            '@type': 'TechArticle',
+            'headline': title,
+            'description': description,
+            'image': absoluteImage,
+            'url': fullUrl,
+            'mainEntityOfPage': {
+              '@type': 'WebPage',
+              '@id': fullUrl
+            },
+            'author': {
+              '@type': 'Person',
+              'name': 'Dinesh Mithanthaya',
+              'jobTitle': 'Principal Power Engineer'
+            },
+            'publisher': {
+              '@type': 'Organization',
+              'name': 'PowerMitt Consulting Pty Ltd',
+              'logo': {
+                '@type': 'ImageObject',
+                'url': `${SITE_URL}/assets/images/og-preview.jpg`
+              }
+            }
+          }
+        ]
+      };
+    } else {
+      structuredData = {
+        '@context': 'https://schema.org',
+        ...orgSchema,
+        'description': description
+      };
+    }
 
     scriptEl.textContent = JSON.stringify(structuredData);
 

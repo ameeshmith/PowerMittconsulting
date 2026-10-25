@@ -11,6 +11,7 @@ export default function CarbonCapture() {
         title="Carbon Capture & Storage Engineering | PowerMitt Consulting"
         description="Electrical engineering expertise for CCS projects including compressor drive systems, grid connection, equipment selection, and detailed design."
         path="/services/carbon-capture"
+        image="/assets/images/carbon-capture-bg.jpg"
       />
       <Hero variant="service" bgImage="/assets/images/carbon-capture-bg.jpg" label="Services / Carbon Capture & Storage" title="Carbon Capture & Storage Engineering" subtitle="Specialist electrical engineering supporting CCS projects — from large compressor drive systems and grid connections through to FEED and detailed design." />
 
