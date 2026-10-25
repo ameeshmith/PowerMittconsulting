@@ -40,7 +40,7 @@ export default function Navbar() {
   };
 
   const isHome = location.pathname === '/' || location.pathname === '';
-  const isLight = !isHome || scrolled;
+  const isLight = scrolled;
 
   return (
     <header className={`navbar-modern ${isLight ? 'navbar-modern--light' : ''} ${scrolled ? 'navbar-modern--scrolled' : ''} ${mobileOpen ? 'navbar-modern--open' : ''}`}>

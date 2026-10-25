@@ -105,14 +105,14 @@ export default function NebulaHeroCanvas({ className = '' }) {
         float d2 = length(p - c2);
         float mass2 = smoothstep(0.9, 0.0, d2 + fbm(st * 1.1 - t) * 0.25);
 
-        // Deep Cosmic Royal Navy & Darker Blue Palette (reduced brightness so text stays clear)
-        vec3 deepIndigo = vec3(0.015, 0.035, 0.14); // Deep midnight sapphire
-        vec3 purple = vec3(0.05, 0.16, 0.48);      // Deep royal power blue
-        vec3 hotViolet = vec3(0.12, 0.38, 0.75);   // Controlled atmospheric blue accent
+        // Deep Sustainable Energy & Emerald Palette (rich organic energy glow)
+        vec3 deepForest = vec3(0.008, 0.045, 0.030); // Deep midnight viridian
+        vec3 emerald = vec3(0.025, 0.28, 0.16);     // Deep emerald energy
+        vec3 electricMint = vec3(0.08, 0.52, 0.34);  // Controlled luminous aurora/mint green accent
 
-        col = mix(col, deepIndigo, clamp(mass * 0.85 + mass2 * 0.65, 0.0, 1.0));
-        col = mix(col, purple, clamp(mass * mass * 0.95 + mass2 * 0.45, 0.0, 1.0));
-        col += hotViolet * tongue * mass * 0.42;
+        col = mix(col, deepForest, clamp(mass * 0.85 + mass2 * 0.65, 0.0, 1.0));
+        col = mix(col, emerald, clamp(mass * mass * 0.95 + mass2 * 0.45, 0.0, 1.0));
+        col += electricMint * tongue * mass * 0.45;
 
         // Subtle breathing pulse
         float pulse = 0.95 + 0.05 * sin(u_time * 0.4);

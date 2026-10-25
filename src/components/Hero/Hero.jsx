@@ -50,35 +50,6 @@ export default function Hero({
     };
   }, [hasNebula]);
 
-  useEffect(() => {
-    let ticking = false;
-    const updateScrollBlend = () => {
-      const scrollY = window.pageYOffset || document.documentElement.scrollTop || window.scrollY || 0;
-      const linear = Math.min(Math.max(scrollY / 180, 0), 1);
-      const progress = linear * (2 - linear);
-      if (heroRef.current) {
-        heroRef.current.style.setProperty('--hero-scroll-blend', progress.toFixed(3));
-      }
-      ticking = false;
-    };
-
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(updateScrollBlend);
-        ticking = true;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll, { passive: true });
-    updateScrollBlend();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
-    };
-  }, [hasNebula, isCompact]);
-
   return (
     <section
       ref={heroRef}
@@ -98,18 +69,8 @@ export default function Hero({
         </>
       )}
 
-      {/* Smooth bottom blend dissolving hero into off-white canvas */}
-      <div className="hero-modern__bottom-blend" aria-hidden="true" />
-
       <div className="container hero-modern__container">
         <div className="hero-modern__center-wrap">
-          {badgeText && (
-            <div className="hero-modern__badge">
-              <span className="hero-modern__badge-dot" />
-              <span>{badgeText}</span>
-            </div>
-          )}
-
           <h1 className="hero-modern__title">
             {title || (
               <>

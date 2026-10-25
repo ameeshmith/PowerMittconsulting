@@ -115,10 +115,6 @@ export default function Home() {
         <div className="container relative z-10">
           <div className="home-services__header-row">
             <div className="home-services__title-block">
-              <span className="epiko-badge">
-                <span className="epiko-status-dot" />
-                <span>CAPABILITIES</span>
-              </span>
               <h2 className="home-services__title">
                 Core Capabilities & Services
               </h2>
@@ -261,10 +257,6 @@ export default function Home() {
         <div className="container relative z-10">
           <div className="home-about__grid">
             <div className="home-about__content">
-              <span className="epiko-badge">
-                <span className="epiko-status-dot epiko-status-dot--green" />
-                <span>ENGINEERING RIGOUR</span>
-              </span>
               <h2 className="home-about__title">
                 Independent Engineering Rigour & Integrity
               </h2>

@@ -17,10 +17,14 @@
 }
 
 .hero-modern--compact {
-  min-height: 48vh;
-  padding: 6rem 0 2.5rem;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 8.5rem 0 4.5rem;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  background-position: center center;
 }
 
 .hero-modern--editorial {
@@ -136,26 +140,23 @@
   pointer-events: none;
 }
 
-/* Atmospheric optical vignette overlay — deep dark at top (text safe), blending into off-white bottom */
+/* Atmospheric optical vignette overlay — deep dark at top (text safe), natural contrast */
 .hero-modern__overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg,
-      rgba(9, 9, 11, 0.88) 0%,
-      rgba(9, 9, 11, 0.65) 35%,
-      rgba(9, 9, 11, 0.70) 65%,
-      rgba(248, 250, 252, 0.82) 90%,
-      #F8FAFC 100%);
+      rgba(9, 9, 11, 0.70) 0%,
+      rgba(9, 9, 11, 0.30) 45%,
+      rgba(9, 9, 11, 0.70) 100%);
   z-index: 2;
 }
 
-/* Compact Hero (Pages other than Home): Bright, natural photo with 10% white wash, no dark veil */
+/* Compact Hero (Pages other than Home): Full natural photo with subtle dark cinematic vignette */
 .hero-modern--compact .hero-modern__overlay {
-  background: linear-gradient(90deg,
-      rgba(255, 255, 255, 0.80) 0%,
-      rgba(255, 255, 255, 0.30) 45%,
-      rgba(255, 255, 255, 0.10) 80%,
-      rgba(255, 255, 255, 0.05) 100%);
+  background: linear-gradient(180deg,
+      rgba(7, 17, 31, 0.65) 0%,
+      rgba(7, 17, 31, 0.25) 45%,
+      rgba(7, 17, 31, 0.65) 100%);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
 }
@@ -166,48 +167,9 @@
   display: none !important;
 }
 
-/* Scroll-driven bottom blend — dissolves sharp hero image into off-white canvas #F8FAFC */
+/* Bottom blend disabled completely — clean natural edge without foggy white blur */
 .hero-modern__bottom-blend {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 280px;
-  pointer-events: none;
-  z-index: 2;
-  background: linear-gradient(180deg,
-      transparent 0%,
-      rgba(248, 250, 252, 0.25) 25%,
-      rgba(248, 250, 252, 0.75) 60%,
-      rgba(248, 250, 252, 0.95) 85%,
-      #F8FAFC 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 100%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 35%, black 100%);
-  opacity: var(--hero-scroll-blend, 0);
-  will-change: opacity;
-  transition: opacity 0.15s ease-out;
-}
-
-.hero-modern--nebula .hero-modern__bottom-blend {
-  background: linear-gradient(180deg,
-      transparent 0%,
-      rgba(248, 250, 252, 0.3) 25%,
-      rgba(248, 250, 252, 0.85) 65%,
-      #F8FAFC 100%);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.hero-modern--compact .hero-modern__bottom-blend {
-  height: 60px;
-  background: linear-gradient(180deg, transparent 0%, rgba(248, 250, 252, 0.2) 50%, #F8FAFC 100%) !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  mask-image: none !important;
-  -webkit-mask-image: none !important;
-  opacity: 1 !important;
+  display: none !important;
 }
 
 /* Ambient Radial Glow Lighting */
@@ -284,8 +246,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #38BDF8;
-  box-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+  background-color: #10B981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
 }
 
 .hero-modern__badge span {
@@ -312,27 +274,28 @@
 }
 
 .hero-modern--compact .hero-modern__badge {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid #BAE6FD;
-  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.12);
+  background: rgba(7, 17, 31, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
 }
 
 .hero-modern--compact .hero-modern__badge span {
-  color: #0284C7;
+  color: #34D399;
   font-weight: 700;
 }
 
 .hero-modern--compact .hero-modern__badge-dot {
-  background-color: #0284C7;
+  background-color: #10B981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
 }
 
 .hero-modern--compact .hero-modern__title {
-  font-size: clamp(2.1rem, 3.8vw, 3.2rem);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
   line-height: 1.1;
   margin-bottom: 1rem;
-  color: #0F172A;
+  color: #FFFFFF;
   text-transform: none;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9), 0 2px 14px rgba(255, 255, 255, 0.8);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
 }
 
 /* Epiko Signature Italic Serif Accent */
@@ -342,7 +305,7 @@
   font-style: italic !important;
   font-weight: 400 !important;
   text-transform: lowercase !important;
-  color: #38BDF8;
+  color: #34D399;
   letter-spacing: 0.01em;
   display: inline-block;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
@@ -361,11 +324,11 @@
 }
 
 .hero-modern--compact .hero-modern__subtitle {
-  max-width: 660px;
+  max-width: 680px;
   margin-bottom: 1.5rem;
-  color: #1E293B;
-  font-weight: 500;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 400;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
 }
 
 /* ── Sequence Item 4: Bottom Row (Subtitle on left, Action Button on the right) ── */
@@ -406,9 +369,9 @@
 }
 
 .hero-modern--compact .hero-modern__bottom-row .hero-modern__subtitle {
-  max-width: 660px;
-  color: #1E293B;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.9);
+  max-width: 680px;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.7);
 }
 
 /* Actions Buttons — Right Aligned */
@@ -447,6 +410,18 @@
   box-shadow: 0 6px 22px rgba(31, 95, 214, 0.4);
   background: var(--color-blue-hover);
   border-color: var(--color-blue-hover);
+}
+
+.hero-modern--nebula .hero-modern__btn-primary {
+  background: #10B981;
+  border-color: #10B981;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.32);
+}
+
+.hero-modern--nebula .hero-modern__btn-primary:hover {
+  background: #059669;
+  border-color: #059669;
+  box-shadow: 0 6px 22px rgba(16, 185, 129, 0.45);
 }
 
 .hero-modern__btn-secondary {

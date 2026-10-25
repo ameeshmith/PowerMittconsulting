@@ -22,12 +22,6 @@ export default function CTABanner({
       <div className="grid_bg cta-banner__grid" aria-hidden="true" />
 
       <div className="cta-banner__inner container">
-        {badge && (
-          <div className="cta-banner__badge">
-            <span className="cta-banner__badge-dot" />
-            <span>{badge}</span>
-          </div>
-        )}
         <h2 className="cta-banner__title font-display">{title}</h2>
         <p className="cta-banner__subtitle">{subtitle}</p>
         <Link to={buttonLink} className="cta-banner__btn">

@@ -540,3 +540,12 @@ section.section--navy p {
     padding-right: 1.25rem !important;
   }
 }
+
+/* Remove all pill-style badges/tags across the website per design request */
+.hero-modern__badge,
+.section-header__badge,
+.epiko-badge,
+.cta-banner__badge,
+.projects-advisory-callout__badge {
+  display: none !important;
+}
