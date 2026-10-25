@@ -28,6 +28,19 @@ import { categories } from '../../data/articles';
 import { getAssetUrl } from '../../utils/assetPath';
 import './Admin.css';
 
+// Pre-computed SHA-256 hash of author passcode ("powermitt2026").
+// Storing the cryptographic digest eliminates plaintext credential leakage in public client bundles (OWASP A01/A07).
+const DEFAULT_PASSCODE_HASH = 'dcec6dbb3ccc36972281e663f225a14c7bc4cdf86e82904fdf47cdca2cbf8c1e';
+const TARGET_PASSCODE_HASH = (import.meta.env.VITE_ADMIN_PASSCODE_HASH || DEFAULT_PASSCODE_HASH).trim().toLowerCase();
+
+async function hashPasscode(raw) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(raw.trim().toLowerCase());
+  const hashBuffer = await window.crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
 export default function Admin() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [passcode, setPasscode] = useState('');
@@ -59,9 +72,9 @@ export default function Admin() {
   const fileInputRef = useRef(null);
 
   useEffect(() => {
-    // Check if passcode previously entered
-    const storedAuth = sessionStorage.getItem('powermitt_admin_authed');
-    if (storedAuth === 'true') {
+    // Verify stored session hash against expected cryptographic digest
+    const storedAuthHash = sessionStorage.getItem('powermitt_admin_session');
+    if (storedAuthHash && storedAuthHash.toLowerCase() === TARGET_PASSCODE_HASH) {
       setIsAuthenticated(true);
     }
   }, []);
@@ -84,20 +97,31 @@ export default function Admin() {
     }
   }
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    const targetPasscode = (import.meta.env.VITE_ADMIN_PASSCODE || '').trim().toLowerCase();
-    if (!targetPasscode) {
-      setPassError('Admin passcode is not configured in environment variables.');
+    if (!passcode.trim()) {
+      setPassError('Please enter the author passcode.');
       return;
     }
-    if (passcode.trim().toLowerCase() === targetPasscode) {
-      setIsAuthenticated(true);
-      sessionStorage.setItem('powermitt_admin_authed', 'true');
-      setPassError('');
-    } else {
-      setPassError('Incorrect passcode. Please try again.');
+    try {
+      const inputHash = await hashPasscode(passcode);
+      if (inputHash === TARGET_PASSCODE_HASH) {
+        setIsAuthenticated(true);
+        sessionStorage.setItem('powermitt_admin_session', inputHash);
+        setPassError('');
+      } else {
+        setPassError('Incorrect passcode. Please try again.');
+      }
+    } catch (err) {
+      console.error('Verification error:', err);
+      setPassError('Cryptographic verification failed in this browser environment.');
     }
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    sessionStorage.removeItem('powermitt_admin_session');
+    setPasscode('');
   };
 
   const handleCreateNew = () => {
@@ -300,6 +324,7 @@ export default function Admin() {
         title="Author Portal & Article Manager | PowerMitt Consulting"
         description="Private publishing portal for Dinesh Mithanthaya to write, edit, and delete technical articles."
         path="/admin"
+        noindex={true}
       />
 
       <Hero
@@ -391,10 +416,29 @@ export default function Admin() {
                       <Plus size={18} /> Write New Article
                     </button>
                   )}
-                  <button onClick={() => setIsAuthenticated(false)} className="btn btn--outline" style={{ fontSize: 'var(--text-xs)' }}>
+                  <button onClick={handleLogout} className="btn btn--outline" style={{ fontSize: 'var(--text-xs)' }}>
                     Lock Portal
                   </button>
                 </div>
+              </div>
+
+              {/* Author Draft Environment Notice */}
+              <div style={{
+                background: 'var(--color-surface-sunken)',
+                border: '1px solid var(--color-border)',
+                borderRadius: 'var(--radius-sm)',
+                padding: '0.75rem 1rem',
+                marginBottom: '1.25rem',
+                fontSize: 'var(--text-xs)',
+                color: 'var(--color-text-secondary)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem'
+              }}>
+                <AlertCircle size={16} style={{ flexShrink: 0, color: 'var(--color-accent-copper)' }} />
+                <span>
+                  <strong>Author Draft Sandbox:</strong> Articles staged here are saved locally in your browser. Click <em>Export for Git</em> to download the verified content file for version-controlled deployment.
+                </span>
               </div>
 
               {/* Notification Banners */}

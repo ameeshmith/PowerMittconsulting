@@ -5,7 +5,7 @@ export default function Timeline({ stages, variant = 'default' }) {
     <div className={`timeline timeline--${variant}`}>
       <div className="timeline__stages">
         {stages.map((stage, i) => (
-          <div key={i} className="timeline__item">
+          <div key={stage.stage || stage.year || i} className="timeline__item">
             <div className="timeline__node">
               <span className="timeline__dot" />
               {i < stages.length - 1 && <span className="timeline__connector" />}
