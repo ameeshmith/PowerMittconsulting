@@ -5,10 +5,8 @@ import {
   Monitor, 
   Zap, 
   RefreshCw, 
-  Network, 
-  ShieldCheck, 
   Wrench, 
-  CheckCircle2 
+  ShieldCheck 
 } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
@@ -49,32 +47,6 @@ const distributionCapabilities = [
   }
 ];
 
-const scadaMiningCapabilities = [
-  {
-    icon: <Network size={26} />,
-    title: 'SCADA & Industrial Communications',
-    desc: 'Robust communication backbones, industrial Ethernet, remote telemetry units (RTUs), and cyber-secure supervisory control architectures designed for harsh operating environments.'
-  },
-  {
-    icon: <Pickaxe size={26} />,
-    title: 'Specialised Mining Systems & Safety',
-    desc: 'Surface and underground mining reticulation, trailing cable protection, earth leakage monitoring, hazardous area classification, and compliance with AS/NZS 4871 standards.'
-  }
-];
-
-const reliabilityCapabilities = [
-  {
-    icon: <Wrench size={26} />,
-    title: 'Infrastructure Audits & Upgrades',
-    desc: 'Comprehensive electrical asset health assessments, thermal imaging analysis, fault level validation, and engineering designs for capacity augmentation and switchgear replacement.'
-  },
-  {
-    icon: <ShieldCheck size={26} />,
-    title: 'Reliability-Centred Maintenance (RCM)',
-    desc: 'Criticality ranking of electrical plant, condition monitoring integration, spare parts optimisation strategies, and maintenance procedure development to minimise unplanned downtime.'
-  }
-];
-
 export default function IndustrialInfrastructure() {
   return (
     <main>
@@ -86,7 +58,7 @@ export default function IndustrialInfrastructure() {
       />
       <Hero
         variant="service"
-        bgImage="/assets/images/industrial-bg.jpg"
+        bgImage="/assets/images/industrial-infra-hero.jpg"
         label="Services / Industrial & Mining Infrastructure"
         title="Industrial & Mining Infrastructure"
         subtitle="Electrical infrastructure engineering for mining, processing, and heavy industrial facilities — including underground mining systems, HV/LV distribution, and infrastructure upgrades."
@@ -120,7 +92,7 @@ export default function IndustrialInfrastructure() {
         </div>
       </section>
 
-      {/* Section 2: Distribution & Equipment (Capability Cards) */}
+      {/* Section 2: Distribution & Equipment Capabilities */}
       <section className="section--ice">
         <div className="container">
           <SectionHeader
@@ -128,10 +100,10 @@ export default function IndustrialInfrastructure() {
             title="Distribution & Equipment Capabilities"
             subtitle="Primary and secondary electrical distribution design engineered for heavy industrial and mining facilities."
           />
-          <div className="service-detail__cards-grid">
+          <div className="service-tech-grid">
             {distributionCapabilities.map((item, i) => (
-              <div key={i} className="service-detail__card">
-                <div className="service-detail__card-icon">{item.icon}</div>
+              <div key={i} className="service-tech-card">
+                <div className="service-tech-card__icon">{item.icon}</div>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
               </div>
@@ -140,42 +112,37 @@ export default function IndustrialInfrastructure() {
         </div>
       </section>
 
-      {/* Section 3: SCADA & Communications */}
-      <section>
-        <div className="container">
+      {/* Section 3: Engineering Approach Flow */}
+      <section className="section--dark">
+        <div className="container text-center">
           <SectionHeader
-            label="SCADA & AUTOMATION"
-            title="SCADA & Communications"
-            subtitle="Monitoring, control, and communication systems designed for mission-critical operations."
+            label="Engineering Methodology"
+            title="From Asset Assessment to Turnkey Reliability"
+            subtitle="Comprehensive electrical engineering delivering safe, high-availability industrial and mining systems."
+            light
+            align="center"
           />
-          <div className="service-detail__cards-grid service-detail__cards-grid--2col">
-            {scadaMiningCapabilities.map((item, i) => (
-              <div key={i} className="service-detail__card">
-                <div className="service-detail__card-icon">{item.icon}</div>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
+          <div className="service-flow">
+            <div className="service-flow__step">
+              <div className="service-flow__box">
+                <Wrench size={32} />
+                <span>Audit & Health Assessment</span>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section 4: Upgrades & Reliability */}
-      <section className="section--ice">
-        <div className="container">
-          <SectionHeader
-            label="UPGRADES & RELIABILITY"
-            title="Infrastructure Upgrades & Reliability"
-            subtitle="Extending asset operating life and de-risking brownfield facilities with proven engineering methodologies."
-          />
-          <div className="service-detail__cards-grid service-detail__cards-grid--2col">
-            {reliabilityCapabilities.map((item, i) => (
-              <div key={i} className="service-detail__card">
-                <div className="service-detail__card-icon">{item.icon}</div>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
+            </div>
+            <div className="service-flow__arrow">→</div>
+            <div className="service-flow__step">
+              <div className="service-flow__box service-flow__box--accent">
+                <Cpu size={32} />
+                <span>SCADA & Distribution Design</span>
               </div>
-            ))}
+            </div>
+            <div className="service-flow__arrow">→</div>
+            <div className="service-flow__step">
+              <div className="service-flow__box service-flow__box--teal">
+                <ShieldCheck size={32} />
+                <span>Reliability & Commissioning</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>

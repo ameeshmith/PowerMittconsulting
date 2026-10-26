@@ -137,7 +137,7 @@ export default function About() {
       />
 
       <Hero
-        variant="compact"
+        variant="about"
         label="About PowerMitt"
         title={
           <>

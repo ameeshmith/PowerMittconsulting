@@ -133,17 +133,7 @@
   background: #00A3E0;
 }
 
-.service-detail__visual {
-  margin-top: var(--space-10);
-  padding: var(--space-8);
-  background: #F8FAFC;
-  border: 1px solid #E2E8F0;
-  border-radius: var(--radius-xl);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 200px;
-}
+
 
 .service-detail__related {
   display: grid;
@@ -261,4 +251,278 @@
   .service-detail__cards-grid { grid-template-columns: 1fr; }
   .service-detail__cards-grid--4col { grid-template-columns: 1fr; }
 }
+
+/* ============================================
+   Industrial Engineering Matrix / Spec Breakdown
+   Authoritative Arup / Worley Engineering Layout
+   Strictly Zero Generic Icons — Precision Structure
+   ============================================ */
+
+.eng-matrix {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.eng-matrix--3col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.eng-matrix--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.eng-matrix__item {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-top: 3px solid #E2E8F0;
+  border-radius: 6px;
+  padding: 1.6rem 1.65rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.03);
+  position: relative;
+}
+
+.eng-matrix__item:hover {
+  border-top-color: #0284C7;
+  border-color: #CBD5E1;
+  box-shadow: 0 6px 20px -4px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+
+.eng-matrix__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.eng-matrix__code {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0284C7;
+  text-transform: uppercase;
+}
+
+.eng-matrix__tag {
+  font-family: var(--font-body) !important;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #475569;
+  background: #F1F5F9;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #E2E8F0;
+}
+
+.eng-matrix__title {
+  font-family: var(--font-heading) !important;
+  font-size: 1.075rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+  color: #0F172A;
+  margin: 0 0 0.65rem 0;
+}
+
+.eng-matrix__desc {
+  font-family: var(--font-body) !important;
+  font-size: 0.9125rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+  flex: 1;
+}
+
+.eng-matrix__specs {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  border-top: 1px dashed #E2E8F0;
+  padding-top: 0.85rem;
+}
+
+.eng-matrix__specs li {
+  font-family: var(--font-body) !important;
+  font-size: 0.8875rem;
+  line-height: 1.5;
+  color: #334155;
+  position: relative;
+  padding-left: 1.15rem;
+  font-weight: 500;
+}
+
+.eng-matrix__specs li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #0284C7;
+  font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+  .eng-matrix--3col { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .eng-matrix--3col,
+  .eng-matrix--2col { grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   Refined Technical Cards (Matching EnergyTransition)
+   ============================================ */
+
+.service-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6, 1.5rem);
+  margin-top: 2rem;
+}
+
+.service-tech-grid--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.service-tech-card {
+  padding: var(--space-6, 1.5rem);
+  background: var(--color-white, #FFFFFF);
+  border: 1px solid var(--color-border, #E2E8F0);
+  border-radius: var(--radius-lg, 12px);
+  transition: all var(--duration-base, 0.2s) var(--ease-out, ease-out);
+  display: flex;
+  flex-direction: column;
+}
+
+.service-tech-card:hover {
+  border-color: #00A3E0;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.08);
+  transform: translateY(-2px);
+}
+
+.service-tech-card__icon {
+  color: #00A3E0;
+  margin-bottom: var(--space-4, 1rem);
+  display: flex;
+  align-items: center;
+}
+
+.service-tech-card h3 {
+  font-family: var(--font-heading) !important;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin-bottom: var(--space-3, 0.65rem);
+  color: #0F172A;
+  line-height: 1.35;
+}
+
+.service-tech-card p {
+  font-family: var(--font-body) !important;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+  color: #475569;
+  flex: 1;
+}
+
+@media (max-width: 1024px) {
+  .service-tech-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .service-tech-grid,
+  .service-tech-grid--2col { grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   Process Flow Diagram (Matching EnergyTransition)
+   ============================================ */
+
+.service-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6, 1.5rem);
+  margin-top: var(--space-8, 2rem);
+}
+
+.service-flow__step {
+  flex: 1;
+  max-width: 250px;
+}
+
+.service-flow__box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 2rem 1.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg, 12px);
+  color: #00A3E0;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.service-flow__box:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.service-flow__box span {
+  font-family: var(--font-body);
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: rgba(241, 245, 249, 0.95);
+  line-height: 1.4;
+}
+
+.service-flow__box--accent {
+  border-color: #00A3E0;
+  background: rgba(0, 163, 224, 0.1);
+  color: #00A3E0;
+}
+
+.service-flow__box--teal {
+  border-color: #00D084;
+  background: rgba(0, 208, 132, 0.1);
+  color: #00D084;
+}
+
+.service-flow__arrow {
+  font-size: 1.75rem;
+  color: #00A3E0;
+  font-weight: 700;
+  user-select: none;
+}
+
+@media (max-width: 768px) {
+  .service-flow {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .service-flow__step {
+    width: 100%;
+    max-width: 280px;
+  }
+  .service-flow__arrow {
+    transform: rotate(90deg);
+  }
+}
+
+
 

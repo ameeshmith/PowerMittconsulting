@@ -1,26 +1,230 @@
-/* ============================================
-   Services Page Styles
-   ============================================ */
+/* ==========================================================================
+   Services Page — Southeastern Industrial Style
+   Dark Atmospheric Substation Canvas with Full-Bleed Image Cards
+   ========================================================================== */
 
-.services-section {
-  padding: 5.5rem 0;
-  background: transparent;
+.services-soe-page {
+  background-color: #0A0D14;
+  color: #FFFFFF;
+  min-height: 100vh;
 }
 
-.services-grid {
+.services-soe-section {
+  position: relative;
+  padding: 8.5rem 0 6.5rem;
+  overflow: hidden;
+}
+
+/* Substation background image ("let it be visible but not that much") */
+.services-soe-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.25;
+  filter: grayscale(80%) contrast(1.15) brightness(0.9);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.services-soe-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(10, 13, 20, 0.72) 0%, rgba(10, 13, 20, 0.95) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Header Area */
+.services-soe-header {
+  margin-bottom: 3.5rem;
+  max-width: 800px;
+  position: relative;
+  z-index: 2;
+}
+
+.services-soe-label {
+  display: inline-block;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: #00A3E0;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+}
+
+.services-soe-title {
+  font-family: var(--font-heading, inherit) !important;
+  font-size: clamp(2.4rem, 4.5vw, 3.5rem);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+  line-height: 1.15;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+}
+
+.services-soe-subtitle {
+  font-family: var(--font-body, inherit) !important;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #94A3B8;
+  margin: 0;
+  max-width: 680px;
+}
+
+/* 3-Column Image Cards Grid */
+.services-soe-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.75rem;
+  position: relative;
+  z-index: 2;
 }
 
-@media (max-width: 1024px) {
-  .services-grid {
+/* Card Styling */
+.services-soe-card {
+  position: relative;
+  display: block;
+  height: 310px;
+  border-radius: 4px;
+  overflow: hidden;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #111827;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services-soe-card:hover {
+  border-color: #00A3E0;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(0, 163, 224, 0.25);
+}
+
+/* Optional Accent Top Bar */
+.services-soe-card__accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #00A3E0;
+  z-index: 4;
+}
+
+/* Media & Image */
+.services-soe-card__media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.services-soe-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(85%) contrast(1.15) brightness(0.85);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+}
+
+.services-soe-card:hover .services-soe-card__img {
+  transform: scale(1.07);
+  filter: grayscale(0%) contrast(1.05) brightness(0.95);
+}
+
+/* Dark Vignette / Gradient Overlay */
+.services-soe-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 13, 20, 0.95) 0%, rgba(10, 13, 20, 0.55) 45%, rgba(10, 13, 20, 0.2) 100%);
+  transition: background 0.3s ease;
+}
+
+.services-soe-card:hover .services-soe-card__overlay {
+  background: linear-gradient(to top, rgba(10, 13, 20, 0.95) 0%, rgba(10, 13, 20, 0.4) 50%, rgba(0, 163, 224, 0.1) 100%);
+}
+
+/* Content at Bottom */
+.services-soe-card__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.75rem 1.5rem;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.services-soe-card__num {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8125rem;
+  font-weight: 800;
+  color: #00A3E0;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.45rem;
+}
+
+.services-soe-card__title {
+  font-family: var(--font-heading, inherit) !important;
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #FFFFFF;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.015em;
+  transition: color 0.2s ease;
+}
+
+.services-soe-card:hover .services-soe-card__title {
+  color: #FFFFFF;
+}
+
+/* Slide-in Link Arrow */
+.services-soe-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body, inherit);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #00A3E0;
+  opacity: 0.85;
+  transform: translateY(2px);
+  transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+}
+
+.services-soe-card:hover .services-soe-card__link {
+  opacity: 1;
+  color: #38BDF8;
+  transform: translateY(0);
+}
+
+/* Responsive Rules */
+@media (max-width: 1080px) {
+  .services-soe-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 768px) {
-  .services-grid {
+@media (max-width: 640px) {
+  .services-soe-section {
+    padding: 6.5rem 0 4.5rem;
+  }
+
+  .services-soe-title {
+    font-size: 2.2rem;
+  }
+
+  .services-soe-grid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .services-soe-card {
+    height: 260px;
   }
 }

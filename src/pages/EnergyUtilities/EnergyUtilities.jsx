@@ -9,7 +9,7 @@ export default function EnergyUtilities() {
       <SEO title="Energy & Utilities Engineering | PowerMitt Consulting" description="Engineering for renewable generation, battery storage, grid connections, transmission, distribution, and utility infrastructure supporting the energy transition." path="/industries/energy-utilities" image="/assets/images/renewable-bess-bg.jpg" />
       <Hero
         variant="industry"
-        bgImage="/assets/images/renewable-bess-bg.jpg"
+        bgImage="/assets/images/energy-utilities-hero.jpg"
         label="Industries / Utility & Power Industry"
         title="Utility & Power Industry"
         subtitle="Decades of leadership across utility, power generation, transmission, distribution, grid management, and renewable integration — concept to commissioning."

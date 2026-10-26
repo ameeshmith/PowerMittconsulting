@@ -47,33 +47,6 @@ const ownersEngineeringCapabilities = [
   }
 ];
 
-const epcDeliveryCapabilities = [
-  {
-    icon: <Layers size={24} />,
-    title: 'Design & Technical Assurance',
-    color: '#00F5FF',
-    items: [
-      'Scope definition and capital cost optimisation',
-      'Technical assurance and independent design reviews',
-      'Value engineering and lifecycle expenditure rationalisation',
-      'Electrical system architecture & single-line development',
-      'Equipment selection and comprehensive technical bid evaluations'
-    ]
-  },
-  {
-    icon: <CheckCircle2 size={24} />,
-    title: 'Project Execution & Commissioning',
-    color: '#00D084',
-    items: [
-      'Interface management and multi-discipline stakeholder coordination',
-      'Constructability, operability, and safety-in-design reviews',
-      'Technical risk identification, quantification, and mitigation',
-      'Engineering support across Concept, FEED, Detailed Design & FAT',
-      'Optimised solutions strictly aligned with scope, schedule, and budget'
-    ]
-  }
-];
-
 export default function OwnersEngineering() {
   return (
     <main>
@@ -85,7 +58,7 @@ export default function OwnersEngineering() {
       />
       <Hero
         variant="service"
-        bgImage="/assets/images/owners-engineering-bg.jpg"
+        bgImage="/assets/images/owners-engineering-hero.jpg"
         label="Services / Owner's Engineering"
         title="Owner's Engineering"
         subtitle="Independent technical advisory services for asset owners — providing due diligence, design verification, vendor evaluation, and project execution support."
@@ -117,7 +90,7 @@ export default function OwnersEngineering() {
         </div>
       </section>
 
-      {/* Section 2: Owner's Engineering Capability Cards */}
+      {/* Section 2: Owner's Engineering Capabilities */}
       <section className="section--ice">
         <div className="container">
           <SectionHeader
@@ -125,10 +98,10 @@ export default function OwnersEngineering() {
             title="Owner's Engineering Capabilities"
             subtitle="Objective, rigorous technical advisory that safeguards capital investments and operational integrity."
           />
-          <div className="service-detail__cards-grid">
+          <div className="service-tech-grid">
             {ownersEngineeringCapabilities.map((cap, i) => (
-              <div key={i} className="service-detail__card">
-                <div className="service-detail__card-icon">{cap.icon}</div>
+              <div key={i} className="service-tech-card">
+                <div className="service-tech-card__icon">{cap.icon}</div>
                 <h3>{cap.title}</h3>
                 <p>{cap.desc}</p>
               </div>
@@ -137,52 +110,43 @@ export default function OwnersEngineering() {
         </div>
       </section>
 
-      {/* Section 3: EPC Project Delivery Support */}
+      {/* Section 3: EPC Project Delivery Flow */}
       <section className="section--dark">
-        <div className="container">
+        <div className="container text-center">
           <SectionHeader
             label="EPC Partnership"
             title="EPC Project Delivery Support"
             subtitle="Specialist engineering and technical advisory services to EPC contractors — delivering projects safely, efficiently, and cost-effectively."
             light
+            align="center"
           />
-          <div className="service-detail__cards-grid service-detail__cards-grid--2col" style={{ marginTop: '2.5rem' }}>
-            {epcDeliveryCapabilities.map((group, i) => (
-              <div 
-                key={i} 
-                className="service-detail__card"
-                style={{
-                  background: 'rgba(255, 255, 255, 0.04)',
-                  borderColor: 'rgba(255, 255, 255, 0.12)',
-                  color: '#FFFFFF'
-                }}
-              >
-                <div 
-                  className="service-detail__card-icon"
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.08)',
-                    borderColor: 'rgba(255, 255, 255, 0.15)',
-                    color: group.color
-                  }}
-                >
-                  {group.icon}
-                </div>
-                <h3 style={{ color: group.color, marginBottom: '1.25rem' }}>{group.title}</h3>
-                <ul className="service-detail__card-points">
-                  {group.items.map((point, idx) => (
-                    <li key={idx} style={{ color: 'rgba(241, 245, 249, 0.85)' }}>
-                      {point}
-                    </li>
-                  ))}
-                </ul>
+          <div className="service-flow">
+            <div className="service-flow__step">
+              <div className="service-flow__box">
+                <ShieldCheck size={32} />
+                <span>Design & Technical Assurance</span>
               </div>
-            ))}
+            </div>
+            <div className="service-flow__arrow">→</div>
+            <div className="service-flow__step">
+              <div className="service-flow__box service-flow__box--accent">
+                <Layers size={32} />
+                <span>Procurement & FAT Oversight</span>
+              </div>
+            </div>
+            <div className="service-flow__arrow">→</div>
+            <div className="service-flow__step">
+              <div className="service-flow__box service-flow__box--teal">
+                <CheckCircle2 size={32} />
+                <span>Project Execution & Commissioning</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Section 4: Value-Driven Engineering */}
-      <section>
+      <section className="section--ice">
         <div className="container">
           <SectionHeader
             label="Philosophy"

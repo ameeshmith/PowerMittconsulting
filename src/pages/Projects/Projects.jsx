@@ -1,57 +1,61 @@
 import SEO from '../../components/SEO/SEO';
-import Hero from '../../components/Hero/Hero';
-import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
 import CTABanner from '../../components/CTABanner/CTABanner';
 import { projects, strategicAdvisoryOverview } from '../../data/projects';
+import { getAssetUrl } from '../../utils/assetPath';
 import './Projects.css';
 
 export default function Projects() {
-
   return (
-    <main>
+    <main className="projects-soe-page">
       <SEO
         title="Projects & Experience | PowerMitt Consulting"
         description="Specialist electrical engineering & energy transition advisory across green power import, CCS, dynamic power system modelling, offshore electrification, mining infrastructure, and dewatering."
         path="/projects"
-      />
-      <Hero
-        variant="compact"
-        label="Track Record & Case Studies"
-        title="Demonstrated Track Record & Case Studies"
-        subtitle="Specialist electrical engineering delivered across critical Australian power systems, mining operations, and utility grid connections."
-        bgImage="/assets/images/hero-projects-drawing.jpg"
+        image="/assets/images/hero-projects-drawing.jpg"
       />
 
-      <section className="projects-section">
-        <div className="container">
-          <SectionHeader
-            label="PROJECT PORTFOLIO"
-            title="Featured Case Studies & Deliveries"
-            subtitle="Selected case studies and verified project experience across critical Australian power infrastructure."
-          />
+      <section className="projects-soe-section" id="projects-portfolio" aria-label="Projects and Track Record">
+        {/* Slightly visible engineering blueprint background behind cards */}
+        <div 
+          className="projects-soe-bg"
+          style={{
+            backgroundImage: `url(${getAssetUrl('/assets/images/hero-projects-drawing.jpg')})`
+          }}
+          aria-hidden="true"
+        />
+        <div className="projects-soe-bg-overlay" aria-hidden="true" />
+
+        <div className="container relative z-10">
+          <div className="projects-soe-header">
+            <span className="projects-soe-label">TRACK RECORD & CASE STUDIES</span>
+            <h1 className="projects-soe-title">DEMONSTRATED TRACK RECORD & CASE STUDIES</h1>
+            <p className="projects-soe-subtitle">
+              Specialist electrical engineering delivered across critical Australian power systems, mining operations, and utility grid connections.
+            </p>
+          </div>
 
           {/* Strategic Advisory Overview Callout */}
           {strategicAdvisoryOverview && (
-            <div className="projects-advisory-callout">
-              <div className="projects-advisory-callout__badge">
-                <span className="projects-advisory-callout__dot"></span>
+            <div className="projects-soe-advisory">
+              <div className="projects-soe-advisory__badge">
+                <span className="projects-soe-advisory__dot" />
                 <span>Specialist Advisory Capability</span>
               </div>
-              <h2 className="projects-advisory-callout__title">
+              <h2 className="projects-soe-advisory__title">
                 {strategicAdvisoryOverview.title}
               </h2>
-              <p className="projects-advisory-callout__lead">
+              <p className="projects-soe-advisory__lead">
                 {strategicAdvisoryOverview.lead}
               </p>
-              <p className="projects-advisory-callout__body">
+              <p className="projects-soe-advisory__body">
                 {strategicAdvisoryOverview.body}
               </p>
             </div>
           )}
 
-          {/* Projects Grid */}
-          <div className="projects__grid">
+          {/* Projects Grid directly in front of background */}
+          <div className="projects-soe-grid" role="list">
             {projects.map((p) => (
               <ProjectCard key={p.id} {...p} />
             ))}

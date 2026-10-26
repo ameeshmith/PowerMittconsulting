@@ -1,8 +1,6 @@
 import { useState, useRef } from 'react';
-import { Phone, Mail, MapPin, Send, CheckCircle, Loader, Building, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, CheckCircle, Loader, Clock } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
-import Hero from '../../components/Hero/Hero';
-import WordHighlight from '../../components/WordHighlight/WordHighlight';
 import { FORMS_CONFIG } from '../../config/forms';
 import { getAssetUrl } from '../../utils/assetPath';
 import './Contact.css';
@@ -62,37 +60,38 @@ export default function Contact() {
       setErrors(validationErrors);
       return;
     }
-    setErrors({});
-    setSubmitError('');
 
-    // Anti-flooding / rate-limit cooldown: prevent repeated submissions within 60 seconds (OWASP A04)
+    // Time-based Bot Detection
+    const fillDuration = Date.now() - formMountedAt.current;
+    if (fillDuration < 3000) {
+      console.warn('Form submitted suspiciously fast. Rejecting silently.');
+      setSubmitted(true);
+      return;
+    }
+
+    // Rate Limiting Cooldown Check
     try {
-      const lastSub = localStorage.getItem(COOLDOWN_KEY);
-      if (lastSub && Date.now() - Number(lastSub) < COOLDOWN_PERIOD_MS) {
-        const remainingSeconds = Math.ceil((COOLDOWN_PERIOD_MS - (Date.now() - Number(lastSub))) / 1000);
-        setSubmitError(`Please wait ${remainingSeconds} seconds before submitting another enquiry.`);
+      const lastSubmitTime = localStorage.getItem(COOLDOWN_KEY);
+      if (lastSubmitTime && Date.now() - Number(lastSubmitTime) < COOLDOWN_PERIOD_MS) {
+        setSubmitError('Please wait a moment before submitting another enquiry.');
         return;
       }
     } catch (err) {
-      // Silently proceed if localStorage is restricted
-    }
-
-    // Anti-automation: Honeypot check or inhumanly fast submission (< 2.0s)
-    const isBot = form.botcheck || (Date.now() - formMountedAt.current < 2000);
-    if (isBot) {
-      // Silently sink automated bot submissions
-      setSubmitted(true);
-      return;
-    }
-    
-    const accessKey = FORMS_CONFIG.web3FormsAccessKey;
-    if (!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY_HERE') {
-      setSubmitted(true);
-      return;
+      // Ignore localStorage errors
     }
 
     setSubmitting(true);
+    setSubmitError('');
+
     try {
+      const accessKey = FORMS_CONFIG.accessKey;
+
+      if (!accessKey) {
+        await new Promise(resolve => setTimeout(resolve, 800));
+        setSubmitted(true);
+        return;
+      }
+
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
@@ -140,64 +139,76 @@ export default function Contact() {
   };
 
   return (
-    <main>
+    <main className="contact-soe-page">
       <SEO
         title="Contact Us | PowerMitt Consulting"
         description="Contact PowerMitt Consulting to discuss your electrical power systems, energy engineering, or industrial infrastructure project. Based in Perth, Western Australia."
         path="/contact"
-      />
-      <Hero
-        variant="compact"
-        label="Initiate Advisory"
-        title="Let's Discuss Your Engineering Challenge"
-        subtitle="Direct engagement with Principal Power Engineer Dinesh Mithanthaya and the engineering team for grid studies, design verification, and independent due diligence across Australia."
-        bgImage="/assets/images/hero-contact.jpg"
+        image="/assets/images/hero-contact.jpg"
       />
 
-      <section className="contact-section">
-        <div className="container">
-          <div className="contact__grid">
-            {/* Left Column: Image + Direct Contact Details (Figma Page 7) */}
-            <div className="contact__info-col">
-              <div className="contact__team-card">
-                <div className="contact__team-img-wrap">
+      <section className="contact-soe-section" id="contact-portal" aria-label="Contact PowerMitt">
+        {/* Slightly visible background image behind the entire section and form cards */}
+        <div 
+          className="contact-soe-bg"
+          style={{
+            backgroundImage: `url(${getAssetUrl('/assets/images/hero-contact.jpg')})`
+          }}
+          aria-hidden="true"
+        />
+        <div className="contact-soe-bg-overlay" aria-hidden="true" />
+
+        <div className="container relative z-10">
+          <div className="contact-soe-header">
+            <span className="contact-soe-label">INITIATE ADVISORY</span>
+            <h1 className="contact-soe-title">LET'S DISCUSS YOUR ENGINEERING CHALLENGE</h1>
+            <p className="contact-soe-subtitle">
+              Direct engagement with Principal Power Engineer Dinesh Mithanthaya and the engineering team for grid studies, design verification, and independent due diligence across Australia.
+            </p>
+          </div>
+
+          <div className="contact-soe-grid">
+            {/* Left Column: Direct Contact Details Card */}
+            <div className="contact-soe-info-col">
+              <div className="contact-soe-card">
+                <div className="contact-soe-team-img-wrap">
                   <img 
                     src={getAssetUrl('/assets/images/hero-about.jpg')} 
                     alt="PowerMitt Consulting Team"
-                    className="contact__team-img"
+                    className="contact-soe-team-img"
                     loading="lazy"
                     decoding="async"
                     onError={(e) => { e.currentTarget.style.display = 'none'; }}
                   />
-                  <div className="contact__team-overlay" />
+                  <div className="contact-soe-team-overlay" />
                 </div>
 
-                <div className="contact__details-body">
-                  <div className="contact__card-block">
+                <div className="contact-soe-details-body">
+                  <div className="contact-soe-block">
                     <h3>PowerMitt Consulting Pty Ltd</h3>
-                    <p className="contact__tagline">Specialist Electrical Power Systems & Energy Engineering</p>
-                    <div className="contact__item">
-                      <MapPin size={16} className="contact__icon" />
+                    <p className="contact-soe-tagline">Specialist Electrical Power Systems & Energy Engineering</p>
+                    <div className="contact-soe-item">
+                      <MapPin size={16} className="contact-soe-icon" />
                       <span>Perth, Western Australia</span>
                     </div>
-                    <div className="contact__item">
-                      <Clock size={16} className="contact__icon" />
+                    <div className="contact-soe-item">
+                      <Clock size={16} className="contact-soe-icon" />
                       <span>Mon – Fri: 8:00 AM – 5:30 PM (AWST)</span>
                     </div>
                   </div>
 
-                  <hr className="contact__divider" />
+                  <hr className="contact-soe-divider" />
 
-                  <div className="contact__card-block">
+                  <div className="contact-soe-block">
                     <h4>Direct Engineering Inquiries</h4>
-                    <span className="contact__role">Dinesh Mithanthaya — Principal Power Engineer</span>
-                    <div className="contact__item-group">
-                      <a href="tel:+61409346958" className="contact__item contact__link">
-                        <Phone size={16} className="contact__icon" />
+                    <span className="contact-soe-role">Dinesh Mithanthaya — Principal Power Engineer</span>
+                    <div className="contact-soe-item-group">
+                      <a href="tel:+61409346958" className="contact-soe-item contact-soe-link">
+                        <Phone size={16} className="contact-soe-icon" />
                         <span>+61 409 346 958</span>
                       </a>
-                      <a href="mailto:dmithanthaya@gmail.com" className="contact__item contact__link">
-                        <Mail size={16} className="contact__icon" />
+                      <a href="mailto:dmithanthaya@gmail.com" className="contact-soe-item contact-soe-link">
+                        <Mail size={16} className="contact-soe-icon" />
                         <span>dmithanthaya@gmail.com</span>
                       </a>
                     </div>
@@ -206,16 +217,16 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Right Column: Contact Form (Figma Page 7) */}
-            <div className="contact__form-col">
-              <div className="contact__form-card">
+            {/* Right Column: Contact Form */}
+            <div className="contact-soe-form-col">
+              <div className="contact-soe-form-card">
                 {submitted ? (
-                  <div className="contact__success">
-                    <CheckCircle size={48} className="contact__success-icon" />
+                  <div className="contact-soe-success">
+                    <CheckCircle size={48} className="contact-soe-success-icon" />
                     <h3>Enquiry Submitted Successfully</h3>
                     <p>Thank you for contacting PowerMitt Consulting. Our principal engineers will review your project details and get in touch within 1–2 business days.</p>
                     <button 
-                      className="btn btn--outline" 
+                      className="contact-soe-btn-reset" 
                       onClick={() => { 
                         setSubmitted(false); 
                         setForm({ name: '', company: '', email: '', phone: '', industry: '', service: '', stage: '', message: '', botcheck: false }); 
@@ -225,7 +236,7 @@ export default function Contact() {
                     </button>
                   </div>
                 ) : (
-                  <form className="contact__form" onSubmit={handleSubmit} noValidate>
+                  <form className="contact-soe-form" onSubmit={handleSubmit} noValidate>
                     {/* Anti-Spam Bot Honeypot */}
                     <input 
                       type="checkbox" 
@@ -238,14 +249,14 @@ export default function Contact() {
                       onChange={(e) => setForm(prev => ({ ...prev, botcheck: e.target.checked }))}
                     />
 
-                    <div className="contact__form-header">
-                      <span className="label">Get In Touch</span>
+                    <div className="contact-soe-form-header">
+                      <span className="contact-soe-label">Direct Communication</span>
                       <h2>Project Enquiry Form</h2>
                       <p>Fill out the details below and our team will get back to you promptly.</p>
                     </div>
 
-                    <div className="contact__form-grid">
-                      <div className="contact__field">
+                    <div className="contact-soe-form-grid">
+                      <div className="contact-soe-field">
                         <label htmlFor="name">Full Name *</label>
                         <input 
                           id="name" 
@@ -257,10 +268,10 @@ export default function Contact() {
                           className={errors.name ? 'error' : ''} 
                           placeholder="Your name" 
                         />
-                        {errors.name && <span className="contact__error">{errors.name}</span>}
+                        {errors.name && <span className="contact-soe-error">{errors.name}</span>}
                       </div>
 
-                      <div className="contact__field">
+                      <div className="contact-soe-field">
                         <label htmlFor="company">Company / Organisation</label>
                         <input 
                           id="company" 
@@ -273,7 +284,7 @@ export default function Contact() {
                         />
                       </div>
 
-                      <div className="contact__field">
+                      <div className="contact-soe-field">
                         <label htmlFor="email">Email Address *</label>
                         <input 
                           id="email" 
@@ -285,10 +296,10 @@ export default function Contact() {
                           className={errors.email ? 'error' : ''} 
                           placeholder="your.email@company.com" 
                         />
-                        {errors.email && <span className="contact__error">{errors.email}</span>}
+                        {errors.email && <span className="contact-soe-error">{errors.email}</span>}
                       </div>
 
-                      <div className="contact__field">
+                      <div className="contact-soe-field">
                         <label htmlFor="phone">Phone Number</label>
                         <input 
                           id="phone" 
@@ -300,10 +311,10 @@ export default function Contact() {
                           className={errors.phone ? 'error' : ''} 
                           placeholder="+61 4XX XXX XXX" 
                         />
-                        {errors.phone && <span className="contact__error">{errors.phone}</span>}
+                        {errors.phone && <span className="contact-soe-error">{errors.phone}</span>}
                       </div>
 
-                      <div className="contact__field">
+                      <div className="contact-soe-field">
                         <label htmlFor="industry">Industry Sector</label>
                         <select id="industry" name="industry" value={form.industry} onChange={handleChange('industry')}>
                           <option value="">Select industry</option>
@@ -311,7 +322,7 @@ export default function Contact() {
                         </select>
                       </div>
 
-                      <div className="contact__field">
+                      <div className="contact-soe-field">
                         <label htmlFor="service">Service Required</label>
                         <select id="service" name="service" value={form.service} onChange={handleChange('service')}>
                           <option value="">Select service</option>
@@ -319,7 +330,7 @@ export default function Contact() {
                         </select>
                       </div>
 
-                      <div className="contact__field contact__field--full">
+                      <div className="contact-soe-field contact-soe-field--full">
                         <label htmlFor="stage">Project Stage</label>
                         <select id="stage" name="stage" value={form.stage} onChange={handleChange('stage')}>
                           <option value="">Select project stage</option>
@@ -327,7 +338,7 @@ export default function Contact() {
                         </select>
                       </div>
 
-                      <div className="contact__field contact__field--full">
+                      <div className="contact-soe-field contact-soe-field--full">
                         <label htmlFor="message">Message / Project Description *</label>
                         <textarea 
                           id="message" 
@@ -338,17 +349,17 @@ export default function Contact() {
                           className={errors.message ? 'error' : ''} 
                           placeholder="Tell us about your project, timeline, or engineering challenge..." 
                         />
-                        {errors.message && <span className="contact__error">{errors.message}</span>}
+                        {errors.message && <span className="contact-soe-error">{errors.message}</span>}
                       </div>
                     </div>
 
                     {submitError && (
-                      <div className="contact__submit-error">
+                      <div className="contact-soe-submit-error">
                         {submitError}
                       </div>
                     )}
 
-                    <button type="submit" className="btn btn--primary btn--large contact__submit" disabled={submitting}>
+                    <button type="submit" className="contact-soe-submit-btn" disabled={submitting}>
                       {submitting ? (
                         <>
                           <Loader className="animate-spin" size={16} />

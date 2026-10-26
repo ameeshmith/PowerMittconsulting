@@ -24,11 +24,49 @@ export default function Hero({
   useNebula
 }) {
   const badgeText = badge || label;
+  const isAbout = variant === 'about';
   const isCompact = variant === 'compact' || variant === 'service' || variant === 'industry';
   const hasNebula = useNebula === true;
+  const isSOEHeader = isCompact && !isAbout;
   const defaultBg = isCompact ? '/assets/images/hero-about.jpg' : '/assets/images/hero-modern-skyline.jpg';
   const imageUrl = getAssetUrl(bgImage || defaultBg);
   const heroRef = useRef(null);
+
+  // If subpage (not home, not about), render the atmospheric Services main page header style
+  if (isSOEHeader) {
+    return (
+      <section className="hero-soe-section" aria-label={typeof title === 'string' ? title : 'Page Header'}>
+        <div 
+          className="hero-soe-bg"
+          style={{ backgroundImage: `url(${imageUrl})` }}
+          aria-hidden="true"
+        />
+        <div className="hero-soe-bg-overlay" aria-hidden="true" />
+
+        <div className="container relative z-10">
+          <div className="hero-soe-header">
+            {badgeText && <span className="hero-soe-label">{badgeText}</span>}
+            <h1 className="hero-soe-title">{title}</h1>
+            {subtitle && <p className="hero-soe-subtitle">{subtitle}</p>}
+            {(primaryCTA || secondaryCTA) && (
+              <div className="hero-soe-actions">
+                {primaryCTA && (
+                  <Link to={primaryLink} className="hero-modern__btn-primary">
+                    {primaryCTA} <ArrowRight size={15} />
+                  </Link>
+                )}
+                {secondaryCTA && (
+                  <Link to={secondaryLink} className="hero-modern__btn-secondary">
+                    {secondaryCTA}
+                  </Link>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   const handleMouseMove = useCallback((e) => {
     if (!heroRef.current) return;

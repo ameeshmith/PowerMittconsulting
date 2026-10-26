@@ -1,184 +1,187 @@
-/* ============================================
-   ServiceCard Component — Crisp Light Architectural Card
-   Palette: Elevated Crisp White (#FFFFFF), Off-White Slate Canvas,
-            Secondary Light Blue (#E0F2FE), Power Blue (#0284C7),
-            Deep Navy Typography (#0F172A)
-   ============================================ */
+/* ==========================================================================
+   ServiceCard Editorial — Clean Architectural Layout with Curved Image Inset
+   Matched directly to reference design
+   ========================================================================== */
 
-.service-card {
-  display: flex;
-  flex-direction: column;
+.service-card-editorial {
+  display: grid;
+  grid-template-columns: 1fr 140px;
   background: #FFFFFF;
   border: 1px solid #E2E8F0;
-  border-radius: var(--radius-2xl);
-  padding: 2.25rem;
+  border-radius: 10px;
+  overflow: hidden;
   text-decoration: none;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
   position: relative;
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
-  height: 100%;
+  min-height: 235px;
 }
 
-/* Blue Card Hover */
-.service-card--blue:hover {
-  background: #FFFFFF;
+@media (min-width: 1280px) {
+  .service-card-editorial {
+    grid-template-columns: 1fr 155px;
+  }
+}
+
+.service-card-editorial:hover {
   border-color: #BAE6FD;
-  box-shadow: 0 20px 40px -4px rgba(2, 132, 199, 0.12), 0 0 0 1px rgba(2, 132, 199, 0.15);
-  transform: translateY(-5px);
+  box-shadow: 0 12px 28px -4px rgba(2, 132, 199, 0.12);
+  transform: translateY(-2px);
 }
 
-/* Green Card Hover */
-.service-card--green:hover {
-  background: #FFFFFF;
-  border-color: #A7F3D0;
-  box-shadow: 0 20px 40px -4px rgba(5, 150, 105, 0.12), 0 0 0 1px rgba(5, 150, 105, 0.15);
-  transform: translateY(-5px);
+.service-card-editorial__content {
+  padding: 1.5rem 1.25rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2;
 }
 
-.service-card__top {
+.service-card-editorial__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.75rem;
+  margin-bottom: 0.85rem;
 }
 
-.service-card__icon-wrap {
-  width: 50px;
-  height: 50px;
+.service-card-editorial__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8125rem;
+}
+
+.service-card-editorial__num {
+  font-weight: 800;
+  color: #0284C7;
+  letter-spacing: 0.05em;
+}
+
+.service-card-editorial__sep {
+  color: #CBD5E1;
+  font-weight: 600;
+}
+
+.service-card-editorial__ref {
+  color: #64748B;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.service-card-editorial__corner-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: #F0F9FF;
+  border: 1px solid #E0F2FE;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 14px;
-  transition: all 0.3s ease;
-}
-
-.service-card__icon-wrap--blue {
-  background: #E0F2FE;
-  border: 1px solid #BAE6FD;
   color: #0284C7;
+  transition: all 0.2s ease;
 }
 
-.service-card--blue:hover .service-card__icon-wrap--blue {
+.service-card-editorial:hover .service-card-editorial__corner-btn {
   background: #0284C7;
   color: #FFFFFF;
   border-color: #0284C7;
-  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
-  transform: scale(1.06);
+  transform: translate(1px, -1px);
 }
 
-.service-card__icon-wrap--green {
-  background: #ECFDF5;
-  border: 1px solid #A7F3D0;
-  color: #059669;
-}
-
-.service-card--green:hover .service-card__icon-wrap--green {
-  background: #059669;
-  color: #FFFFFF;
-  border-color: #059669;
-  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
-  transform: scale(1.06);
-}
-
-.service-card__body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.service-card__title {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 700;
+.service-card-editorial__title {
+  font-family: var(--font-heading, inherit) !important;
+  font-size: 1.15rem;
+  font-weight: 800;
   color: #0F172A;
-  margin-bottom: 0.75rem;
-  line-height: 1.25;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
+  line-height: 1.3;
+  margin: 0 0 0.55rem 0;
+  letter-spacing: -0.015em;
   transition: color 0.2s ease;
 }
 
-.service-card--blue:hover .service-card__title {
-  color: #0284C7;
+.service-card-editorial:hover .service-card-editorial__title {
+  color: #0369A1;
 }
 
-.service-card--green:hover .service-card__title {
-  color: #059669;
-}
-
-.service-card__desc {
-  font-family: var(--font-body);
-  font-size: 13.5px;
+.service-card-editorial__desc {
+  font-family: var(--font-body, inherit) !important;
+  font-size: 0.8125rem;
+  line-height: 1.55;
   color: #475569;
-  line-height: 1.65;
-  margin-bottom: 1.5rem;
-  flex: 1;
+  margin: 0 0 1.25rem 0;
 }
 
-.service-card__caps {
-  margin-bottom: 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.service-card-editorial__footer {
+  margin-top: auto;
 }
 
-.service-card__caps li {
-  font-family: var(--font-body);
-  font-size: 13px;
-  color: #334155;
-  padding-left: 1.2rem;
-  position: relative;
-  line-height: 1.45;
-  font-weight: 500;
-}
-
-.service-card__caps--blue li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 7px;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #0284C7;
-}
-
-.service-card__caps--green li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 7px;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: #059669;
-}
-
-.service-card__link {
+.service-card-editorial__link {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-family: var(--font-body);
-  font-size: 11.5px;
+  gap: 0.35rem;
+  font-family: var(--font-body, inherit);
+  font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-top: auto;
-  transition: all 0.25s ease;
-}
-
-.service-card__link--blue {
   color: #0284C7;
+  transition: color 0.2s ease;
 }
 
-.service-card__link--green {
-  color: #059669;
+.service-card-editorial:hover .service-card-editorial__link {
+  color: #0369A1;
 }
 
-.service-card__arrow {
-  transition: transform 0.25s var(--ease-out);
+.service-card-editorial__arrow {
+  transition: transform 0.2s ease;
 }
 
-.service-card:hover .service-card__arrow {
+.service-card-editorial:hover .service-card-editorial__arrow {
   transform: translateX(4px);
+}
+
+/* ── Right Media Wrap with Curved Cutout ── */
+.service-card-editorial__media-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-top-left-radius: 54px;
+  background-color: #F1F5F9;
+}
+
+.service-card-editorial__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.service-card-editorial:hover .service-card-editorial__image {
+  transform: scale(1.06);
+}
+
+/* Soft cyan/blue blend glow at bottom-left corner of the image cutout */
+.service-card-editorial__media-glow {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 10% 90%, rgba(56, 189, 248, 0.4) 0%, rgba(2, 132, 199, 0.2) 30%, transparent 70%),
+    linear-gradient(to top, rgba(2, 132, 199, 0.15) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+@media (max-width: 480px) {
+  .service-card-editorial {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .service-card-editorial__media-wrap {
+    height: 140px;
+    border-top-left-radius: 0;
+    order: -1;
+  }
 }

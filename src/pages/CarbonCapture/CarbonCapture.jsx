@@ -5,7 +5,8 @@ import {
   Network, 
   Activity, 
   ShieldCheck, 
-  Clock, 
+  Compass, 
+  Layers, 
   CheckCircle2 
 } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
@@ -44,29 +45,6 @@ const ccsCapabilities = [
     icon: <ShieldCheck size={26} />,
     title: 'Hazardous Area & Safety Compliance',
     desc: 'Hazardous area classification, Ex equipment qualification, earthing, and strict compliance with AS/NZS and IEC safety standards.'
-  }
-];
-
-const ccsLifecycle = [
-  {
-    icon: <Clock size={24} />,
-    phase: 'Early Phase & Screening',
-    items: [
-      'Technical feasibility assessment & technology screening',
-      'Power demand estimation & connection capacity evaluation',
-      'Grid connection pre-assessment with network service providers',
-      'Motor starting methodology & drive architecture comparison'
-    ]
-  },
-  {
-    icon: <CheckCircle2 size={24} />,
-    phase: 'FEED & Detailed Design',
-    items: [
-      'Comprehensive electrical FEED deliverable packages',
-      'Detailed single-line diagrams, substation layouts & schematics',
-      'Vendor technical bid evaluations & FAT attendance',
-      'Commissioning oversight, energisation & operational handover'
-    ]
   }
 ];
 
@@ -121,10 +99,10 @@ export default function CarbonCapture() {
             title="CCS Electrical Engineering Services"
             subtitle="Specialist engineering across large-scale motor drives, power infrastructure, and grid connections for carbon capture."
           />
-          <div className="service-detail__cards-grid">
+          <div className="service-tech-grid">
             {ccsCapabilities.map((cap, i) => (
-              <div key={i} className="service-detail__card">
-                <div className="service-detail__card-icon">{cap.icon}</div>
+              <div key={i} className="service-tech-card">
+                <div className="service-tech-card__icon">{cap.icon}</div>
                 <h3>{cap.title}</h3>
                 <p>{cap.desc}</p>
               </div>
@@ -133,46 +111,37 @@ export default function CarbonCapture() {
         </div>
       </section>
 
-      {/* Project Lifecycle Section */}
+      {/* Project Lifecycle Flow Diagram */}
       <section className="section--dark">
-        <div className="container">
+        <div className="container text-center">
           <SectionHeader
             label="Project Lifecycle"
             title="CCS Engineering Support Across All Phases"
             subtitle="From concept and preliminary connection studies through to turnkey execution and commissioning."
             light
+            align="center"
           />
-          <div className="service-detail__cards-grid service-detail__cards-grid--2col" style={{ marginTop: '2.5rem' }}>
-            {ccsLifecycle.map((stage, i) => (
-              <div 
-                key={i} 
-                className="service-detail__card"
-                style={{
-                  background: 'rgba(255, 255, 255, 0.04)',
-                  borderColor: 'rgba(255, 255, 255, 0.12)',
-                  color: '#FFFFFF'
-                }}
-              >
-                <div 
-                  className="service-detail__card-icon"
-                  style={{
-                    background: 'rgba(2, 132, 199, 0.15)',
-                    borderColor: 'rgba(2, 132, 199, 0.3)',
-                    color: '#38BDF8'
-                  }}
-                >
-                  {stage.icon}
-                </div>
-                <h3 style={{ color: '#FFFFFF', marginBottom: '1.25rem' }}>{stage.phase}</h3>
-                <ul className="service-detail__card-points">
-                  {stage.items.map((point, idx) => (
-                    <li key={idx} style={{ color: 'rgba(241, 245, 249, 0.85)' }}>
-                      {point}
-                    </li>
-                  ))}
-                </ul>
+          <div className="service-flow">
+            <div className="service-flow__step">
+              <div className="service-flow__box">
+                <Compass size={32} />
+                <span>Early Phase & Screening</span>
               </div>
-            ))}
+            </div>
+            <div className="service-flow__arrow">→</div>
+            <div className="service-flow__step">
+              <div className="service-flow__box service-flow__box--accent">
+                <Layers size={32} />
+                <span>FEED & Detailed Design</span>
+              </div>
+            </div>
+            <div className="service-flow__arrow">→</div>
+            <div className="service-flow__step">
+              <div className="service-flow__box service-flow__box--teal">
+                <CheckCircle2 size={32} />
+                <span>Commissioning & Handover</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
