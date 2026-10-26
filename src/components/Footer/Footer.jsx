@@ -12,10 +12,12 @@ export default function Footer() {
           <div className="footer__brand-col">
             <Link to="/" className="footer__brand" aria-label="PowerMitt Consulting Home">
               <img
-                src={getAssetUrl('/assets/images/logo-dark.png')}
+                src={getAssetUrl('/assets/images/logo-dark.svg')}
+                srcSet={`${getAssetUrl('/assets/images/logo-dark.svg')} 1x, ${getAssetUrl('/assets/images/logo-dark-4k.png')} 2x`}
                 alt="PowerMitt Consulting"
                 className="footer__logo"
-                height="46"
+                width="240"
+                height="68"
               />
             </Link>
             <p className="footer__tagline">

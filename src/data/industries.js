@@ -4,18 +4,18 @@ export const industries = [
     title: 'Offshore Oil & Gas',
     slug: '/industries/oil-gas',
     bgImage: '/assets/images/oil-rig-bg.jpg',
-    shortDescription: 'Practical offshore electrical engineering experience across major offshore developments, Normally Unattended Facilities (NUF), gas compression drives, and brownfield life extension.',
+    shortDescription: 'Practical offshore electrical engineering experience across major offshore developments, Normal Unattended Facilities (NUF), gas compression drives, and brownfield life extension.',
     description: 'PowerMitt Consulting brings practical offshore electrical engineering experience gained through support of major offshore developments and modifications in Australia and internationally. PowerMitt understands the technical, operational and safety challenges associated with offshore facilities and delivers practical fit-for-purpose solutions that align with project objectives and operational requirements.',
     challenges: [
       'Complex power systems in hazardous classified areas and harsh offshore environments',
-      'Normally Unattended Facility (NUF) remote reliability and minimal maintenance design',
+      'Normal Unattended Facility (NUF) remote reliability and minimal maintenance design',
       'Large gas compression motor drives and high-power generation integration',
       'Brownfield modifications and life extension of ageing offshore infrastructure',
       'Utility system optimisation, energy efficiency and emissions reduction',
       'Stringent marine safety, regulatory compliance and offshore operating constraints'
     ],
     capabilities: [
-      'Offshore Normally Unattended Facilities (NUF)',
+      'Offshore Normal Unattended Facilities (NUF)',
       'Offshore processing facilities and utility systems',
       'Brownfield modifications and life extension projects',
       'Offshore power generation and distribution systems',
@@ -33,7 +33,7 @@ export const industries = [
     ],
     technologies: ['NUF Facilities', 'Large Gas Compression Drives', 'HV Distribution', 'Turbine Generation', 'Substations', 'UPS & DC Systems', 'Hazardous Area Equipment', 'RAM Engineering'],
     relatedServices: ['power-systems', 'industrial-infrastructure', 'owners-engineering'],
-    focus: 'Offshore Normally Unattended Facilities (NUF), gas compression, processing facilities, life extension, power system integration, and energy efficiency for offshore oil & gas.'
+    focus: 'Offshore Normal Unattended Facilities (NUF), gas compression, processing facilities, life extension, power system integration, and energy efficiency for offshore oil & gas.'
   },
   {
     id: 'mining-resources',

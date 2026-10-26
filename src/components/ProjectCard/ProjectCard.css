@@ -210,7 +210,8 @@
 
 /* ── Expandable Details ── */
 .project-card__expandable {
-  margin-bottom: 1.25rem;
+  margin-top: auto;
+  padding-top: 1rem;
 }
 
 .project-card__expand-btn {

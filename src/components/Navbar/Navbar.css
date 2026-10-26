@@ -165,11 +165,13 @@
 }
 
 .navbar-modern__logo {
-  height: 52px;
+  height: 64px;
   width: auto;
-  max-width: 250px;
+  max-width: 320px;
   object-fit: contain;
   display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -200,7 +202,15 @@
 }
 
 .navbar-modern--scrolled .navbar-modern__logo {
-  height: 46px;
+  height: 52px;
+  max-width: 260px;
+}
+
+@media (max-width: 768px) {
+  .navbar-modern__logo {
+    height: 48px;
+    max-width: 220px;
+  }
 }
 
 @media (max-width: 768px) {

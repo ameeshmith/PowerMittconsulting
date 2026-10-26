@@ -64,17 +64,25 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['"Be Vietnam Pro"', '"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
-        heading: ['"Be Vietnam Pro"', '"Plus Jakarta Sans"', 'sans-serif'],
-        mono: ['"Plus Jakarta Sans"', 'monospace'],
+        sans: ['"Public Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        heading: ['"Public Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
       },
       borderRadius: {
+        'xs': '2px',
         'lg': '10px',
         'xl': '14px',
         '2xl': '18px',
         '3xl': '24px',
       },
+      scale: {
+        '102': '1.02',
+      },
+      backdropBlur: {
+        'xs': '2px',
+      },
       boxShadow: {
+        'xs': '0 1px 2px 0 rgba(0, 0, 0, 0.04)',
         'subtle': '0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02)',
         'card': '0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03)',
         'card-hover': '0 16px 36px -4px rgba(0, 102, 255, 0.12), 0 6px 16px -2px rgba(15, 23, 42, 0.06)',

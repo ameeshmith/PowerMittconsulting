@@ -33,7 +33,7 @@ export default function Industries() {
             subtitle="Each sector presents unique power stability and grid compliance challenges. Our specialist expertise ensures dependable delivery."
           />
 
-          <div className="industries-grid">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {industries.map((ind) => (
               <IndustryCard
                 key={ind.id}
@@ -41,7 +41,6 @@ export default function Industries() {
                 title={ind.title}
                 description={ind.shortDescription}
                 slug={ind.slug}
-                capabilities={ind.technologies}
                 bgImage={ind.bgImage}
               />
             ))}

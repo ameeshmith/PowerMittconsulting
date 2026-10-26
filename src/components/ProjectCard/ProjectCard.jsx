@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapPin, CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
+import { CheckCircle2, ChevronDown, ChevronUp } from 'lucide-react';
 import { getAssetUrl } from '../../utils/assetPath';
 import './ProjectCard.css';
 
@@ -68,9 +68,7 @@ export default function ProjectCard({
   description,
   fullText,
   highlights,
-  technologies, 
   stage, 
-  date = '2024–2025',
   schematicType,
   image
 }) {
@@ -97,16 +95,11 @@ export default function ProjectCard({
       )}
 
       <div className="project-card__body">
-        <div className="project-card__meta">
-          {!image && <span className="project-card__badge">{industry || 'Engineering'}</span>}
-          {location && (
-            <span className="project-card__location">
-              <MapPin size={12} className="project-card__location-icon" />
-              {location}
-            </span>
-          )}
-          <span className="project-card__date">{date}</span>
-        </div>
+        {!image && (
+          <div className="project-card__meta">
+            <span className="project-card__badge">{industry || 'Engineering'}</span>
+          </div>
+        )}
 
         <h3 className="project-card__title">{title}</h3>
         <p className="project-card__desc">{description}</p>
@@ -141,14 +134,6 @@ export default function ProjectCard({
                 <p>{fullText}</p>
               </div>
             )}
-          </div>
-        )}
-
-        {technologies && technologies.length > 0 && (
-          <div className="project-card__techs">
-            {technologies.map((t, i) => (
-              <span key={i} className="project-card__tech">{t}</span>
-            ))}
           </div>
         )}
       </div>

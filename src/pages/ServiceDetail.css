@@ -1,6 +1,6 @@
 /* ============================================
-   Shared Service Detail Page Styles — Light Architecture
-   Strict Typography: Be Vietnam Pro & Plus Jakarta Sans
+   Shared Service Detail Page Styles — Industrial Authority
+   Strict Typography: Public Sans
    ============================================ */
 
 .service-detail__intro {
@@ -8,60 +8,75 @@
   grid-template-columns: 1.4fr 0.6fr;
   gap: var(--space-12);
   align-items: start;
+  padding: 3.5rem 0;
 }
 
 .service-detail__intro-text h2 {
-  font-family: 'Be Vietnam Pro', sans-serif !important;
-  font-size: clamp(1.8rem, 3.2vw, 2.4rem);
-  font-weight: 700;
-  margin-bottom: var(--space-4);
+  font-family: var(--font-heading) !important;
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 0.85rem;
   color: #0F172A;
 }
 
 .service-detail__intro-text p {
-  font-family: 'Be Vietnam Pro', sans-serif !important;
-  font-size: var(--text-base);
-  line-height: var(--leading-relaxed);
-  color: #475569;
+  font-family: var(--font-body) !important;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #334155;
+  margin-bottom: 1.25rem;
+  font-weight: 400;
+}
+
+.service-detail__intro-text p strong {
+  color: #0F172A;
+  font-weight: 700;
 }
 
 .service-detail__sidebar {
-  background: #FFFFFF;
+  background: #F8FAFC;
   border: 1px solid #E2E8F0;
-  border-radius: var(--radius-xl);
-  padding: var(--space-6);
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 14px;
+  padding: 1.75rem 1.85rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .service-detail__sidebar:hover {
-  transform: translateY(-3px);
-  background: #FFFFFF;
-  border-color: #BAE6FD;
-  box-shadow: 0 16px 36px -4px rgba(2, 132, 199, 0.12);
+  border-color: #CBD5E1;
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.08);
 }
 
 .service-detail__sidebar h4 {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: var(--text-base);
+  font-family: var(--font-heading) !important;
+  font-size: 1.125rem;
   font-weight: 700;
-  margin-bottom: var(--space-4);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.15rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid #E2E8F0;
   color: #0F172A;
 }
 
 .service-detail__sidebar ul {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: 0.85rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .service-detail__sidebar li {
-  font-family: 'Be Vietnam Pro', sans-serif !important;
-  font-size: var(--text-sm);
+  font-family: var(--font-body) !important;
+  font-size: 0.9375rem;
   color: #334155;
-  padding-left: var(--space-5);
+  padding-left: 1.45rem;
   position: relative;
   font-weight: 500;
+  line-height: 1.5;
 }
 
 .service-detail__sidebar li::before {
@@ -71,8 +86,8 @@
   top: 7px;
   width: 6px;
   height: 6px;
-  border-radius: 50%;
-  background: #0284C7;
+  border-radius: 1.5px;
+  background: #00A3E0;
 }
 
 .service-detail__capabilities {
@@ -82,36 +97,40 @@
 }
 
 .service-detail__cap-group h3 {
-  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-family: var(--font-heading) !important;
   font-size: var(--text-lg);
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   color: #0F172A;
   margin-bottom: var(--space-4);
   padding-bottom: var(--space-3);
-  border-bottom: 2px solid #0284C7;
+  border-bottom: 2px solid #00A3E0;
 }
 
 .service-detail__cap-group ul {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: 0.85rem;
 }
 
 .service-detail__cap-group li {
-  font-family: 'Be Vietnam Pro', sans-serif !important;
-  font-size: var(--text-sm);
-  color: #475569;
-  padding-left: var(--space-5);
+  font-family: var(--font-body) !important;
+  font-size: 0.9375rem;
+  color: #334155;
+  padding-left: 1.45rem;
   position: relative;
-  line-height: var(--leading-normal);
+  line-height: 1.6;
 }
 
 .service-detail__cap-group li::before {
-  content: '—';
+  content: '';
   position: absolute;
   left: 0;
-  color: #0284C7;
-  font-weight: bold;
+  top: 9px;
+  width: 6px;
+  height: 6px;
+  border-radius: 1.5px;
+  background: #00A3E0;
 }
 
 .service-detail__visual {

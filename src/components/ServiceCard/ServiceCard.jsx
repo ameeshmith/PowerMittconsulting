@@ -1,48 +1,51 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Zap, Sun, Factory, HardHat, Shield } from 'lucide-react';
-import './ServiceCard.css';
+import { ArrowRight } from 'lucide-react';
 
-const iconMap = {
-  Zap, Sun, Factory, HardHat, Shield
+const serviceSpecs = {
+  'power-systems': 'PRACTICE // REF: EPS-01',
+  'energy-transition': 'PRACTICE // REF: RES-02',
+  'carbon-capture': 'PRACTICE // REF: CCS-03',
+  'industrial-infrastructure': 'PRACTICE // REF: IMP-04',
+  'owners-engineering': 'PRACTICE // REF: EPC-05'
 };
 
-// Map each service to either green (energy transition/sustainability) or blue (power systems/mining)
-const sectorThemeMap = {
-  'power-systems': 'blue',
-  'energy-transition': 'green',
-  'carbon-capture': 'green',
-  'industrial-infrastructure': 'blue',
-  'owners-engineering': 'blue'
-};
-
-export default function ServiceCard({ number, title, description, capabilities, icon, slug }) {
-  const Icon = iconMap[icon] || Zap;
-  const serviceKey = slug?.split('/services/')[1] || 'power-systems';
-  const sectorTheme = sectorThemeMap[serviceKey] || (icon === 'Sun' || icon === 'Factory' ? 'green' : 'blue');
+export default function ServiceCard({ id, number, title, description, slug }) {
+  const serviceKey = id || slug?.split('/services/')[1] || 'power-systems';
+  const specRef = serviceSpecs[serviceKey] || `PRACTICE // REF: ${number || '01'}`;
 
   return (
-    <Link to={slug} className={`service-card service-card--${sectorTheme}`}>
-      <div className="service-card__top">
-        <div className={`service-card__icon-wrap service-card__icon-wrap--${sectorTheme}`}>
-          <Icon size={22} />
+    <Link 
+      to={slug} 
+      className="group bg-white border border-slate-200 hover:border-sky-500 rounded-xl p-6 shadow-xs hover:shadow-md transition-all flex flex-col justify-between h-full"
+    >
+      <div>
+        {/* Top row */}
+        <div className="flex items-center justify-between mb-3">
+          <span className="font-mono text-xs font-semibold text-slate-500 uppercase tracking-wider">
+            {specRef}
+          </span>
+          <span className="text-slate-400 group-hover:text-sky-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-sm font-bold">
+            ↗
+          </span>
         </div>
+
+        {/* Title */}
+        <h3 className="text-lg font-bold text-slate-900 group-hover:text-sky-950 transition-colors font-heading tracking-tight">
+          {title}
+        </h3>
+
+        {/* Body Description */}
+        <p className="text-sm text-slate-600 leading-relaxed mt-2 mb-5 font-body">
+          {description}
+        </p>
       </div>
 
-      <div className="service-card__body">
-        <h3 className="service-card__title font-display">{title}</h3>
-        <p className="service-card__desc">{description}</p>
-        
-        {capabilities && capabilities.length > 0 && (
-          <ul className={`service-card__caps service-card__caps--${sectorTheme}`}>
-            {capabilities.slice(0, 4).map((cap, i) => (
-              <li key={i}>{cap}</li>
-            ))}
-          </ul>
-        )}
-
-        <span className={`service-card__link service-card__link--${sectorTheme}`}>
-          DISCOVER CAPABILITIES <ArrowRight size={14} className="service-card__arrow" />
-        </span>
+      {/* Bottom Action Button */}
+      <div className="pt-4 mt-auto border-t border-slate-100">
+        <div className="w-full py-2.5 px-4 rounded-lg bg-slate-50 text-slate-800 group-hover:bg-sky-600 group-hover:text-white transition-all text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-2 border border-slate-200 group-hover:border-sky-600 shadow-xs">
+          <span>Explore Service</span>
+          <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+        </div>
       </div>
     </Link>
   );

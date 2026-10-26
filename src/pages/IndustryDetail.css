@@ -1,7 +1,101 @@
 /* ============================================
-   Shared Industry Detail Styles — Light Architecture
-   Strict Typography: Be Vietnam Pro & Plus Jakarta Sans
+   Shared Industry Detail Styles — Industrial Authority
+   Strict Typography: Public Sans
    ============================================ */
+
+.service-detail__intro {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: var(--space-12);
+  align-items: start;
+  padding: 3.5rem 0;
+}
+
+.service-detail__intro-text h2 {
+  font-family: var(--font-heading) !important;
+  font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 0.85rem;
+  color: #0F172A;
+}
+
+.service-detail__intro-text p {
+  font-family: var(--font-body) !important;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #334155;
+  margin-bottom: 1.25rem;
+  font-weight: 400;
+}
+
+.service-detail__intro-text p strong {
+  color: #0F172A;
+  font-weight: 700;
+}
+
+.service-detail__sidebar {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 14px;
+  padding: 1.75rem 1.85rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-detail__sidebar:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.08);
+}
+
+.service-detail__sidebar h4 {
+  font-family: var(--font-heading) !important;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.15rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid #E2E8F0;
+  color: #0F172A;
+}
+
+.service-detail__sidebar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-detail__sidebar li {
+  font-family: var(--font-body) !important;
+  font-size: 0.9375rem;
+  color: #334155;
+  padding-left: 1.45rem;
+  position: relative;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.service-detail__sidebar li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 1.5px;
+  background: #00A3E0;
+}
+
+@media (max-width: 1024px) {
+  .service-detail__intro {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
 
 .industry-detail__challenges {
   display: grid;
@@ -35,7 +129,7 @@
 }
 
 .industry-detail__challenge p {
-  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-family: var(--font-body) !important;
   font-size: var(--text-sm);
   color: #334155;
   margin: 0;
@@ -51,23 +145,23 @@
 
 .industry-detail__service-card {
   padding: 1.65rem;
-  background: #FFFFFF;
+  background: #F8FAFC;
   border: 1px solid #E2E8F0;
   border-radius: var(--radius-xl);
   text-decoration: none;
-  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   transition: all var(--duration-base) var(--ease-out);
 }
 
 .industry-detail__service-card:hover {
-  border-color: #BAE6FD;
+  border-color: #CBD5E1;
   background: #FFFFFF;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px -4px rgba(2, 132, 199, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px -2px rgba(15, 23, 42, 0.08);
 }
 
 .industry-detail__service-card h3 {
-  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-family: var(--font-heading) !important;
   font-size: var(--text-base);
   font-weight: 700;
   color: #0F172A;
@@ -80,7 +174,7 @@
 }
 
 .industry-detail__service-card p {
-  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-family: var(--font-body) !important;
   font-size: var(--text-sm);
   color: #475569;
   margin: 0;
@@ -95,7 +189,7 @@
 }
 
 .industry-detail__tech-tag {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-family: var(--font-body) !important;
   font-size: var(--text-xs);
   font-weight: 700;
   padding: 6px 14px;

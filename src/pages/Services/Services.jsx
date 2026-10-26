@@ -33,15 +33,14 @@ export default function Services() {
             subtitle="Specialist engineering advisory supporting clients across heavy industry, mining resources, and utility-scale grids."
           />
 
-          <div className="services-grid">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s) => (
               <ServiceCard
                 key={s.id}
+                id={s.id}
                 number={s.number}
                 title={s.title}
                 description={s.description}
-                capabilities={s.capabilities}
-                icon={s.icon}
                 slug={s.slug}
               />
             ))}

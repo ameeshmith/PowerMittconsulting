@@ -43,11 +43,13 @@
 }
 
 .footer__logo {
-  height: 48px;
+  height: 56px;
   width: auto;
-  max-width: 230px;
+  max-width: 280px;
   object-fit: contain;
   display: block;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .footer__tagline {

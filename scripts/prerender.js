@@ -64,7 +64,7 @@ const routes = [
     image: `${SITE_URL}/assets/images/og-preview.jpg`,
     type: 'website',
     heading: 'Engineering Rigour for Complex Power Challenges',
-    content: 'Founded by Dinesh Mithanthaya (Principal Power Engineer, 20+ years specialist experience), PowerMitt delivers independent technical leadership, due diligence, and high-voltage power engineering.'
+    content: 'Led by Dinesh Mithanthaya (Principal Power Engineer) and Anuja (Strategic Engineering Advisor), PowerMitt delivers independent technical leadership, due diligence, and high-voltage power engineering across Australia.'
   },
   {
     path: '/services',

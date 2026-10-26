@@ -1,16 +1,7 @@
-import { Link } from 'react-router-dom';
-import { AlertTriangle } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
-import SectionHeader from '../../components/SectionHeader/SectionHeader';
-import Timeline from '../../components/Timeline/Timeline';
 import CTABanner from '../../components/CTABanner/CTABanner';
-import { industries } from '../../data/industries';
-import { services, engineeringLifecycle } from '../../data/services';
 import '../IndustryDetail.css';
-
-const ind = industries.find(i => i.id === 'energy-utilities');
-const relatedServices = services.filter(s => ind.relatedServices.includes(s.id));
 
 export default function EnergyUtilities() {
   return (
@@ -57,62 +48,8 @@ export default function EnergyUtilities() {
         </div>
       </section>
 
-      {/* Utility Capabilities Grid */}
-      <section className="section--ice">
-        <div className="container">
-          <SectionHeader label="Expertise" title="Key Areas of Expertise" subtitle="Comprehensive power industry and grid compliance capabilities delivering optimised, regulatory-compliant solutions." />
-          <div className="industry-detail__challenges" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
-            {ind.capabilities.map((cap, i) => (
-              <div key={i} className="industry-detail__challenge" style={{ borderLeft: '3px solid var(--color-green)' }}>
-                <p style={{ fontWeight: 600, color: 'var(--color-midnight)', margin: 0 }}>{cap}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section--ice">
-        <div className="container">
-          <SectionHeader label="Challenges" title="Energy Sector Engineering Challenges" />
-          <div className="industry-detail__challenges">
-            {ind.challenges.map((c, i) => (
-              <div key={i} className="industry-detail__challenge">
-                <AlertTriangle size={18} className="industry-detail__challenge-icon" />
-                <p>{c}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section--dark">
-        <div className="container">
-          <SectionHeader label="Relevant Services" title="How PowerMitt Supports Energy Projects" light />
-          <div className="industry-detail__services">
-            {relatedServices.map(s => (
-              <Link key={s.id} to={s.slug} className="industry-detail__service-card">
-                <h3>{s.title}</h3>
-                <p>{s.shortDescription}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="container">
-          <SectionHeader label="Technologies" title="Energy Technologies" />
-          <div className="industry-detail__techs">
-            {ind.technologies.map((t, i) => <span key={i} className="industry-detail__tech-tag">{t}</span>)}
-          </div>
-          <div style={{ marginTop: '3rem' }}>
-            <SectionHeader label="Engineering Lifecycle" title="Full Project Lifecycle Support" align="center" />
-            <Timeline stages={engineeringLifecycle} />
-          </div>
-        </div>
-      </section>
-
       <CTABanner title="Have an Energy Project?" subtitle="Talk to us about your grid connection or renewable energy requirements." variant="teal" />
     </main>
   );
 }
+

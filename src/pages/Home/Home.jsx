@@ -1,11 +1,9 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Zap, Sun, Factory, HardHat, Shield, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import CTABanner from '../../components/CTABanner/CTABanner';
-import SpotlightCard from '../../components/UI/SpotlightCard';
 import DarkHalftoneBackground from '../../components/UI/DarkHalftoneBackground';
 import { industries } from '../../data/industries';
 import { getAssetUrl } from '../../utils/assetPath';
@@ -18,72 +16,7 @@ const heroStats = [
   { value: 'National', label: 'Perth, WA HQ', subtext: 'Australia-Wide Delivery' }
 ];
 
-const coreCapabilities = [
-  {
-    id: '01',
-    title: 'Electrical Power Systems',
-    desc: 'Comprehensive power system studies, HV/LV distribution design, substation engineering & grid connection compliance.',
-    link: '/services/power-systems',
-    icon: Zap,
-    category: 'grid',
-    theme: 'blue',
-    tag: 'Grid & Transmission',
-    isLead: true,
-    highlights: [
-      'Grid connection compliance (AEMO, WEM & NSP rules)',
-      'Load flow, fault level, arc flash & harmonic studies',
-      'HV/MV substation design & protection coordination',
-      'PSS/E, PowerFactory (DIgSILENT) & PSCAD models'
-    ]
-  },
-  {
-    id: '02',
-    title: 'Renewable Energy & Storage',
-    desc: 'Utility-scale Solar PV, BESS integration, wind, hydrogen, and industrial electrification strategies within grid constraints.',
-    link: '/services/energy-transition',
-    icon: Sun,
-    category: 'transition',
-    theme: 'green',
-    tag: 'Renewables & Storage'
-  },
-  {
-    id: '03',
-    title: 'Carbon Capture & Storage (CCS)',
-    desc: 'Specialist electrical engineering for mega-compressor motor drives, medium-voltage VSD topologies & power infrastructure.',
-    link: '/services/carbon-capture',
-    icon: Factory,
-    category: 'transition',
-    theme: 'green',
-    tag: 'Clean Transition'
-  },
-  {
-    id: '04',
-    title: 'Industrial & Mining Power',
-    desc: 'Underground & open-pit mining power distribution, mineral processing design, trailing cables, and brownfield upgrades.',
-    link: '/services/industrial-infrastructure',
-    icon: HardHat,
-    category: 'industry',
-    theme: 'blue',
-    tag: 'Heavy Industry'
-  },
-  {
-    id: '05',
-    title: "Owner's Engineering & EPC Delivery",
-    desc: 'Independent technical due diligence, design verification, value engineering & EPC delivery support across major capital projects.',
-    link: '/services/owners-engineering',
-    icon: Shield,
-    category: 'advisory',
-    theme: 'blue',
-    tag: 'Advisory & EPC Delivery'
-  }
-];
-
 export default function Home() {
-  const [activeCategory, setActiveCategory] = useState('all');
-
-  const filteredCapabilities = activeCategory === 'all'
-    ? coreCapabilities
-    : coreCapabilities.filter(c => c.category === activeCategory);
 
   return (
     <main className="home-page">
@@ -103,153 +36,9 @@ export default function Home() {
           </>
         }
         subtitle="PowerMitt delivers independent electrical power systems, grid compliance, and energy transition engineering for heavy industry, mining, and utility grids across Australia. 30+ years of high-calibre technical leadership."
-        primaryCTA="Start a Project"
-        primaryLink="/contact"
         stats={heroStats}
         useNebula={true}
       />
-
-      {/* === CAPABILITIES SHOWCASE (Epiko Filter Pills & Serial Cards) === */}
-      <section className="home-services">
-        <DarkHalftoneBackground />
-        <div className="container relative z-10">
-          <div className="home-services__header-row">
-            <div className="home-services__title-block">
-              <h2 className="home-services__title">
-                Core Capabilities & Services
-              </h2>
-              <p className="home-services__subtitle">
-                Five core specialisations de-risking high-voltage power systems, heavy industrial assets, and modern renewable energy grids across Australia.
-              </p>
-            </div>
-
-            {/* Filter Pills */}
-            <div className="home-services__filters" role="group" aria-label="Filter capabilities">
-              <button
-                type="button"
-                className={`epiko-filter-pill ${activeCategory === 'all' ? 'epiko-filter-pill--active' : ''}`}
-                onClick={() => setActiveCategory('all')}
-              >
-                All Services
-              </button>
-              <button
-                type="button"
-                className={`epiko-filter-pill ${activeCategory === 'grid' ? 'epiko-filter-pill--active' : ''}`}
-                onClick={() => setActiveCategory('grid')}
-              >
-                Grid & Power
-              </button>
-              <button
-                type="button"
-                className={`epiko-filter-pill ${activeCategory === 'transition' ? 'epiko-filter-pill--active-green' : ''}`}
-                onClick={() => setActiveCategory('transition')}
-              >
-                Energy Transition
-              </button>
-              <button
-                type="button"
-                className={`epiko-filter-pill ${activeCategory === 'industry' ? 'epiko-filter-pill--active' : ''}`}
-                onClick={() => setActiveCategory('industry')}
-              >
-                Heavy Industry
-              </button>
-            </div>
-          </div>
-
-          <div className={`home-services__grid ${activeCategory === 'all' ? 'home-services__grid--lead' : 'home-services__grid--filtered'}`}>
-            {filteredCapabilities.map((cap) => {
-              const Icon = cap.icon;
-              const isGreen = cap.theme === 'green';
-              const isLead = activeCategory === 'all' && cap.isLead;
-
-              if (isLead) {
-                return (
-                  <SpotlightCard
-                    key={cap.id}
-                    as={Link}
-                    to={cap.link}
-                    spotlightColor="rgba(31, 95, 214, 0.08)"
-                    borderColor="rgba(31, 95, 214, 0.3)"
-                    className="epiko-capability-card epiko-capability-card--lead"
-                  >
-                    <div className="epiko-capability-card__lead-body">
-                      <div className="epiko-capability-card__top">
-                        <span className="epiko-capability-card__tag epiko-capability-card__tag--lead">
-                          Core Specialisation
-                        </span>
-                        <div className="epiko-capability-card__icon-box epiko-capability-card__icon-box--lead">
-                          <Icon size={22} />
-                        </div>
-                      </div>
-
-                      <h3 className="epiko-capability-card__title epiko-capability-card__title--lead">
-                        {cap.title}
-                      </h3>
-                      <p className="epiko-capability-card__desc epiko-capability-card__desc--lead">
-                        {cap.desc}
-                      </p>
-
-                      {cap.highlights && (
-                        <ul className="epiko-capability-card__highlights">
-                          {cap.highlights.map((item, idx) => (
-                            <li key={idx} className="epiko-capability-card__highlight-item">
-                              <CheckCircle2 size={15} className="text-[#1F5FD6] shrink-0" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-
-                    <div className="epiko-capability-card__footer epiko-capability-card__footer--lead">
-                      <span>Learn more</span>
-                      <ArrowRight size={15} className="epiko-arrow" />
-                    </div>
-                  </SpotlightCard>
-                );
-              }
-
-              return (
-                <SpotlightCard
-                  key={cap.id}
-                  as={Link}
-                  to={cap.link}
-                  spotlightColor={isGreen ? 'rgba(5, 150, 105, 0.08)' : 'rgba(31, 95, 214, 0.08)'}
-                  borderColor={isGreen ? 'rgba(5, 150, 105, 0.25)' : 'rgba(31, 95, 214, 0.25)'}
-                  className={`epiko-capability-card ${isGreen ? 'epiko-capability-card--green' : ''}`}
-                >
-                  <div className="epiko-capability-card__top">
-                    <span className={`epiko-capability-card__tag ${isGreen ? 'epiko-capability-card__tag--green' : ''}`}>
-                      {cap.tag}
-                    </span>
-                    <div className={`epiko-capability-card__icon-box ${isGreen ? 'epiko-capability-card__icon-box--green' : ''}`}>
-                      <Icon size={19} />
-                    </div>
-                  </div>
-
-                  <h3 className="epiko-capability-card__title">
-                    {cap.title}
-                  </h3>
-                  <p className="epiko-capability-card__desc">
-                    {cap.desc}
-                  </p>
-
-                  <div className="epiko-capability-card__footer">
-                    <span>Learn more</span>
-                    <ArrowRight size={14} className="epiko-arrow" />
-                  </div>
-                </SpotlightCard>
-              );
-            })}
-          </div>
-
-          <div className="home-services__footer text-center">
-            <Link to="/services" className="epiko-outline-btn">
-              View Complete Services Directory <ArrowRight size={14} />
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* === ABOUT / ENGINEERING RIGOUR SECTION === */}
       <section className="home-about">

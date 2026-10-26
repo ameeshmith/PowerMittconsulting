@@ -113,9 +113,55 @@ h6 {
 p {
   font-family: var(--font-body);
   margin-bottom: var(--space-4);
-  color: var(--color-steel);
+  color: #334155; /* text-slate-700 high-contrast charcoal */
   line-height: var(--leading-relaxed);
   font-size: var(--text-base);
+  font-weight: 400;
+}
+
+strong,
+b {
+  font-weight: 700;
+  color: #0F172A;
+}
+
+/* ── Industrial Authority Eyebrow & Accents ── */
+.label,
+.eyebrow-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem; /* 12px */
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+  color: #64748B; /* text-slate-500 */
+  margin-bottom: 0.75rem;
+}
+
+.label::before,
+.eyebrow-tag::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background-color: #00A3E0; /* bold cyan accent */
+  border-radius: 1.5px; /* small square badge indicator */
+  flex-shrink: 0;
+}
+
+.label--teal::before {
+  background-color: var(--color-green);
+}
+
+.divider {
+  width: 44px;
+  height: 3px;
+  background-color: #00A3E0;
+  border: none;
+  margin: 0.85rem 0 1.5rem;
+  border-radius: 1px;
 }
 
 a {
@@ -142,7 +188,7 @@ ol {
 
 button {
   cursor: pointer;
-  font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+  font-family: var(--font-body) !important;
   border: none;
   background: none;
 }
@@ -150,7 +196,7 @@ button {
 input,
 textarea,
 select {
-  font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+  font-family: var(--font-body) !important;
   font-size: var(--text-base);
 }
 
@@ -238,7 +284,7 @@ section.section--navy p {
   justify-content: center;
   gap: 0.5rem;
   padding: 10px 24px;
-  font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+  font-family: var(--font-body) !important;
   font-size: var(--text-sm);
   font-weight: 600;
   letter-spacing: 0.01em;
