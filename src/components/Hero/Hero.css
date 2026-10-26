@@ -599,9 +599,11 @@
 }
 
 @media (max-width: 768px) {
-  .hero-modern {
+  .hero-modern,
+  .hero-modern--compact,
+  .hero-modern--editorial {
     min-height: auto;
-    padding: 5rem 0 2rem;
+    padding: 5.5rem 0 2.5rem;
   }
 
   .hero-modern__title {

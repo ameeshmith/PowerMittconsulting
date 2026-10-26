@@ -1,10 +1,12 @@
-import { useRef, useCallback, useEffect } from 'react';
+import { useRef, useCallback, useEffect, lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, UserCheck } from 'lucide-react';
 import { getAssetUrl } from '../../utils/assetPath';
 import InteractiveGridCanvas from '../UI/InteractiveGridCanvas';
-import NebulaHeroCanvas from '../UI/NebulaHeroCanvas';
 import './Hero.css';
+
+// Lazy-load Three.js Nebula canvas so the ~530kB 3D library is only fetched when needed on landing page (Issue #38)
+const NebulaHeroCanvas = lazy(() => import('../UI/NebulaHeroCanvas'));
 
 export default function Hero({
   badge,
@@ -59,7 +61,9 @@ export default function Hero({
     >
       {/* Dynamic Background: WebGL Nebula on Landing Page, Interactive Grid on other pages */}
       {hasNebula ? (
-        <NebulaHeroCanvas />
+        <Suspense fallback={null}>
+          <NebulaHeroCanvas />
+        </Suspense>
       ) : (
         <>
           <InteractiveGridCanvas />
