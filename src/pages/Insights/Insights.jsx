@@ -59,22 +59,24 @@ export default function Insights() {
 
       <section className="insights-hub">
         <div className="container">
-          {/* Controls Bar: Category Filters */}
-          <div className="insights-controls reveal">
-            <div className="insights-categories" role="tablist">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  role="tab"
-                  aria-selected={selectedCategory === cat}
-                  className={`insights-category-pill ${selectedCategory === cat ? 'active' : ''}`}
-                  onClick={() => setSelectedCategory(cat)}
-                >
-                  {cat}
-                </button>
-              ))}
+          {/* Controls Bar: Category Filters (Shown when articles exist) */}
+          {articlesList.length > 0 && (
+            <div className="insights-controls reveal">
+              <div className="insights-categories" role="tablist">
+                {categories.map((cat) => (
+                  <button
+                    key={cat}
+                    role="tab"
+                    aria-selected={selectedCategory === cat}
+                    className={`insights-category-pill ${selectedCategory === cat ? 'active' : ''}`}
+                    onClick={() => setSelectedCategory(cat)}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Loading State */}
           {loading && (
@@ -83,8 +85,22 @@ export default function Insights() {
             </div>
           )}
 
-          {/* No Results State */}
-          {!loading && filteredArticles.length === 0 && (
+          {/* Empty State: No articles published yet */}
+          {!loading && articlesList.length === 0 && (
+            <div className="insights-empty reveal">
+              <BookOpen size={48} className="insights-empty__icon" />
+              <h3>Technical Perspectives Coming Soon</h3>
+              <p>Our engineering leadership is currently preparing in-depth technical analyses, case studies, and industry perspectives. Check back soon or connect directly with our advisory team.</p>
+              <div style={{ marginTop: '1.5rem' }}>
+                <Link to="/contact" className="btn btn--primary">
+                  Start a Conversation <ArrowRight size={15} />
+                </Link>
+              </div>
+            </div>
+          )}
+
+          {/* Empty Filter State: Category has no matches */}
+          {!loading && articlesList.length > 0 && filteredArticles.length === 0 && (
             <div className="insights-empty reveal">
               <BookOpen size={40} className="insights-empty__icon" />
               <h3>No articles found</h3>

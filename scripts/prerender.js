@@ -181,43 +181,7 @@ const routes = [
     image: `${SITE_URL}/assets/images/og-preview.jpg`,
     type: 'website',
     heading: 'Engineering Insights & Technical Knowledge',
-    content: 'In-depth engineering articles on utility BESS harmonic compliance, weak-grid stability, remote mine microgrids, and mega-compressor electrical topologies.'
-  },
-  {
-    path: '/insights/bess-grid-compliance-harmonics',
-    title: 'Grid Compliance & Power Quality Challenges in Large-Scale BESS Connections | PowerMitt Insights',
-    description: 'Practical strategies for managing harmonic distortion, voltage stability, and NEM/WEM connection standards in utility battery storage.',
-    image: `${SITE_URL}/assets/images/renewable-bess-bg.jpg`,
-    type: 'article',
-    heading: 'Grid Compliance & Power Quality Challenges in Large-Scale BESS Connections',
-    content: 'Connecting multi-megawatt Battery Energy Storage Systems (BESS) to Australian transmission and distribution networks requires navigating rigorous Generator Performance Standards (GPS) and complex power quality constraints. Written by Dinesh Mithanthaya.'
-  },
-  {
-    path: '/insights/owners-engineering-industrial-decarbonisation',
-    title: 'The Critical Role of Owner\'s Engineering in Industrial Decarbonisation | PowerMitt Insights',
-    description: 'How independent technical verification protects capital investment and ensures operational continuity in complex electrification projects.',
-    image: `${SITE_URL}/assets/images/owners-engineering-bg.jpg`,
-    type: 'article',
-    heading: 'The Critical Role of Owner\'s Engineering in Industrial Decarbonisation',
-    content: 'As heavy industry and mining operations transition from fossil fuels to electrified power systems, independent Owner\'s Engineering provides the technical due diligence necessary to derisk multi-million dollar investments. Written by Dinesh Mithanthaya.'
-  },
-  {
-    path: '/insights/remote-mining-microgrids-electrification',
-    title: 'Electrification of Remote Mining Infrastructure: Overcoming Network Constraints | PowerMitt Insights',
-    description: 'Engineering high-penetration renewable microgrids and heavy electric haulage charging systems in isolated mining environments.',
-    image: `${SITE_URL}/assets/images/mining-bg.jpg`,
-    type: 'article',
-    heading: 'Electrification of Remote Mining Infrastructure: Overcoming Network Constraints',
-    content: 'Remote mine sites are transitioning from diesel generators to high-penetration hybrid microgrids. We examine the electrical power system architecture needed to support megawatt-scale haul truck charging and process plant reliability. Written by Dinesh Mithanthaya.'
-  },
-  {
-    path: '/insights/carbon-capture-electrical-engineering',
-    title: 'Carbon Capture & Storage: Electrical Engineering Considerations for Mega-Compressors | PowerMitt Insights',
-    description: 'Key technical factors in high-voltage motor selection, VSD drive topologies, and substation design for commercial CCS facilities.',
-    image: `${SITE_URL}/assets/images/carbon-capture-bg.jpg`,
-    type: 'article',
-    heading: 'Carbon Capture & Storage: Electrical Engineering Considerations for Mega-Compressors',
-    content: 'Commercial-scale Carbon Capture and Storage (CCS) projects involve massive high-voltage motor drives operating in dense industrial facilities. Key technical factors in motor selection, VSD drive topologies, and substation design. Written by Dinesh Mithanthaya.'
+    content: 'Specialist engineering insights on electrical power systems, grid compliance (NEM/WEM), battery storage, and Owner\'s Engineering.'
   },
   {
     path: '/contact',
