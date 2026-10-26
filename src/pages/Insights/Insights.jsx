@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, Calendar, Clock, ArrowRight, Tag, BookOpen } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, Tag, BookOpen } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
 import CTABanner from '../../components/CTABanner/CTABanner';
@@ -14,7 +14,6 @@ import './Insights.css';
 export default function Insights() {
   const [articlesList, setArticlesList] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
 
   useScrollReveal([articlesList.length]);
@@ -34,18 +33,10 @@ export default function Insights() {
   }, []);
 
   const filteredArticles = useMemo(() => {
-    const queryLower = searchQuery.toLowerCase().trim();
     return articlesList.filter(article => {
-      const matchesCategory = selectedCategory === 'All' || article.category === selectedCategory;
-      const matchesSearch = queryLower === '' || 
-        (article.title?.toLowerCase().includes(queryLower) ?? false) ||
-        (article.subtitle?.toLowerCase().includes(queryLower) ?? false) ||
-        (article.excerpt?.toLowerCase().includes(queryLower) ?? false) ||
-        (article.content?.toLowerCase().includes(queryLower) ?? false) ||
-        (Array.isArray(article.tags) && article.tags.some(t => t?.toLowerCase().includes(queryLower)));
-      return matchesCategory && matchesSearch;
+      return selectedCategory === 'All' || article.category === selectedCategory;
     });
-  }, [articlesList, selectedCategory, searchQuery]);
+  }, [articlesList, selectedCategory]);
 
   const featuredArticle = filteredArticles.length > 0 ? filteredArticles[0] : null;
   const standardArticles = filteredArticles.length > 1 ? filteredArticles.slice(1) : [];
@@ -68,29 +59,8 @@ export default function Insights() {
 
       <section className="insights-hub">
         <div className="container">
-          {/* Controls Bar: Search & Category Filters */}
+          {/* Controls Bar: Category Filters */}
           <div className="insights-controls reveal">
-            <div className="insights-search">
-              <Search size={18} className="insights-search__icon" />
-              <input
-                type="text"
-                placeholder="Search topics, keywords (e.g. BESS, Harmonics, Due Diligence)..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="insights-search__input"
-                aria-label="Search articles"
-              />
-              {searchQuery && (
-                <button
-                  className="insights-search__clear"
-                  onClick={() => setSearchQuery('')}
-                  aria-label="Clear search"
-                >
-                  ✕
-                </button>
-              )}
-            </div>
-
             <div className="insights-categories" role="tablist">
               {categories.map((cat) => (
                 <button
@@ -118,12 +88,12 @@ export default function Insights() {
             <div className="insights-empty reveal">
               <BookOpen size={40} className="insights-empty__icon" />
               <h3>No articles found</h3>
-              <p>No engineering insights match your current search or category filter.</p>
+              <p>No engineering insights match your selected category filter.</p>
               <button
                 className="btn btn--outline"
-                onClick={() => { setSelectedCategory('All'); setSearchQuery(''); }}
+                onClick={() => setSelectedCategory('All')}
               >
-                Reset Filters
+                Reset Filter
               </button>
             </div>
           )}

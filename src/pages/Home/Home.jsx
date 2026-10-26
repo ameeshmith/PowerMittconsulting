@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
@@ -70,12 +70,6 @@ export default function Home() {
                   <span>Deep Australian grid connection (AEMO / WEM / NSP) governance</span>
                 </div>
               </div>
-
-              <div className="home-about__action">
-                <Link to="/about" className="epiko-pill-btn-blue">
-                  About Dinesh & PowerMitt <ArrowRight size={14} />
-                </Link>
-              </div>
             </div>
 
             <div className="home-about__media">
@@ -143,10 +137,6 @@ export default function Home() {
                   <div className="home-industries__panel">
                     <h3 className="home-industries__title">{ind.title}</h3>
                     <p className="home-industries__desc">{ind.shortDescription}</p>
-                    <div className="home-industries__link">
-                      <span>Explore Sector</span>
-                      <ArrowRight size={14} className="epiko-arrow" />
-                    </div>
                   </div>
                 </Link>
               );
