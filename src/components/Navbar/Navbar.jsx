@@ -11,14 +11,18 @@ export default function Navbar() {
   const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 600);
+    const onScroll = () => {
+      const threshold = window.innerWidth <= 768 ? 60 : 600;
+      setScrolled(window.scrollY > threshold);
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close drawer on page navigation
+  // Close drawer and reset scroll state on page navigation
   useEffect(() => {
     setMobileOpen(false);
+    setScrolled(false);
     document.body.style.overflow = '';
   }, [location.pathname]);
 
@@ -39,7 +43,6 @@ export default function Navbar() {
     return location.pathname.startsWith(path);
   };
 
-  const isHome = location.pathname === '/' || location.pathname === '';
   const isLight = scrolled;
 
   return (
