@@ -549,12 +549,12 @@
 }
 
 .hero-modern__stat-value {
-  font-family: var(--font-serif) !important;
-  font-style: italic !important;
-  font-size: clamp(1.8rem, 2.5vw, 2.35rem);
-  font-weight: 400;
+  font-family: var(--font-heading);
+  font-style: normal;
+  font-size: clamp(1.65rem, 2.3vw, 2.15rem);
+  font-weight: 700;
   color: #FFFFFF;
-  line-height: 1;
+  line-height: 1.1;
   letter-spacing: -0.02em;
   transition: color 0.25s ease;
 }
