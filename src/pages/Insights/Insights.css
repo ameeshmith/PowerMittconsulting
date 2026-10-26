@@ -336,24 +336,38 @@
 
 /* ── Empty State ── */
 .insights-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: var(--space-16) 0;
+  padding: 4.5rem 1rem;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
 .insights-empty__icon {
-  color: #64748B;
-  margin-bottom: var(--space-4);
+  display: block;
+  margin: 0 auto 1.25rem;
+  color: #0284C7;
+  opacity: 0.85;
 }
 
 .insights-empty h3 {
-  font-size: var(--text-xl);
-  margin-bottom: var(--space-2);
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
   color: #0F172A;
+  line-height: 1.25;
 }
 
 .insights-empty p {
   color: #475569;
-  margin-bottom: var(--space-6);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 540px;
+  margin: 0 auto 1.5rem;
 }
 
 /* ── Responsive ── */
