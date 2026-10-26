@@ -46,23 +46,16 @@ export default function Navbar() {
     <header className={`navbar-modern ${isLight ? 'navbar-modern--light' : ''} ${scrolled ? 'navbar-modern--scrolled' : ''} ${mobileOpen ? 'navbar-modern--open' : ''}`}>
       <div className="navbar-modern__container">
         {/* Brand — Dynamic Logo for Hero vs Scrolled Light Navbar */}
-        {/* Brand — Dynamic Logo for Hero vs Scrolled Light Navbar */}
         <Link to="/" className="navbar-modern__brand" onClick={() => setMobileOpen(false)} aria-label="PowerMitt Consulting Home">
           <img
-            src={getAssetUrl('/assets/images/logo-light.svg')}
-            srcSet={`${getAssetUrl('/assets/images/logo-light.svg')} 1x, ${getAssetUrl('/assets/images/logo-light-4k.png')} 2x`}
+            src={getAssetUrl('/assets/images/logo-light.png')}
             alt="PowerMitt Consulting"
             className="navbar-modern__logo navbar-modern__logo--light"
-            width="250"
-            height="70"
           />
           <img
-            src={getAssetUrl('/assets/images/logo-dark.svg')}
-            srcSet={`${getAssetUrl('/assets/images/logo-dark.svg')} 1x, ${getAssetUrl('/assets/images/logo-dark-4k.png')} 2x`}
+            src={getAssetUrl('/assets/images/logo-dark.png')}
             alt="PowerMitt Consulting"
             className="navbar-modern__logo navbar-modern__logo--dark"
-            width="250"
-            height="70"
           />
         </Link>
 

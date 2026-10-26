@@ -165,13 +165,11 @@
 }
 
 .navbar-modern__logo {
-  height: 64px;
+  height: 56px;
   width: auto;
-  max-width: 320px;
+  max-width: 260px;
   object-fit: contain;
   display: block;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
