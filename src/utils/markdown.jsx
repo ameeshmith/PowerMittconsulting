@@ -33,8 +33,8 @@ export function renderInlineMarkdown(text) {
     if (linkMatch) {
       const [, label, rawHref] = linkMatch;
       const href = rawHref.trim();
-      // Security: validate that href begins with safe protocols (prevent javascript: or data: URIs)
-      const isSafe = /^(https?:\/\/|\/|mailto:)/i.test(href);
+      // Security: validate that href begins with safe protocols (prevent javascript:, data:, or protocol-relative schemes)
+      const isSafe = /^(https?:\/\/|\/|mailto:|tel:)/i.test(href) && !href.startsWith('//');
       if (!isSafe) {
         return part;
       }
