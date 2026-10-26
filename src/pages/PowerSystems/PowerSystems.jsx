@@ -1,10 +1,103 @@
-import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { 
+  Activity, 
+  ShieldAlert, 
+  ShieldCheck, 
+  Zap, 
+  Sliders, 
+  Radio, 
+  Building2, 
+  Cpu, 
+  GitBranch, 
+  BatteryCharging, 
+  Network, 
+  CheckCircle2, 
+  FileCheck, 
+  Layers 
+} from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import CTABanner from '../../components/CTABanner/CTABanner';
 import '../ServiceDetail.css';
+
+const powerSystemStudies = [
+  {
+    icon: <Activity size={26} />,
+    title: 'Load Flow & Network Modeling',
+    desc: 'Steady-state voltage regulation, active/reactive power dispatch, and thermal loading simulations to identify constraints and optimise asset utilisation.'
+  },
+  {
+    icon: <ShieldAlert size={26} />,
+    title: 'Short Circuit & Fault Analysis',
+    desc: 'Comprehensive symmetrical and asymmetrical fault current calculations (IEC 60909 / ANSI) to verify switchgear withstand ratings and duty cycles.'
+  },
+  {
+    icon: <ShieldCheck size={26} />,
+    title: 'Protection Coordination & Arc Flash',
+    desc: 'Relay setting grading, discrimination reviews, and IEEE 1584 arc flash hazard assessments to protect personnel and prevent cascading outages.'
+  },
+  {
+    icon: <Zap size={26} />,
+    title: 'Motor Starting & Dynamic Stability',
+    desc: 'Direct-on-line (DOL) and VSD starting impact analysis, transient stability simulations, and critical clearing time evaluation under severe system disturbances.'
+  },
+  {
+    icon: <Sliders size={26} />,
+    title: 'Harmonic & Power Quality Analysis',
+    desc: 'Harmonic distortion simulations, resonant frequency identification, and active/passive filter design in strict accordance with IEEE 519 standards.'
+  },
+  {
+    icon: <Radio size={26} />,
+    title: 'AEMO & WEM Grid Compliance',
+    desc: 'Generator Performance Standards (GPS) assessments, utility interface modeling, and compliance studies for high-voltage transmission and distribution networks.'
+  }
+];
+
+const powerSystemDesign = [
+  {
+    icon: <Building2 size={26} />,
+    title: 'HV & MV Substation Engineering',
+    desc: 'Primary layout design, switchyard architecture, equipment specification, earthing grids, and lightning protection systems.'
+  },
+  {
+    icon: <Cpu size={26} />,
+    title: 'Switchgear & MCC Specification',
+    desc: 'Detailed engineering for primary/secondary switchboards, motor control centres (MCCs), and variable speed drive integration.'
+  },
+  {
+    icon: <GitBranch size={26} />,
+    title: 'Cabling & Reticulation Architecture',
+    desc: 'Cable sizing, tray routing, voltage drop mitigation, and duct bank design for complex heavy industrial facilities.'
+  },
+  {
+    icon: <BatteryCharging size={26} />,
+    title: 'Emergency Power & UPS Systems',
+    desc: 'Standby diesel/gas generation, static UPS sizing, transfer schemes, and continuous power solutions for critical operational loads.'
+  }
+];
+
+const gridIntegrationCapabilities = [
+  {
+    icon: <Network size={26} />,
+    title: 'Utility Grid Interconnection Studies',
+    desc: 'Grid connection applications, interface coordination, network planning, and statutory submissions across NEM and WEM networks.'
+  },
+  {
+    icon: <CheckCircle2 size={26} />,
+    title: 'Protection, Control & SCADA',
+    desc: 'Utility-grade protection schemes, telemetry, remote monitoring, and automated synchronisation architecture.'
+  },
+  {
+    icon: <FileCheck size={26} />,
+    title: 'Statutory Compliance & Submissions',
+    desc: 'Preparation and engineering sign-off for NSP technical negotiations, regulatory filings, and connection agreements.'
+  },
+  {
+    icon: <Layers size={26} />,
+    title: 'EPC Delivery & Scope Optimisation',
+    desc: 'Independent engineering support helping EPC contractors de-risk scopes and deliver compliant turnkey installations.'
+  }
+];
 
 export default function PowerSystems() {
   return (
@@ -64,37 +157,18 @@ export default function PowerSystems() {
             title="Power System Studies"
             subtitle="Advanced electrical network analysis and simulation to optimise engineering design, validate operational performance, and ensure statutory compliance."
           />
-          <div className="service-detail__capabilities">
-            <div className="service-detail__cap-group">
-              <h3>Analysis & Studies</h3>
-              <ul>
-                <li>Load flow analysis</li>
-                <li>Short circuit analysis</li>
-                <li>Motor starting studies</li>
-                <li>Protection coordination studies</li>
-                <li>Harmonic analysis</li>
-                <li>Arc flash hazard assessment</li>
-                <li>Power quality analysis</li>
-                <li>Transient stability studies</li>
-              </ul>
-            </div>
-            <div className="service-detail__cap-group">
-              <h3>Compliance & Performance</h3>
-              <ul>
-                <li>Grid compliance studies</li>
-                <li>Generator performance studies</li>
-                <li>Voltage regulation analysis</li>
-                <li>Capacitor bank sizing</li>
-                <li>Cable sizing and voltage drop</li>
-                <li>Earthing system design verification</li>
-                <li>Relay setting calculations</li>
-                <li>Protection system reviews</li>
-              </ul>
-            </div>
+          <div className="service-detail__cards-grid">
+            {powerSystemStudies.map((study, i) => (
+              <div key={i} className="service-detail__card">
+                <div className="service-detail__card-icon">{study.icon}</div>
+                <h3>{study.title}</h3>
+                <p>{study.desc}</p>
+              </div>
+            ))}
           </div>
 
           {/* Technical visual */}
-          <div className="service-detail__visual">
+          <div className="service-detail__visual" style={{ marginTop: '2.5rem' }}>
             <svg width="600" height="120" viewBox="0 0 600 120" fill="none" xmlns="http://www.w3.org/2000/svg">
               {/* Single-line diagram representation */}
               <line x1="50" y1="60" x2="150" y2="60" stroke="#19B5D8" strokeWidth="2"/>
@@ -130,31 +204,14 @@ export default function PowerSystems() {
             title="Power System Design"
             subtitle="Electrical infrastructure design for industrial facilities, from primary distribution through to end-use equipment."
           />
-          <div className="service-detail__capabilities">
-            <div className="service-detail__cap-group">
-              <h3>Distribution & Equipment</h3>
-              <ul>
-                <li>HV and LV distribution design</li>
-                <li>Substation design and specification</li>
-                <li>Switchgear selection and specification</li>
-                <li>Transformer specification</li>
-                <li>Motor Control Centre (MCC) design</li>
-                <li>Cable system design</li>
-                <li>Earthing and lightning protection</li>
-              </ul>
-            </div>
-            <div className="service-detail__cap-group">
-              <h3>Generation & Supply</h3>
-              <ul>
-                <li>Generation system design</li>
-                <li>Standby and emergency power</li>
-                <li>UPS system specification</li>
-                <li>Power factor correction</li>
-                <li>Variable speed drive selection</li>
-                <li>Electrical equipment specifications</li>
-                <li>Single-line diagram development</li>
-              </ul>
-            </div>
+          <div className="service-detail__cards-grid service-detail__cards-grid--2col">
+            {powerSystemDesign.map((item, i) => (
+              <div key={i} className="service-detail__card">
+                <div className="service-detail__card-icon">{item.icon}</div>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -167,29 +224,14 @@ export default function PowerSystems() {
             title="Grid Integration"
             subtitle="Connecting industrial facilities and generation assets to the electricity grid."
           />
-          <div className="service-detail__capabilities">
-            <div className="service-detail__cap-group">
-              <h3>Utility Grid Connection & Planning</h3>
-              <ul>
-                <li>Utility grid connection studies & interface management</li>
-                <li>Transmission & distribution network planning</li>
-                <li>Grid compliance assessments (AEMO / WEM)</li>
-                <li>Power quality & network stability studies</li>
-                <li>Renewable energy integration to utility networks</li>
-                <li>Electrical network expansion & augmentation projects</li>
-              </ul>
-            </div>
-            <div className="service-detail__cap-group">
-              <h3>Substations, Protection & EPC Delivery</h3>
-              <ul>
-                <li>HV and MV substations engineering</li>
-                <li>Protection & control systems, synchronisation system design</li>
-                <li>SCADA & communication systems</li>
-                <li>Power system reliability & availability studies</li>
-                <li>HV statutory submissions</li>
-                <li>Support EPC companies with optimised scope solutions</li>
-              </ul>
-            </div>
+          <div className="service-detail__cards-grid service-detail__cards-grid--2col">
+            {gridIntegrationCapabilities.map((item, i) => (
+              <div key={i} className="service-detail__card">
+                <div className="service-detail__card-icon">{item.icon}</div>
+                <h3>{item.title}</h3>
+                <p>{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

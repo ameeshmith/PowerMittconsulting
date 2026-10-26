@@ -151,12 +151,114 @@
   gap: var(--space-6);
 }
 
+/* ── Service Detail Capability Cards Grid ── */
+.service-detail__cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+.service-detail__card {
+  padding: 1.75rem 1.6rem;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: var(--radius-xl);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.service-detail__card:hover {
+  border-color: #0284C7;
+  box-shadow: 0 12px 28px -4px rgba(2, 132, 199, 0.12), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+  transform: translateY(-3px);
+}
+
+.service-detail__card-icon {
+  color: #0284C7;
+  margin-bottom: 1.15rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #F0F9FF;
+  border: 1px solid #E0F2FE;
+}
+
+.service-detail__card h3 {
+  font-family: var(--font-heading) !important;
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  margin-bottom: 0.65rem;
+  color: #0F172A;
+  line-height: 1.35;
+}
+
+.service-detail__card p {
+  font-family: var(--font-body) !important;
+  font-size: 0.925rem;
+  line-height: 1.6;
+  margin: 0;
+  color: #475569;
+  flex: 1;
+}
+
+.service-detail__cards-grid--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.service-detail__cards-grid--4col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.service-detail__card-points {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.service-detail__card-points li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #475569;
+}
+
+.service-detail__card-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0284C7;
+}
+
 @media (max-width: 1024px) {
   .service-detail__intro { grid-template-columns: 1fr; }
   .service-detail__capabilities { grid-template-columns: 1fr; }
   .service-detail__related { grid-template-columns: repeat(2, 1fr); }
+  .service-detail__cards-grid { grid-template-columns: repeat(2, 1fr); }
+  .service-detail__cards-grid--4col { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
   .service-detail__related { grid-template-columns: 1fr; }
+  .service-detail__cards-grid--2col { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 640px) {
+  .service-detail__cards-grid { grid-template-columns: 1fr; }
+  .service-detail__cards-grid--4col { grid-template-columns: 1fr; }
+}
+

@@ -1,8 +1,78 @@
+import { 
+  ShieldCheck, 
+  FileCheck, 
+  Briefcase, 
+  GitMerge, 
+  TrendingUp, 
+  Award, 
+  Layers, 
+  CheckCircle2 
+} from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import CTABanner from '../../components/CTABanner/CTABanner';
 import '../ServiceDetail.css';
+
+const ownersEngineeringCapabilities = [
+  {
+    icon: <ShieldCheck size={26} />,
+    title: 'Independent Design Verification',
+    desc: 'Rigorous third-party engineering review of contractor deliverables, single-line diagrams, and equipment specifications to validate code compliance and operational fitness.'
+  },
+  {
+    icon: <FileCheck size={26} />,
+    title: 'Technical Due Diligence & Feasibility',
+    desc: 'Unbiased technical audits, asset condition assessments, and technical risk scoring to support project financing, mergers, acquisitions, and major capital allocations.'
+  },
+  {
+    icon: <Briefcase size={26} />,
+    title: 'Vendor Technical Evaluation & FAT',
+    desc: 'Detailed bid evaluations, supplier pre-qualification, technical query management, and factory acceptance test (FAT) representation worldwide.'
+  },
+  {
+    icon: <GitMerge size={26} />,
+    title: 'Interface & Multi-Discipline Risk Management',
+    desc: 'Proactive interface coordination between grid utilities, engineering contractors, and OEM suppliers to eliminate scope gaps and schedule friction.'
+  },
+  {
+    icon: <TrendingUp size={26} />,
+    title: 'EPC Scope & Capital Value Engineering',
+    desc: 'Technical scope definition, design rationalisation, and CAPEX value engineering that protects long-term reliability while removing unnecessary cost.'
+  },
+  {
+    icon: <Award size={26} />,
+    title: 'Commissioning & Handover Assurance',
+    desc: 'On-site energisation oversight, punch-item resolution, regulatory compliance documentation verification, and seamless operational handover.'
+  }
+];
+
+const epcDeliveryCapabilities = [
+  {
+    icon: <Layers size={24} />,
+    title: 'Design & Technical Assurance',
+    color: '#00F5FF',
+    items: [
+      'Scope definition and capital cost optimisation',
+      'Technical assurance and independent design reviews',
+      'Value engineering and lifecycle expenditure rationalisation',
+      'Electrical system architecture & single-line development',
+      'Equipment selection and comprehensive technical bid evaluations'
+    ]
+  },
+  {
+    icon: <CheckCircle2 size={24} />,
+    title: 'Project Execution & Commissioning',
+    color: '#00D084',
+    items: [
+      'Interface management and multi-discipline stakeholder coordination',
+      'Constructability, operability, and safety-in-design reviews',
+      'Technical risk identification, quantification, and mitigation',
+      'Engineering support across Concept, FEED, Detailed Design & FAT',
+      'Optimised solutions strictly aligned with scope, schedule, and budget'
+    ]
+  }
+];
 
 export default function OwnersEngineering() {
   return (
@@ -13,8 +83,15 @@ export default function OwnersEngineering() {
         path="/services/owners-engineering"
         image="/assets/images/owners-engineering-bg.jpg"
       />
-      <Hero variant="service" bgImage="/assets/images/owners-engineering-bg.jpg" label="Services / Owner's Engineering" title="Owner's Engineering" subtitle="Independent technical advisory services for asset owners — providing due diligence, design verification, vendor evaluation, and project execution support." />
+      <Hero
+        variant="service"
+        bgImage="/assets/images/owners-engineering-bg.jpg"
+        label="Services / Owner's Engineering"
+        title="Owner's Engineering"
+        subtitle="Independent technical advisory services for asset owners — providing due diligence, design verification, vendor evaluation, and project execution support."
+      />
 
+      {/* Section 1: Overview */}
       <section>
         <div className="container">
           <div className="service-detail__intro">
@@ -40,39 +117,27 @@ export default function OwnersEngineering() {
         </div>
       </section>
 
+      {/* Section 2: Owner's Engineering Capability Cards */}
       <section className="section--ice">
         <div className="container">
-          <SectionHeader label="Services" title="Owner's Engineering Capabilities" />
-          <div className="service-detail__capabilities">
-            <div className="service-detail__cap-group">
-              <h3>Due Diligence & Review</h3>
-              <ul>
-                <li>Technical due diligence</li>
-                <li>Independent engineering review</li>
-                <li>Design verification and validation</li>
-                <li>Basis of design review</li>
-                <li>Technical specifications review</li>
-                <li>Compliance assessment</li>
-                <li>Code and standards compliance checks</li>
-              </ul>
-            </div>
-            <div className="service-detail__cap-group">
-              <h3>Vendor & Risk Management</h3>
-              <ul>
-                <li>Vendor evaluation and selection support</li>
-                <li>Technical bid evaluation</li>
-                <li>Risk identification and assessment</li>
-                <li>Risk mitigation strategy development</li>
-                <li>Technical negotiation support</li>
-                <li>Interface management</li>
-                <li>Scope of work development</li>
-              </ul>
-            </div>
+          <SectionHeader
+            label="Services"
+            title="Owner's Engineering Capabilities"
+            subtitle="Objective, rigorous technical advisory that safeguards capital investments and operational integrity."
+          />
+          <div className="service-detail__cards-grid">
+            {ownersEngineeringCapabilities.map((cap, i) => (
+              <div key={i} className="service-detail__card">
+                <div className="service-detail__card-icon">{cap.icon}</div>
+                <h3>{cap.title}</h3>
+                <p>{cap.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* EPC Project Delivery Support (dmithanthaya Capability) */}
+      {/* Section 3: EPC Project Delivery Support */}
       <section className="section--dark">
         <div className="container">
           <SectionHeader
@@ -81,32 +146,42 @@ export default function OwnersEngineering() {
             subtitle="Specialist engineering and technical advisory services to EPC contractors — delivering projects safely, efficiently, and cost-effectively."
             light
           />
-          <div className="service-detail__capabilities" style={{ marginTop: '2rem' }}>
-            <div className="service-detail__cap-group" style={{ background: 'rgba(255,255,255,0.04)', borderColor: 'rgba(255,255,255,0.1)' }}>
-              <h3 style={{ color: 'var(--color-cyan)' }}>Design & Technical Assurance</h3>
-              <ul>
-                <li>Scope definition and scope optimisation</li>
-                <li>Technical assurance and independent design reviews</li>
-                <li>Value engineering and capital cost optimisation</li>
-                <li>Electrical system architecture development</li>
-                <li>Equipment selection and technical bid evaluations</li>
-              </ul>
-            </div>
-            <div className="service-detail__cap-group" style={{ background: 'rgba(255,255,255,0.04)', borderColor: 'rgba(255,255,255,0.1)' }}>
-              <h3 style={{ color: 'var(--color-green)' }}>Project Execution & Commissioning</h3>
-              <ul>
-                <li>Interface management and multi-discipline stakeholder coordination</li>
-                <li>Constructability and operability reviews</li>
-                <li>Risk identification, quantification and mitigation</li>
-                <li>Support across Concept, FEED, Detailed Design & Commissioning</li>
-                <li>Optimised solutions strictly aligned with scope, schedule and budget</li>
-              </ul>
-            </div>
+          <div className="service-detail__cards-grid service-detail__cards-grid--2col" style={{ marginTop: '2.5rem' }}>
+            {epcDeliveryCapabilities.map((group, i) => (
+              <div 
+                key={i} 
+                className="service-detail__card"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.04)',
+                  borderColor: 'rgba(255, 255, 255, 0.12)',
+                  color: '#FFFFFF'
+                }}
+              >
+                <div 
+                  className="service-detail__card-icon"
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.08)',
+                    borderColor: 'rgba(255, 255, 255, 0.15)',
+                    color: group.color
+                  }}
+                >
+                  {group.icon}
+                </div>
+                <h3 style={{ color: group.color, marginBottom: '1.25rem' }}>{group.title}</h3>
+                <ul className="service-detail__card-points">
+                  {group.items.map((point, idx) => (
+                    <li key={idx} style={{ color: 'rgba(241, 245, 249, 0.85)' }}>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Value-Driven Engineering */}
+      {/* Section 4: Value-Driven Engineering */}
       <section>
         <div className="container">
           <SectionHeader

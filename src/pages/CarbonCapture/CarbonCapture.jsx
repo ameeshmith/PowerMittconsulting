@@ -1,8 +1,74 @@
+import { 
+  Cpu, 
+  Sliders, 
+  FileText, 
+  Network, 
+  Activity, 
+  ShieldCheck, 
+  Clock, 
+  CheckCircle2 
+} from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import CTABanner from '../../components/CTABanner/CTABanner';
 import '../ServiceDetail.css';
+
+const ccsCapabilities = [
+  {
+    icon: <Cpu size={26} />,
+    title: 'Large Compressor Drive Systems',
+    desc: 'Electrical engineering, motor selection, and equipment specifications for multi-megawatt CO₂ compression trains and export booster stations.'
+  },
+  {
+    icon: <Sliders size={26} />,
+    title: 'Multi-Level VSD & Soft Starting',
+    desc: 'Drive topology selection, starting current limitation, and harmonic mitigation for massive compressor motor starting under weak network conditions.'
+  },
+  {
+    icon: <FileText size={26} />,
+    title: 'FEED & Detailed Electrical Design',
+    desc: 'End-to-end electrical design deliverable packages from front-end engineering design (FEED) through to single-lines, cable schedules, and layouts.'
+  },
+  {
+    icon: <Network size={26} />,
+    title: 'High-Voltage Grid Interconnections',
+    desc: 'Utility connection studies, network capacity evaluations, and substation design required to reliably power energy-intensive carbon capture units.'
+  },
+  {
+    icon: <Activity size={26} />,
+    title: 'Power System & Starting Dynamics',
+    desc: 'Transient stability and voltage sag modeling during large compressor acceleration to protect plant reliability and prevent network tripping.'
+  },
+  {
+    icon: <ShieldCheck size={26} />,
+    title: 'Hazardous Area & Safety Compliance',
+    desc: 'Hazardous area classification, Ex equipment qualification, earthing, and strict compliance with AS/NZS and IEC safety standards.'
+  }
+];
+
+const ccsLifecycle = [
+  {
+    icon: <Clock size={24} />,
+    phase: 'Early Phase & Screening',
+    items: [
+      'Technical feasibility assessment & technology screening',
+      'Power demand estimation & connection capacity evaluation',
+      'Grid connection pre-assessment with network service providers',
+      'Motor starting methodology & drive architecture comparison'
+    ]
+  },
+  {
+    icon: <CheckCircle2 size={24} />,
+    phase: 'FEED & Detailed Design',
+    items: [
+      'Comprehensive electrical FEED deliverable packages',
+      'Detailed single-line diagrams, substation layouts & schematics',
+      'Vendor technical bid evaluations & FAT attendance',
+      'Commissioning oversight, energisation & operational handover'
+    ]
+  }
+];
 
 export default function CarbonCapture() {
   return (
@@ -13,7 +79,13 @@ export default function CarbonCapture() {
         path="/services/carbon-capture"
         image="/assets/images/carbon-capture-bg.jpg"
       />
-      <Hero variant="service" bgImage="/assets/images/carbon-capture-bg.jpg" label="Services / Carbon Capture & Storage" title="Carbon Capture & Storage Engineering" subtitle="Specialist electrical engineering supporting CCS projects — from large compressor drive systems and grid connections through to FEED and detailed design." />
+      <Hero
+        variant="service"
+        bgImage="/assets/images/carbon-capture-bg.jpg"
+        label="Services / Carbon Capture & Storage"
+        title="Carbon Capture & Storage Engineering"
+        subtitle="Specialist electrical engineering supporting CCS projects — from large compressor drive systems and grid connections through to FEED and detailed design."
+      />
 
       <section>
         <div className="container">
@@ -41,60 +113,66 @@ export default function CarbonCapture() {
         </div>
       </section>
 
+      {/* Capabilities Section */}
       <section className="section--ice">
         <div className="container">
-          <SectionHeader label="Capabilities" title="CCS Electrical Engineering Services" />
-          <div className="service-detail__capabilities">
-            <div className="service-detail__cap-group">
-              <h3>Engineering & Design</h3>
-              <ul>
-                <li>Electrical engineering support for CCS facilities</li>
-                <li>Large compressor drive system engineering</li>
-                <li>VSD and soft-starter selection for large motors</li>
-                <li>Grid connection studies and applications</li>
-                <li>Power system studies for CCS loads</li>
-                <li>Equipment selection and specification</li>
-                <li>Electrical single-line diagram development</li>
-              </ul>
-            </div>
-            <div className="service-detail__cap-group">
-              <h3>Technical Evaluation & Interfaces</h3>
-              <ul>
-                <li>Technical evaluation of CCS technologies</li>
-                <li>FEED electrical engineering</li>
-                <li>Detailed electrical design</li>
-                <li>Utility interface coordination</li>
-                <li>Stakeholder interface management</li>
-                <li>Risk assessment and mitigation</li>
-                <li>Vendor technical evaluation</li>
-              </ul>
-            </div>
+          <SectionHeader
+            label="Capabilities"
+            title="CCS Electrical Engineering Services"
+            subtitle="Specialist engineering across large-scale motor drives, power infrastructure, and grid connections for carbon capture."
+          />
+          <div className="service-detail__cards-grid">
+            {ccsCapabilities.map((cap, i) => (
+              <div key={i} className="service-detail__card">
+                <div className="service-detail__card-icon">{cap.icon}</div>
+                <h3>{cap.title}</h3>
+                <p>{cap.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
+      {/* Project Lifecycle Section */}
       <section className="section--dark">
         <div className="container">
-          <SectionHeader label="Project Lifecycle" title="CCS Engineering Support Across All Phases" light />
-          <div className="service-detail__capabilities">
-            <div className="service-detail__cap-group">
-              <h3 style={{ color: '#fff', borderColor: '#19B5D8' }}>Early Phase</h3>
-              <ul>
-                <li style={{ color: 'rgba(245,248,250,0.65)' }}>Technical feasibility assessment</li>
-                <li style={{ color: 'rgba(245,248,250,0.65)' }}>Power demand estimation</li>
-                <li style={{ color: 'rgba(245,248,250,0.65)' }}>Grid connection pre-assessment</li>
-                <li style={{ color: 'rgba(245,248,250,0.65)' }}>Technology comparison</li>
-              </ul>
-            </div>
-            <div className="service-detail__cap-group">
-              <h3 style={{ color: '#fff', borderColor: '#19B5D8' }}>FEED & Detailed Design</h3>
-              <ul>
-                <li style={{ color: 'rgba(245,248,250,0.65)' }}>Electrical FEED deliverables</li>
-                <li style={{ color: 'rgba(245,248,250,0.65)' }}>Detailed electrical design packages</li>
-                <li style={{ color: 'rgba(245,248,250,0.65)' }}>Equipment procurement support</li>
-                <li style={{ color: 'rgba(245,248,250,0.65)' }}>Construction and commissioning support</li>
-              </ul>
-            </div>
+          <SectionHeader
+            label="Project Lifecycle"
+            title="CCS Engineering Support Across All Phases"
+            subtitle="From concept and preliminary connection studies through to turnkey execution and commissioning."
+            light
+          />
+          <div className="service-detail__cards-grid service-detail__cards-grid--2col" style={{ marginTop: '2.5rem' }}>
+            {ccsLifecycle.map((stage, i) => (
+              <div 
+                key={i} 
+                className="service-detail__card"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.04)',
+                  borderColor: 'rgba(255, 255, 255, 0.12)',
+                  color: '#FFFFFF'
+                }}
+              >
+                <div 
+                  className="service-detail__card-icon"
+                  style={{
+                    background: 'rgba(2, 132, 199, 0.15)',
+                    borderColor: 'rgba(2, 132, 199, 0.3)',
+                    color: '#38BDF8'
+                  }}
+                >
+                  {stage.icon}
+                </div>
+                <h3 style={{ color: '#FFFFFF', marginBottom: '1.25rem' }}>{stage.phase}</h3>
+                <ul className="service-detail__card-points">
+                  {stage.items.map((point, idx) => (
+                    <li key={idx} style={{ color: 'rgba(241, 245, 249, 0.85)' }}>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
