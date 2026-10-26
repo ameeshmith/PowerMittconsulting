@@ -28,7 +28,7 @@ import { categories } from '../../data/articles';
 import { getAssetUrl } from '../../utils/assetPath';
 import './Admin.css';
 
-// Pre-computed SHA-256 hash of author passcode ("powermitt2026").
+// Cryptographic SHA-256 digest comparison for author portal unlock.
 // Storing the cryptographic digest eliminates plaintext credential leakage in public client bundles (OWASP A01/A07).
 const DEFAULT_PASSCODE_HASH = 'dcec6dbb3ccc36972281e663f225a14c7bc4cdf86e82904fdf47cdca2cbf8c1e';
 const TARGET_PASSCODE_HASH = (import.meta.env.VITE_ADMIN_PASSCODE_HASH || DEFAULT_PASSCODE_HASH).trim().toLowerCase();
