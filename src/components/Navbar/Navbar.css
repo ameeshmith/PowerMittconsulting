@@ -102,9 +102,23 @@
   box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
 }
 
+.navbar-modern--light .navbar-modern__cta-btn:focus-visible,
+.navbar-modern--scrolled .navbar-modern__cta-btn:focus-visible {
+  outline: 2px solid #0284C7;
+  outline-offset: 3px;
+}
+
 .navbar-modern--light .navbar-modern__hamburger,
 .navbar-modern--scrolled .navbar-modern__hamburger {
   color: #0F172A;
+}
+
+.navbar-modern--light .navbar-modern__hamburger:focus-visible,
+.navbar-modern--scrolled .navbar-modern__hamburger:focus-visible,
+.navbar-modern--open .navbar-modern__hamburger:focus-visible {
+  outline: 2px solid #0284C7;
+  outline-offset: 2px;
+  background-color: #F1F5F9;
 }
 
 .navbar-modern--open {
@@ -131,12 +145,23 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  cursor: default;
+  cursor: pointer;
 }
 
 .navbar-modern__brand:hover {
   opacity: 1;
   transform: none;
+}
+
+.navbar-modern__brand:focus-visible {
+  outline: 2px solid var(--color-cyan, #38BDF8);
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+.navbar-modern--light .navbar-modern__brand:focus-visible,
+.navbar-modern--scrolled .navbar-modern__brand:focus-visible {
+  outline-color: #0284C7;
 }
 
 .navbar-modern__logo {
@@ -356,6 +381,12 @@
   box-shadow: 0 4px 14px rgba(31, 95, 214, 0.3);
 }
 
+.navbar-modern__cta-btn:focus-visible {
+  outline: 2px solid var(--color-cyan, #38BDF8);
+  outline-offset: 3px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
 .navbar-modern__hamburger {
   display: none;
   background: transparent;
@@ -372,7 +403,12 @@
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   user-select: none;
-  outline: none;
+}
+
+.navbar-modern__hamburger:focus-visible {
+  outline: 2px solid var(--color-cyan, #38BDF8);
+  outline-offset: 2px;
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 .navbar-modern__hamburger svg {
@@ -451,6 +487,12 @@
 .navbar-modern__mobile-link:hover,
 .navbar-modern__mobile-link--active {
   color: #0284C7;
+}
+
+.navbar-modern__mobile-link:focus-visible {
+  outline: 2px solid #0284C7;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .navbar-modern__mobile-expand-btn {
@@ -546,6 +588,11 @@
   text-decoration: none;
   box-shadow: 0 2px 8px rgba(31, 95, 214, 0.25);
   transition: all var(--duration-fast);
+}
+
+.navbar-modern__mobile-cta:focus-visible {
+  outline: 2px solid #0284C7;
+  outline-offset: 3px;
 }
 
 .navbar-modern__mobile-cta:active {
