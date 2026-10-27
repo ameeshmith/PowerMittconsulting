@@ -10,14 +10,26 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  // Main pages with continuous dark atmospheric canvas & background imagery
+  const darkCanvasRoutes = [
+    '/services',
+    '/industries',
+    '/projects',
+    '/insights',
+    '/contact'
+  ];
+  const isDarkCanvasPage = darkCanvasRoutes.includes(location.pathname);
+
   useEffect(() => {
     const onScroll = () => {
-      const threshold = window.innerWidth <= 768 ? 60 : 600;
+      const threshold = isDarkCanvasPage
+        ? 40
+        : (window.innerWidth <= 768 ? 60 : 600);
       setScrolled(window.scrollY > threshold);
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [isDarkCanvasPage]);
 
   // Close drawer and reset scroll state on page navigation
   useEffect(() => {
@@ -43,7 +55,8 @@ export default function Navbar() {
     return location.pathname.startsWith(path);
   };
 
-  const isLight = scrolled;
+  // Only transition to light mode when scrolled on pages that transition to white backgrounds (e.g. /about, /)
+  const isLight = scrolled && !isDarkCanvasPage;
 
   return (
     <header className={`navbar-modern ${isLight ? 'navbar-modern--light' : ''} ${scrolled ? 'navbar-modern--scrolled' : ''} ${mobileOpen ? 'navbar-modern--open' : ''}`}>

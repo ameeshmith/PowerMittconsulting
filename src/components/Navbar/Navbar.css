@@ -41,80 +41,76 @@
   transition: opacity 0.3s ease;
 }
 
-/* Light Theme State — Frosted Off-White Architectural Glass (for subpages and scrolled home) */
-.navbar-modern--light,
-.navbar-modern--scrolled {
-  background: rgba(255, 255, 255, 0.92);
+/* Light Theme State — Frosted Off-White Architectural Glass (for scrolled pages with white content like /about, /) */
+.navbar-modern--light {
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid #E2E8F0;
   box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.08);
 }
 
-.navbar-modern--light::after,
-.navbar-modern--scrolled::after {
+/* Scrolled Dark Canvas State — Aligns with the dark #0A0D14 page background & imagery */
+.navbar-modern--scrolled:not(.navbar-modern--light) {
+  background: rgba(10, 13, 20, 0.90);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.6);
+}
+
+.navbar-modern--light::after {
   opacity: 0;
 }
 
-.navbar-modern--light .navbar-modern__link,
-.navbar-modern--scrolled .navbar-modern__link {
+.navbar-modern--light .navbar-modern__link {
   color: #1E293B;
 }
 
 .navbar-modern--light .navbar-modern__link:hover,
-.navbar-modern--light .navbar-modern__link:focus-visible,
-.navbar-modern--scrolled .navbar-modern__link:hover,
-.navbar-modern--scrolled .navbar-modern__link:focus-visible {
+.navbar-modern--light .navbar-modern__link:focus-visible {
   color: #0284C7;
   background: #F1F5F9;
 }
 
-.navbar-modern--light .navbar-modern__link--active,
-.navbar-modern--scrolled .navbar-modern__link--active {
+.navbar-modern--light .navbar-modern__link--active {
   color: #0284C7;
   background: #E0F2FE;
   border-color: rgba(2, 132, 199, 0.25);
 }
 
-.navbar-modern--light .navbar-modern__link::after,
-.navbar-modern--scrolled .navbar-modern__link::after {
+.navbar-modern--light .navbar-modern__link::after {
   background: #0284C7;
   box-shadow: none;
 }
 
-.navbar-modern--light .navbar-modern__chevron,
-.navbar-modern--scrolled .navbar-modern__chevron {
+.navbar-modern--light .navbar-modern__chevron {
   color: #475569;
 }
 
-.navbar-modern--light .navbar-modern__cta-btn,
-.navbar-modern--scrolled .navbar-modern__cta-btn {
+.navbar-modern--light .navbar-modern__cta-btn {
   background: #0284C7;
   border: 1px solid #0284C7;
   color: #FFFFFF !important;
   box-shadow: 0 2px 10px rgba(2, 132, 199, 0.25);
 }
 
-.navbar-modern--light .navbar-modern__cta-btn:hover,
-.navbar-modern--scrolled .navbar-modern__cta-btn:hover {
+.navbar-modern--light .navbar-modern__cta-btn:hover {
   background: #0369A1;
   border-color: #0369A1;
   box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
 }
 
-.navbar-modern--light .navbar-modern__cta-btn:focus-visible,
-.navbar-modern--scrolled .navbar-modern__cta-btn:focus-visible {
+.navbar-modern--light .navbar-modern__cta-btn:focus-visible {
   outline: 2px solid #0284C7;
   outline-offset: 3px;
 }
 
-.navbar-modern--light .navbar-modern__hamburger,
-.navbar-modern--scrolled .navbar-modern__hamburger {
+.navbar-modern--light .navbar-modern__hamburger {
   color: #0F172A;
 }
 
 .navbar-modern--light .navbar-modern__hamburger:focus-visible,
-.navbar-modern--scrolled .navbar-modern__hamburger:focus-visible,
 .navbar-modern--open .navbar-modern__hamburger:focus-visible {
   outline: 2px solid #0284C7;
   outline-offset: 2px;
@@ -159,8 +155,7 @@
   border-radius: 6px;
 }
 
-.navbar-modern--light .navbar-modern__brand:focus-visible,
-.navbar-modern--scrolled .navbar-modern__brand:focus-visible {
+.navbar-modern--light .navbar-modern__brand:focus-visible {
   outline-color: #0284C7;
 }
 
@@ -181,13 +176,11 @@
   display: none;
 }
 
-.navbar-modern--light .navbar-modern__logo--light,
-.navbar-modern--scrolled .navbar-modern__logo--light {
+.navbar-modern--light .navbar-modern__logo--light {
   display: none;
 }
 
-.navbar-modern--light .navbar-modern__logo--dark,
-.navbar-modern--scrolled .navbar-modern__logo--dark {
+.navbar-modern--light .navbar-modern__logo--dark {
   display: block;
 }
 
