@@ -1,10 +1,5 @@
+import { Link } from 'react-router-dom';
 import { 
-  Cpu, 
-  Sliders, 
-  FileText, 
-  Network, 
-  Activity, 
-  ShieldCheck, 
   Compass, 
   Layers, 
   CheckCircle2 
@@ -14,39 +9,6 @@ import Hero from '../../components/Hero/Hero';
 import SectionHeader from '../../components/SectionHeader/SectionHeader';
 import CTABanner from '../../components/CTABanner/CTABanner';
 import '../ServiceDetail.css';
-
-const ccsCapabilities = [
-  {
-    icon: <Cpu size={26} />,
-    title: 'Large Compressor Drive Systems',
-    desc: 'Electrical engineering, motor selection, and equipment specifications for multi-megawatt CO₂ compression trains and export booster stations.'
-  },
-  {
-    icon: <Sliders size={26} />,
-    title: 'Multi-Level VSD & Soft Starting',
-    desc: 'Drive topology selection, starting current limitation, and harmonic mitigation for massive compressor motor starting under weak network conditions.'
-  },
-  {
-    icon: <FileText size={26} />,
-    title: 'FEED & Detailed Electrical Design',
-    desc: 'End-to-end electrical design deliverable packages from front-end engineering design (FEED) through to single-lines, cable schedules, and layouts.'
-  },
-  {
-    icon: <Network size={26} />,
-    title: 'High-Voltage Grid Interconnections',
-    desc: 'Utility connection studies, network capacity evaluations, and substation design required to reliably power energy-intensive carbon capture units.'
-  },
-  {
-    icon: <Activity size={26} />,
-    title: 'Power System & Starting Dynamics',
-    desc: 'Transient stability and voltage sag modeling during large compressor acceleration to protect plant reliability and prevent network tripping.'
-  },
-  {
-    icon: <ShieldCheck size={26} />,
-    title: 'Hazardous Area & Safety Compliance',
-    desc: 'Hazardous area classification, Ex equipment qualification, earthing, and strict compliance with AS/NZS and IEC safety standards.'
-  }
-];
 
 export default function CarbonCapture() {
   return (
@@ -91,22 +53,141 @@ export default function CarbonCapture() {
         </div>
       </section>
 
-      {/* Capabilities Section */}
+      {/* Capabilities Section — Asymmetric Bento Grid */}
       <section className="section--ice">
         <div className="container">
-          <SectionHeader
-            label="Capabilities"
-            title="CCS Electrical Engineering Services"
-            subtitle="Specialist engineering across large-scale motor drives, power infrastructure, and grid connections for carbon capture."
-          />
-          <div className="service-tech-grid">
-            {ccsCapabilities.map((cap, i) => (
-              <div key={i} className="service-tech-card">
-                <div className="service-tech-card__icon">{cap.icon}</div>
-                <h3>{cap.title}</h3>
-                <p>{cap.desc}</p>
+          <div id="layout-asymmetric">
+            <div className="mb-12">
+              <p className="text-xs font-mono font-bold uppercase tracking-widest text-brand-blue mb-2.5">
+                // SPECIALIST CAPABILITIES
+              </p>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-brand-navy leading-tight">
+                CCS Electrical Engineering Services
+              </h2>
+              <p className="mt-3 text-base sm:text-lg text-brand-body max-w-2xl">
+                Specialist engineering across large-scale motor drives, power infrastructure, and grid connections for carbon capture.
+              </p>
+            </div>
+
+            {/* Bento Grid Arrangement */}
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+              {/* Large Feature Card 01 (Span 7 cols) */}
+              <div className="md:col-span-7 bg-white border border-slate-200 border-t-2 border-t-brand-blue p-8 flex flex-col justify-between rounded-lg shadow-subtle transition-all duration-300 hover:shadow-card">
+                <div>
+                  <span className="font-mono text-sm font-bold text-brand-blue block mb-2">01 —</span>
+                  <h3 className="text-2xl font-bold text-brand-navy mb-3">Large Compressor Drive Systems</h3>
+                  <p className="text-base text-brand-body leading-relaxed max-w-md">
+                    Electrical engineering, motor selection, and equipment specifications for multi-megawatt CO₂ compression trains and export booster stations.
+                  </p>
+                </div>
+
+                <div className="mt-8 flex justify-center py-4 bg-slate-50/50 rounded border border-slate-100">
+                  <svg className="w-full max-w-md h-36" viewBox="0 0 320 120" fill="none">
+                    {/* Large Motor */}
+                    <rect x="30" y="35" width="60" height="50" rx="3" stroke="#0284c7" strokeWidth="2" fill="#f0f9ff" />
+                    <text x="60" y="65" fontFamily="Public Sans, sans-serif" fontSize="14" fontWeight="700" fill="#0284c7" textAnchor="middle">M</text>
+                    <text x="60" y="80" fontFamily="JetBrains Mono, monospace" fontSize="9" fill="#0284c7" textAnchor="middle">&gt;15 MW</text>
+                    {/* Heavy Shaft */}
+                    <line x1="90" y1="60" x2="130" y2="60" stroke="#0f172a" strokeWidth="3" />
+                    <rect x="105" y="52" width="8" height="16" fill="#0f172a" />
+                    {/* Compression Stage 1 */}
+                    <polygon points="130,25 190,40 190,80 130,95" stroke="#0284c7" strokeWidth="2" fill="#ffffff" />
+                    <text x="160" y="64" fontFamily="Public Sans, sans-serif" fontSize="11" fontWeight="700" fill="#0f172a" textAnchor="middle">STAGE 1</text>
+                    {/* Intercooler line */}
+                    <path d="M190 60 L220 60" stroke="#0f172a" strokeWidth="3" />
+                    {/* Booster Stage 2 */}
+                    <polygon points="220,32 270,44 270,76 220,88" stroke="#0284c7" strokeWidth="2" fill="#f0f9ff" />
+                    <text x="245" y="64" fontFamily="Public Sans, sans-serif" fontSize="10" fontWeight="700" fill="#0284c7" textAnchor="middle">BOOSTER</text>
+                  </svg>
+                </div>
+
+                <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4">
+                  <span className="text-xs font-mono text-slate-400">APPLICATION: SUPERCRITICAL CO₂</span>
+                  <Link to="/contact" className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-blue hover:underline">
+                    Explore service →
+                  </Link>
+                </div>
               </div>
-            ))}
+
+              {/* Stacked Right Cards (Span 5 cols) */}
+              <div className="md:col-span-5 flex flex-col gap-6">
+                {/* Card 02 */}
+                <div className="bg-white border border-slate-200 p-6 rounded-lg flex-1 flex flex-col justify-between shadow-subtle transition-all duration-300 hover:border-brand-blue hover:shadow-card">
+                  <div>
+                    <span className="font-mono text-sm font-bold text-brand-blue block mb-1">02 —</span>
+                    <h3 className="text-lg font-bold text-brand-navy">Multi-Level VSD &amp; Soft Starting</h3>
+                    <p className="mt-2 text-sm text-brand-body leading-relaxed">
+                      Drive topology selection, starting current limitation, and harmonic mitigation for massive compressor motor starting.
+                    </p>
+                  </div>
+                  <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3">
+                    <span className="text-xs font-mono text-slate-400">IEEE 519 COMPLIANT</span>
+                    <Link to="/contact" className="text-xs font-semibold text-brand-blue hover:underline">Explore service →</Link>
+                  </div>
+                </div>
+
+                {/* Card 03 */}
+                <div className="bg-white border border-slate-200 p-6 rounded-lg flex-1 flex flex-col justify-between shadow-subtle transition-all duration-300 hover:border-brand-blue hover:shadow-card">
+                  <div>
+                    <span className="font-mono text-sm font-bold text-brand-blue block mb-1">03 —</span>
+                    <h3 className="text-lg font-bold text-brand-navy">FEED &amp; Detailed Electrical Design</h3>
+                    <p className="mt-2 text-sm text-brand-body leading-relaxed">
+                      End-to-end electrical design deliverable packages from FEED through to single-lines, cable schedules, and layouts.
+                    </p>
+                  </div>
+                  <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3">
+                    <span className="text-xs font-mono text-slate-400">FULL EPC PACKAGES</span>
+                    <Link to="/contact" className="text-xs font-semibold text-brand-blue hover:underline">Explore service →</Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom 3 Column Cards */}
+              {/* Card 04 */}
+              <div className="md:col-span-4 bg-white border border-slate-200 p-6 rounded-lg flex flex-col justify-between shadow-subtle transition-all duration-300 hover:border-brand-blue hover:shadow-card">
+                <div>
+                  <span className="font-mono text-sm font-bold text-brand-blue block mb-1">04 —</span>
+                  <h3 className="text-lg font-bold text-brand-navy">High-Voltage Grid Interconnections</h3>
+                  <p className="mt-2 text-sm text-brand-body leading-relaxed">
+                    Utility connection studies, network capacity evaluations, and substation design for high energy loads.
+                  </p>
+                </div>
+                <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-3">
+                  <span className="text-xs font-mono text-slate-400">66kV TO 330kV</span>
+                  <Link to="/contact" className="text-xs font-semibold text-brand-blue hover:underline">Explore service →</Link>
+                </div>
+              </div>
+
+              {/* Card 05 */}
+              <div className="md:col-span-4 bg-white border border-slate-200 p-6 rounded-lg flex flex-col justify-between shadow-subtle transition-all duration-300 hover:border-brand-blue hover:shadow-card">
+                <div>
+                  <span className="font-mono text-sm font-bold text-brand-blue block mb-1">05 —</span>
+                  <h3 className="text-lg font-bold text-brand-navy">Power System &amp; Starting Dynamics</h3>
+                  <p className="mt-2 text-sm text-brand-body leading-relaxed">
+                    Transient stability and voltage sag modeling during large compressor acceleration to protect plant reliability.
+                  </p>
+                </div>
+                <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-3">
+                  <span className="text-xs font-mono text-slate-400">PSCAD &amp; ETAP</span>
+                  <Link to="/contact" className="text-xs font-semibold text-brand-blue hover:underline">Explore service →</Link>
+                </div>
+              </div>
+
+              {/* Card 06 */}
+              <div className="md:col-span-4 bg-white border border-slate-200 p-6 rounded-lg flex flex-col justify-between shadow-subtle transition-all duration-300 hover:border-brand-blue hover:shadow-card">
+                <div>
+                  <span className="font-mono text-sm font-bold text-brand-blue block mb-1">06 —</span>
+                  <h3 className="text-lg font-bold text-brand-navy">Hazardous Area &amp; Safety Compliance</h3>
+                  <p className="mt-2 text-sm text-brand-body leading-relaxed">
+                    Hazardous area classification, Ex equipment qualification, earthing, and strict compliance with AS/NZS &amp; IEC standards.
+                  </p>
+                </div>
+                <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-3">
+                  <span className="text-xs font-mono text-slate-400">AS/NZS &amp; IECEx</span>
+                  <Link to="/contact" className="text-xs font-semibold text-brand-blue hover:underline">Explore service →</Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

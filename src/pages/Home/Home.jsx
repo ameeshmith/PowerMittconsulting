@@ -53,7 +53,7 @@ export default function Home() {
                 PowerMitt Consulting Pty Ltd is an independent electrical power engineering advisory based in Perth, Western Australia. Founded by <strong>Dinesh Mithanthaya</strong>, our leadership combines several decades of technical depth across utility, power generation, transmission, industrial, mining, and renewable energy sectors.
               </p>
               <p>
-                We do not sell hardware, represent OEMs, or maintain vendor exclusivity. Working collaboratively with owners, EPC contractors and equipment vendors, our recommendations are driven strictly by engineering physics, system reliability, regulatory compliance, and total lifecycle asset value.
+                Working collaboratively with owners, EPC contractors and equipment vendors, our recommendations are driven strictly by engineering physics, system reliability, regulatory compliance, and total lifecycle asset value.
               </p>
 
               <div className="home-about__checklist">

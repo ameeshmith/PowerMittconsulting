@@ -10,6 +10,11 @@ export default {
   theme: {
     extend: {
       colors: {
+        brand: {
+          blue: '#0284C7',
+          navy: '#0F172A',
+          body: '#475569',
+        },
         navy: {
           950: '#040A12',
           900: '#0B192C',
