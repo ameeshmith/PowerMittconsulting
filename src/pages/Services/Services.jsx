@@ -10,43 +10,37 @@ const servicesList = [
     num: '01',
     title: 'Electrical Power Systems',
     slug: '/services/power-systems',
-    image: '/assets/images/power-systems-bg.jpg',
-    featured: false
+    image: '/assets/images/power-systems-bg.jpg'
   },
   {
     num: '02',
     title: 'Renewable Energy & Decarbonisation',
     slug: '/services/energy-transition',
-    image: '/assets/images/renewable-bess-bg.jpg',
-    featured: false
+    image: '/assets/images/renewable-bess-bg.jpg'
   },
   {
     num: '03',
     title: 'Carbon Capture & Storage',
     slug: '/services/carbon-capture',
-    image: '/assets/images/carbon-capture-bg.jpg',
-    featured: true // Accent top bar like card 3 in reference
+    image: '/assets/images/carbon-capture-bg.jpg'
   },
   {
     num: '04',
     title: 'Industrial & Mining Infrastructure',
     slug: '/services/industrial-infrastructure',
-    image: '/assets/images/industrial-bg.jpg',
-    featured: false
+    image: '/assets/images/industrial-bg.jpg'
   },
   {
     num: '05',
     title: "Owner's Engineering & EPC Support",
     slug: '/services/owners-engineering',
-    image: '/assets/images/owners-engineering-bg.jpg',
-    featured: false
+    image: '/assets/images/owners-engineering-bg.jpg'
   },
   {
     num: '06',
     title: 'Power System Studies & Modeling',
     slug: '/services/power-systems#power-system-studies',
-    image: '/assets/images/hero-nature-energy.jpg',
-    featured: false
+    image: '/assets/images/hero-nature-energy.jpg'
   }
 ];
 
@@ -85,7 +79,7 @@ export default function Services() {
               <Link 
                 key={service.title} 
                 to={service.slug} 
-                className={`services-soe-card ${service.featured ? 'services-soe-card--featured' : ''} group`}
+                className="services-soe-card group"
                 role="listitem"
                 aria-label={`Explore ${service.title}`}
               >
@@ -98,10 +92,6 @@ export default function Services() {
                   />
                   <div className="services-soe-card__overlay" />
                 </div>
-
-                {service.featured && (
-                  <div className="services-soe-card__accent-bar" aria-hidden="true" />
-                )}
 
                 <div className="services-soe-card__content">
                   <span className="services-soe-card__num">{service.num}</span>

@@ -103,16 +103,6 @@
   box-shadow: 0 20px 40px -10px rgba(0, 163, 224, 0.25);
 }
 
-/* Optional Accent Top Bar */
-.services-soe-card__accent-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: #00A3E0;
-  z-index: 4;
-}
 
 /* Media & Image */
 .services-soe-card__media {
