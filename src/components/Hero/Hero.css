@@ -47,9 +47,9 @@
   font-family: var(--font-mono, monospace);
   font-size: 0.75rem;
   font-weight: 800;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   color: #00A3E0;
-  text-transform: uppercase;
+  text-transform: none;
   margin-bottom: 0.85rem;
 }
 
@@ -61,7 +61,7 @@
   color: #FFFFFF;
   line-height: 1.15;
   margin: 0 0 1rem 0;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .hero-soe-subtitle {
@@ -361,7 +361,7 @@
   color: #FFFFFF;
   margin-bottom: 1.25rem;
   letter-spacing: -0.025em;
-  text-transform: uppercase;
+  text-transform: none;
   max-width: 1080px;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
 }
@@ -392,17 +392,17 @@
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
 }
 
-/* Epiko Signature Italic Serif Accent */
+/* Unified Heading Accent — Same font, no italics, white */
 .hero-modern__serif-accent {
-  font-family: var(--font-serif) !important;
-  font-size: 1.08em;
-  font-style: italic !important;
-  font-weight: 400 !important;
-  text-transform: lowercase !important;
-  color: #34D399;
-  letter-spacing: 0.01em;
-  display: inline-block;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-style: normal !important;
+  font-weight: inherit !important;
+  text-transform: none !important;
+  color: #FFFFFF !important;
+  letter-spacing: inherit !important;
+  display: inline;
+  text-shadow: inherit;
 }
 
 /* Subtitle — Crisp & Legible */

@@ -1,22 +1,11 @@
-import { lazy, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 import { getAssetUrl } from '../../utils/assetPath';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import './Footer.css';
 
-const NebulaHeroCanvas = lazy(() => import('../UI/NebulaHeroCanvas'));
-
 export default function Footer() {
   return (
     <footer className="footer">
-      {/* Background: Three.js WebGL Green Nebula Canvas */}
-      <Suspense fallback={null}>
-        <NebulaHeroCanvas className="footer__nebula" />
-      </Suspense>
-
-      {/* Thick Liquid Glass Layer */}
-      <div className="footer__glass-overlay" aria-hidden="true" />
-
       <div className="footer__inner container container--wide">
         <div className="footer__grid">
           {/* Brand Column */}

@@ -1,7 +1,7 @@
 import SEO from '../../components/SEO/SEO';
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
 import CTABanner from '../../components/CTABanner/CTABanner';
-import { projects, strategicAdvisoryOverview } from '../../data/projects';
+import { projects } from '../../data/projects';
 import { getAssetUrl } from '../../utils/assetPath';
 import './Projects.css';
 
@@ -10,14 +10,14 @@ export default function Projects() {
     <main className="projects-soe-page">
       <SEO
         title="Projects & Experience | PowerMitt Consulting"
-        description="Specialist electrical engineering & energy transition advisory across green power import, CCS, dynamic power system modelling, offshore electrification, mining infrastructure, and dewatering."
+        description="PowerMitt Consulting provides specialist electrical engineering and energy transition advisory services to major energy operators undertaking decarbonisation, reliability enhancement, and large scale infrastructure expansion projects."
         path="/projects"
         image="/assets/images/hero-projects-drawing.jpg"
       />
 
       <section className="projects-soe-section" id="projects-portfolio" aria-label="Projects and Track Record">
         {/* Slightly visible engineering blueprint background behind cards */}
-        <div 
+        <div
           className="projects-soe-bg"
           style={{
             backgroundImage: `url(${getAssetUrl('/assets/images/hero-projects-drawing.jpg')})`
@@ -28,31 +28,11 @@ export default function Projects() {
 
         <div className="container relative z-10">
           <div className="projects-soe-header">
-            <span className="projects-soe-label">TRACK RECORD & CASE STUDIES</span>
-            <h1 className="projects-soe-title">DEMONSTRATED TRACK RECORD & CASE STUDIES</h1>
-            <p className="projects-soe-subtitle">
-              Specialist electrical engineering delivered across critical Australian power systems, mining operations, and utility grid connections.
-            </p>
-          </div>
 
-          {/* Strategic Advisory Overview Callout */}
-          {strategicAdvisoryOverview && (
-            <div className="projects-soe-advisory">
-              <div className="projects-soe-advisory__badge">
-                <span className="projects-soe-advisory__dot" />
-                <span>Specialist Advisory Capability</span>
-              </div>
-              <h2 className="projects-soe-advisory__title">
-                {strategicAdvisoryOverview.title}
-              </h2>
-              <p className="projects-soe-advisory__lead">
-                {strategicAdvisoryOverview.lead}
-              </p>
-              <p className="projects-soe-advisory__body">
-                {strategicAdvisoryOverview.body}
-              </p>
-            </div>
-          )}
+            <h1 className="projects-soe-title">Demonstrated Track Record & Case Studies</h1>
+            <p className="projects-soe-subtitle">
+              PowerMitt Consulting provides specialist electrical engineering and energy transition advisory services to major energy operators undertaking decarbonisation, reliability enhancement, and large scale infrastructure expansion projects.            </p>
+          </div>
 
           {/* Projects Grid directly in front of background */}
           <div className="projects-soe-grid" role="list">

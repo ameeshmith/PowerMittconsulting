@@ -62,8 +62,8 @@ export default function Insights() {
 
         <div className="container relative z-10">
           <div className="insights-soe-header">
-            <span className="insights-soe-label">KNOWLEDGE & PERSPECTIVES</span>
-            <h1 className="insights-soe-title">ENGINEERING INSIGHTS & PERSPECTIVES</h1>
+            <span className="insights-soe-label">Knowledge & Perspectives</span>
+            <h1 className="insights-soe-title">Engineering Insights & Perspectives</h1>
             <p className="insights-soe-subtitle">
               Specialist perspectives, case studies, and engineering analysis across electrical power systems, energy transition, and heavy industrial infrastructure.
             </p>

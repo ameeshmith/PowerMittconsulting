@@ -31,8 +31,8 @@ export default function Home() {
         badge="Independent Power & Energy Consultancy"
         title={
           <>
-            WHERE POWER <br />
-            <span className="hero-modern__serif-accent">meets precision.</span>
+            Where Power <br />
+            Meets Precision
           </>
         }
         subtitle="PowerMitt delivers independent electrical power systems, grid compliance, and energy transition engineering for heavy industry, mining, and utility grids across Australia. 30+ years of high-calibre technical leadership."

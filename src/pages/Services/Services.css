@@ -15,15 +15,15 @@
   overflow: hidden;
 }
 
-/* Substation background image ("let it be visible but not that much") */
+/* Substation background image */
 .services-soe-bg {
   position: absolute;
   inset: 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.25;
-  filter: grayscale(80%) contrast(1.15) brightness(0.9);
+  opacity: 0.48;
+  filter: grayscale(40%) contrast(1.1) brightness(1.2);
   pointer-events: none;
   z-index: 0;
 }
@@ -31,7 +31,7 @@
 .services-soe-bg-overlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 30%, rgba(10, 13, 20, 0.72) 0%, rgba(10, 13, 20, 0.95) 100%);
+  background: radial-gradient(circle at 50% 30%, rgba(10, 13, 20, 0.42) 0%, rgba(10, 13, 20, 0.82) 100%);
   pointer-events: none;
   z-index: 1;
 }
@@ -49,9 +49,9 @@
   font-family: var(--font-mono, monospace);
   font-size: 0.75rem;
   font-weight: 800;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
   color: #00A3E0;
-  text-transform: uppercase;
+  text-transform: none;
   margin-bottom: 0.85rem;
 }
 
@@ -63,7 +63,7 @@
   color: #FFFFFF;
   line-height: 1.15;
   margin: 0 0 1rem 0;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .services-soe-subtitle {
@@ -126,25 +126,25 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: grayscale(85%) contrast(1.15) brightness(0.85);
+  filter: grayscale(40%) contrast(1.08) brightness(1.1);
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
 }
 
 .services-soe-card:hover .services-soe-card__img {
   transform: scale(1.07);
-  filter: grayscale(0%) contrast(1.05) brightness(0.95);
+  filter: grayscale(0%) contrast(1.05) brightness(1.2);
 }
 
 /* Dark Vignette / Gradient Overlay */
 .services-soe-card__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(10, 13, 20, 0.95) 0%, rgba(10, 13, 20, 0.55) 45%, rgba(10, 13, 20, 0.2) 100%);
+  background: linear-gradient(to top, rgba(10, 13, 20, 0.92) 0%, rgba(10, 13, 20, 0.35) 45%, rgba(10, 13, 20, 0.05) 100%);
   transition: background 0.3s ease;
 }
 
 .services-soe-card:hover .services-soe-card__overlay {
-  background: linear-gradient(to top, rgba(10, 13, 20, 0.95) 0%, rgba(10, 13, 20, 0.4) 50%, rgba(0, 163, 224, 0.1) 100%);
+  background: linear-gradient(to top, rgba(10, 13, 20, 0.9) 0%, rgba(10, 13, 20, 0.2) 50%, rgba(0, 163, 224, 0.1) 100%);
 }
 
 /* Content at Bottom */

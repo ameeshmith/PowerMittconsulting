@@ -141,8 +141,8 @@ export default function About() {
         label="About PowerMitt"
         title={
           <>
-            Engineering rigour <br />
-            for complex power challenges.
+            Engineering Rigour <br />
+            For Complex Power Challenges
           </>
         }
         subtitle="An independent specialist engineering consultancy delivering high-calibre electrical power systems, utilities, energy transition, and industrial infrastructure advisory services across Australia."

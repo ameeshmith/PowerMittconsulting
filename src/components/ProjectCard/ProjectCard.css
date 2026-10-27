@@ -247,6 +247,7 @@
 
 .project-card__full-text p {
   margin: 0;
+  color: inherit;
 }
 
 /* ── Tech Pills ── */

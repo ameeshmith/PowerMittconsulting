@@ -116,8 +116,8 @@ export default function Hero({
           <h1 className="hero-modern__title">
             {title || (
               <>
-                WHERE POWER <br />
-                <span className="hero-modern__serif-accent">meets precision.</span>
+                Where Power <br />
+                Meets Precision
               </>
             )}
           </h1>
