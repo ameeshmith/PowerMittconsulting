@@ -1,18 +1,47 @@
 /* ============================================
-   Footer Component — Deep Nebula Dark Theme
-   Palette: Deep Midnight Zinc/Onyx (#09090b) + Electric Cyan Accents
+   Footer Component — Thick Liquid Glass & Green Nebula
    ============================================ */
 
 .footer {
   background: #09090b;
-  color: #F8FAFC;
+  color: #FFFFFF;
   padding: 5.5rem 0 2.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
   position: relative;
+  overflow: hidden;
   z-index: 10;
 }
 
+/* Three.js WebGL Green Nebula Canvas */
+.footer__nebula {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Thick Liquid Glass Layer */
+.footer__glass-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(9, 9, 11, 0.65) 0%,
+    rgba(9, 9, 11, 0.52) 50%,
+    rgba(9, 9, 11, 0.78) 100%
+  );
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.14);
+}
+
 .footer__inner {
+  position: relative;
+  z-index: 2;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
@@ -40,7 +69,7 @@
 }
 
 .footer__brand:hover {
-  opacity: 0.88;
+  opacity: 0.9;
 }
 
 .footer__logo {
@@ -55,9 +84,11 @@
   font-family: var(--font-body);
   font-size: 13.5px;
   line-height: 1.65;
-  color: #94A3B8;
+  color: #FFFFFF;
+  font-weight: 600;
   margin-bottom: 1.75rem;
   max-width: 380px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .footer__contact-info {
@@ -72,9 +103,11 @@
   gap: 0.75rem;
   font-family: var(--font-body);
   font-size: 13px;
-  color: #CBD5E1;
+  color: #FFFFFF;
+  font-weight: 600;
   text-decoration: none;
   transition: all var(--duration-fast);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .footer__contact-icon {
@@ -84,16 +117,18 @@
 a.footer__contact-item:hover {
   color: #38BDF8;
   transform: translateX(2px);
+  text-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
 }
 
 .footer__heading {
   font-family: var(--font-heading);
   font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #FFFFFF;
   margin-bottom: 1.35rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .footer__links {
@@ -105,31 +140,37 @@ a.footer__contact-item:hover {
 .footer__links a {
   font-family: var(--font-body);
   font-size: 13.5px;
-  color: #94A3B8;
+  color: #FFFFFF;
+  font-weight: 600;
   text-decoration: none;
   transition: all var(--duration-fast);
   line-height: 1.5;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
 }
 
 .footer__links a:hover {
   color: #38BDF8;
   transform: translateX(2px);
+  text-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
 }
 
 .footer__bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
   padding-top: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: var(--font-body);
   font-size: 12.5px;
-  color: #64748B;
+  color: #FFFFFF;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
 }
 
 .footer__subtext {
-  color: #94A3B8;
+  color: rgba(255, 255, 255, 0.85);
   font-size: 12px;
+  font-weight: 600;
 }
 
 @media (max-width: 1024px) {
