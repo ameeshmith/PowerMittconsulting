@@ -23,7 +23,7 @@ export const sampleArticles = [
     author: {
       name: 'Dinesh Mithanthaya',
       role: 'Principal Power Engineer',
-      avatar: '/assets/images/hero-nature-energy.jpg',
+      avatar: '/assets/images/team/dinesh-mithanthaya.webp',
       bio: 'Over 20 years of specialist experience in electrical power systems, grid connection studies, and heavy industrial infrastructure across Australia.'
     },
     publishedAt: '2026-08-15',
@@ -97,7 +97,7 @@ Successful BESS grid integration is not merely an equipment procurement exercise
     author: {
       name: 'Dinesh Mithanthaya',
       role: 'Principal Power Engineer',
-      avatar: '/assets/images/hero-nature-energy.jpg',
+      avatar: '/assets/images/team/dinesh-mithanthaya.webp',
       bio: 'Over 20 years of specialist experience in electrical power systems, grid connection studies, and heavy industrial infrastructure across Australia.'
     },
     publishedAt: '2026-08-02',
@@ -153,7 +153,7 @@ In the capital-intensive world of industrial decarbonisation, an experienced Own
     author: {
       name: 'Dinesh Mithanthaya',
       role: 'Principal Power Engineer',
-      avatar: '/assets/images/hero-nature-energy.jpg',
+      avatar: '/assets/images/team/dinesh-mithanthaya.webp',
       bio: 'Over 20 years of specialist experience in electrical power systems, grid connection studies, and heavy industrial infrastructure across Australia.'
     },
     publishedAt: '2026-07-20',
@@ -216,7 +216,7 @@ Mining electrification is no longer an experimental concept—it is an engineeri
     author: {
       name: 'Dinesh Mithanthaya',
       role: 'Principal Power Engineer',
-      avatar: '/assets/images/hero-nature-energy.jpg',
+      avatar: '/assets/images/team/dinesh-mithanthaya.webp',
       bio: 'Over 20 years of specialist experience in electrical power systems, grid connection studies, and heavy industrial infrastructure across Australia.'
     },
     publishedAt: '2026-07-05',

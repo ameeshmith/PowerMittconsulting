@@ -238,11 +238,27 @@ section.section--dark h1,
 section.section--dark h2,
 section.section--dark h3,
 section.section--dark h4 {
-  color: #FFFFFF;
+  color: #FFFFFF !important;
 }
 
 section.section--dark p {
-  color: rgba(255, 255, 255, 0.82);
+  color: #CBD5E1 !important;
+}
+
+section.section--dark .section-header__title {
+  color: #FFFFFF !important;
+}
+
+section.section--dark .section-header__subtitle {
+  color: #CBD5E1 !important;
+}
+
+section.section--dark a {
+  color: #38BDF8;
+}
+
+section.section--dark a:hover {
+  color: #7DD3FC;
 }
 
 section.section--ice {

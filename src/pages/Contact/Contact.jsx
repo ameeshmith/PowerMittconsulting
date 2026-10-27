@@ -199,8 +199,23 @@ export default function Contact() {
                   <hr className="contact-soe-divider" />
 
                   <div className="contact-soe-block">
-                    <h4>Direct Engineering Inquiries</h4>
-                    <span className="contact-soe-role">Dinesh Mithanthaya — Principal Power Engineer</span>
+                    <div className="contact__founder-direct">
+                      <picture>
+                        <source srcSet={getAssetUrl('/assets/images/team/dinesh-mithanthaya.webp')} type="image/webp" />
+                        <img
+                          src={getAssetUrl('/assets/images/team/dinesh-mithanthaya.jpg')}
+                          alt="Dinesh Mithanthaya"
+                          className="contact__founder-photo"
+                          width="52"
+                          height="52"
+                          loading="lazy"
+                        />
+                      </picture>
+                      <div className="contact__founder-text">
+                        <h4>Direct Engineering Inquiries</h4>
+                        <span className="contact-soe-role">Dinesh Mithanthaya — Principal Power Engineer</span>
+                      </div>
+                    </div>
                     <div className="contact-soe-item-group">
                       <a href="tel:+61409346958" className="contact-soe-item contact-soe-link">
                         <Phone size={16} className="contact-soe-icon" />

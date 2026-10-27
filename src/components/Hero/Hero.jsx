@@ -167,7 +167,17 @@ export default function Hero({
           {showFounderNote && (
             <div className="hero-modern__founder-card">
               <div className="hero-modern__founder-icon">
-                <UserCheck size={22} className="text-[#38BDF8]" />
+                <picture>
+                  <source srcSet={getAssetUrl('/assets/images/team/dinesh-mithanthaya.webp')} type="image/webp" />
+                  <img
+                    src={getAssetUrl('/assets/images/team/dinesh-mithanthaya.jpg')}
+                    alt="Dinesh Mithanthaya"
+                    className="hero-modern__founder-avatar"
+                    width="52"
+                    height="52"
+                    loading="lazy"
+                  />
+                </picture>
               </div>
               <div className="hero-modern__founder-info">
                 <span className="hero-modern__founder-tag">Principal Power Engineer</span>

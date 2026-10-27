@@ -256,11 +256,17 @@ export default function InsightDetail() {
           {/* Author Bio Card */}
           <div className="insight-author-card reveal">
             <div className="insight-author-card__photo">
-              <svg width="60" height="60" viewBox="0 0 80 80" fill="none">
-                <rect width="80" height="80" rx="40" fill="rgba(8,126,164,0.1)"/>
-                <circle cx="40" cy="30" r="12" stroke="rgba(8,126,164,0.4)" strokeWidth="2.5"/>
-                <path d="M20 65C20 53.954 28.954 45 40 45C51.046 45 60 53.954 60 65" stroke="rgba(8,126,164,0.4)" strokeWidth="2.5"/>
-              </svg>
+              <picture>
+                <source srcSet={getAssetUrl('/assets/images/team/dinesh-mithanthaya.webp')} type="image/webp" />
+                <img
+                  src={getAssetUrl(article.author?.avatar || '/assets/images/team/dinesh-mithanthaya.jpg')}
+                  alt={article.author?.name || 'Dinesh Mithanthaya'}
+                  className="insight-author-card__img"
+                  width="72"
+                  height="72"
+                  loading="lazy"
+                />
+              </picture>
             </div>
             <div className="insight-author-card__info">
               <h4>{article.author?.name || 'Dinesh Mithanthaya'}</h4>

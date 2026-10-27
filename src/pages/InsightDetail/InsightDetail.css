@@ -326,7 +326,21 @@
 }
 
 .insight-author-card__photo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
   flex-shrink: 0;
+  border: 2.5px solid #0284C7;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
+  background: #F1F5F9;
+}
+
+.insight-author-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .insight-author-card__info h4 {

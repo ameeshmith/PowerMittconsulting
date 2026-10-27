@@ -90,13 +90,13 @@ function sanitizeArticle(art) {
     ? {
         name: sanitizeString(art.author.name || 'Dinesh Mithanthaya', 100),
         role: sanitizeString(art.author.role || 'Principal Power Engineer', 100),
-        avatar: sanitizeMediaUrl(art.author.avatar, '/assets/images/hero-nature-energy.jpg'),
+        avatar: sanitizeMediaUrl(art.author.avatar, '/assets/images/team/dinesh-mithanthaya.webp'),
         bio: sanitizeString(art.author.bio || '', 1000)
       }
     : {
         name: 'Dinesh Mithanthaya',
         role: 'Principal Power Engineer',
-        avatar: '/assets/images/hero-nature-energy.jpg',
+        avatar: '/assets/images/team/dinesh-mithanthaya.webp',
         bio: 'Over 20 years of specialist experience in electrical power systems, grid connection studies, and heavy industrial infrastructure across Australia.'
       };
 
@@ -181,7 +181,7 @@ export async function saveArticle(articleData, options = { isNew: false }) {
   const author = articleData.author || original?.author || {
     name: 'Dinesh Mithanthaya',
     role: 'Principal Power Engineer',
-    avatar: '/assets/images/hero-nature-energy.jpg',
+    avatar: '/assets/images/team/dinesh-mithanthaya.webp',
     bio: 'Over 20 years of specialist experience in electrical power systems, grid connection studies, and heavy industrial infrastructure across Australia.'
   };
 
@@ -267,7 +267,7 @@ export async function getAllArticles() {
               author: a.author || {
                 name: 'Dinesh Mithanthaya',
                 role: 'Principal Power Engineer',
-                avatar: '/assets/images/hero-nature-energy.jpg',
+                avatar: '/assets/images/team/dinesh-mithanthaya.webp',
                 bio: 'Over 20 years of specialist experience in electrical power systems, grid connection studies, and heavy industrial infrastructure across Australia.'
               }
             });

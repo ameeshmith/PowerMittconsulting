@@ -240,66 +240,64 @@ export default function About() {
       </section>
 
       {/* === LEADERSHIP === */}
-      <section className="section--ice about-leadership">
+      <section className="about-leadership">
         <div className="container">
-          <SectionHeader
-            label="Leadership"
-            title="Principal Leadership"
-            align="center"
-          />
-          <div className="about-leaders-stack">
+          <div className="about-leadership__header">
+
+            <h2 className="about-leadership__title">Principal Leadership</h2>
+            <p className="about-leadership__subtitle">
+              Decades of hands on experience across power, utilities and industrial infrastructure.
+            </p>
+          </div>
+
+          <div className="about-leaders-grid">
             {/* Dinesh Mithanthaya */}
             <div className="about-leader">
               <div className="about-leader__photo">
-                <div className="about-leader__placeholder">
-                  <svg width="70" height="70" viewBox="0 0 80 80" fill="none">
-                    <rect width="80" height="80" rx="40" fill="currentColor" className="text-midnight opacity-10" />
-                    <circle cx="40" cy="30" r="14" stroke="#00A3E0" strokeWidth="2.5" />
-                    <path d="M18 66C18 52 28 44 40 44C52 44 62 52 62 66" stroke="#00A3E0" strokeWidth="2.5" />
-                  </svg>
-                </div>
+                <picture>
+                  <source srcSet={getAssetUrl('/assets/images/team/dinesh-mithanthaya.webp')} type="image/webp" />
+                  <img
+                    src={getAssetUrl('/assets/images/team/dinesh-mithanthaya.jpg')}
+                    alt="Dinesh Mithanthaya"
+                    width="115"
+                    height="115"
+                    className="about-leader__img"
+                    loading="lazy"
+                  />
+                </picture>
               </div>
               <div className="about-leader__info">
                 <h3>Dinesh Mithanthaya</h3>
-                <span className="about-leader__role">Principal Power Engineer</span>
-                <span className="about-leader__location"><MapPin size={14} /> Perth, Western Australia</span>
+                <span className="about-leader__role">PRINCIPAL POWER ENGINEER</span>
+                <span className="about-leader__location"><MapPin size={13} /> Perth, Western Australia</span>
                 <p className="about-leader__bio">
-                  Dinesh Mithanthaya is a Principal Power Engineer with over 25 years of international experience across Oil &amp; Gas, LNG, Carbon Capture &amp; Storage (CCS), Mining, Utilities, and Renewable Energy sectors. He specialises in power systems, grid integration, HV substations, SCADA, protection systems, BESS, renewable energy integration, and electrical infrastructure strategy. His experience spans utility asset management, network planning, operational improvement, and major capital projects. Dinesh provides technical leadership for energy transition, decarbonisation, reliability, and growth initiatives across Australia&apos;s energy and resources industries.
+                  Dinesh Mithanthaya is a Principal Power Engineer with over 25 years of international experience across Oil and Gas, LNG, Carbon Capture and Storage, Mining, Utilities and Renewable Energy sectors. He specialises in power systems, grid integration, HV substations, SCADA, protection systems, BESS and renewable energy integration, providing technical leadership for energy transition and decarbonisation initiatives.
                 </p>
-                <div className="about-leader__contact">
-                  <a href="tel:+61409346958" className="about-leader__contact-item">
-                    <Phone size={14} /> +61 409 346 958
-                  </a>
-                  <a href="mailto:dmithanthaya@gmail.com" className="about-leader__contact-item">
-                    <Mail size={14} /> dmithanthaya@gmail.com
-                  </a>
-                </div>
               </div>
             </div>
 
             {/* Anuja */}
             <div className="about-leader">
               <div className="about-leader__photo">
-                <div className="about-leader__placeholder">
-                  <svg width="70" height="70" viewBox="0 0 80 80" fill="none">
-                    <rect width="80" height="80" rx="40" fill="currentColor" className="text-midnight opacity-10" />
-                    <circle cx="40" cy="30" r="14" stroke="#059669" strokeWidth="2.5" />
-                    <path d="M18 66C18 52 28 44 40 44C52 44 62 52 62 66" stroke="#059669" strokeWidth="2.5" />
-                  </svg>
-                </div>
+                <picture>
+                  <source srcSet={getAssetUrl('/assets/images/team/anuja-mithanthaya.webp')} type="image/webp" />
+                  <img
+                    src={getAssetUrl('/assets/images/team/anuja-mithanthaya.jpg')}
+                    alt="Anuja Mithanthaya"
+                    width="115"
+                    height="115"
+                    className="about-leader__img"
+                    loading="lazy"
+                  />
+                </picture>
               </div>
               <div className="about-leader__info">
                 <h3>Anuja Mithanthaya</h3>
-                <span className="about-leader__role">Strategic Engineering Advisor — Utility &amp; Mining Networks</span>
-                <span className="about-leader__location"><MapPin size={14} /> Perth, Western Australia</span>
+                <span className="about-leader__role">STRATEGIC ENGINEERING ADVISOR</span>
+                <span className="about-leader__location"><MapPin size={13} /> Perth, Western Australia</span>
                 <p className="about-leader__bio">
-                  With more than two decades of electrical engineering experience, Anuja brings deep expertise in utility networks, mining infrastructure, power system operations, and industrial automation. Her background includes senior technical roles within Western Power (Australia) and Power Grid Corporation of India, covering transmission systems, network operations, substations, SCADA, asset management, and grid reliability. She provides strategic engineering advisory, design assurance, commissioning support, and operational readiness services, strengthening PowerMitt&apos;s capability to deliver complex mining, energy transition, and utility infrastructure projects.
+                  Anuja Mithanthaya brings over 20 years of electrical engineering experience in utility networks, mining infrastructure, power system operations and industrial automation. Her background includes senior technical roles within Western Power (Australia) and Power Grid Corporation of India, covering transmission systems, network operations, substations, SCADA, asset management and grid reliability.
                 </p>
-                <div className="about-leader__contact">
-                  <Link to="/contact" className="about-leader__contact-item">
-                    <Mail size={14} /> Contact Engineering Advisory
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
