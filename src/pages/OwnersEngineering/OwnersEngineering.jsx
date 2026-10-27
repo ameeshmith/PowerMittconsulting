@@ -1,12 +1,12 @@
-import { 
-  ShieldCheck, 
-  FileCheck, 
-  Briefcase, 
-  GitMerge, 
-  TrendingUp, 
-  Award, 
-  Layers, 
-  CheckCircle2 
+import {
+  ShieldCheck,
+  FileCheck,
+  Briefcase,
+  GitMerge,
+  TrendingUp,
+  Award,
+  Layers,
+  CheckCircle2
 } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
@@ -106,41 +106,6 @@ export default function OwnersEngineering() {
                 <p>{cap.desc}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section 3: EPC Project Delivery Flow */}
-      <section className="section--dark">
-        <div className="container text-center">
-          <SectionHeader
-            label="EPC Partnership"
-            title="EPC Project Delivery Support"
-            subtitle="Specialist engineering and technical advisory services to EPC contractors — delivering projects safely, efficiently, and cost-effectively."
-            light
-            align="center"
-          />
-          <div className="service-flow">
-            <div className="service-flow__step">
-              <div className="service-flow__box">
-                <ShieldCheck size={32} />
-                <span>Design & Technical Assurance</span>
-              </div>
-            </div>
-            <div className="service-flow__arrow">→</div>
-            <div className="service-flow__step">
-              <div className="service-flow__box service-flow__box--accent">
-                <Layers size={32} />
-                <span>Procurement & FAT Oversight</span>
-              </div>
-            </div>
-            <div className="service-flow__arrow">→</div>
-            <div className="service-flow__step">
-              <div className="service-flow__box service-flow__box--teal">
-                <CheckCircle2 size={32} />
-                <span>Project Execution & Commissioning</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>

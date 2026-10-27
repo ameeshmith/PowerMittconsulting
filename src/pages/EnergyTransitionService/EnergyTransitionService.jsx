@@ -12,10 +12,10 @@ function RenewableIntegrationVisual() {
     <svg className="et-card__svg" viewBox="0 0 340 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Solar array, wind turbines, substation, and transmission line">
       {/* Background Sun */}
       <circle cx="265" cy="50" r="18" stroke="#94A3B8" strokeWidth="0.9" fill="none" opacity="0.6" />
-      
+
       {/* Ground Contour */}
       <path d="M 10 148 Q 110 142 210 146 Q 280 148 330 145" stroke="#CBD5E1" strokeWidth="1" />
-      
+
       {/* ── Solar PV Panel Array ── */}
       {/* Solar Table 1 (Left Front) */}
       <polygon points="25,145 105,145 125,122 45,122" fill="#F0F9FF" stroke="#0284C7" strokeWidth="1.2" />
@@ -110,23 +110,23 @@ function BatteryStorageVisual() {
       <rect x="30" y="42" width="40" height="42" fill="#FFFFFF" stroke="#94A3B8" strokeWidth="1" />
       <polygon points="70,42 82,32 82,74 70,84" fill="#F8FAFC" stroke="#94A3B8" strokeWidth="1" />
       <line x1="50" y1="42" x2="50" y2="84" stroke="#CBD5E1" strokeWidth="0.8" />
-      
+
       {/* Main Front Container */}
       <polygon points="75,34 125,34 138,24 88,24" fill="#F0F9FF" stroke="#0284C7" strokeWidth="1.2" />
       <rect x="75" y="34" width="50" height="52" fill="#FFFFFF" stroke="#0284C7" strokeWidth="1.2" />
       <polygon points="125,34 138,24 138,76 125,86" fill="#F8FAFC" stroke="#0284C7" strokeWidth="1.2" />
-      
+
       {/* Container Doors and Details */}
       <line x1="100" y1="34" x2="100" y2="86" stroke="#0284C7" strokeWidth="1" />
       <rect x="80" y="38" width="16" height="5" fill="none" stroke="#00A3E0" strokeWidth="0.8" />
       <rect x="104" y="38" width="16" height="5" fill="none" stroke="#00A3E0" strokeWidth="0.8" />
-      
+
       {/* Lightning Bolt Symbol on Left Door */}
       <path d="M 112 50 L 109 58 L 113 58 L 110 68 L 116 57 L 112 57 Z" fill="#0284C7" />
-      
+
       {/* Base Foundation Plinth */}
       <rect x="72" y="86" width="68" height="4" fill="#E2E8F0" stroke="#CBD5E1" strokeWidth="0.8" />
-      
+
       {/* Eco Shrub / Tree */}
       <circle cx="22" cy="74" r="5" stroke="#10B981" strokeWidth="1" fill="#F0FDF4" />
       <line x1="22" y1="79" x2="22" y2="88" stroke="#64748B" strokeWidth="1" />
@@ -153,20 +153,20 @@ function HydrogenVisual() {
       <line x1="91" y1="23" x2="91" y2="16" stroke="#0284C7" strokeWidth="1.2" />
       <line x1="87" y1="16" x2="95" y2="16" stroke="#0284C7" strokeWidth="1.5" />
       <circle cx="91" cy="14" r="2" fill="#0284C7" />
-      
+
       {/* H2 Label */}
       <text x="91" y="60" textAnchor="middle" fill="#0284C7" fontSize="15" fontWeight="800" fontFamily="sans-serif">H₂</text>
-      
+
       {/* Storage Tank Support Legs */}
       <line x1="74" y1="82" x2="74" y2="92" stroke="#475569" strokeWidth="1.5" />
       <line x1="108" y1="82" x2="108" y2="92" stroke="#475569" strokeWidth="1.5" />
-      
+
       {/* Interconnecting Piping & Manifold */}
       <path d="M 48 58 L 68 58" stroke="#00A3E0" strokeWidth="1.2" />
       <path d="M 114 70 L 136 70 L 136 90" stroke="#00A3E0" strokeWidth="1.2" />
       <circle cx="125" cy="70" r="2" fill="#0284C7" />
       <path d="M 22 75 L 32 75" stroke="#00A3E0" strokeWidth="1.2" />
-      
+
       {/* Ground Reference */}
       <line x1="18" y1="92" x2="142" y2="92" stroke="#CBD5E1" strokeWidth="1" />
     </svg>
@@ -183,32 +183,32 @@ function ElectrificationVisual() {
       <polygon points="42,36 48,28 48,74 42,82" fill="#F8FAFC" stroke="#94A3B8" strokeWidth="1" />
       <line x1="22" y1="42" x2="34" y2="42" stroke="#CBD5E1" strokeWidth="0.8" />
       <line x1="22" y1="46" x2="34" y2="46" stroke="#CBD5E1" strokeWidth="0.8" />
-      
+
       {/* Main Switchgear Lineup (3 Bays) */}
       <polygon points="46,28 106,28 116,18 56,18" fill="#F0F9FF" stroke="#0284C7" strokeWidth="1.2" />
       <rect x="46" y="28" width="60" height="56" fill="#FFFFFF" stroke="#0284C7" strokeWidth="1.2" />
       <polygon points="106,28 116,18 116,74 106,84" fill="#F8FAFC" stroke="#0284C7" strokeWidth="1.2" />
-      
+
       {/* Bay Dividers */}
       <line x1="66" y1="28" x2="66" y2="84" stroke="#0284C7" strokeWidth="1" />
       <line x1="86" y1="28" x2="86" y2="84" stroke="#0284C7" strokeWidth="1" />
-      
+
       {/* Door Features */}
       {/* Bay 1: Vents & Handle */}
       <rect x="50" y="32" width="12" height="4" fill="none" stroke="#00A3E0" strokeWidth="0.8" />
       <rect x="50" y="38" width="12" height="4" fill="none" stroke="#00A3E0" strokeWidth="0.8" />
       <line x1="62" y1="56" x2="62" y2="62" stroke="#475569" strokeWidth="1.2" />
-      
+
       {/* Bay 2: Breaker Incomer */}
       <rect x="70" y="34" width="12" height="14" fill="#F0F9FF" stroke="#0284C7" strokeWidth="0.9" />
       <circle cx="76" cy="41" r="2" fill="#0284C7" />
       <line x1="82" y1="56" x2="82" y2="62" stroke="#475569" strokeWidth="1.2" />
-      
+
       {/* Bay 3: Outgoing Feeders */}
       <rect x="90" y="32" width="12" height="4" fill="none" stroke="#00A3E0" strokeWidth="0.8" />
       <circle cx="94" cy="45" r="1.5" fill="#0284C7" />
       <line x1="102" y1="56" x2="102" y2="62" stroke="#475569" strokeWidth="1.2" />
-      
+
       {/* Base Plinth */}
       <rect x="42" y="84" width="76" height="5" fill="#E2E8F0" stroke="#CBD5E1" strokeWidth="0.8" />
     </svg>
@@ -226,7 +226,7 @@ function CarbonCaptureVisual() {
       <line x1="68" y1="48" x2="92" y2="48" stroke="#CBD5E1" strokeWidth="0.8" />
       <line x1="68" y1="62" x2="92" y2="62" stroke="#CBD5E1" strokeWidth="0.8" />
       <line x1="68" y1="76" x2="92" y2="76" stroke="#CBD5E1" strokeWidth="0.8" />
-      
+
       {/* Column Skirt Base */}
       <line x1="66" y1="84" x2="66" y2="92" stroke="#475569" strokeWidth="1.2" />
       <line x1="94" y1="84" x2="94" y2="92" stroke="#475569" strokeWidth="1.2" />
@@ -348,10 +348,10 @@ export default function EnergyTransitionService() {
           />
 
           <div className="et-tech-layout">
-            
+
             {/* Top Row: Hero Card (01) + Right Stack (02, 03) */}
             <div className="et-tech-top-row">
-              
+
               {/* Card 01: Renewable Integration (Featured Hero Card) */}
               <article className="et-card et-card--hero">
                 <div className="et-card__body">
@@ -370,7 +370,7 @@ export default function EnergyTransitionService() {
 
               {/* Right Stack: Card 02 & Card 03 */}
               <div className="et-tech-right-stack">
-                
+
                 {/* Card 02: Battery Energy Storage */}
                 <article className="et-card et-card--compact">
                   <div className="et-card__body">
@@ -409,7 +409,7 @@ export default function EnergyTransitionService() {
 
             {/* Bottom Row: 3 Equal Columns (04, 05, 06) */}
             <div className="et-tech-bottom-row">
-              
+
               {/* Card 04: Electrification */}
               <article className="et-card et-card--compact">
                 <div className="et-card__body">
@@ -460,40 +460,6 @@ export default function EnergyTransitionService() {
 
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* Transition Flow Visual */}
-      <section className="section--dark">
-        <div className="container text-center">
-          <SectionHeader
-            label="Engineering Approach"
-            title="From Existing Operations to Lower-Carbon Future"
-            light
-            align="center"
-          />
-          <div className="et-flow">
-            <div className="et-flow__step">
-              <div className="et-flow__box">
-                <Factory size={32} />
-                <span>Existing Industrial Infrastructure</span>
-              </div>
-            </div>
-            <div className="et-flow__arrow">→</div>
-            <div className="et-flow__step">
-              <div className="et-flow__box et-flow__box--accent">
-                <Zap size={32} />
-                <span>Engineering Strategy</span>
-              </div>
-            </div>
-            <div className="et-flow__arrow">→</div>
-            <div className="et-flow__step">
-              <div className="et-flow__box et-flow__box--teal">
-                <Sun size={32} />
-                <span>Lower-Carbon Energy System</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>

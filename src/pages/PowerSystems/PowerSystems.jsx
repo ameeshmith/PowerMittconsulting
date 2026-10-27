@@ -532,40 +532,7 @@ export default function PowerSystems() {
         </div>
       </section>
 
-      {/* Power Systems Delivery Flow */}
-      <section className="section--dark">
-        <div className="container text-center">
-          <SectionHeader
-            label="Engineering Approach"
-            title="From Network Studies to Grid Energisation"
-            subtitle="Advanced electrical modeling, substation design, and statutory compliance across NEM and WEM networks."
-            light
-            align="center"
-          />
-          <div className="service-flow">
-            <div className="service-flow__step">
-              <div className="service-flow__box">
-                <Activity size={32} />
-                <span>Power System Studies &amp; Modeling</span>
-              </div>
-            </div>
-            <div className="service-flow__arrow">→</div>
-            <div className="service-flow__step">
-              <div className="service-flow__box service-flow__box--accent">
-                <Building2 size={32} />
-                <span>Substation &amp; Detailed Design</span>
-              </div>
-            </div>
-            <div className="service-flow__arrow">→</div>
-            <div className="service-flow__step">
-              <div className="service-flow__box service-flow__box--teal">
-                <Network size={32} />
-                <span>Grid Integration &amp; Energisation</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       <CTABanner
         title="Need Power System Engineering Support?"

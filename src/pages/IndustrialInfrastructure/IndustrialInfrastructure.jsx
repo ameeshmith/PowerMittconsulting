@@ -1,12 +1,12 @@
-import { 
-  Building2, 
-  Cpu, 
-  Pickaxe, 
-  Monitor, 
-  Zap, 
-  RefreshCw, 
-  Wrench, 
-  ShieldCheck 
+import {
+  Building2,
+  Cpu,
+  Pickaxe,
+  Monitor,
+  Zap,
+  RefreshCw,
+  Wrench,
+  ShieldCheck
 } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
@@ -112,40 +112,7 @@ export default function IndustrialInfrastructure() {
         </div>
       </section>
 
-      {/* Section 3: Engineering Approach Flow */}
-      <section className="section--dark">
-        <div className="container text-center">
-          <SectionHeader
-            label="Engineering Methodology"
-            title="From Asset Assessment to Turnkey Reliability"
-            subtitle="Comprehensive electrical engineering delivering safe, high-availability industrial and mining systems."
-            light
-            align="center"
-          />
-          <div className="service-flow">
-            <div className="service-flow__step">
-              <div className="service-flow__box">
-                <Wrench size={32} />
-                <span>Audit & Health Assessment</span>
-              </div>
-            </div>
-            <div className="service-flow__arrow">→</div>
-            <div className="service-flow__step">
-              <div className="service-flow__box service-flow__box--accent">
-                <Cpu size={32} />
-                <span>SCADA & Distribution Design</span>
-              </div>
-            </div>
-            <div className="service-flow__arrow">→</div>
-            <div className="service-flow__step">
-              <div className="service-flow__box service-flow__box--teal">
-                <ShieldCheck size={32} />
-                <span>Reliability & Commissioning</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       <CTABanner title="Need Industrial Electrical Engineering?" subtitle="Talk to us about your infrastructure requirements." />
     </main>
