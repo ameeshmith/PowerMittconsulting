@@ -189,8 +189,23 @@ export default function Contact() {
                   <hr className="contact__divider" />
 
                   <div className="contact__card-block">
-                    <h4>Direct Engineering Inquiries</h4>
-                    <span className="contact__role">Dinesh Mithanthaya — Principal Power Engineer</span>
+                    <div className="contact__founder-direct">
+                      <picture>
+                        <source srcSet={getAssetUrl('/assets/images/team/dinesh-mithanthaya.webp')} type="image/webp" />
+                        <img
+                          src={getAssetUrl('/assets/images/team/dinesh-mithanthaya.jpg')}
+                          alt="Dinesh Mithanthaya"
+                          className="contact__founder-photo"
+                          width="52"
+                          height="52"
+                          loading="lazy"
+                        />
+                      </picture>
+                      <div className="contact__founder-text">
+                        <h4>Direct Engineering Inquiries</h4>
+                        <span className="contact__role">Dinesh Mithanthaya — Principal Power Engineer</span>
+                      </div>
+                    </div>
                     <div className="contact__item-group">
                       <a href="tel:+61409346958" className="contact__item contact__link">
                         <Phone size={16} className="contact__icon" />
