@@ -176,40 +176,6 @@ export default function CarbonCapture() {
         </div>
       </section>
 
-      {/* Project Lifecycle Flow Diagram */}
-      <section className="section--dark">
-        <div className="container text-center">
-          <SectionHeader
-            label="Project Lifecycle"
-            title="CCS Engineering Support Across All Phases"
-            subtitle="From concept and preliminary connection studies through to turnkey execution and commissioning."
-            light
-            align="center"
-          />
-          <div className="service-flow">
-            <div className="service-flow__step">
-              <div className="service-flow__box">
-                <Compass size={32} />
-                <span>Early Phase & Screening</span>
-              </div>
-            </div>
-            <div className="service-flow__arrow">→</div>
-            <div className="service-flow__step">
-              <div className="service-flow__box service-flow__box--accent">
-                <Layers size={32} />
-                <span>FEED & Detailed Design</span>
-              </div>
-            </div>
-            <div className="service-flow__arrow">→</div>
-            <div className="service-flow__step">
-              <div className="service-flow__box service-flow__box--teal">
-                <CheckCircle2 size={32} />
-                <span>Commissioning & Handover</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <CTABanner title="Need CCS Engineering Support?" subtitle="Talk to us about your carbon capture project." />
     </main>
