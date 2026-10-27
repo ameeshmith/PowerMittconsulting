@@ -7,31 +7,26 @@ import './Services.css';
 
 const servicesList = [
   {
-    num: '01',
     title: 'Electrical Power Systems',
     slug: '/services/power-systems',
     image: '/assets/images/power-systems-bg.jpg'
   },
   {
-    num: '02',
     title: 'Renewable Energy & Decarbonisation',
     slug: '/services/energy-transition',
     image: '/assets/images/renewable-bess-bg.jpg'
   },
   {
-    num: '03',
     title: 'Carbon Capture & Storage',
     slug: '/services/carbon-capture',
     image: '/assets/images/carbon-capture-bg.jpg'
   },
   {
-    num: '04',
     title: 'Industrial & Mining Infrastructure',
     slug: '/services/industrial-infrastructure',
     image: '/assets/images/industrial-bg.jpg'
   },
   {
-    num: '05',
     title: "Owner's Engineering & EPC Support",
     slug: '/services/owners-engineering',
     image: '/assets/images/owners-engineering-bg.jpg'
