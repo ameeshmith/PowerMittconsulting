@@ -84,11 +84,10 @@ export default function Contact() {
     setSubmitError('');
 
     try {
-      const accessKey = FORMS_CONFIG.accessKey;
+      const accessKey = FORMS_CONFIG.accessKey || FORMS_CONFIG.web3FormsAccessKey;
 
       if (!accessKey) {
-        await new Promise(resolve => setTimeout(resolve, 800));
-        setSubmitted(true);
+        setSubmitError('Web3Forms access key is not configured. Please contact dmithanthaya@gmail.com directly.');
         return;
       }
 
