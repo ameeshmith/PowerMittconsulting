@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { getAssetUrl } from '../../utils/assetPath';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import './Footer.css';
 
 export default function Footer() {
@@ -21,14 +21,6 @@ export default function Footer() {
               Powering Sustainable Industry Through Engineering Excellence. Specialist electrical power systems & energy transition advisory.
             </p>
             <div className="footer__contact-info">
-              <a href="tel:+61409346958" className="footer__contact-item">
-                <Phone size={14} className="footer__contact-icon" />
-                +61 409 346 958
-              </a>
-              <a href="mailto:dmithanthaya@gmail.com" className="footer__contact-item">
-                <Mail size={14} className="footer__contact-icon" />
-                dmithanthaya@gmail.com
-              </a>
               <span className="footer__contact-item">
                 <MapPin size={14} className="footer__contact-icon" />
                 Perth, Western Australia

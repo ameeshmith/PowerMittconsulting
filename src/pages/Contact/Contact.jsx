@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Phone, Mail, MapPin, Send, CheckCircle, Loader, Clock } from 'lucide-react';
+import { MapPin, Send, CheckCircle, Loader, Clock } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import { FORMS_CONFIG } from '../../config/forms';
 import { getAssetUrl } from '../../utils/assetPath';
@@ -215,16 +215,6 @@ export default function Contact() {
                         <h4>Direct Engineering Inquiries</h4>
                         <span className="contact-soe-role">Dinesh Mithanthaya — Principal Power Engineer</span>
                       </div>
-                    </div>
-                    <div className="contact-soe-item-group">
-                      <a href="tel:+61409346958" className="contact-soe-item contact-soe-link">
-                        <Phone size={16} className="contact-soe-icon" />
-                        <span>+61 409 346 958</span>
-                      </a>
-                      <a href="mailto:dmithanthaya@gmail.com" className="contact-soe-item contact-soe-link">
-                        <Mail size={16} className="contact-soe-icon" />
-                        <span>dmithanthaya@gmail.com</span>
-                      </a>
                     </div>
                   </div>
                 </div>
