@@ -1,12 +1,13 @@
 /* ============================================
-   Footer Component — Executive Clean Light Architectural Footer
+   Footer Component — Deep Nebula Dark Theme
+   Palette: Deep Midnight Zinc/Onyx (#09090b) + Electric Cyan Accents
    ============================================ */
 
 .footer {
-  background: #FFFFFF;
-  color: #1E293B;
+  background: #09090b;
+  color: #F8FAFC;
   padding: 5.5rem 0 2.5rem;
-  border-top: 1px solid #E2E8F0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
   z-index: 10;
 }
@@ -54,7 +55,7 @@
   font-family: var(--font-body);
   font-size: 13.5px;
   line-height: 1.65;
-  color: #475569;
+  color: #94A3B8;
   margin-bottom: 1.75rem;
   max-width: 380px;
 }
@@ -71,17 +72,17 @@
   gap: 0.75rem;
   font-family: var(--font-body);
   font-size: 13px;
-  color: #334155;
+  color: #CBD5E1;
   text-decoration: none;
   transition: all var(--duration-fast);
 }
 
 .footer__contact-icon {
-  color: #0284C7;
+  color: #38BDF8;
 }
 
 a.footer__contact-item:hover {
-  color: #0284C7;
+  color: #38BDF8;
   transform: translateX(2px);
 }
 
@@ -91,7 +92,7 @@ a.footer__contact-item:hover {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #0F172A;
+  color: #FFFFFF;
   margin-bottom: 1.35rem;
 }
 
@@ -104,19 +105,19 @@ a.footer__contact-item:hover {
 .footer__links a {
   font-family: var(--font-body);
   font-size: 13.5px;
-  color: #475569;
+  color: #94A3B8;
   text-decoration: none;
   transition: all var(--duration-fast);
   line-height: 1.5;
 }
 
 .footer__links a:hover {
-  color: #0284C7;
+  color: #38BDF8;
   transform: translateX(2px);
 }
 
 .footer__bottom {
-  border-top: 1px solid #E2E8F0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: 2rem;
   display: flex;
   justify-content: space-between;
