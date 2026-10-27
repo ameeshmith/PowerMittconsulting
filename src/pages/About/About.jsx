@@ -243,10 +243,10 @@ export default function About() {
       <section className="about-leadership">
         <div className="container">
           <div className="about-leadership__header">
-            <span className="about-leadership__eyebrow">OUR LEADERSHIP</span>
+
             <h2 className="about-leadership__title">Principal Leadership</h2>
             <p className="about-leadership__subtitle">
-              Decades of hands-on experience across power, utilities and industrial infrastructure.
+              Decades of hands on experience across power, utilities and industrial infrastructure.
             </p>
           </div>
 
