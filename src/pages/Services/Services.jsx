@@ -36,12 +36,6 @@ const servicesList = [
     slug: '/services/owners-engineering',
     image: '/assets/images/owners-engineering-bg.jpg'
   },
-  {
-    num: '06',
-    title: 'Power System Studies & Modeling',
-    slug: '/services/power-systems#power-system-studies',
-    image: '/assets/images/hero-nature-energy.jpg'
-  }
 ];
 
 export default function Services() {
@@ -56,7 +50,7 @@ export default function Services() {
 
       <section className="services-soe-section" id="services-portfolio" aria-label="Our Services">
         {/* Substation background image ("let it be visible but not that much") */}
-        <div 
+        <div
           className="services-soe-bg"
           style={{
             backgroundImage: `url(${getAssetUrl('/assets/images/power-systems-bg.jpg')})`
@@ -76,16 +70,16 @@ export default function Services() {
 
           <div className="services-soe-grid" role="list">
             {servicesList.map((service) => (
-              <Link 
-                key={service.title} 
-                to={service.slug} 
+              <Link
+                key={service.title}
+                to={service.slug}
                 className="services-soe-card group"
                 role="listitem"
                 aria-label={`Explore ${service.title}`}
               >
                 <div className="services-soe-card__media">
-                  <img 
-                    src={getAssetUrl(service.image)} 
+                  <img
+                    src={getAssetUrl(service.image)}
                     alt={service.title}
                     className="services-soe-card__img"
                     loading="lazy"
