@@ -11,7 +11,7 @@ export default function Footer() {
     <footer className="footer">
       {/* Background: Three.js WebGL Green Nebula Canvas */}
       <Suspense fallback={null}>
-        <NebulaHeroCanvas className="footer__nebula" variant="footer" />
+        <NebulaHeroCanvas className="footer__nebula" />
       </Suspense>
 
       {/* Thick Liquid Glass Layer */}
