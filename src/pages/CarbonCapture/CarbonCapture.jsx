@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import {
   Compass,
   Layers,
@@ -85,11 +84,8 @@ export default function CarbonCapture() {
                   </svg>
                 </div>
 
-                <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-4">
+                <div className="mt-6 border-t border-slate-100 pt-4">
                   <span className="text-xs font-mono text-slate-400">APPLICATION: SUPERCRITICAL CO₂</span>
-                  <Link to="/contact" className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-blue hover:underline">
-                    Explore service →
-                  </Link>
                 </div>
               </div>
 
@@ -104,9 +100,8 @@ export default function CarbonCapture() {
                       Drive topology selection, starting current limitation, and harmonic mitigation for massive compressor motor starting.
                     </p>
                   </div>
-                  <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3">
+                  <div className="mt-4 border-t border-slate-100 pt-3">
                     <span className="text-xs font-mono text-slate-400">IEEE 519 COMPLIANT</span>
-                    <Link to="/contact" className="text-xs font-semibold text-brand-blue hover:underline">Explore service →</Link>
                   </div>
                 </div>
 
@@ -119,9 +114,8 @@ export default function CarbonCapture() {
                       End-to-end electrical design deliverable packages from FEED through to single-lines, cable schedules, and layouts.
                     </p>
                   </div>
-                  <div className="mt-4 flex items-center justify-between border-t border-slate-100 pt-3">
+                  <div className="mt-4 border-t border-slate-100 pt-3">
                     <span className="text-xs font-mono text-slate-400">FULL EPC PACKAGES</span>
-                    <Link to="/contact" className="text-xs font-semibold text-brand-blue hover:underline">Explore service →</Link>
                   </div>
                 </div>
               </div>
@@ -136,9 +130,8 @@ export default function CarbonCapture() {
                     Utility connection studies, network capacity evaluations, and substation design for high energy loads.
                   </p>
                 </div>
-                <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-3">
+                <div className="mt-6 border-t border-slate-100 pt-3">
                   <span className="text-xs font-mono text-slate-400">66kV TO 330kV</span>
-                  <Link to="/contact" className="text-xs font-semibold text-brand-blue hover:underline">Explore service →</Link>
                 </div>
               </div>
 
@@ -151,9 +144,8 @@ export default function CarbonCapture() {
                     Transient stability and voltage sag modeling during large compressor acceleration to protect plant reliability.
                   </p>
                 </div>
-                <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-3">
+                <div className="mt-6 border-t border-slate-100 pt-3">
                   <span className="text-xs font-mono text-slate-400">PSCAD &amp; ETAP</span>
-                  <Link to="/contact" className="text-xs font-semibold text-brand-blue hover:underline">Explore service →</Link>
                 </div>
               </div>
 
@@ -166,9 +158,8 @@ export default function CarbonCapture() {
                     Hazardous area classification, Ex equipment qualification, earthing, and strict compliance with AS/NZS &amp; IEC standards.
                   </p>
                 </div>
-                <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-3">
+                <div className="mt-6 border-t border-slate-100 pt-3">
                   <span className="text-xs font-mono text-slate-400">AS/NZS &amp; IECEx</span>
-                  <Link to="/contact" className="text-xs font-semibold text-brand-blue hover:underline">Explore service →</Link>
                 </div>
               </div>
             </div>
