@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { 
-  Compass, 
-  Layers, 
-  CheckCircle2 
+import {
+  Compass,
+  Layers,
+  CheckCircle2
 } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import Hero from '../../components/Hero/Hero';
@@ -32,10 +32,10 @@ export default function CarbonCapture() {
           <div className="service-detail__intro">
             <div className="service-detail__intro-text">
               <span className="label">Overview</span>
-              <h2>Electrical Engineering for CCS</h2>
+              <h2>CCS Electrical Engineering Services</h2>
               <hr className="divider" />
-              <p>Carbon Capture and Storage (CCS) projects present significant electrical engineering challenges. The high power demands of CO₂ compression systems, the requirement for reliable grid connections, and the complexity of integrating CCS facilities with existing industrial infrastructure all require specialist electrical power system expertise.</p>
-              <p>PowerMitt provides electrical engineering support for CCS projects across all phases — from early-stage technical evaluation and FEED through to detailed design. Our focus is on the practical electrical engineering challenges of making CCS work within real industrial power system constraints.</p>
+              <p className="text-justify leading-relaxed">Carbon Capture and Storage (CCS) projects present significant electrical engineering challenges. The high power demands of CO₂ compression systems, the requirement for reliable grid connections, and the complexity of integrating CCS facilities with existing industrial infrastructure all require specialist electrical power system expertise.</p>
+              <p className="text-justify leading-relaxed">PowerMitt provides electrical engineering support for CCS projects across all phases — from early-stage technical evaluation and FEED through to detailed design. Our focus is on the practical electrical engineering challenges of making CCS work within real industrial power system constraints.</p>
             </div>
             <div className="service-detail__sidebar">
               <h4>Key Challenges</h4>
@@ -50,25 +50,9 @@ export default function CarbonCapture() {
               </ul>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Capabilities Section — Asymmetric Bento Grid */}
-      <section className="section--ice">
-        <div className="container">
-          <div id="layout-asymmetric">
-            <div className="mb-12">
-              <p className="text-xs font-mono font-bold uppercase tracking-widest text-brand-blue mb-2.5">
-                // SPECIALIST CAPABILITIES
-              </p>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-brand-navy leading-tight">
-                CCS Electrical Engineering Services
-              </h2>
-              <p className="mt-3 text-base sm:text-lg text-brand-body max-w-2xl">
-                Specialist engineering across large-scale motor drives, power infrastructure, and grid connections for carbon capture.
-              </p>
-            </div>
-
+          {/* Capabilities Section — Asymmetric Bento Grid */}
+          <div id="layout-asymmetric" className="mt-12">
             {/* Bento Grid Arrangement */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
               {/* Large Feature Card 01 (Span 7 cols) */}
