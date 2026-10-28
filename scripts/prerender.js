@@ -7,8 +7,8 @@ const __dirname = path.dirname(__filename);
 const DIST_DIR = path.resolve(__dirname, '../dist');
 
 // Canonical site URL (can be customized via environment or fallback)
-const SITE_URL = process.env.VITE_SITE_URL || 'https://ameeshmith.github.io/PowerMittconsulting';
-const BASE_PATH = '/PowerMittconsulting';
+const SITE_URL = process.env.VITE_SITE_URL || 'https://powermitt.com.au';
+const BASE_PATH = '';
 const DEFAULT_IMAGE = `${SITE_URL}/assets/images/og-preview.jpg`;
 
 const ORG_SCHEMA = {
