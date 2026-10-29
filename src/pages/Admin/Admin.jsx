@@ -30,8 +30,7 @@ import './Admin.css';
 
 // Cryptographic SHA-256 digest comparison for author portal unlock.
 // Storing the cryptographic digest eliminates plaintext credential leakage in public client bundles (OWASP A01/A07).
-const DEFAULT_PASSCODE_HASH = 'dcec6dbb3ccc36972281e663f225a14c7bc4cdf86e82904fdf47cdca2cbf8c1e';
-const TARGET_PASSCODE_HASH = (import.meta.env.VITE_ADMIN_PASSCODE_HASH || DEFAULT_PASSCODE_HASH).trim().toLowerCase();
+const TARGET_PASSCODE_HASH = (import.meta.env.VITE_ADMIN_PASSCODE_HASH || '').trim().toLowerCase();
 
 async function hashPasscode(raw) {
   const encoder = new TextEncoder();
@@ -74,7 +73,7 @@ export default function Admin() {
   useEffect(() => {
     // Verify stored session hash against expected cryptographic digest
     const storedAuthHash = sessionStorage.getItem('powermitt_admin_session');
-    if (storedAuthHash && storedAuthHash.toLowerCase() === TARGET_PASSCODE_HASH) {
+    if (TARGET_PASSCODE_HASH && storedAuthHash && storedAuthHash.toLowerCase() === TARGET_PASSCODE_HASH) {
       setIsAuthenticated(true);
     }
   }, []);
@@ -99,6 +98,10 @@ export default function Admin() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (!TARGET_PASSCODE_HASH) {
+      setPassError('Admin portal passcode hash is not configured in environment.');
+      return;
+    }
     if (!passcode.trim()) {
       setPassError('Please enter the author passcode.');
       return;
