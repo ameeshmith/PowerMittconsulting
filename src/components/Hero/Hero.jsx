@@ -97,18 +97,13 @@ export default function Hero({
       className={`hero-modern ${isCompact ? 'hero-modern--compact' : 'hero-modern--editorial'} ${hasNebula ? 'hero-modern--nebula' : ''}`}
       style={hasNebula ? { backgroundColor: '#09090b' } : { backgroundImage: `url(${imageUrl})` }}
     >
-      {/* Dynamic Background: WebGL Nebula on Landing Page, Interactive Grid on other pages */}
+      {/* Dynamic Background: WebGL Nebula on Landing Page, clean photo overlay otherwise */}
       {hasNebula ? (
         <Suspense fallback={null}>
           <NebulaHeroCanvas />
         </Suspense>
       ) : (
-        <>
-          <InteractiveGridCanvas />
-          <div className="hero-modern__cursor-spotlight" aria-hidden="true" />
-          <div className="grid_bg hero-modern__grid" />
-          <div className="hero-modern__overlay" />
-        </>
+        <div className="hero-modern__overlay" />
       )}
 
       <div className="container hero-modern__container">

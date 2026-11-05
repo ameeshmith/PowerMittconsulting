@@ -37,7 +37,6 @@ export default function Home() {
         }
         subtitle="PowerMitt delivers independent electrical power systems, grid compliance, and energy transition engineering for heavy industry, mining, and utility grids across Australia. 30+ years of high-calibre technical leadership."
         stats={heroStats}
-        useNebula={true}
       />
 
       {/* === ABOUT / ENGINEERING RIGOUR SECTION === */}
