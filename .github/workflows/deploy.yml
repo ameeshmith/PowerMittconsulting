@@ -1,0 +1,61 @@
+name: Deploy to GitHub Pages (with Auto-Retry)
+
+on:
+  push:
+    branches:
+      - main
+      - gh-pages
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  actions: write
+
+concurrency:
+  group: "pages-auto-retry"
+  cancel-in-progress: false
+
+jobs:
+  ensure-pages-deployed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for built-in Pages deployment & auto-retry on 500 errors
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          echo "Monitoring GitHub Pages deployment for $REPO..."
+          for attempt in 1 2 3 4 5; do
+            echo "=== Check attempt $attempt/5 ==="
+            sleep 30
+
+            RUN_JSON=$(gh api "/repos/$REPO/actions/runs?per_page=5" --jq '.workflow_runs | map(select(.name == "pages build and deployment")) | .[0]')
+            if [ -z "$RUN_JSON" ] || [ "$RUN_JSON" = "null" ]; then
+              echo "No pages build and deployment run found yet."
+              continue
+            fi
+
+            RUN_ID=$(echo "$RUN_JSON" | jq -r '.id')
+            STATUS=$(echo "$RUN_JSON" | jq -r '.status')
+            CONCLUSION=$(echo "$RUN_JSON" | jq -r '.conclusion')
+             echo "Latest Pages Run #$RUN_ID: status=$STATUS, conclusion=$CONCLUSION"
+
+            if [ "$STATUS" != "completed" ]; then
+              echo "Deployment is still running ($STATUS). Waiting..."
+              sleep 25
+              continue
+            fi
+
+            if [ "$CONCLUSION" = "success" ]; then
+              echo "GitHub Pages deployment succeeded!"
+              exit 0
+            fi
+
+            echo "GitHub Pages deployment failed (conclusion=$CONCLUSION). Triggering automatic retry..."
+            gh api --method POST "/repos/$REPO/actions/runs/$RUN_ID/rerun-failed-jobs" || true
+            sleep 35
+          done
+
+          echo "Finished retry attempts."
