@@ -171,7 +171,7 @@ export default function About() {
               <h2>Specialist Electrical Power Systems & Energy Advisory</h2>
               <hr className="divider" />
               <p>
-                PowerMitt Consulting Pty Ltd is an Australian engineering consultancy headquartered in Perth, Western Australia. Founded by <strong>Dinesh Mithanthaya</strong>, our leadership combines several decades of deep technical experience across utility, power generation, transmission, distribution, industrial, grid management, mining, and renewable energy sectors.
+                PowerMitt Consulting Pty Ltd is an Australian engineering consultancy headquartered in Perth, Western Australia. Our leadership combines several decades of deep technical experience across utility, power generation, transmission, distribution, industrial, grid management, mining, and renewable energy sectors.
               </p>
               <p>
                 Our team has successfully supported utility operators, energy developers, tier-one mining companies, and industrial clients in developing robust and reliable power systems that comply with regulatory and network requirements.
