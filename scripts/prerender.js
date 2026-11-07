@@ -42,8 +42,7 @@ const ORG_SCHEMA = {
     'Perth',
     'Pilbara',
     'Australia'
-  ],
-  'priceRange': '$$$'
+  ]
 };
 
 // Route registry with metadata and semantic crawler content

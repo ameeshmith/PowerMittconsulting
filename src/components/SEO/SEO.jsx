@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://ameeshmith.github.io/PowerMittconsulting';
+const SITE_URL = import.meta.env.VITE_SITE_URL || 'https://powermitt.com.au';
 const DEFAULT_IMAGE = `${SITE_URL}/assets/images/og-preview.jpg`;
 
 export default function SEO({ 
@@ -111,8 +111,7 @@ export default function SEO({
         'Perth',
         'Pilbara',
         'Australia'
-      ],
-      'priceRange': '$$$'
+      ]
     };
 
     let structuredData;
