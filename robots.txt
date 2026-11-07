@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin
 Disallow: /admin/
 
-Sitemap: https://ameeshmith.github.io/PowerMittconsulting/sitemap.xml
+Sitemap: https://powermitt.com.au/sitemap.xml
