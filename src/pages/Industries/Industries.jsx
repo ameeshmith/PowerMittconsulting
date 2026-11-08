@@ -6,20 +6,6 @@ import { industries } from '../../data/industries';
 import { getAssetUrl } from '../../utils/assetPath';
 import './Industries.css';
 
-const sectorNumberMap = {
-  'oil-gas': '01',
-  'mining-resources': '02',
-  'energy-utilities': '03',
-  'industrial': '04'
-};
-
-const sectorTagMap = {
-  'oil-gas': 'OFFSHORE // OIL & GAS',
-  'mining-resources': 'MINING // RESOURCES',
-  'energy-utilities': 'UTILITIES // GRID',
-  'industrial': 'HEAVY INFRASTRUCTURE'
-};
-
 export default function Industries() {
   return (
     <main className="industries-soe-page">
@@ -69,10 +55,6 @@ export default function Industries() {
                 </div>
 
                 <div className="industries-soe-card__content">
-                  <div className="industries-soe-card__top">
-                    <span className="industries-soe-card__num">{sectorNumberMap[ind.id] || '01'}</span>
-                    <span className="industries-soe-card__tag">{sectorTagMap[ind.id] || ind.title.toUpperCase()}</span>
-                  </div>
                   <h2 className="industries-soe-card__title">{ind.title}</h2>
                   <p className="industries-soe-card__desc">{ind.shortDescription}</p>
                   <div className="industries-soe-card__link">

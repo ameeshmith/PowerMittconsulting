@@ -57,7 +57,6 @@ export default function CarbonCapture() {
               {/* Large Feature Card 01 (Span 7 cols) */}
               <div className="md:col-span-7 bg-white border border-slate-200 border-t-2 border-t-brand-blue p-8 flex flex-col justify-between rounded-lg shadow-subtle transition-all duration-300 hover:shadow-card">
                 <div>
-                  <span className="font-mono text-sm font-bold text-brand-blue block mb-2">01 —</span>
                   <h3 className="text-2xl font-bold text-brand-navy mb-3">Large Compressor Drive Systems</h3>
                   <p className="text-base text-brand-body leading-relaxed max-w-md">
                     Electrical engineering, motor selection, and equipment specifications for multi-megawatt CO₂ compression trains and export booster stations.
@@ -94,7 +93,6 @@ export default function CarbonCapture() {
                 {/* Card 02 */}
                 <div className="bg-white border border-slate-200 p-6 rounded-lg flex-1 flex flex-col justify-between shadow-subtle transition-all duration-300 hover:border-brand-blue hover:shadow-card">
                   <div>
-                    <span className="font-mono text-sm font-bold text-brand-blue block mb-1">02 —</span>
                     <h3 className="text-lg font-bold text-brand-navy">Multi-Level VSD &amp; Soft Starting</h3>
                     <p className="mt-2 text-sm text-brand-body leading-relaxed">
                       Drive topology selection, starting current limitation, and harmonic mitigation for massive compressor motor starting.
@@ -108,7 +106,6 @@ export default function CarbonCapture() {
                 {/* Card 03 */}
                 <div className="bg-white border border-slate-200 p-6 rounded-lg flex-1 flex flex-col justify-between shadow-subtle transition-all duration-300 hover:border-brand-blue hover:shadow-card">
                   <div>
-                    <span className="font-mono text-sm font-bold text-brand-blue block mb-1">03 —</span>
                     <h3 className="text-lg font-bold text-brand-navy">FEED &amp; Detailed Electrical Design</h3>
                     <p className="mt-2 text-sm text-brand-body leading-relaxed">
                       End-to-end electrical design deliverable packages from FEED through to single-lines, cable schedules, and layouts.
@@ -124,7 +121,6 @@ export default function CarbonCapture() {
               {/* Card 04 */}
               <div className="md:col-span-4 bg-white border border-slate-200 p-6 rounded-lg flex flex-col justify-between shadow-subtle transition-all duration-300 hover:border-brand-blue hover:shadow-card">
                 <div>
-                  <span className="font-mono text-sm font-bold text-brand-blue block mb-1">04 —</span>
                   <h3 className="text-lg font-bold text-brand-navy">High-Voltage Grid Interconnections</h3>
                   <p className="mt-2 text-sm text-brand-body leading-relaxed">
                     Utility connection studies, network capacity evaluations, and substation design for high energy loads.
@@ -138,7 +134,6 @@ export default function CarbonCapture() {
               {/* Card 05 */}
               <div className="md:col-span-4 bg-white border border-slate-200 p-6 rounded-lg flex flex-col justify-between shadow-subtle transition-all duration-300 hover:border-brand-blue hover:shadow-card">
                 <div>
-                  <span className="font-mono text-sm font-bold text-brand-blue block mb-1">05 —</span>
                   <h3 className="text-lg font-bold text-brand-navy">Power System &amp; Starting Dynamics</h3>
                   <p className="mt-2 text-sm text-brand-body leading-relaxed">
                     Transient stability and voltage sag modeling during large compressor acceleration to protect plant reliability.
@@ -152,7 +147,6 @@ export default function CarbonCapture() {
               {/* Card 06 */}
               <div className="md:col-span-4 bg-white border border-slate-200 p-6 rounded-lg flex flex-col justify-between shadow-subtle transition-all duration-300 hover:border-brand-blue hover:shadow-card">
                 <div>
-                  <span className="font-mono text-sm font-bold text-brand-blue block mb-1">06 —</span>
                   <h3 className="text-lg font-bold text-brand-navy">Hazardous Area &amp; Safety Compliance</h3>
                   <p className="mt-2 text-sm text-brand-body leading-relaxed">
                     Hazardous area classification, Ex equipment qualification, earthing, and strict compliance with AS/NZS &amp; IEC standards.

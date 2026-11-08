@@ -72,7 +72,6 @@ export default function IndustrialInfrastructure() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-[1fr_140px] gap-6 items-center">
                   <div>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-sky-600 tracking-wider">01 —</span>
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight mt-1 mb-2">
                       Primary HV/LV Reticulation & Substations
                     </h3>
@@ -110,7 +109,6 @@ export default function IndustrialInfrastructure() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-[1fr_140px] gap-6 items-center">
                   <div>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-sky-600 tracking-wider">02 —</span>
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight mt-1 mb-2">
                       Motor Control Centres & Switchboards
                     </h3>
@@ -151,7 +149,6 @@ export default function IndustrialInfrastructure() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-[1fr_140px] gap-6 items-center">
                   <div>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-sky-600 tracking-wider">03 —</span>
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight mt-1 mb-2">
                       Underground & Surface Mining Power
                     </h3>
@@ -187,7 +184,6 @@ export default function IndustrialInfrastructure() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-[1fr_140px] gap-6 items-center">
                   <div>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-sky-600 tracking-wider">04 —</span>
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight mt-1 mb-2">
                       SCADA, Automation & Telemetry
                     </h3>
@@ -229,7 +225,6 @@ export default function IndustrialInfrastructure() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-[1fr_140px] gap-6 items-center">
                   <div>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-sky-600 tracking-wider">05 —</span>
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight mt-1 mb-2">
                       Standby & Emergency Generation
                     </h3>
@@ -270,7 +265,6 @@ export default function IndustrialInfrastructure() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-[1fr_140px] gap-6 items-center">
                   <div>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-sky-600 tracking-wider">06 —</span>
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight mt-1 mb-2">
                       Brownfield Audits & Plant Modernisation
                     </h3>

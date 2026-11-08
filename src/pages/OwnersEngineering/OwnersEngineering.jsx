@@ -70,7 +70,6 @@ export default function OwnersEngineering() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-[1fr_140px] gap-6 items-center">
                   <div>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-sky-600 tracking-wider">01 —</span>
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight mt-1 mb-2">
                       Independent Design Verification
                     </h3>
@@ -110,7 +109,6 @@ export default function OwnersEngineering() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-[1fr_140px] gap-6 items-center">
                   <div>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-sky-600 tracking-wider">02 —</span>
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight mt-1 mb-2">
                       Technical Due Diligence & Feasibility
                     </h3>
@@ -154,7 +152,6 @@ export default function OwnersEngineering() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-[1fr_140px] gap-6 items-center">
                   <div>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-sky-600 tracking-wider">03 —</span>
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight mt-1 mb-2">
                       Vendor Technical Evaluation & FAT
                     </h3>
@@ -197,7 +194,6 @@ export default function OwnersEngineering() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-[1fr_140px] gap-6 items-center">
                   <div>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-sky-600 tracking-wider">04 —</span>
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight mt-1 mb-2">
                       Interface & Multi-Discipline Risk Management
                     </h3>
@@ -239,7 +235,6 @@ export default function OwnersEngineering() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-[1fr_140px] gap-6 items-center">
                   <div>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-sky-600 tracking-wider">05 —</span>
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight mt-1 mb-2">
                       EPC Scope & Capital Value Engineering
                     </h3>
@@ -279,7 +274,6 @@ export default function OwnersEngineering() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-[1fr_140px] gap-6 items-center">
                   <div>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-sky-600 tracking-wider">06 —</span>
                     <h3 className="text-lg sm:text-xl font-bold text-slate-900 tracking-tight mt-1 mb-2">
                       Commissioning & Handover Assurance
                     </h3>

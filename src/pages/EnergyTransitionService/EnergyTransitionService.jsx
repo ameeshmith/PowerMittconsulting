@@ -356,7 +356,6 @@ export default function EnergyTransitionService() {
               <article className="et-card et-card--hero">
                 <div className="et-card__body">
                   <div className="et-card__content">
-                    <span className="et-card__num">01 —</span>
                     <h3 className="et-card__title">Renewable Integration</h3>
                     <p className="et-card__desc">
                       Study and design renewable integration into existing power systems, including grid connection and system impact assessment.
@@ -375,7 +374,6 @@ export default function EnergyTransitionService() {
                 <article className="et-card et-card--compact">
                   <div className="et-card__body">
                     <div className="et-card__content">
-                      <span className="et-card__num">02 —</span>
                       <h3 className="et-card__title">Battery Energy Storage</h3>
                       <p className="et-card__desc">
                         Engineering studies and design for battery energy storage systems, including grid connection, system integration, and operational assessment.
@@ -391,7 +389,6 @@ export default function EnergyTransitionService() {
                 <article className="et-card et-card--compact">
                   <div className="et-card__body">
                     <div className="et-card__content">
-                      <span className="et-card__num">03 —</span>
                       <h3 className="et-card__title">Hydrogen</h3>
                       <p className="et-card__desc">
                         Electrical infrastructure for green hydrogen production, including power supply, control systems, and integration with industrial facilities.
@@ -414,7 +411,6 @@ export default function EnergyTransitionService() {
               <article className="et-card et-card--compact">
                 <div className="et-card__body">
                   <div className="et-card__content">
-                    <span className="et-card__num">04 —</span>
                     <h3 className="et-card__title">Electrification</h3>
                     <p className="et-card__desc">
                       Design and integration of electrical systems for industrial electrification, including power supply, augmentation, and distribution.
@@ -430,7 +426,6 @@ export default function EnergyTransitionService() {
               <article className="et-card et-card--compact">
                 <div className="et-card__body">
                   <div className="et-card__content">
-                    <span className="et-card__num">05 —</span>
                     <h3 className="et-card__title">Carbon Capture</h3>
                     <p className="et-card__desc">
                       Electrical engineering for carbon capture facilities, including power system design, connections, and integration with plant systems.
@@ -446,7 +441,6 @@ export default function EnergyTransitionService() {
               <article className="et-card et-card--compact">
                 <div className="et-card__body">
                   <div className="et-card__content">
-                    <span className="et-card__num">06 —</span>
                     <h3 className="et-card__title">Net-Zero Pathways</h3>
                     <p className="et-card__desc">
                       Engineering roadmaps for industrial decarbonisation, evaluating options and developing practical implementation strategies.

@@ -82,7 +82,6 @@ export default function Services() {
                 </div>
 
                 <div className="services-soe-card__content">
-                  <span className="services-soe-card__num">{service.num}</span>
                   <h2 className="services-soe-card__title">{service.title}</h2>
                   <div className="services-soe-card__link">
                     <span>Explore Practice</span>
