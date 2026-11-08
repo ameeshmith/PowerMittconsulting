@@ -43,7 +43,6 @@ export default function Industries() {
 
         <div className="container relative z-10">
           <div className="industries-soe-header">
-            <span className="industries-soe-label">Critical Sectors</span>
             <h1 className="industries-soe-title">Engineering for Demanding Heavy Sectors</h1>
             <p className="industries-soe-subtitle">
               Specialist electrical power systems and energy engineering expertise tailored for the resources, energy transition, oil & gas, and heavy infrastructure sectors across Australia.

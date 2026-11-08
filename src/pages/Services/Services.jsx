@@ -56,7 +56,6 @@ export default function Services() {
 
         <div className="container relative z-10">
           <div className="services-soe-header">
-            <span className="services-soe-label">Capabilities Portfolio</span>
             <h1 className="services-soe-title">Our Services</h1>
             <p className="services-soe-subtitle">
               Specialist electrical engineering advisory supporting clients across heavy industry, mining resources, energy transition, and utility-scale networks.

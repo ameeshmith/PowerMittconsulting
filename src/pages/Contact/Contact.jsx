@@ -159,7 +159,6 @@ export default function Contact() {
 
         <div className="container relative z-10">
           <div className="contact-soe-header">
-            <span className="contact-soe-label">Initiate Advisory</span>
             <h1 className="contact-soe-title">Let&apos;s Discuss Your Engineering Challenge</h1>
             <p className="contact-soe-subtitle">
               Direct engagement with Principal Power Engineer Dinesh Mithanthaya and the engineering team for grid studies, design verification, and independent due diligence across Australia.
@@ -254,7 +253,6 @@ export default function Contact() {
                     />
 
                     <div className="contact-soe-form-header">
-                      <span className="contact-soe-label">Direct Communication</span>
                       <h2>Project Enquiry Form</h2>
                       <p>Fill out the details below and our team will get back to you promptly.</p>
                     </div>

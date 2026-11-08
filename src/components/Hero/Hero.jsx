@@ -9,8 +9,6 @@ import './Hero.css';
 const NebulaHeroCanvas = lazy(() => import('../UI/NebulaHeroCanvas'));
 
 export default function Hero({
-  badge,
-  label,
   title,
   subtitle,
   primaryCTA,
@@ -23,7 +21,6 @@ export default function Hero({
   variant = 'default',
   useNebula
 }) {
-  const badgeText = badge || label;
   const isAbout = variant === 'about';
   const isCompact = variant === 'compact' || variant === 'service' || variant === 'industry';
   const hasNebula = useNebula === true;
@@ -45,7 +42,6 @@ export default function Hero({
 
         <div className="container relative z-10">
           <div className="hero-soe-header">
-            {badgeText && <span className="hero-soe-label">{badgeText}</span>}
             <h1 className="hero-soe-title">{title}</h1>
             {subtitle && <p className="hero-soe-subtitle">{subtitle}</p>}
             {(primaryCTA || secondaryCTA) && (
