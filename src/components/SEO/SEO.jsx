@@ -100,7 +100,7 @@ export default function SEO({
         'longitude': 115.8605
       },
       'telephone': '+61409346958',
-      'email': 'dmithanthaya@gmail.com',
+      'email': 'info@powermitt.com.au',
       'founder': {
         '@type': 'Person',
         'name': 'Dinesh Mithanthaya',

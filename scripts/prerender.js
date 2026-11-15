@@ -31,7 +31,7 @@ const ORG_SCHEMA = {
     'longitude': 115.8605
   },
   'telephone': '+61409346958',
-  'email': 'dmithanthaya@gmail.com',
+  'email': 'info@powermitt.com.au',
   'founder': {
     '@type': 'Person',
     'name': 'Dinesh Mithanthaya',
@@ -189,7 +189,7 @@ const routes = [
     image: `${SITE_URL}/assets/images/og-preview.jpg`,
     type: 'website',
     heading: 'Contact PowerMitt Consulting',
-    content: 'Consult with Principal Power Engineer Dinesh Mithanthaya for specialist electrical studies, grid connections, and engineering due diligence. Located in Perth, Western Australia. Phone: +61 409 346 958 | Email: dmithanthaya@gmail.com'
+    content: 'Consult with Principal Power Engineer Dinesh Mithanthaya for specialist electrical studies, grid connections, and engineering due diligence. Located in Perth, Western Australia. Phone: +61 409 346 958 | Email: info@powermitt.com.au'
   }
 ];
 

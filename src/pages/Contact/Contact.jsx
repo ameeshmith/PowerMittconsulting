@@ -87,7 +87,7 @@ export default function Contact() {
       const accessKey = FORMS_CONFIG.accessKey || FORMS_CONFIG.web3FormsAccessKey;
 
       if (!accessKey) {
-        setSubmitError('Web3Forms access key is not configured. Please contact dmithanthaya@gmail.com directly.');
+        setSubmitError('Web3Forms access key is not configured. Please contact info@powermitt.com.au directly.');
         return;
       }
 

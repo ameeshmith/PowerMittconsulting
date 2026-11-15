@@ -275,8 +275,8 @@ export default function InsightDetail() {
                 {article.author?.bio || 'Specialist power systems and energy engineering consultant with 20+ years delivering complex industrial, mining, and utility projects across Australia.'}
               </p>
               <div className="insight-author-card__links">
-                <a href="mailto:dmithanthaya@gmail.com" className="insight-author-link">
-                  <Mail size={14} /> dmithanthaya@gmail.com
+                <a href="mailto:info@powermitt.com.au" className="insight-author-link">
+                  <Mail size={14} /> info@powermitt.com.au
                 </a>
                 <a href="tel:+61409346958" className="insight-author-link">
                   <Phone size={14} /> +61 409 346 958
