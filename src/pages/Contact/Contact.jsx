@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { MapPin, Send, CheckCircle, Loader, Clock } from 'lucide-react';
+import { MapPin, Mail, Send, CheckCircle, Loader, Clock } from 'lucide-react';
 import SEO from '../../components/SEO/SEO';
 import { FORMS_CONFIG } from '../../config/forms';
 import { getAssetUrl } from '../../utils/assetPath';
@@ -188,6 +188,10 @@ export default function Contact() {
                     <div className="contact-soe-item">
                       <MapPin size={16} className="contact-soe-icon" />
                       <span>Perth, Western Australia</span>
+                    </div>
+                    <div className="contact-soe-item">
+                      <Mail size={16} className="contact-soe-icon" />
+                      <a href="mailto:info@powermitt.com.au">info@powermitt.com.au</a>
                     </div>
                     <div className="contact-soe-item">
                       <Clock size={16} className="contact-soe-icon" />

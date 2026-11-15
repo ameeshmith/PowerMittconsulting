@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { getAssetUrl } from '../../utils/assetPath';
-import { MapPin } from 'lucide-react';
+import { MapPin, Mail } from 'lucide-react';
 import './Footer.css';
 
 export default function Footer() {
@@ -25,6 +25,10 @@ export default function Footer() {
                 <MapPin size={14} className="footer__contact-icon" />
                 Perth, Western Australia
               </span>
+              <a href="mailto:info@powermitt.com.au" className="footer__contact-item">
+                <Mail size={14} className="footer__contact-icon" />
+                info@powermitt.com.au
+              </a>
             </div>
           </div>
 
